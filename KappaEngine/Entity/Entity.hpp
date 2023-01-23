@@ -8,14 +8,17 @@
 #include <list>
 #include <memory>
 #include <algorithm>
+#include <utility>
 
 #include "KappaEngine/Components/IComponent.hpp"
 
 namespace KappaEngine {
     class Entity {
         public:
-            Entity() = default;
+            explicit Entity(std::string id): _id(std::move(id)) {};
             virtual ~Entity() = default;
+
+            const std::string &getId() const { return _id; }
 
             template<class T>
             bool hasComponent() {
@@ -72,7 +75,7 @@ namespace KappaEngine {
 
 
         private:
-            unsigned int _id;
+            std::string _id;
             std::list<std::shared_ptr<Component::IComponent>> _components;
     };
 }
