@@ -6,9 +6,10 @@
 #define KAPPA_ENGINE_ICOMPONENT_HPP
 
 namespace Component {
-
-    struct IComponent {
-        bool enabled = true;
+    class IComponent {
+        public:
+            virtual ~IComponent() = default;
+            bool enabled = true;
     };
 }
 

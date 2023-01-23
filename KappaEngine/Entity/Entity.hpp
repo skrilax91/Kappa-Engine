@@ -25,7 +25,7 @@ namespace KappaEngine {
                 static_assert(std::is_base_of<Component::IComponent, T>::value, "T must inherit from Component");
 
                 for (auto &component: _components) {
-                    if (static_cast<T *>(component.get())) {
+                    if (dynamic_cast<T *>(component.get()) != nullptr) {
                         return true;
                     }
                 }
@@ -48,7 +48,7 @@ namespace KappaEngine {
                 static_assert(std::is_base_of<Component::IComponent, T>::value, "T must inherit from Component");
 
                 for (auto &component: _components) {
-                    if (auto *castedComponent = static_cast<T *>(component.get())) {
+                    if (auto *castedComponent = dynamic_cast<T *>(component.get())) {
                         return castedComponent;
                     }
                 }

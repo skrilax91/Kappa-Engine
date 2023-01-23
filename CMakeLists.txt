@@ -5,13 +5,28 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB SOURCE_FILES
         "src/EntityManager.cpp"
+        "src/SystemManager.cpp"
+        "src/Scene.cpp"
+
+        "src/Systems/RigidBodySystem.cpp"
+        "src/Systems/CollideBoxSystem.cpp"
+
         )
 
 file(GLOB HEADER_FILES
+        "KappaEngine/Scene.hpp"
         "KappaEngine/EntityManager.hpp"
+        "KappaEngine/SystemManager.hpp"
+
+        "KappaEngine/Systems/ISystem.hpp"
+        "KappaEngine/Systems/RigidBodySystem.hpp"
+        "KappaEngine/Systems/CollideBoxSystem.hpp"
+
         "KappaEngine/Entity/Entity.hpp"
-        "KappaEngine/Components/IComponent.hpp.hpp"
+
+        "KappaEngine/Components/IComponent.hpp"
         "KappaEngine/Components/Transform.hpp"
+        "KappaEngine/Components/RigidBody.hpp"
         )
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
