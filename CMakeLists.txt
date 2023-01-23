@@ -4,12 +4,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB SOURCE_FILES
-        "src/*.cpp"
+        "src/EntityManager.cpp"
         )
 
 file(GLOB HEADER_FILES
-        "KappaEngine/*.hpp"
-        "KappaEngine/Entity/*.hpp"
+        "KappaEngine/EntityManager.hpp"
+        "KappaEngine/Entity/Entity.hpp"
         "KappaEngine/Components/IComponent.hpp.hpp"
         "KappaEngine/Components/Transform.hpp"
         )
