@@ -14,17 +14,11 @@ struct coord2d {
     float y;
 };
 
-struct coord3d {
-    float x;
-    float y;
-    float z;
-};
-
 namespace Component {
     struct Transform: IComponent {
-        coord2d position;
-        coord3d scale;
-        coord3d rotation;
+        coord2d position{};
+        coord2d scale{};
+        coord2d rotation{};
     };
 }
 
