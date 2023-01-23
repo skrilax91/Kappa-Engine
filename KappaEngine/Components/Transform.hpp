@@ -9,10 +9,22 @@
 
 #include "IComponent.hpp"
 
+struct coord2d {
+    float x;
+    float y;
+};
+
+struct coord3d {
+    float x;
+    float y;
+    float z;
+};
+
 namespace Component {
     struct Transform: IComponent {
-        float x;
-        float y;
+        coord2d position;
+        coord3d scale;
+        coord3d rotation;
     };
 }
 

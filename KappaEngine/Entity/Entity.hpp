@@ -37,6 +37,7 @@ namespace KappaEngine {
                     return false;
                 }
                 _components.push_back(std::make_shared<T>(component));
+                return true;
             }
 
             template<class T>
