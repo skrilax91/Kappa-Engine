@@ -7,7 +7,14 @@ file(GLOB SOURCE_FILES
         "src/*.cpp"
         )
 
-add_library(${PROJECT_NAME} ${SOURCE_FILES})
+file(GLOB HEADER_FILES
+        "KappaEngine/*.hpp"
+        "KappaEngine/Entity/*.hpp"
+        "KappaEngine/Components/IComponent.hpp.hpp"
+        "KappaEngine/Components/Transform.hpp"
+        )
+
+add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
