@@ -4,7 +4,7 @@
 
 #include "SpriteRenderSystem.hpp"
 
-void KappaEngine::SpriteRender::Awake()
+void KappaEngine::SpriteRenderSystem::Awake()
 {
     std::cout << "SpriteRenderSystem::Awake" << std::endl;
 }
@@ -13,8 +13,8 @@ void KappaEngine::SpriteRenderSystem::Start()
 {
     auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRender>();
     for (auto &ent : ents) {
-        if (ent.getComponent<Component::SpriteRender>().enabled)
-            ent.getComponent<Component::SpriteRender>()._sprite.display();
+        if (ent->getComponent<Component::SpriteRender>()->enabled)
+            ent->getComponent<Component::SpriteRender>()->_sprite.draw(/*add params and fix the error*/);
     }
 }
 
@@ -22,8 +22,8 @@ void KappaEngine::SpriteRenderSystem::Update()
 {
     auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRender>();
     for (auto &ent : ents) {
-        if (ent.getComponent<Component::SpriteRender>().enabled)
-            ent.getComponent<Component::SpriteRender>()._sprite.display();
+        if (ent->getComponent<Component::SpriteRender>()->enabled)
+            ent->getComponent<Component::SpriteRender>()->_sprite.draw(/*add params and fix the error*/);
     }
 }
 
@@ -39,6 +39,6 @@ void KappaEngine::SpriteRenderSystem::OnDestroy()
 
 void KappaEngine::SpriteRenderSystem::updateSpriteRectangle(Entity &entity, struct intRect textureRect)
 {
-    entity.getComponent<Component::SpriteRender>._sprite.setTextureRect(
+    entity.getComponent<Component::SpriteRender>()->_sprite.setTextureRect(
         sf::IntRect(textureRect.x, textureRect.y, textureRect.width, textureRect.height));
 }

@@ -7,7 +7,7 @@
 
 #include <string>
 #include <cassert>
-#include <SFML/Graphics>
+#include <SFML/Graphics.hpp>
 #include "IComponent.hpp"
 
 struct intRect {
@@ -20,17 +20,11 @@ struct intRect {
 namespace Component {
     class SpriteRender : IComponent {
         public:
-            SpriteRender(std::string texturePath, struct intRect)
+            SpriteRender(std::string texturePath, struct intRect textureRect)
             {
                 assert(_texture.loadFromFile(texturePath));
                 _sprite.setTexture(_texture);
-                _sprite.setTextureRect(sf::IntRect(intRect.x, intRect.y, intRect.width, intRect.height));
-            }
-
-            ~SpriteRender()
-            {
-                _texture.destroy();
-                _sprite.destroy();
+                _sprite.setTextureRect(sf::IntRect(textureRect.x, textureRect.y, textureRect.width, textureRect.height));
             }
 
             sf::Texture _texture;

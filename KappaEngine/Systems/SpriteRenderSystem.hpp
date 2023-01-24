@@ -2,6 +2,7 @@
 // Created by Sebayl on 23/01/2023.
 //
 
+#include <iostream>
 #include "ISystem.hpp"
 #include "SpriteRender.hpp"
 
@@ -14,6 +15,6 @@ namespace KappaEngine {
             void Update() override;
             void OnDisable() override;
             void OnDestroy() override;
-            void updateSpriteRectangle(Entity entity,struct intRect textureRect);
+            void updateSpriteRectangle(Entity &entity, struct intRect textureRect);
     };
-}
+};
