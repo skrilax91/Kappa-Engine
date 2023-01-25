@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include "ISystem.hpp"
 #include "KappaEngine/Components/SpriteRenderer.hpp"
+#include "KappaEngine/Components/Transform.hpp"
 
 namespace KappaEngine {
     class SpriteRendererSystem : public ISystem {

@@ -12,6 +12,7 @@ namespace KappaEngine {
     class EntityManager;
 }
 
+#include <SFML/Graphics.hpp>
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/EntityManager.hpp"
 
@@ -23,14 +24,17 @@ namespace KappaEngine {
 
             SystemManager *getSystemManager();
             EntityManager *getEntityManager();
+            sf::RenderWindow *getWindow();
 
             void StartSystemManager();
+            void RenderWindow();
             void wait();
 
         private:
             std::string _name;
             SystemManager *_systemManager;
             EntityManager *_entityManager;
+            sf::RenderWindow _window;
     };
 }
 

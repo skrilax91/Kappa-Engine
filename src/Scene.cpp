@@ -6,9 +6,10 @@
 #include "KappaEngine/Scene.hpp"
 
 namespace KappaEngine {
-    Scene::Scene(std::string name): _name(name) {
+    Scene::Scene(std::string name): _name(name), _window(sf::VideoMode::getFullscreenModes()[0], name, sf::Style::Fullscreen) {
         _systemManager = new SystemManager(this);
         _entityManager = new EntityManager();
+        _window.setFramerateLimit(60);
     }
 
     void Scene::StartSystemManager() {
@@ -23,7 +24,15 @@ namespace KappaEngine {
         return _entityManager;
     }
 
+    sf::RenderWindow *Scene::getWindow() {
+        return &_window;
+    }
+
     void Scene::wait() {
         _systemManager->WaitStop();
+    }
+
+    void Scene::RenderWindow() { 
+        _window.display();
     }
 }
