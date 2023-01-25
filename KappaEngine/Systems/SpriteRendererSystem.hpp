@@ -14,9 +14,10 @@ namespace KappaEngine {
             explicit SpriteRendererSystem(Scene *scene) : ISystem(scene) {};
 
             void Awake() override;
+            void FixedUpdate();
             void Update() override;
             void OnDestroy(Entity *) override;
-
+            void OnRenderObject();
 
             void updateSpriteRectangle(Entity &entity, struct intRect textureRect);
 

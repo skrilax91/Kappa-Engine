@@ -11,6 +11,11 @@
 #include <utility>
 #include "IComponent.hpp"
 
+struct coord2d {
+    float x;
+    float y;
+};
+
 namespace Component {
     class SpriteRenderer : public IComponent {
         public:
@@ -19,6 +24,7 @@ namespace Component {
                 _texturePath(std::move(texturePath)),
                 _textureRect(textureRect) {};
 
+            struct coord2d _position;
             std::string _texturePath;
             sf::Sprite _sprite = sf::Sprite();
             sf::IntRect _textureRect;
