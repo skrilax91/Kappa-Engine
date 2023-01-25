@@ -29,6 +29,8 @@ namespace KappaEngine {
 
             void Start();
             void Awake();
+            void FixedUpdate();
+            void LateUpdate();
 
             template<class T>
             void registerSystem() {

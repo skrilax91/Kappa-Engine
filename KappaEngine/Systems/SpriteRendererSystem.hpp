@@ -18,9 +18,6 @@ namespace KappaEngine {
             void OnDestroy(Entity *) override;
 
 
-            void updateSpriteRectangle(Entity &entity, struct intRect textureRect);
-
-
         private:
             std::unordered_map<std::string, sf::Texture> _textureCache = std::unordered_map<std::string, sf::Texture>();
     };

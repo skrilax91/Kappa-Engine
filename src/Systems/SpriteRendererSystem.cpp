@@ -33,9 +33,6 @@ namespace KappaEngine {
         for (auto &ent : ents) {
             auto sR_Comp = ent->getComponent<Component::SpriteRenderer>();
             if (sR_Comp->enabled) {
-                auto t_Comp = ent->getComponent<Component::Transform>();
-                sR_Comp->_spriteRect.left = t_Comp->position.x - sR_Comp->_spriteRect.width / 2;
-                sR_Comp->_spriteRect.top = t_Comp->position.y - sR_Comp->_spriteRect.height / 2;
                 _scene->getWindow()->draw(sR_Comp->_sprite);
             }
         }

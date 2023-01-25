@@ -10,19 +10,22 @@
 #include <SFML/Graphics.hpp>
 #include <utility>
 #include "IComponent.hpp"
+#include "Transform.hpp"
+
+struct coord2d;
 
 namespace Component {
     class SpriteRenderer : public IComponent {
         public:
-            SpriteRenderer(sf::IntRect position, std::string texturePath, sf::IntRect textureRect):
-                _spriteRect(position),
+            SpriteRenderer(coord2d position, std::string texturePath, sf::IntRect textureRect):
+                _position(position),
                 _texturePath(std::move(texturePath)),
                 _textureRect(textureRect) {};
 
             std::string _texturePath;
             sf::Sprite _sprite = sf::Sprite();
             sf::IntRect _textureRect;
-            sf::IntRect _spriteRect;
+            coord2d _position;
     };
 }
 
