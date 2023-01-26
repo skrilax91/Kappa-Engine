@@ -4,12 +4,22 @@
 
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 
+
 namespace KappaEngine {
     void SpriteRendererSystem::Awake() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
 
         for (auto &ent : ents) {
             auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
+            auto transform = ent->getComponent<Component::Transform>();
+
+            if (!transform || !transform->enabled)
+                spriteRenderer->enabled = false;
+            else {
+                spriteRenderer->_sprite.setPosition(
+                    transform->position.x + spriteRenderer->_position.x,
+                    transform->position.y + spriteRenderer->_position.y);
+            }
 
             if (_textureCache.contains(spriteRenderer->_texturePath)) {
                 spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
@@ -29,35 +39,37 @@ namespace KappaEngine {
 
     void SpriteRendererSystem::FixedUpdate() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
+        auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
 
-        for (auto &ent : ents) {
-            auto sR_Comp = ent->getComponent<Component::SpriteRenderer>();
-            if (sR_Comp->enabled) {
-                auto t_Comp = ent->getComponent<Component::Transform>();
-                if (!t_Comp || !t_Comp->enabled)
-                    sR_Comp->enabled = false;
-                else
-                    sR_Comp->_sprite.setPosition({t_Comp->position.x + sR_Comp->_position.x, t_Comp->position.y + sR_Comp->_position.y});
-            }
-        }
-    }
 
-    void SpriteRendererSystem::Update() {
-        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
+        for (auto &cam : cams) {
+            auto &camera = *cam->getComponent<Component::Camera>();
+            if (camera.enabled) {
 
-        for (auto &ent : ents) {
-            auto sR_Comp = ent->getComponent<Component::SpriteRenderer>();
-            if (sR_Comp->enabled) {
-                auto t_Comp = ent->getComponent<Component::Transform>();
-                sR_Comp->_spriteRect.left = t_Comp->position.x - sR_Comp->_spriteRect.width / 2;
-                sR_Comp->_spriteRect.top = t_Comp->position.y - sR_Comp->_spriteRect.height / 2;
-                _scene->getWindow()->draw(sR_Comp->_sprite);
+                for (auto &ent : ents) {
+                    auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
+
+                    for (auto it = camera._layers.begin(); it != camera._layers.end(); it++) {
+                        if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
+                            auto transform = ent->getComponent<Component::Transform>();
+
+                            if (!transform || !transform->enabled)
+                                spriteRenderer->enabled = false;
+                            else
+                                spriteRenderer->_sprite.setPosition(
+                                    {transform->position.x + spriteRenderer->_position.x,
+                                    transform->position.y + spriteRenderer->_position.y});
+                            break;
+                        }
+                    }
+                }
+                break;
             }
         }
     }
 
     void SpriteRendererSystem::OnDestroy(Entity *entity) {
-        std::cout << "SprteRenderSystem::OnDestroy" << std::endl;
+        std::cout << "SpriteRenderSystem::OnDestroy" << std::endl;
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
 
         if (spriteRenderer == nullptr)
@@ -68,11 +80,24 @@ namespace KappaEngine {
 
     void SpriteRendererSystem::OnRenderObject() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
+        auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
 
-        for (auto &ent : ents) {
-            auto sR_Comp = ent->getComponent<Component::SpriteRenderer>();
-            if (sR_Comp->enabled) {
-                _scene->getWindow()->draw(sR_Comp->_sprite);
+        for (auto &cam : cams) {
+            auto &camera = *cam->getComponent<Component::Camera>();
+            if (camera.enabled) {
+
+                for (auto &ent : ents) {
+                    auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
+
+                    for (auto it = camera._layers.begin(); it != camera._layers.end(); it++) {
+                        if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
+                            _scene->getWindow()->draw(spriteRenderer->_sprite);
+                            break;
+                        }
+                    }
+                }
+
+                break;
             }
         }
     }

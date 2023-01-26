@@ -7,6 +7,7 @@
 #include "ISystem.hpp"
 #include "KappaEngine/Components/SpriteRenderer.hpp"
 #include "KappaEngine/Components/Transform.hpp"
+#include "KappaEngine/Components/Camera.hpp"
 
 namespace KappaEngine {
     class SpriteRendererSystem : public ISystem {
@@ -15,12 +16,8 @@ namespace KappaEngine {
 
             void Awake() override;
             void FixedUpdate();
-            void Update() override;
             void OnDestroy(Entity *) override;
             void OnRenderObject();
-
-            void updateSpriteRectangle(Entity &entity, struct intRect textureRect);
-
 
         private:
             std::unordered_map<std::string, sf::Texture> _textureCache = std::unordered_map<std::string, sf::Texture>();
