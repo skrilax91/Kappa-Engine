@@ -5,6 +5,8 @@
 #include <iostream>
 #include <thread>
 
+#include "KappaEngine/Time.hpp"
+
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
@@ -39,14 +41,23 @@ namespace KappaEngine {
 
         _started = true;
         std::cout << "SystemManager started" << std::endl;
-        std::thread t(&SystemManager::_startUpdates, this);
-        _updateThread = std::move(t);
+        _startUpdates();
         std::cout << "SystemManager update thread started" << std::endl;
     }
 
     void SystemManager::_startUpdates() {
+        Time::resetTimeLib();
+
         while (_started) {
-            std::vector<std::thread> threads;
+            Time::UpdateDeltaTime();
+
+            Time::RunOnFixedEnv([&] {
+                for (auto &system: _systems) {
+                    system->FixedUpdate();
+                }
+            });
+
+            /*std::vector<std::thread> threads;
 
             for (auto &system: _systems) {
                 std::thread t(&ISystem::Update, system);
@@ -54,7 +65,9 @@ namespace KappaEngine {
             }
             for (auto &thread: threads) {
                 thread.join();
-            }
+            }*/
+
+            _scene->RenderWindow();
         }
     }
 

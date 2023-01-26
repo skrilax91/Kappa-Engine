@@ -24,7 +24,13 @@ namespace KappaEngine {
 
             virtual void Awake() {};
             virtual void Start() {};
+            virtual void FixedUpdate() {};
             virtual void Update() {};
+            virtual void LateUpdate() {};
+
+            virtual void OnRenderObject() {};
+
+
             virtual void OnDestroy(Entity *) {};
             virtual void OnDisable() {};
 

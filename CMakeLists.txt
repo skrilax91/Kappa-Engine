@@ -16,12 +16,14 @@ file(GLOB SOURCE_FILES
 
 file(GLOB HEADER_FILES
         "KappaEngine/Scene.hpp"
+        "KappaEngine/Time.hpp"
         "KappaEngine/EntityManager.hpp"
         "KappaEngine/SystemManager.hpp"
 
         "KappaEngine/Systems/ISystem.hpp"
         "KappaEngine/Systems/RigidBodySystem.hpp"
         "KappaEngine/Systems/CollideBoxSystem.hpp"
+        "KappaEngine/Systems/SpriteRendererSystem.hpp"
 
         "KappaEngine/Entity/Entity.hpp"
 

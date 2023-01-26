@@ -10,6 +10,9 @@
 #include <SFML/Graphics.hpp>
 #include <utility>
 #include "IComponent.hpp"
+#include "Transform.hpp"
+
+struct coord2d;
 
 struct coord2d {
     float x;
