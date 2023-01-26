@@ -27,6 +27,21 @@ namespace KappaEngine {
         }
     }
 
+    void SpriteRendererSystem::FixedUpdate() {
+        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
+
+        for (auto &ent : ents) {
+            auto sR_Comp = ent->getComponent<Component::SpriteRenderer>();
+            if (sR_Comp->enabled) {
+                auto t_Comp = ent->getComponent<Component::Transform>();
+                if (!t_Comp || !t_Comp->enabled)
+                    sR_Comp->enabled = false;
+                else
+                    sR_Comp->_sprite.setPosition({t_Comp->position.x + sR_Comp->_position.x, t_Comp->position.y + sR_Comp->_position.y});
+            }
+        }
+    }
+
     void SpriteRendererSystem::Update() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
 
@@ -46,5 +61,16 @@ namespace KappaEngine {
             return;
 
         delete &spriteRenderer->_sprite;
+    }
+
+    void SpriteRendererSystem::OnRenderObject() {
+        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
+
+        for (auto &ent : ents) {
+            auto sR_Comp = ent->getComponent<Component::SpriteRenderer>();
+            if (sR_Comp->enabled) {
+                _scene->getWindow()->draw(sR_Comp->_sprite);
+            }
+        }
     }
 }
