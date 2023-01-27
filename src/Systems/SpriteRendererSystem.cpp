@@ -55,14 +55,18 @@ namespace KappaEngine {
                             if (!sTransform || !sTransform->enabled)
                                 spriteRenderer->enabled = false;
                             else {
+
                                 auto &cTransform = *camera->getComponent<Component::Transform>();
                                 auto winDim = _scene->getWindow()->getSize();
+
                                 float spriteX = sTransform->position.x + spriteRenderer->_position.x
                                                 - (cTransform.position.x + cam._position.x
                                                 - winDim.x / 2);
+
                                 float spriteY = sTransform->position.y + spriteRenderer->_position.y
                                                 - (cTransform.position.y + cam._position.y
                                                 - winDim.y / 2);
+
                                 spriteRenderer->_sprite.setPosition({spriteX, spriteY});
                             }
                             break;
