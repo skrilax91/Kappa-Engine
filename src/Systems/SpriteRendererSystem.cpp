@@ -41,24 +41,30 @@ namespace KappaEngine {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
         auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
 
-
-        for (auto &cam : cams) {
-            auto &camera = *cam->getComponent<Component::Camera>();
-            if (camera.enabled) {
+        for (auto &camera : cams) {
+            auto &cam = *camera->getComponent<Component::Camera>();
+            if (cam.enabled) {
 
                 for (auto &ent : ents) {
                     auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
 
-                    for (auto it = camera._layers.begin(); it != camera._layers.end(); it++) {
+                    for (auto it = cam._layers.begin(); it != cam._layers.end(); it++) {
                         if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
-                            auto transform = ent->getComponent<Component::Transform>();
+                            auto sTransform = ent->getComponent<Component::Transform>();
 
-                            if (!transform || !transform->enabled)
+                            if (!sTransform || !sTransform->enabled)
                                 spriteRenderer->enabled = false;
-                            else
-                                spriteRenderer->_sprite.setPosition(
-                                    {transform->position.x + spriteRenderer->_position.x,
-                                    transform->position.y + spriteRenderer->_position.y});
+                            else {
+                                auto &cTransform = *camera->getComponent<Component::Transform>();
+                                auto winDim = _scene->getWindow()->getSize();
+                                float spriteX = sTransform->position.x + spriteRenderer->_position.x
+                                                - (cTransform.position.x + cam._position.x
+                                                - winDim.x / 2);
+                                float spriteY = sTransform->position.y + spriteRenderer->_position.y
+                                                - (cTransform.position.y + cam._position.y
+                                                - winDim.y / 2);
+                                spriteRenderer->_sprite.setPosition({spriteX, spriteY});
+                            }
                             break;
                         }
                     }
