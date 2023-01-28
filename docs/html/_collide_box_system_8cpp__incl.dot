@@ -41,11 +41,13 @@ digraph "src/Systems/CollideBoxSystem.cpp"
   Node15 -> Node17 [color="steelblue1",style="solid"];
   Node17 [label="thread",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node15 -> Node18 [color="steelblue1",style="solid"];
-  Node18 [label="KappaEngine/Time.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_time_8hpp.html",tooltip=" "];
-  Node18 -> Node19 [color="steelblue1",style="solid"];
-  Node19 [label="SFML/System.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node18 -> Node20 [color="steelblue1",style="solid"];
-  Node20 [label="functional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node18 [label="SFML/Window/Event.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node15 -> Node19 [color="steelblue1",style="solid"];
+  Node19 [label="KappaEngine/Time.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_time_8hpp.html",tooltip=" "];
+  Node19 -> Node20 [color="steelblue1",style="solid"];
+  Node20 [label="SFML/System.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node19 -> Node21 [color="steelblue1",style="solid"];
+  Node21 [label="functional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node15 -> Node4 [color="steelblue1",style="solid"];
   Node15 -> Node13 [color="steelblue1",style="solid"];
   Node13 -> Node5 [color="steelblue1",style="solid"];

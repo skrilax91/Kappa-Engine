@@ -14,31 +14,28 @@
 \DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \_systemManager\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{SystemManager}}(\textcolor{keyword}{this});}
 \DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \_entityManager\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{EntityManager}}();}
 \DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \_window.setFramerateLimit(60);}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00013}00013\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00015}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}{00015}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}{Scene::StartSystemManager}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \_systemManager-\/>\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{Start}}();}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00017}00017\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00019}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}{00019}}\ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{SystemManager}}\ *\mbox{\hyperlink{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}{Scene::getSystemManager}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_systemManager;}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00021}00021\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00023}\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{00023}}\ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{EntityManager}}\ *\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{Scene::getEntityManager}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_entityManager;}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00025}00025\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00027}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{00027}}\ \ \ \ \ sf::RenderWindow\ *\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{Scene::getWindow}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&\_window;}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00029}00029\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00031}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a0ff798dc6eca5a4fdf7e27072bc10b00}{00031}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_scene_a0ff798dc6eca5a4fdf7e27072bc10b00}{Scene::wait}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \_systemManager-\/>\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a41d38d9df2012e63783afed34e1eec73}{WaitStop}}();}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00033}00033\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00035}\mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{00035}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{Scene::RenderWindow}}()\ \{\ }
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \_window.display();}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00037}00037\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Scene\ created"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00016}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}{00016}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}{Scene::StartSystemManager}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \_systemManager-\/>\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{Start}}();}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00020}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}{00020}}\ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{SystemManager}}\ *\mbox{\hyperlink{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}{Scene::getSystemManager}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_systemManager;}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00022}00022\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00024}\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{00024}}\ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{EntityManager}}\ *\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{Scene::getEntityManager}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_entityManager;}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00028}\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{00028}}\ \ \ \ \ sf::RenderWindow\ *\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{Scene::getWindow}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&\_window;}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00032}\mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{00032}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{Scene::RenderWindow}}()\ \{\ }
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \_window.display();}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_scene_8cpp_source_l00035}00035\ \}}
 
 \end{DoxyCode}

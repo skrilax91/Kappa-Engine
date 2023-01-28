@@ -35,11 +35,13 @@ digraph "KappaEngine/Systems/ISystem.hpp"
   Node12 -> Node14 [color="steelblue1",style="solid"];
   Node14 [label="thread",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node12 -> Node15 [color="steelblue1",style="solid"];
-  Node15 [label="KappaEngine/Time.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_time_8hpp.html",tooltip=" "];
-  Node15 -> Node16 [color="steelblue1",style="solid"];
-  Node16 [label="SFML/System.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node15 -> Node17 [color="steelblue1",style="solid"];
-  Node17 [label="functional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node15 [label="SFML/Window/Event.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node12 -> Node16 [color="steelblue1",style="solid"];
+  Node16 [label="KappaEngine/Time.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_time_8hpp.html",tooltip=" "];
+  Node16 -> Node17 [color="steelblue1",style="solid"];
+  Node17 [label="SFML/System.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node16 -> Node18 [color="steelblue1",style="solid"];
+  Node18 [label="functional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node12 -> Node1 [color="steelblue1",style="solid"];
   Node12 -> Node10 [color="steelblue1",style="solid"];
   Node10 -> Node2 [color="steelblue1",style="solid"];

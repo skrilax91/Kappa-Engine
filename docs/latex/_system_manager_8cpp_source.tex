@@ -12,76 +12,79 @@
 \DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_system_manager_8hpp}{KappaEngine/SystemManager.hpp}}"{}}}
 \DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rigid_body_system_8hpp}{KappaEngine/Systems/RigidBodySystem.hpp}}"{}}}
 \DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_collide_box_system_8hpp}{KappaEngine/Systems/CollideBoxSystem.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00013}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}{00013}}\ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}{SystemManager::SystemManager}}(\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}}\ *scene)\ :\ \_scene(scene)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Register\ all\ internal\ systems}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ registerSystem<RigidBodySystem>();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ registerSystem<CollideBoxSystem>();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ created"{}}\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00021}00021\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00023}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}{00023}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}{SystemManager::Awake}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ std::vector<std::thread>\ threads;}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::thread\ t(\&\mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{ISystem::Awake}},\ system);}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ threads.push\_back(std::move(t));}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&thread:\ threads)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ thread.join();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00033}00033\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00035}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{00035}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{SystemManager::Start}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>Start();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sprite_renderer_system_8hpp}{KappaEngine/Systems/SpriteRendererSystem.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00014}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}{00014}}\ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}{SystemManager::SystemManager}}(\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}}\ *scene)\ :\ \_scene(scene)\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Register\ all\ internal\ systems}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ registerSystem<RigidBodySystem>();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ registerSystem<CollideBoxSystem>();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ registerSystem<SpriteRendererSystem>();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ created"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00022}00022\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00024}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}{00024}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}{SystemManager::Awake}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>Awake();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ awake"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00032}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{00032}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{SystemManager::Start}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>Start();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \_started\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ started"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \_started\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ started"{}}\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \_startUpdates();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ update\ thread\ started"{}}\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00044}00044\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{void}\ SystemManager::\_startUpdates()\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}{Time::resetTimeLib}}();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\_started)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}{Time::UpdateDeltaTime}}();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}{Time::RunOnFixedEnv}}([\&]\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>FixedUpdate();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*std::vector<std::thread>\ threads;}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00059}00059\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (auto\ \&system:\ \_systems)\ \{}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::thread\ t(\&ISystem::Update,\ system);}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ threads.push\_back(std::move(t));}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (auto\ \&thread:\ threads)\ \{}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ thread.join();}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}*/}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00067}00067\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>OnRenderObject();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}{Time::resetTimeLib}}();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\_started)\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}{Time::UpdateDeltaTime}}();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Event\ \textcolor{keyword}{event}\{\};}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \_events.clear();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\_scene-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{getWindow}}()-\/>pollEvent(event))\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_events.push\_back(event);}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getEvent<sf::Event::Closed>())\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_started\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_scene-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{getWindow}}()-\/>close();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}{Time::RunOnFixedEnv}}([\&]\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>FixedUpdate();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*std::vector<std::thread>\ threads;}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00064}00064\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (auto\ \&system:\ \_systems)\ \{}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::thread\ t(\&ISystem::Update,\ system);}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ threads.push\_back(std::move(t));}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (auto\ \&thread:\ threads)\ \{}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ thread.join();}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}*/}}
 \DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00072}00072\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \_scene-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{RenderWindow}}();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}FPS:\ "{}}\ <<\ 1\ /\ \mbox{\hyperlink{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}{Time::DeltaTime}}().asSeconds()\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&system:\ \_systems)\ \{}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>OnRenderObject();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00076}00076\ }
 \DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00077}00077\ }
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00078}\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a41d38d9df2012e63783afed34e1eec73}{00078}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a41d38d9df2012e63783afed34e1eec73}{SystemManager::WaitStop}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \_updateThread.join();}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00080}00080\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \_scene-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{RenderWindow}}();}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}FPS:\ "{}}\ <<\ 1\ /\ \mbox{\hyperlink{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}{Time::DeltaTime}}().asSeconds()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SystemManager\ stopped"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_system_manager_8cpp_source_l00084}00084\ \}}
 
 \end{DoxyCode}

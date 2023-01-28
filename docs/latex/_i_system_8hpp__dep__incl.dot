@@ -28,6 +28,7 @@ digraph "KappaEngine/Systems/ISystem.hpp"
   Node9 [label="src/Systems/RigidBodySystem.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_rigid_body_system_8cpp.html",tooltip=" "];
   Node1 -> Node10 [dir="back",color="steelblue1",style="solid"];
   Node10 [label="KappaEngine/Systems\l/SpriteRendererSystem.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sprite_renderer_system_8hpp.html",tooltip=" "];
+  Node10 -> Node5 [dir="back",color="steelblue1",style="solid"];
   Node10 -> Node11 [dir="back",color="steelblue1",style="solid"];
   Node11 [label="src/Systems/SpriteRenderer\lSystem.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sprite_renderer_system_8cpp.html",tooltip=" "];
 }
