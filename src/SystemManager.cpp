@@ -39,15 +39,22 @@ namespace KappaEngine {
 
         _started = true;
         std::cout << "SystemManager started" << std::endl;
-        _startUpdates();
-        std::cout << "SystemManager update thread started" << std::endl;
-    }
 
-    void SystemManager::_startUpdates() {
         Time::resetTimeLib();
 
         while (_started) {
             Time::UpdateDeltaTime();
+
+            sf::Event event{};
+            while (_scene->getWindow()->pollEvent(event)) {
+                _events.push_back(event);
+            }
+
+            if (getEvent<sf::Event::Closed>()) {
+                _started = false;
+                _scene->getWindow()->close();
+                break;
+            }
 
             Time::RunOnFixedEnv([&] {
                 for (auto &system: _systems) {
@@ -73,9 +80,7 @@ namespace KappaEngine {
             _scene->RenderWindow();
             std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
         }
-    }
 
-    void SystemManager::WaitStop() {
-        _updateThread.join();
+        std::cout << "SystemManager stopped" << std::endl;
     }
 }

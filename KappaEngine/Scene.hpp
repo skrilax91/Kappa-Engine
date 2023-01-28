@@ -28,7 +28,6 @@ namespace KappaEngine {
 
             void StartSystemManager();
             void RenderWindow();
-            void wait();
 
         private:
             std::string _name;

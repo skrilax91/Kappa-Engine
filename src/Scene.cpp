@@ -10,6 +10,7 @@ namespace KappaEngine {
         _systemManager = new SystemManager(this);
         _entityManager = new EntityManager();
         _window.setFramerateLimit(60);
+        std::cout << "Scene created" << std::endl;
     }
 
     void Scene::StartSystemManager() {
@@ -26,10 +27,6 @@ namespace KappaEngine {
 
     sf::RenderWindow *Scene::getWindow() {
         return &_window;
-    }
-
-    void Scene::wait() {
-        _systemManager->WaitStop();
     }
 
     void Scene::RenderWindow() { 
