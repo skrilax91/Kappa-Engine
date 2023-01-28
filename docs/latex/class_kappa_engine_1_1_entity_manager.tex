@@ -1,0 +1,93 @@
+\hypertarget{class_kappa_engine_1_1_entity_manager}{}\doxysection{Kappa\+Engine\+::Entity\+Manager Class Reference}
+\label{class_kappa_engine_1_1_entity_manager}\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+
+
+{\ttfamily \#include $<$Entity\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}{Entity\+Manager}} ()=default
+\item 
+virtual \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}{$\sim$\+Entity\+Manager}} ()=default
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a60560f8a1da03910a6227721ae0f5069}{create\+Entity}} (const std\+::string \&name, void($\ast$cb)(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \&))
+\item 
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ac17b8a7ed3daee936793238181484bfd}{get\+Entities}} ()
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ac1e492fc1e06b7a717776411faf3979d}{get\+Entity}} (const std\+::string \&name)
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{get\+Entities\+With\+Component}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_entity_manager_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{_entity_manager_8hpp_source}{Entity\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}\label{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!EntityManager@{EntityManager}}
+\index{EntityManager@{EntityManager}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{EntityManager()}{EntityManager()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+Entity\+Manager\+::\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}\label{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!````~EntityManager@{$\sim$EntityManager}}
+\index{````~EntityManager@{$\sim$EntityManager}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$EntityManager()}{~EntityManager()}}
+{\footnotesize\ttfamily virtual Kappa\+Engine\+::\+Entity\+Manager\+::$\sim$\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a60560f8a1da03910a6227721ae0f5069}\label{class_kappa_engine_1_1_entity_manager_a60560f8a1da03910a6227721ae0f5069}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& Entity\+Manager\+::create\+Entity (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{void($\ast$)(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \&)}]{cb }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_manager_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_entity_manager_8cpp_source}{Entity\+Manager.\+cpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_ac17b8a7ed3daee936793238181484bfd}\label{class_kappa_engine_1_1_entity_manager_ac17b8a7ed3daee936793238181484bfd}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntities@{getEntities}}
+\index{getEntities@{getEntities}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntities()}{getEntities()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ Entity\+Manager\+::get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_manager_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_entity_manager_8cpp_source}{Entity\+Manager.\+cpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}\label{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntitiesWithComponent@{getEntitiesWithComponent}}
+\index{getEntitiesWithComponent@{getEntitiesWithComponent}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntitiesWithComponent()}{getEntitiesWithComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ Kappa\+Engine\+::\+Entity\+Manager\+::get\+Entities\+With\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_manager_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{_entity_manager_8hpp_source}{Entity\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_ac1e492fc1e06b7a717776411faf3979d}\label{class_kappa_engine_1_1_entity_manager_ac1e492fc1e06b7a717776411faf3979d}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntity@{getEntity}}
+\index{getEntity@{getEntity}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntity()}{getEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& Entity\+Manager\+::get\+Entity (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_manager_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_entity_manager_8cpp_source}{Entity\+Manager.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Kappa\+Engine/\mbox{\hyperlink{_entity_manager_8hpp}{Entity\+Manager.\+hpp}}\item 
+src/\mbox{\hyperlink{_entity_manager_8cpp}{Entity\+Manager.\+cpp}}\end{DoxyCompactItemize}

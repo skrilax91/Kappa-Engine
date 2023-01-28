@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB SOURCE_FILES
+        "src/Time.cpp"
         "src/EntityManager.cpp"
         "src/SystemManager.cpp"
         "src/Scene.cpp"
@@ -15,6 +16,7 @@ file(GLOB SOURCE_FILES
         )
 
 file(GLOB HEADER_FILES
+        "KappaEngine/Time.hpp"
         "KappaEngine/Scene.hpp"
         "KappaEngine/EntityManager.hpp"
         "KappaEngine/SystemManager.hpp"
@@ -22,6 +24,7 @@ file(GLOB HEADER_FILES
         "KappaEngine/Systems/ISystem.hpp"
         "KappaEngine/Systems/RigidBodySystem.hpp"
         "KappaEngine/Systems/CollideBoxSystem.hpp"
+        "KappaEngine/Systems/SpriteRendererSystem.hpp"
 
         "KappaEngine/Entity/Entity.hpp"
 
@@ -30,6 +33,7 @@ file(GLOB HEADER_FILES
         "KappaEngine/Components/RigidBody.hpp"
         "KappaEngine/Components/CollideBox.hpp"
         "KappaEngine/Components/SpriteRenderer.hpp"
+        "KappaEngine/Components/Camera.hpp"
         )
 
 find_package(SFML 2.5.1 REQUIRED)

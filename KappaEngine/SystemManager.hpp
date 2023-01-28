@@ -7,11 +7,14 @@
 
 #include <vector>
 #include <thread>
+#include <SFML/Window/Event.hpp>
 
 namespace KappaEngine {
     class Scene;
     class ISystem;
 }
+
+#include "KappaEngine/Time.hpp"
 
 #include "Systems/ISystem.hpp"
 #include "Scene.hpp"
@@ -27,9 +30,23 @@ namespace KappaEngine {
             explicit SystemManager(Scene *scene);
             ~SystemManager() = default;
 
+
+            /**
+             * @brief Start Start the system manager.
+             *
+             * This function will start the system manager.
+             */
             void Start();
+
             void Awake();
 
+            /**
+             * @brief registerSystem Register a system.
+             *
+             * This function will register a system to the system manager.
+             *
+             * @tparam T The type of the system to register.
+             */
             template<class T>
             void registerSystem() {
                 static_assert(std::is_base_of<ISystem, T>::value, "T must inherit from ISystem");
@@ -40,6 +57,14 @@ namespace KappaEngine {
                 _systems.push_back(new T(_scene));
             };
 
+            /**
+             * @brief getSystem Get the first system of the given type.
+             *
+             * This function will return the first system of the given type.
+             *
+             * @tparam T The type of the system to get.
+             * @return A pointer to the system if found, nullptr otherwise.
+             */
             template<class T>
             T *getSystem() {
                 static_assert(std::is_base_of<ISystem, T>::value, "T must inherit from ISystem");
@@ -53,16 +78,38 @@ namespace KappaEngine {
                 return nullptr;
             }
 
+            /**
+             * @brief getEvent Get the first event of the given type.
+             *
+             * This function will return the first event of the given type.
+             *
+             * @tparam E The type of the event to get.
+             * @return A pointer to the event if found, nullptr otherwise.
+             */
+            template<sf::Event::EventType E>
+            const sf::Event *getEvent() {
+                for (auto &event: _events) {
+                    if (event.type == E) {
+                        return &event;
+                    }
+                }
+                return nullptr;
+            }
+
+            /**
+             * @brief getScene Get the scene of the system manager.
+             *
+             * This function will return the scene of the system manager.
+             *
+             * @return A pointer to the scene.
+             */
             Scene *getScene() const { return _scene; }
-            void WaitStop();
 
         private:
             Scene *_scene;
             bool _started = false;
-            std::thread _updateThread;
             std::vector<ISystem *> _systems;
-
-            void _startUpdates();
+            std::vector<sf::Event> _events;
     };
 }
 

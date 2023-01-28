@@ -13,7 +13,7 @@ namespace KappaEngine {
         public:
             explicit RigidBodySystem(Scene *scene) : ISystem(scene) {};
             void Awake() override;
-            void Update() override;
+            void FixedUpdate() override;
     };
 }
 

@@ -1,0 +1,38 @@
+\hypertarget{_sprite_renderer_8hpp_source}{}\doxysection{Sprite\+Renderer.\+hpp}
+\label{_sprite_renderer_8hpp_source}\index{KappaEngine/Components/SpriteRenderer.hpp@{KappaEngine/Components/SpriteRenderer.hpp}}
+\mbox{\hyperlink{_sprite_renderer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ Sebayl\ on\ 23/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ R\_TYPE\_SERVER\_SPRITERENDER\_HPP}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#define\ R\_TYPE\_SERVER\_SPRITERENDER\_HPP}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_component_8hpp}{IComponent.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_transform_8hpp}{Transform.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_component}{Component}}\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00016}\mbox{\hyperlink{class_component_1_1_sprite_renderer}{00016}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_component_1_1_sprite_renderer}{SpriteRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component_1_1_i_component}{IComponent}}\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00018}\mbox{\hyperlink{class_component_1_1_sprite_renderer_ada399eb55159fb2988bc0f76e0552150}{00018}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_sprite_renderer_ada399eb55159fb2988bc0f76e0552150}{SpriteRenderer}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structcoord2d}{coord2d}}\ position,\ std::string\ texturePath,\ sf::IntRect\ textureRect,\ std::string\ layer\ =\ \textcolor{stringliteral}{"{}default"{}}):}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_sprite_renderer_ad05c07e428d32348a456138c2a3d7c01}{\_position}}(position),}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_sprite_renderer_a5b6961fd98f2a21fd163258e506b06b9}{\_texturePath}}(std::move(texturePath)),}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_sprite_renderer_af72d65b2343773a1b2f2d42c50e813eb}{\_textureRect}}(textureRect),}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_sprite_renderer_aa0a261e8293b4183dab3b5f20516b12c}{\_layer}}(std::move(layer))\ \{\};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00024}\mbox{\hyperlink{class_component_1_1_sprite_renderer_ad05c07e428d32348a456138c2a3d7c01}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcoord2d}{coord2d}}\ \mbox{\hyperlink{class_component_1_1_sprite_renderer_ad05c07e428d32348a456138c2a3d7c01}{\_position}};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00025}\mbox{\hyperlink{class_component_1_1_sprite_renderer_a5b6961fd98f2a21fd163258e506b06b9}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_component_1_1_sprite_renderer_a5b6961fd98f2a21fd163258e506b06b9}{\_texturePath}};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00026}\mbox{\hyperlink{class_component_1_1_sprite_renderer_a2e6d472a2bd164132b8eeae03a8089ad}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Sprite\ \mbox{\hyperlink{class_component_1_1_sprite_renderer_a2e6d472a2bd164132b8eeae03a8089ad}{\_sprite}}\ =\ sf::Sprite();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00027}\mbox{\hyperlink{class_component_1_1_sprite_renderer_af72d65b2343773a1b2f2d42c50e813eb}{00027}}\ \ \ \ \ \ \ \ \ \ \ \ \ sf::IntRect\ \mbox{\hyperlink{class_component_1_1_sprite_renderer_af72d65b2343773a1b2f2d42c50e813eb}{\_textureRect}};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00028}\mbox{\hyperlink{class_component_1_1_sprite_renderer_aa0a261e8293b4183dab3b5f20516b12c}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_component_1_1_sprite_renderer_aa0a261e8293b4183dab3b5f20516b12c}{\_layer}};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00029}00029\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//R\_TYPE\_SERVER\_SPRITERENDER\_HPP}}
+
+\end{DoxyCode}

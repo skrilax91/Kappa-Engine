@@ -1,0 +1,33 @@
+\hypertarget{_rigid_body_system_8cpp_source}{}\doxysection{Rigid\+Body\+System.\+cpp}
+\label{_rigid_body_system_8cpp_source}\index{src/Systems/RigidBodySystem.cpp@{src/Systems/RigidBodySystem.cpp}}
+\mbox{\hyperlink{_rigid_body_system_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 23/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rigid_body_system_8hpp}{KappaEngine/Systems/RigidBodySystem.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00010}\mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}{00010}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}{RigidBodySystem::Awake}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr})\ +\ 10);}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rand\ =\ std::rand();}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rand\ ;\ i++);}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}RigidBodySystem\ Awake\ rand\ "{}}\ <<\ rand\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00020}\mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}{00020}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}{RigidBodySystem::FixedUpdate}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ents\ =\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\_scene}}-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{getEntityManager}}()-\/>\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{getEntitiesWithComponent}}<\mbox{\hyperlink{class_component_1_1_rigid_body}{Component::RigidBody}}>();}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&ent:\ ents)\ \{}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}RigidBodySystem\ Update\ for\ entity\ "{}}\ <<\ ent-\/>getId()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_system_8cpp_source_l00027}00027\ \}}
+
+\end{DoxyCode}

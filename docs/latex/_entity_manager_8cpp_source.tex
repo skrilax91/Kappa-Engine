@@ -1,0 +1,40 @@
+\hypertarget{_entity_manager_8cpp_source}{}\doxysection{Entity\+Manager.\+cpp}
+\label{_entity_manager_8cpp_source}\index{src/EntityManager.cpp@{src/EntityManager.cpp}}
+\mbox{\hyperlink{_entity_manager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 23/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_manager_8hpp}{KappaEngine/EntityManager.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00008}00008\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}};}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00010}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a60560f8a1da03910a6227721ae0f5069}{00010}}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ \&\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a60560f8a1da03910a6227721ae0f5069}{EntityManager::createEntity}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{void}\ (*cb)(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ \&))\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&entity:\ \_entities)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entity-\/>getId()\ ==\ name)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Entity\ already\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{auto}\ entity\ =\ std::make\_shared<Entity>(name);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00018}00018\ \ \ \ \ cb(*entity);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00019}00019\ \ \ \ \ \_entities.push\_back(entity);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ *entity;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00023}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ac17b8a7ed3daee936793238181484bfd}{00023}}\ std::list\ <std::shared\_ptr<Entity>>\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ac17b8a7ed3daee936793238181484bfd}{EntityManager::getEntities}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ \_entities;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00027}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ac1e492fc1e06b7a717776411faf3979d}{00027}}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ \&\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ac1e492fc1e06b7a717776411faf3979d}{EntityManager::getEntity}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&entity:\ \_entities)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entity-\/>getId()\ ==\ name)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *entity;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Entity\ not\ found"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cpp_source_l00034}00034\ \}}
+
+\end{DoxyCode}

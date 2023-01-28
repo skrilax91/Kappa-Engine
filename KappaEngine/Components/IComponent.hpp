@@ -5,6 +5,11 @@
 #ifndef KAPPA_ENGINE_ICOMPONENT_HPP
 #define KAPPA_ENGINE_ICOMPONENT_HPP
 
+struct coord2d {
+    float x;
+    float y;
+};
+
 namespace Component {
     class IComponent {
         public:

@@ -17,7 +17,7 @@ namespace KappaEngine {
         std::cout << "RigidBodySystem Awake rand " << rand << std::endl;
     }
 
-    void RigidBodySystem::Update() {
+    void RigidBodySystem::FixedUpdate() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::RigidBody>();
 
         for (auto &ent: ents) {

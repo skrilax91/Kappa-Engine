@@ -8,6 +8,7 @@
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
+#include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 
 namespace KappaEngine {
     SystemManager::SystemManager(Scene *scene) : _scene(scene) {
@@ -15,21 +16,17 @@ namespace KappaEngine {
         // Register all internal systems
         registerSystem<RigidBodySystem>();
         registerSystem<CollideBoxSystem>();
-
+        registerSystem<SpriteRendererSystem>();
 
         std::cout << "SystemManager created" << std::endl;
     };
 
     void SystemManager::Awake() {
-        std::vector<std::thread> threads;
-
         for (auto &system: _systems) {
-            std::thread t(&ISystem::Awake, system);
-            threads.push_back(std::move(t));
+            system->Awake();
         }
-        for (auto &thread: threads) {
-            thread.join();
-        }
+
+        std::cout << "SystemManager awake" << std::endl;
     }
 
     void SystemManager::Start() {
@@ -39,14 +36,31 @@ namespace KappaEngine {
 
         _started = true;
         std::cout << "SystemManager started" << std::endl;
-        std::thread t(&SystemManager::_startUpdates, this);
-        _updateThread = std::move(t);
-        std::cout << "SystemManager update thread started" << std::endl;
-    }
 
-    void SystemManager::_startUpdates() {
+        Time::resetTimeLib();
+
         while (_started) {
-            std::vector<std::thread> threads;
+            Time::UpdateDeltaTime();
+
+            sf::Event event{};
+            _events.clear();
+            while (_scene->getWindow()->pollEvent(event)) {
+                _events.push_back(event);
+            }
+
+            if (getEvent<sf::Event::Closed>()) {
+                _started = false;
+                _scene->getWindow()->close();
+                break;
+            }
+
+            Time::RunOnFixedEnv([&] {
+                for (auto &system: _systems) {
+                    system->FixedUpdate();
+                }
+            });
+
+            /*std::vector<std::thread> threads;
 
             for (auto &system: _systems) {
                 std::thread t(&ISystem::Update, system);
@@ -54,11 +68,17 @@ namespace KappaEngine {
             }
             for (auto &thread: threads) {
                 thread.join();
-            }
-        }
-    }
+            }*/
 
-    void SystemManager::WaitStop() {
-        _updateThread.join();
+            for (auto &system: _systems) {
+                system->OnRenderObject();
+            }
+
+
+            _scene->RenderWindow();
+            std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
+        }
+
+        std::cout << "SystemManager stopped" << std::endl;
     }
 }

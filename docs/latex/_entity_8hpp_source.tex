@@ -1,0 +1,89 @@
+\hypertarget{_entity_8hpp_source}{}\doxysection{Entity.\+hpp}
+\label{_entity_8hpp_source}\index{KappaEngine/Entity/Entity.hpp@{KappaEngine/Entity/Entity.hpp}}
+\mbox{\hyperlink{_entity_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 23/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ KAPPA\_ENGINE\_ENTITY\_HPP}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#define\ KAPPA\_ENGINE\_ENTITY\_HPP}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_component_8hpp}{KappaEngine/Components/IComponent.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00015}\mbox{\hyperlink{namespace_kappa_engine}{00015}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00016}\mbox{\hyperlink{class_kappa_engine_1_1_entity}{00016}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00018}\mbox{\hyperlink{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}{00018}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}{Entity}}(std::string\ \textcolor{keywordtype}{id}):\ \_id(std::move(id))\ \{\};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00019}\mbox{\hyperlink{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}{00019}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}{\string~Entity}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00021}\mbox{\hyperlink{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}{00021}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}{getId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_id;\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00024}\mbox{\hyperlink{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}{hasComponent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component::IComponent,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ inherit\ from\ Component"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&component:\ \_components)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{dynamic\_cast<}T\ *\textcolor{keyword}{>}(component.get())\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00036}\mbox{\hyperlink{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}{00036}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}{registerComponent}}(T\ component)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component::IComponent,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ inherit\ from\ Component"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasComponent<T>())\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_components.push\_back(std::make\_shared<T>(component));}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00047}\mbox{\hyperlink{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}{00047}}\ \ \ \ \ \ \ \ \ \ \ \ \ T\ *\mbox{\hyperlink{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}{getComponent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component::IComponent,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ inherit\ from\ Component"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&component:\ \_components)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ *castedComponent\ =\ \textcolor{keyword}{dynamic\_cast<}T\ *\textcolor{keyword}{>}(component.get()))\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ castedComponent;}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00059}\mbox{\hyperlink{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}{00059}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}{enableComponent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component::IComponent,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ inherit\ from\ Component"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ *component\ =\ getComponent<T>())\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ component-\/>enabled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00068}\mbox{\hyperlink{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}{00068}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}{disableComponent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component::IComponent,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ inherit\ from\ Component"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ *component\ =\ getComponent<T>())\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ component-\/>enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_id;}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::list<std::shared\_ptr<Component::IComponent>>\ \_components;}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00080}00080\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_entity_8hpp_source_l00083}00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAPPA\_ENGINE\_ENTITY\_HPP}}
+
+\end{DoxyCode}

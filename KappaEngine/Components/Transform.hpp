@@ -9,11 +9,6 @@
 
 #include "IComponent.hpp"
 
-struct coord2d {
-    float x;
-    float y;
-};
-
 namespace Component {
     class Transform: public IComponent {
         public:
