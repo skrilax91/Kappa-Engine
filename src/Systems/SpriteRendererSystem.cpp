@@ -7,6 +7,8 @@
 
 namespace KappaEngine {
     void SpriteRendererSystem::Awake() {
+        std::cout << "SpriteRendererSystem Awake" << std::endl;
+
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
 
         for (auto &ent : ents) {
@@ -20,8 +22,11 @@ namespace KappaEngine {
             }
 
             if (_textureCache.contains(spriteRenderer->_texturePath)) {
+                std::cout << "SpriteRendererSystem: texture " + spriteRenderer->_texturePath + " already loaded" << std::endl;
                 spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
                 continue;
+            } else {
+                std::cout << "SpriteRendererSystem: loading texture " + spriteRenderer->_texturePath << std::endl;
             }
 
             sf::Texture texture;
@@ -32,6 +37,7 @@ namespace KappaEngine {
 
             _textureCache[spriteRenderer->_texturePath] = texture;
             spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
+            std::cout << "SpriteRendererSystem: added texture " + spriteRenderer->_texturePath << std::endl;
         }
     }
 

@@ -8,6 +8,7 @@
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
+#include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 
 namespace KappaEngine {
     SystemManager::SystemManager(Scene *scene) : _scene(scene) {
@@ -15,21 +16,17 @@ namespace KappaEngine {
         // Register all internal systems
         registerSystem<RigidBodySystem>();
         registerSystem<CollideBoxSystem>();
-
+        registerSystem<SpriteRendererSystem>();
 
         std::cout << "SystemManager created" << std::endl;
     };
 
     void SystemManager::Awake() {
-        std::vector<std::thread> threads;
-
         for (auto &system: _systems) {
-            std::thread t(&ISystem::Awake, system);
-            threads.push_back(std::move(t));
+            system->Awake();
         }
-        for (auto &thread: threads) {
-            thread.join();
-        }
+
+        std::cout << "SystemManager awake" << std::endl;
     }
 
     void SystemManager::Start() {
