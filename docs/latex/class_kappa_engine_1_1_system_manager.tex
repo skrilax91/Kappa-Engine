@@ -1,0 +1,143 @@
+\hypertarget{class_kappa_engine_1_1_system_manager}{}\doxysection{Kappa\+Engine\+::System\+Manager Class Reference}
+\label{class_kappa_engine_1_1_system_manager}\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+
+
+The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class is the class that will manage all the systems of the engine.  
+
+
+
+
+{\ttfamily \#include $<$System\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}{System\+Manager}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}{$\sim$\+System\+Manager}} ()=default
+\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a43b89f5e4e62de8d9f494ae96d792393}{Fixed\+Update}} ()
+\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a57288ae2e1be37de05a1df869c45e2c8}{Late\+Update}} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}{register\+System}} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}{get\+System}} ()
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}{get\+Scene}} () const
+\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a41d38d9df2012e63783afed34e1eec73}{Wait\+Stop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class is the class that will manage all the systems of the engine. 
+
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}\label{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!SystemManager@{SystemManager}}
+\index{SystemManager@{SystemManager}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{SystemManager()}{SystemManager()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+System\+Manager\+::\+System\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}\label{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!````~SystemManager@{$\sim$SystemManager}}
+\index{````~SystemManager@{$\sim$SystemManager}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$SystemManager()}{~SystemManager()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+System\+Manager\+::$\sim$\+System\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}\label{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!Awake@{Awake}}
+\index{Awake@{Awake}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a43b89f5e4e62de8d9f494ae96d792393}\label{class_kappa_engine_1_1_system_manager_a43b89f5e4e62de8d9f494ae96d792393}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+Fixed\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}\label{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!getScene@{getScene}}
+\index{getScene@{getScene}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{getScene()}{getScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ Kappa\+Engine\+::\+System\+Manager\+::get\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}\label{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!getSystem@{getSystem}}
+\index{getSystem@{getSystem}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{getSystem()}{getSystem()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ Kappa\+Engine\+::\+System\+Manager\+::get\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a57288ae2e1be37de05a1df869c45e2c8}\label{class_kappa_engine_1_1_system_manager_a57288ae2e1be37de05a1df869c45e2c8}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+Late\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}\label{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!registerSystem@{registerSystem}}
+\index{registerSystem@{registerSystem}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{registerSystem()}{registerSystem()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Kappa\+Engine\+::\+System\+Manager\+::register\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}\label{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!Start@{Start}}
+\index{Start@{Start}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a41d38d9df2012e63783afed34e1eec73}\label{class_kappa_engine_1_1_system_manager_a41d38d9df2012e63783afed34e1eec73}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!WaitStop@{WaitStop}}
+\index{WaitStop@{WaitStop}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{WaitStop()}{WaitStop()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+Wait\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Kappa\+Engine/\mbox{\hyperlink{_system_manager_8hpp}{System\+Manager.\+hpp}}\item 
+src/\mbox{\hyperlink{_system_manager_8cpp}{System\+Manager.\+cpp}}\end{DoxyCompactItemize}
