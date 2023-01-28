@@ -5,8 +5,6 @@
 #include <iostream>
 #include <thread>
 
-#include "KappaEngine/Time.hpp"
-
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
@@ -67,7 +65,13 @@ namespace KappaEngine {
                 thread.join();
             }*/
 
+            for (auto &system: _systems) {
+                system->OnRenderObject();
+            }
+
+
             _scene->RenderWindow();
+            std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
         }
     }
 

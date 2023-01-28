@@ -15,9 +15,8 @@ namespace KappaEngine {
             explicit SpriteRendererSystem(Scene *scene) : ISystem(scene) {};
 
             void Awake() override;
-            void FixedUpdate();
             void OnDestroy(Entity *) override;
-            void OnRenderObject();
+            void OnRenderObject() override;
 
         private:
             std::unordered_map<std::string, sf::Texture> _textureCache = std::unordered_map<std::string, sf::Texture>();

@@ -12,21 +12,14 @@
 #include "IComponent.hpp"
 #include "Transform.hpp"
 
-struct coord2d;
-
-struct coord2d {
-    float x;
-    float y;
-};
-
 namespace Component {
     class SpriteRenderer : public IComponent {
         public:
-            SpriteRenderer(struct coord2d position, std::string texturePath, sf::IntRect textureRect, std::string layer):
+            SpriteRenderer(struct coord2d position, std::string texturePath, sf::IntRect textureRect, std::string layer = "default"):
                 _position(position),
                 _texturePath(std::move(texturePath)),
                 _textureRect(textureRect),
-                _layer(layer) {};
+                _layer(std::move(layer)) {};
 
             struct coord2d _position;
             std::string _texturePath;

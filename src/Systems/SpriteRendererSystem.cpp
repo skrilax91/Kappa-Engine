@@ -16,9 +16,7 @@ namespace KappaEngine {
             if (!transform || !transform->enabled)
                 spriteRenderer->enabled = false;
             else {
-                spriteRenderer->_sprite.setPosition(
-                    transform->position.x + spriteRenderer->_position.x,
-                    transform->position.y + spriteRenderer->_position.y);
+                spriteRenderer->_sprite.setTextureRect(spriteRenderer->_textureRect);
             }
 
             if (_textureCache.contains(spriteRenderer->_texturePath)) {
@@ -37,47 +35,6 @@ namespace KappaEngine {
         }
     }
 
-    void SpriteRendererSystem::FixedUpdate() {
-        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
-        auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
-
-        for (auto &camera : cams) {
-            auto &cam = *camera->getComponent<Component::Camera>();
-            if (cam.enabled) {
-
-                for (auto &ent : ents) {
-                    auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
-
-                    for (auto it = cam._layers.begin(); it != cam._layers.end(); it++) {
-                        if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
-                            auto sTransform = ent->getComponent<Component::Transform>();
-
-                            if (!sTransform || !sTransform->enabled)
-                                spriteRenderer->enabled = false;
-                            else {
-
-                                auto &cTransform = *camera->getComponent<Component::Transform>();
-                                auto winDim = _scene->getWindow()->getSize();
-
-                                float spriteX = sTransform->position.x + spriteRenderer->_position.x
-                                                - (cTransform.position.x + cam._position.x
-                                                - winDim.x / 2);
-
-                                float spriteY = sTransform->position.y + spriteRenderer->_position.y
-                                                - (cTransform.position.y + cam._position.y
-                                                - winDim.y / 2);
-
-                                spriteRenderer->_sprite.setPosition({spriteX, spriteY});
-                            }
-                            break;
-                        }
-                    }
-                }
-                break;
-            }
-        }
-    }
-
     void SpriteRendererSystem::OnDestroy(Entity *entity) {
         std::cout << "SpriteRenderSystem::OnDestroy" << std::endl;
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
@@ -93,21 +50,31 @@ namespace KappaEngine {
         auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
 
         for (auto &cam : cams) {
-            auto &camera = *cam->getComponent<Component::Camera>();
-            if (camera.enabled) {
+            auto camera = cam->getComponent<Component::Camera>();
 
-                for (auto &ent : ents) {
-                    auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
+            if (!camera || !camera->enabled)
+                continue;
 
-                    for (auto it = camera._layers.begin(); it != camera._layers.end(); it++) {
-                        if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
-                            _scene->getWindow()->draw(spriteRenderer->_sprite);
-                            break;
-                        }
+            for (auto &ent : ents) {
+                auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
+                auto transform = ent->getComponent<Component::Transform>();
+
+                for (auto it = camera->_layers.begin(); it != camera->_layers.end(); it++) {
+                    if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
+
+                        auto winSize = _scene->getWindow()->getSize();
+
+                        float x = transform->position.x + spriteRenderer->_position.x - camera->_position.x + winSize.x / 2;
+                        float y = transform->position.y + spriteRenderer->_position.y - camera->_position.y + winSize.y / 2;
+
+                        //if (x < -winSize.x || x > winSize.x || y < -winSize.y || y > winSize.y)
+                        //    continue;
+
+                        spriteRenderer->_sprite.setPosition(x, y);
+                        _scene->getWindow()->draw(spriteRenderer->_sprite);
+                        break;
                     }
                 }
-
-                break;
             }
         }
     }

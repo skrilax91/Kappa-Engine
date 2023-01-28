@@ -13,6 +13,8 @@ namespace KappaEngine {
     class ISystem;
 }
 
+#include "KappaEngine/Time.hpp"
+
 #include "Systems/ISystem.hpp"
 #include "Scene.hpp"
 

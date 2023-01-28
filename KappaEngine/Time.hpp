@@ -44,12 +44,6 @@ namespace KappaEngine {
         static double _fixedDeltaTime;
         static double _lags;
     };
-
-
-    sf::Time Time::_deltaTime = sf::Time::Zero;
-    double Time::_fixedDeltaTime = 0.01;
-    double Time::_lags = 0.0;
-    sf::Clock Time::_deltaClock = sf::Clock();
 }
 
 #endif //KAPPA_ENGINE_TIME_HPP
