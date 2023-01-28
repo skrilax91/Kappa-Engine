@@ -46,6 +46,7 @@ namespace KappaEngine {
             Time::UpdateDeltaTime();
 
             sf::Event event{};
+            _events.clear();
             while (_scene->getWindow()->pollEvent(event)) {
                 _events.push_back(event);
             }
