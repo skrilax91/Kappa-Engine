@@ -29,7 +29,7 @@ namespace KappaEngine {
         return &_window;
     }
 
-    void Scene::RenderWindow() { 
+    void Scene::RenderWindow() {
         _window.display();
     }
 }

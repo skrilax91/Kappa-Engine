@@ -9,11 +9,11 @@ This graph shows which files directly or indirectly include this file\+:
 % FIG 1
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
-\item 
+\item
 class \mbox{\hyperlink{class_component_1_1_camera}{Component\+::\+Camera}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
-\item 
+\item
 namespace \mbox{\hyperlink{namespace_component}{Component}}
 \end{DoxyCompactItemize}

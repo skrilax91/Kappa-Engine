@@ -5,10 +5,11 @@
 #ifndef R_TYPE_SERVER_SPRITERENDER_HPP
 #define R_TYPE_SERVER_SPRITERENDER_HPP
 
-#include <string>
-#include <cassert>
 #include <SFML/Graphics.hpp>
+#include <cassert>
+#include <string>
 #include <utility>
+
 #include "IComponent.hpp"
 #include "Transform.hpp"
 
