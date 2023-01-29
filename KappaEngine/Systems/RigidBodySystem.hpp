@@ -14,6 +14,8 @@ namespace KappaEngine {
             explicit RigidBodySystem(Scene *scene) : ISystem(scene) {};
             void Awake() override;
             void FixedUpdate() override;
+
+            static void applyForce(Component::RigidBody *rg, sf::Vector2f force);
     };
 }
 

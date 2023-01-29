@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "IComponent.hpp"
+#include <SFML/System/Vector2.hpp>
 
 namespace Component {
     class RigidBody: public IComponent {
@@ -15,6 +16,7 @@ namespace Component {
             RigidBody(float mass, float gravity) : mass(mass), gravity(gravity) {};
             float mass = 1;
             float gravity = 1;
+            sf::Vector2f velocity = {0, 0};
 
     };
 }

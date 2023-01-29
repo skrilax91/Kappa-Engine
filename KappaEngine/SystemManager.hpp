@@ -52,9 +52,12 @@ namespace KappaEngine {
                 static_assert(std::is_base_of<ISystem, T>::value, "T must inherit from ISystem");
 
                 if (getSystem<T>()) {
+                    std::cout << "System " << typeid(T).name() << " already registered" << std::endl;
                     return;
                 }
                 _systems.push_back(new T(_scene));
+                std::cout << "System " << typeid(T).name() << " registered" << std::endl;
+
             };
 
             /**
@@ -94,6 +97,25 @@ namespace KappaEngine {
                     }
                 }
                 return nullptr;
+            }
+
+            /**
+             * @brief getEvents Get all the events of the given type.
+             *
+             * This function will return all the events of the given type.
+             *
+             * @tparam E The type of the events to get.
+             * @return A vector of all the events of the given type.
+             */
+            template<sf::Event::EventType E>
+            std::vector<const sf::Event *> GetEvents() {
+                std::vector<const sf::Event *> events;
+                for (auto &event: _events) {
+                    if (event.type == E) {
+                        events.push_back(&event);
+                    }
+                }
+                return events;
             }
 
             /**

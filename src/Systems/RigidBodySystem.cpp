@@ -5,6 +5,8 @@
 #include <iostream>
 #include <ctime>
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
+#include "KappaEngine/Components/Transform.hpp"
+#include "KappaEngine/Time.hpp"
 
 namespace KappaEngine {
     void RigidBodySystem::Awake() {
@@ -21,7 +23,16 @@ namespace KappaEngine {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::RigidBody>();
 
         for (auto &ent: ents) {
-            std::cout << "RigidBodySystem Update for entity " << ent->getId() << std::endl;
+            auto rg = ent->getComponent<Component::RigidBody>();
+            auto tr = ent->getComponent<Component::Transform>();
+
+            if (tr == nullptr) {
+                continue;
+            }
+
+            tr->position += rg->velocity * (float) Time::FixedDeltaTime();
         }
     }
+
+    void RigidBodySystem::applyForce(Component::RigidBody *rg, sf::Vector2f force) {}
 }

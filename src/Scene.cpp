@@ -6,10 +6,9 @@
 #include "KappaEngine/Scene.hpp"
 
 namespace KappaEngine {
-    Scene::Scene(std::string name): _name(name), _window(sf::VideoMode::getFullscreenModes()[0], name, sf::Style::Fullscreen) {
+    Scene::Scene(std::string name): _name(name) {
         _systemManager = new SystemManager(this);
         _entityManager = new EntityManager();
-        _window.setFramerateLimit(60);
         std::cout << "Scene created" << std::endl;
     }
 
@@ -23,13 +22,5 @@ namespace KappaEngine {
 
     EntityManager *Scene::getEntityManager() {
         return _entityManager;
-    }
-
-    sf::RenderWindow *Scene::getWindow() {
-        return &_window;
-    }
-
-    void Scene::RenderWindow() {
-        _window.display();
     }
 }

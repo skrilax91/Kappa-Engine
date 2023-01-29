@@ -3,7 +3,7 @@
 //
 
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
-
+#include "KappaEngine/GameManager.hpp"
 
 namespace KappaEngine {
     void SpriteRendererSystem::Awake() {
@@ -68,7 +68,7 @@ namespace KappaEngine {
                 for (auto it = camera->_layers.begin(); it != camera->_layers.end(); it++) {
                     if (*it == spriteRenderer->_layer && spriteRenderer->enabled) {
 
-                        auto winSize = _scene->getWindow()->getSize();
+                        auto winSize = GameManager::GetWindow()->getSize();
 
                         float x = transform->position.x + spriteRenderer->_position.x - camera->_position.x + winSize.x / 2;
                         float y = transform->position.y + spriteRenderer->_position.y - camera->_position.y + winSize.y / 2;
@@ -77,7 +77,7 @@ namespace KappaEngine {
                         //    continue;
 
                         spriteRenderer->_sprite.setPosition(x, y);
-                        _scene->getWindow()->draw(spriteRenderer->_sprite);
+                        GameManager::Draw(spriteRenderer->_sprite);
                         break;
                     }
                 }
