@@ -12,8 +12,8 @@
 namespace Component {
     class Transform: public IComponent {
         public:
-            Transform(coord2d pos, coord2d scale, coord2d rotation) : position(pos), scale(scale), rotation(rotation) {};
-            coord2d position{};
+            Transform(sf::Vector2f pos, coord2d scale, coord2d rotation) : position(pos), scale(scale), rotation(rotation) {};
+            sf::Vector2f position{};
             coord2d scale{};
             coord2d rotation{};
     };

@@ -10,6 +10,7 @@
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Input.hpp"
 
 namespace KappaEngine {
     SystemManager::SystemManager(Scene *scene) : _scene(scene) {
@@ -49,6 +50,8 @@ namespace KappaEngine {
                 _events.push_back(event);
             }
 
+            Input::setEvents(GetEvents<sf::Event::KeyReleased>());
+
             if (getEvent<sf::Event::Closed>()) {
                 _started = false;
                 GameManager::CloseWindow();
@@ -78,7 +81,7 @@ namespace KappaEngine {
 
 
             GameManager::RenderWindow();
-            std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
+            //std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
         }
 
         std::cout << "SystemManager stopped" << std::endl;

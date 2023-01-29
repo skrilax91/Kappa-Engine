@@ -5,10 +5,6 @@
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
 
-
-
-
-
 namespace KappaEngine {
     void SpriteRendererSystem::Awake() {
         std::cout << "SpriteRendererSystem Awake" << std::endl;
