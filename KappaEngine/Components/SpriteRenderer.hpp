@@ -16,7 +16,7 @@
 namespace Component {
     class SpriteRenderer : public IComponent {
         public:
-            SpriteRenderer(struct coord2d position, std::string texturePath, sf::IntRect textureRect, std::string layer = "default"):
+            SpriteRenderer(struct coord2d position, std::string texturePath, sf::IntRect textureRect = sf::IntRect(), std::string layer = "default"):
                 _position(position),
                 _texturePath(std::move(texturePath)),
                 _textureRect(textureRect),

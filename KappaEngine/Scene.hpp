@@ -24,16 +24,17 @@ namespace KappaEngine {
 
             SystemManager *getSystemManager();
             EntityManager *getEntityManager();
-            sf::RenderWindow *getWindow();
+
+            std::string getName() {
+                return _name;
+            }
 
             void StartSystemManager();
-            void RenderWindow();
 
         private:
             std::string _name;
             SystemManager *_systemManager;
             EntityManager *_entityManager;
-            sf::RenderWindow _window;
     };
 }
 

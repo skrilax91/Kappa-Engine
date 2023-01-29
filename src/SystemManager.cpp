@@ -9,6 +9,7 @@
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
+#include "KappaEngine/GameManager.hpp"
 
 namespace KappaEngine {
     SystemManager::SystemManager(Scene *scene) : _scene(scene) {
@@ -44,13 +45,13 @@ namespace KappaEngine {
 
             sf::Event event{};
             _events.clear();
-            while (_scene->getWindow()->pollEvent(event)) {
+            while (GameManager::GetWindow()->pollEvent(event)) {
                 _events.push_back(event);
             }
 
             if (getEvent<sf::Event::Closed>()) {
                 _started = false;
-                _scene->getWindow()->close();
+                GameManager::CloseWindow();
                 break;
             }
 
@@ -70,12 +71,13 @@ namespace KappaEngine {
                 thread.join();
             }*/
 
+            GameManager::GetWindow()->clear();
             for (auto &system: _systems) {
                 system->OnRenderObject();
             }
 
 
-            _scene->RenderWindow();
+            GameManager::RenderWindow();
             std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
         }
 
