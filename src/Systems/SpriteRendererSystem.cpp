@@ -3,6 +3,9 @@
 //
 
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
+#include <filesystem>
+
+
 
 
 namespace KappaEngine {
@@ -30,6 +33,10 @@ namespace KappaEngine {
             }
 
             sf::Texture texture;
+
+            char tmp[256];
+            std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
+
             if (!texture.loadFromFile(spriteRenderer->_texturePath)) {
                 std::cerr << "Error while loading texture " << spriteRenderer->_texturePath << std::endl;
                 continue;

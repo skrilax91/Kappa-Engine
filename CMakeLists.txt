@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 file(GLOB SOURCE_FILES
+        "src/GameManager.cpp"
         "src/Time.cpp"
         "src/EntityManager.cpp"
         "src/SystemManager.cpp"
@@ -16,6 +17,7 @@ file(GLOB SOURCE_FILES
         )
 
 file(GLOB HEADER_FILES
+        "KappaEngine/GameManager.hpp"
         "KappaEngine/Time.hpp"
         "KappaEngine/Scene.hpp"
         "KappaEngine/EntityManager.hpp"
