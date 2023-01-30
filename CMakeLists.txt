@@ -30,6 +30,7 @@ file(GLOB HEADER_FILES
         "KappaEngine/Network/NetworkQueue.hpp"
         "KappaEngine/Network/NetworkConnection.hpp"
         "KappaEngine/Network/ClientInterface.hpp"
+        "KappaEngine/Network/ServerInterface.hpp"
 
         "KappaEngine/Systems/ISystem.hpp"
         "KappaEngine/Systems/RigidBodySystem.hpp"

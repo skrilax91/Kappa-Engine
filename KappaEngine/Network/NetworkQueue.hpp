@@ -34,8 +34,8 @@ namespace Network {
             }
 
             /**
-             * @brief Clear the queue
-             * @return True if the queue was cleared, false otherwise
+             * @brief Check if the queue is empty
+             * @return True if the queue is empty, false otherwise
              */
             bool empty() {
                 std::scoped_lock lock(_mutex);
@@ -59,14 +59,14 @@ namespace Network {
                 _queue.clear();
             }
 
-            T pop_front() {
+            T popFront() {
                 std::scoped_lock lock(_mutex);
                 auto t = std::move(_queue.front());
                 _queue.pop_front();
                 return t;
             }
 
-            T pop_back() {
+            T popBack() {
                 std::scoped_lock lock(_mutex);
                 auto t = std::move(_queue.back());
                 _queue.pop_back();
