@@ -26,7 +26,7 @@ namespace KappaEngine {
              * @param width The width of the window
              * @param height The height of the window
              */
-            static void CreateWindow(const std::string& name, int width, int height);
+            static void CreateGameWindow(const std::string& name, int width, int height);
 
             /**
              * @brief Set the framerate limit of the window

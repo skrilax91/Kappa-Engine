@@ -14,6 +14,7 @@ file(GLOB SOURCE_FILES
         "src/Systems/RigidBodySystem.cpp"
         "src/Systems/CollideBoxSystem.cpp"
         "src/Systems/SpriteRendererSystem.cpp"
+        "src/Systems/NetworkSystem.cpp"
 
         )
 
@@ -25,10 +26,16 @@ file(GLOB HEADER_FILES
         "KappaEngine/EntityManager.hpp"
         "KappaEngine/SystemManager.hpp"
 
+        "KappaEngine/Network/net_message.h"
+        "KappaEngine/Network/NetworkQueue.hpp"
+        "KappaEngine/Network/NetworkConnection.hpp"
+        "KappaEngine/Network/ClientInterface.hpp"
+
         "KappaEngine/Systems/ISystem.hpp"
         "KappaEngine/Systems/RigidBodySystem.hpp"
         "KappaEngine/Systems/CollideBoxSystem.hpp"
         "KappaEngine/Systems/SpriteRendererSystem.hpp"
+        "KappaEngine/Systems/NetworkSystem.hpp"
 
         "KappaEngine/Entity/Entity.hpp"
 
@@ -38,13 +45,19 @@ file(GLOB HEADER_FILES
         "KappaEngine/Components/CollideBox.hpp"
         "KappaEngine/Components/SpriteRenderer.hpp"
         "KappaEngine/Components/Camera.hpp"
+        "KappaEngine/Components/NetworkComponent.hpp"
         )
 
 find_package(SFML 2.5.1 REQUIRED)
+find_package(asio REQUIRED)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CONAN_INCLUDE_DIRS_SFML})
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CONAN_INCLUDE_DIRS_SFML} ${CONAN_INCLUDE_DIRS_ASIO})
+message(STATUS "CONAN_INCLUDE_DIRS_ASIO: ${CONAN_INCLUDE_DIRS_SFML}")
+
 target_link_libraries(${PROJECT_NAME} sfml::sfml)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)

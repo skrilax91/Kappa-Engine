@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <thread>
+#include <iostream>
 #include <SFML/Window/Event.hpp>
 
 namespace KappaEngine {

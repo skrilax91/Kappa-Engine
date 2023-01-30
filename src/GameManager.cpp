@@ -17,7 +17,7 @@ namespace KappaEngine {
     // WINDOW
     ///////////////////////////
 
-    void GameManager::CreateWindow(const std::string &name, int width, int height) {
+    void GameManager::CreateGameWindow(const std::string &name, int width, int height) {
         _name = name;
         _window = new sf::RenderWindow();
         _window->create(sf::VideoMode(width, height), name);
