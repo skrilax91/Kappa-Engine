@@ -160,7 +160,7 @@ namespace Network {
              * @param client
              * @return true if the client is accepted, false otherwise
              */
-            virtual bool OnClientConnect( const std::shared_ptr<Connection<T>>& client ) {
+            virtual bool OnClientConnect( std::shared_ptr<Connection<T>> client ) {
                 return false;
             };
 
@@ -168,7 +168,7 @@ namespace Network {
              * @brief Called when a client disconnects
              * @param client
              */
-            virtual void OnClientDisconnect( const std::shared_ptr<Connection<T>>& client ) {
+            virtual void OnClientDisconnect( std::shared_ptr<Connection<T>> client ) {
 
             };
 
@@ -177,7 +177,7 @@ namespace Network {
              * @param client
              * @param msg
              */
-            virtual void OnMessage( const std::shared_ptr<Connection<T>>& client, const Message<T>& msg ) {
+            virtual void OnMessage( std::shared_ptr<Connection<T>> client, Message<T>& msg ) {
 
             };
 
