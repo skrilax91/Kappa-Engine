@@ -56,7 +56,7 @@ namespace Network {
                             if (!ec) {
                                 std::cout << "[SERVER] New connection: " << socket.remote_endpoint() << std::endl;
 
-                                /*std::shared_ptr<Connection<T>> newConnection = std::make_shared<Connection<T>>(
+                                std::shared_ptr<Connection<T>> newConnection = std::make_shared<Connection<T>>(
                                         Connection<T>::Owner::Server,
                                         _ioContext,
                                         std::move(socket), _incomingMessages
@@ -64,12 +64,12 @@ namespace Network {
 
 
                                 if (OnClientConnect(newConnection)) {
-                                    _connections.push_back({ newConnection->GetID(), newConnection });
+                                    _connections.push_back(std::move(newConnection));
                                     newConnection->ConnectToClient(_idCounter++);
                                     std::cout << "[" << newConnection->GetID() << "] Connection approved" << std::endl;
                                 }else {
                                     std::cout << "[-----] Connection refused" << std::endl;
-                                }*/
+                                }
                             }else {
                                 std::cerr << "[SERVER] New connection error: " << ec.message() << std::endl;
                             }
