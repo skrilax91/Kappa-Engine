@@ -59,14 +59,17 @@ namespace Network {
                                 std::shared_ptr<Connection<T>> newConnection = std::make_shared<Connection<T>>(
                                         Connection<T>::Owner::Server,
                                         _ioContext,
-                                        std::move(socket), _incomingMessages
+                                        std::move(socket),
+                                        _incomingMessages
                                         );
 
 
+                                std::cout << "[DEBUG] Testing client connection approval" << std::endl;
                                 if (OnClientConnect(newConnection)) {
+                                    std::cout << "[DEBUG] Connection approved, pushing back in connection pool" << std::endl;
                                     _connections.push_back(std::move(newConnection));
-                                    newConnection->ConnectToClient(_idCounter++);
-                                    std::cout << "[" << newConnection->GetID() << "] Connection approved" << std::endl;
+                                    _connections.back()->ConnectToClient(_idCounter++);
+                                    std::cout << "[" << _connections.back()->GetID() << "] Connection approved" << std::endl;
                                 }else {
                                     std::cout << "[-----] Connection refused" << std::endl;
                                 }

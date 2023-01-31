@@ -73,6 +73,16 @@ namespace Network {
                 return t;
             }
 
+            void pushBack(const T& item) {
+                std::scoped_lock lock(_mutex);
+                _queue.emplace_back(std::move(item));
+            }
+
+            void pushFront(const T& item) {
+                std::scoped_lock lock(_mutex);
+                _queue.emplace_front(std::move(item));
+            }
+
 
         private:
             std::deque<T> _queue;

@@ -27,6 +27,21 @@ namespace KappaEngine {
             }
 
             /*
+             * @brief IsKeyJustPressed Check if a key is just pressed
+             * @tparam T The key to check
+             * @return True if the key is just pressed, false otherwise
+             */
+            template<sf::Keyboard::Key T>
+            static bool IsKeyJustPressed() {
+                for (auto &event : _events) {
+                    if (event->type == sf::Event::KeyPressed && event->key.code == T) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            /*
              * @brief IsKeyReleased Check if a key is released
              * @tparam T The key to check
              * @return True if the key is released, false otherwise

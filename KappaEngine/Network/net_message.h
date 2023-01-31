@@ -37,7 +37,7 @@ namespace Network {
             size_t i = msg.body.size();
             msg.body.resize(msg.body.size() + sizeof(DataType));
             std::memcpy(msg.body.data() + i, &data, sizeof(DataType));
-            msg.header.size = msg.size();
+            msg.header.size = msg.body.size();
             return msg;
         }
 
@@ -48,7 +48,7 @@ namespace Network {
             size_t i = msg.body.size() - sizeof(DataType);
             std::memcpy(&data, msg.body.data() + i, sizeof(DataType));
             msg.body.resize(i);
-            msg.header.size = msg.size();
+            msg.header.size = msg.body.size();
             return msg;
         }
 

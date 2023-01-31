@@ -8,6 +8,7 @@
 
 #include "KappaEngine/Network/NetworkQueue.hpp"
 #include "KappaEngine/Network/net_message.h"
+#include "KappaEngine/Network/NetworkConnection.hpp"
 
 
 namespace Network {
@@ -16,7 +17,7 @@ namespace Network {
     class ClientInterface {
         public:
 
-            ClientInterface() : _socket(_ioContext) {
+            ClientInterface() {
 
             }
 
@@ -26,9 +27,17 @@ namespace Network {
 
             bool Connect(const std::string& host, const uint16_t port) {
                 try {
-                    _connection = std::make_unique<Connection<T>>();
+
+                    // Resolve the host name into an IP address
                     asio::ip::tcp::resolver resolver(_ioContext);
                     asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(host, std::to_string(port));
+
+                    _connection = std::make_unique<Connection<T>>(
+                        Connection<T>::Owner::Client,
+                        _ioContext,
+                        asio::ip::tcp::socket(_ioContext),
+                        _incomingMessages
+                            );
 
                     _connection->ConnectToServer(endpoints);
 
@@ -42,7 +51,7 @@ namespace Network {
                 return true;
             }
 
-            bool Disconnect() {
+            void Disconnect() {
                 if (IsConnected()) {
                     _connection->Disconnect();
                 }
@@ -51,11 +60,16 @@ namespace Network {
                     _threadContext.join();
                 }
                 _connection.release();
-                return true;
             }
 
             bool IsConnected() const {
                 return _connection && _connection->IsConnected();
+            }
+
+            void Send(const Message<T>& msg) {
+                if (IsConnected()) {
+                    _connection->Send(msg);
+                }
             }
 
             NetworkQueue<OwnedMessage<T>>& GetIncomingMessages() {
@@ -65,7 +79,6 @@ namespace Network {
         protected:
             asio::io_context _ioContext;
             std::thread _threadContext;
-            asio::ip::tcp::socket _socket;
             std::unique_ptr<Connection<T>> _connection;
 
         private:
