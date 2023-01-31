@@ -5,10 +5,16 @@
 #ifndef KAPPA_ENGINE_ICOMPONENT_HPP
 #define KAPPA_ENGINE_ICOMPONENT_HPP
 
-namespace Component {
+struct coord2d {
+    float x;
+    float y;
+};
 
-    struct IComponent {
-        bool enabled = true;
+namespace Component {
+    class IComponent {
+        public:
+            virtual ~IComponent() = default;
+            bool enabled = true;
     };
 }
 

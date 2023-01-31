@@ -1,0 +1,55 @@
+\hypertarget{_time_8hpp_source}{}\doxysection{Time.\+hpp}
+\label{_time_8hpp_source}\index{KappaEngine/Time.hpp@{KappaEngine/Time.hpp}}
+\mbox{\hyperlink{_time_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 25/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ KAPPA\_ENGINE\_TIME\_HPP}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#define\ KAPPA\_ENGINE\_TIME\_HPP}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <SFML/System.hpp>}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00012}\mbox{\hyperlink{class_kappa_engine_1_1_time}{00012}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kappa_engine_1_1_time}{Time}}\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00014}\mbox{\hyperlink{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ sf::Time\ \mbox{\hyperlink{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}{DeltaTime}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\_deltaTime}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00018}\mbox{\hyperlink{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ sf::Time\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}{UpdateDeltaTime}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\_deltaTime}}\ =\ \mbox{\hyperlink{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}{\_deltaClock}}.restart();}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\_deltaTime}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00023}\mbox{\hyperlink{class_kappa_engine_1_1_time_a70625a8c0dfba5f224b8448407c9b6d0}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a70625a8c0dfba5f224b8448407c9b6d0}{FixedDeltaTime}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{\_fixedDeltaTime}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00027}\mbox{\hyperlink{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}{00027}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}{resetTimeLib}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}{\_deltaClock}}.restart();}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\_deltaTime}}\ =\ sf::Time::Zero;}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{\_fixedDeltaTime}}\ =\ 0.01;}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{\_lags}}\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00034}\mbox{\hyperlink{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}{RunOnFixedEnv}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{void}()>\&\ func)\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{\_lags}}\ +=\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\_deltaTime}}.asSeconds();}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{\_lags}}\ >=\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{\_fixedDeltaTime}})\ \{}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ func();}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{\_lags}}\ -\/=\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{\_fixedDeltaTime}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00042}\mbox{\hyperlink{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ sf::Clock\ \mbox{\hyperlink{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}{\_deltaClock}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00043}\mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ sf::Time\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\_deltaTime}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00044}\mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{00044}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{\_fixedDeltaTime}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00045}\mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{\_lags}};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00046}00046\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_time_8hpp_source_l00049}00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAPPA\_ENGINE\_TIME\_HPP}}
+
+\end{DoxyCode}

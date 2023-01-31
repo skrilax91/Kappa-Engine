@@ -8,6 +8,12 @@
 using namespace KappaEngine;
 
 Entity &EntityManager::createEntity(const std::string& name, void (*cb)(Entity &)) {
+    for (auto &entity: _entities) {
+        if (entity->getId() == name) {
+            throw std::runtime_error("Entity already exist");
+        }
+    }
+
     auto entity = std::make_shared<Entity>(name);
     cb(*entity);
     _entities.push_back(entity);

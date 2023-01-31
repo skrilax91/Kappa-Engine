@@ -1,0 +1,124 @@
+\hypertarget{class_kappa_engine_1_1_entity}{}\doxysection{Kappa\+Engine\+::Entity Class Reference}
+\label{class_kappa_engine_1_1_entity}\index{KappaEngine::Entity@{KappaEngine::Entity}}
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item
+\mbox{\hyperlink{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}{Entity}} (std\+::string id)
+\item
+virtual \mbox{\hyperlink{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}{$\sim$\+Entity}} ()=default
+\item
+const std\+::string \& \mbox{\hyperlink{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}{get\+Id}} () const
+\item
+{\footnotesize template$<$class T $>$ }\\bool \mbox{\hyperlink{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}{has\+Component}} ()
+\item
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}{register\+Component}} (T component)
+\item
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}{get\+Component}} ()
+\item
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}{enable\+Component}} ()
+\item
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}{disable\+Component}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}\label{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}\label{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!````~Entity@{$\sim$Entity}}
+\index{````~Entity@{$\sim$Entity}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{$\sim$Entity()}{~Entity()}}
+{\footnotesize\ttfamily virtual Kappa\+Engine\+::\+Entity\+::$\sim$\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}\label{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!disableComponent@{disableComponent}}
+\index{disableComponent@{disableComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{disableComponent()}{disableComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Kappa\+Engine\+::\+Entity\+::disable\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}\label{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!enableComponent@{enableComponent}}
+\index{enableComponent@{enableComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{enableComponent()}{enableComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Kappa\+Engine\+::\+Entity\+::enable\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}\label{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ Kappa\+Engine\+::\+Entity\+::get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}\label{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!getId@{getId}}
+\index{getId@{getId}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily const std\+::string \& Kappa\+Engine\+::\+Entity\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}\label{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!hasComponent@{hasComponent}}
+\index{hasComponent@{hasComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{hasComponent()}{hasComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool Kappa\+Engine\+::\+Entity\+::has\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}\label{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}}
+\index{KappaEngine::Entity@{KappaEngine::Entity}!registerComponent@{registerComponent}}
+\index{registerComponent@{registerComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{registerComponent()}{registerComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool Kappa\+Engine\+::\+Entity\+::register\+Component (\begin{DoxyParamCaption}\item[{T}]{component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item
+Kappa\+Engine/\+Entity/\mbox{\hyperlink{_entity_8hpp}{Entity.\+hpp}}\end{DoxyCompactItemize}
