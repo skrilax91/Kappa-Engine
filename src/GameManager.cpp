@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "GameManager.hpp"
+#include "KappaEngine/GameManager.hpp"
 
 namespace KappaEngine {
 
