@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "EntityManager.hpp"
+#include "KappaEngine/EntityManager.hpp"
 
 int main() {
     KappaEngine::EntityManager entityManager;

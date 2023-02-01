@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <utility>
 
-#include "Components/IComponent.hpp"
+#include "KappaEngine/Components/IComponent.hpp"
 
 namespace KappaEngine {
     class Entity {

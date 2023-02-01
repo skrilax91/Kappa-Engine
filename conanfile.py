@@ -18,7 +18,6 @@ class KappaEngineConan(ConanFile):
     generators = "CMakeDeps"
 
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
-    build_requires = "cmake/3.24.0"
 
     def config_options(self):
         if self.settings.os == "Windows":

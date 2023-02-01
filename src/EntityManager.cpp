@@ -3,7 +3,7 @@
 //
 
 #include <stdexcept>
-#include "EntityManager.hpp"
+#include "KappaEngine/EntityManager.hpp"
 
 using namespace KappaEngine;
 

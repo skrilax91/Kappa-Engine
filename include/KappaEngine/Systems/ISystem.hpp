@@ -11,9 +11,9 @@ namespace KappaEngine {
     class Scene;
 }
 
-#include "EntityManager.hpp"
-#include "Scene.hpp"
-#include "SystemManager.hpp"
+#include "KappaEngine/EntityManager.hpp"
+#include "KappaEngine/Scene.hpp"
+#include "KappaEngine/SystemManager.hpp"
 
 namespace KappaEngine {
 

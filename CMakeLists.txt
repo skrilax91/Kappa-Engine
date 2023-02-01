@@ -24,6 +24,6 @@ find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
-target_link_libraries(${PROJECT_NAME} SFML)
+target_link_libraries(${PROJECT_NAME} sfml::sfml)
 
 install(TARGETS ${PROJECT_NAME})

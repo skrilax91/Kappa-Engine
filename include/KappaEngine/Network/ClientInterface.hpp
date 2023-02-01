@@ -6,9 +6,9 @@
 
 #include <asio.hpp>
 
-#include "Network/NetworkQueue.hpp"
-#include "Network/net_message.h"
-#include "Network/NetworkConnection.hpp"
+#include "NetworkQueue.hpp"
+#include "net_message.h"
+#include "NetworkConnection.hpp"
 
 
 namespace Network {

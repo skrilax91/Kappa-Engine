@@ -6,7 +6,7 @@
 #define KAPPA_ENGINE_RIGIDBODYSYSTEM_HPP
 
 #include "ISystem.hpp"
-#include "Components/RigidBody.hpp"
+#include "KappaEngine/Components/RigidBody.hpp"
 
 namespace KappaEngine {
     class RigidBodySystem : public ISystem {

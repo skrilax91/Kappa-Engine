@@ -5,7 +5,7 @@
 #ifndef KAPPA_ENGINE_NETWORKCOMPONENT_HPP
 #define KAPPA_ENGINE_NETWORKCOMPONENT_HPP
 
-#include "Components/IComponent.hpp"
+#include "IComponent.hpp"
 
 namespace Component {
     class NetworkComponent: public IComponent {

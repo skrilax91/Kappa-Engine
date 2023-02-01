@@ -4,9 +4,9 @@
 
 #include <iostream>
 #include <ctime>
-#include "Systems/RigidBodySystem.hpp"
-#include "Components/Transform.hpp"
-#include "Time.hpp"
+#include "KappaEngine/Systems/RigidBodySystem.hpp"
+#include "KappaEngine/Components/Transform.hpp"
+#include "KappaEngine/Time.hpp"
 
 namespace KappaEngine {
     void RigidBodySystem::Awake() {
