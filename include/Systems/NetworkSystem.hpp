@@ -5,7 +5,7 @@
 #ifndef KAPPA_ENGINE_NETWORKSYSTEM_HPP
 #define KAPPA_ENGINE_NETWORKSYSTEM_HPP
 
-#include "KappaEngine/Systems/ISystem.hpp"
+#include "Systems/ISystem.hpp"
 
 namespace KappaEngine {
     class NetworkSystem: public ISystem {

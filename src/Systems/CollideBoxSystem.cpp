@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "KappaEngine/Systems/CollideBoxSystem.hpp"
+#include "Systems/CollideBoxSystem.hpp"
 
 namespace KappaEngine {
     void CollideBoxSystem::Awake() {

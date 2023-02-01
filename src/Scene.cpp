@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "KappaEngine/Scene.hpp"
+#include "Scene.hpp"
 
 namespace KappaEngine {
     Scene::Scene(std::string name): _name(name) {

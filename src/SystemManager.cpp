@@ -5,12 +5,12 @@
 #include <iostream>
 #include <thread>
 
-#include "KappaEngine/SystemManager.hpp"
-#include "KappaEngine/Systems/RigidBodySystem.hpp"
-#include "KappaEngine/Systems/CollideBoxSystem.hpp"
-#include "KappaEngine/Systems/SpriteRendererSystem.hpp"
-#include "KappaEngine/GameManager.hpp"
-#include "KappaEngine/Input.hpp"
+#include "SystemManager.hpp"
+#include "Systems/RigidBodySystem.hpp"
+#include "Systems/CollideBoxSystem.hpp"
+#include "Systems/SpriteRendererSystem.hpp"
+#include "GameManager.hpp"
+#include "Input.hpp"
 
 namespace KappaEngine {
     SystemManager::SystemManager(Scene *scene) : _scene(scene) {

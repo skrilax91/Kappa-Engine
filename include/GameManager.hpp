@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-#include "KappaEngine/Scene.hpp"
+#include "Scene.hpp"
 
 namespace KappaEngine {
 

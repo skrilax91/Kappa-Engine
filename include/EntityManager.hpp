@@ -9,7 +9,7 @@
 #include <string>
 #include <memory>
 
-#include "KappaEngine/Entity/Entity.hpp"
+#include "Entity/Entity.hpp"
 
 namespace KappaEngine {
     class EntityManager {

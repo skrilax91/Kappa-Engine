@@ -7,8 +7,8 @@
 #include <memory>
 #include <asio.hpp>
 
-#include "KappaEngine/Network/net_message.h"
-#include "KappaEngine/Network/NetworkQueue.hpp"
+#include "Network/net_message.h"
+#include "Network/NetworkQueue.hpp"
 
 namespace Network {
 

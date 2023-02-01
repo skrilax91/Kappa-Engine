@@ -2,7 +2,7 @@
 // Created by leo_b on 29/01/2023.
 //
 
-#include "KappaEngine/Input.hpp"
+#include "Input.hpp"
 
 namespace KappaEngine {
     std::vector<const sf::Event *> Input::_events;
