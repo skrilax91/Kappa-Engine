@@ -11,6 +11,13 @@ struct coord2d {
 };
 
 namespace Component {
+
+    /**
+     * @brief IComponent is an interface from which every component inherits.
+     * 
+     * It only contains an "enabled" boolean ffor the systems to know if they must handle the component or not.
+     * 
+     */
     class IComponent {
         public:
             virtual ~IComponent() = default;

@@ -11,6 +11,11 @@
 #include <SFML/System/Vector2.hpp>
 
 namespace Component {
+
+    /**
+     * @brief The RigidBody component contains all the data used for the physics of the game or scene.
+     * 
+     */
     class RigidBody: public IComponent {
         public:
             RigidBody(float mass, float gravity) : mass(mass), gravity(gravity) {};

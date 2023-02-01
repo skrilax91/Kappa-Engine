@@ -7,6 +7,11 @@
 #include "IComponent.hpp"
 
 namespace Component {
+
+    /**
+     * @brief The Camera component renders a specific part of a scene on a window.
+     * 
+     */
     class Camera : public IComponent {
         public:
             /**

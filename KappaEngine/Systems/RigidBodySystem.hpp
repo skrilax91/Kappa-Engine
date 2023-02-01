@@ -9,6 +9,11 @@
 #include "KappaEngine/Components/RigidBody.hpp"
 
 namespace KappaEngine {
+
+    /**
+     * @brief RigidBodySystem contains the logic for all the physics of the scene and game.
+     * 
+     */
     class RigidBodySystem : public ISystem {
         public:
             explicit RigidBodySystem(Scene *scene) : ISystem(scene) {};

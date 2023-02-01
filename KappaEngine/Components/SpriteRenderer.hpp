@@ -14,6 +14,16 @@
 #include "Transform.hpp"
 
 namespace Component {
+
+    /**
+     * @brief The SpriteRenderer component allows to render an entity on a window using a sprite. It contains:
+     *  - The position relative to the Transform component position
+     *  - The path to the sprite's texture file
+     *  - The sprite used to render the Entity
+     *  - The rectangle of the texture used to render the sprite
+     *  - The layer that the sprite is rendered on, used by the cameras
+     * 
+     */
     class SpriteRenderer : public IComponent {
         public:
             SpriteRenderer(struct coord2d position, std::string texturePath, sf::IntRect textureRect = sf::IntRect(), std::string layer = "default"):

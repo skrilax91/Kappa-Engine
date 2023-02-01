@@ -10,6 +10,13 @@
 #include "KappaEngine/Components/Camera.hpp"
 
 namespace KappaEngine {
+
+    /**
+     * @brief SpriteRendererSystem contains the logic that allows to render any object of a scene on a window?
+     * 
+     * It contains a texture cache to avoid loading the same texture several times
+     * 
+     */
     class SpriteRendererSystem : public ISystem {
         public:
             explicit SpriteRendererSystem(Scene *scene) : ISystem(scene) {};

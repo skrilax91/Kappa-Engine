@@ -10,13 +10,13 @@
 #include <vector>
 
 namespace KappaEngine {
-    /*
+    /**
      * @brief The Input class is used to manage the input of the user
      */
     class Input {
         public:
 
-            /*
+            /**
              * @brief IsKeyPressed Check if a key is pressed
              * @tparam T The key to check
              * @return True if the key is pressed, false otherwise
@@ -26,7 +26,7 @@ namespace KappaEngine {
                 return sf::Keyboard::isKeyPressed(T);
             }
 
-            /*
+            /**
              * @brief IsKeyReleased Check if a key is released
              * @tparam T The key to check
              * @return True if the key is released, false otherwise
@@ -41,7 +41,7 @@ namespace KappaEngine {
                 return false;
             }
 
-            /*
+            /**
              * @brief Set the events of the input
              */
             static void setEvents(const std::vector<const sf::Event *>& events);

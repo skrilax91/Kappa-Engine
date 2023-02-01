@@ -10,6 +10,13 @@
 #include "IComponent.hpp"
 
 namespace Component {
+
+    /**
+     * @brief The Transform component contains:
+     *  - The absolute position of an Entity in the scene
+     *  - The scale of an Entity
+     *  - The rotation of an Entity
+     */
     class Transform: public IComponent {
         public:
             Transform(sf::Vector2f pos, coord2d scale, coord2d rotation) : position(pos), scale(scale), rotation(rotation) {};

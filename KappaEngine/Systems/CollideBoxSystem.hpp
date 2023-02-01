@@ -8,6 +8,11 @@
 #include "ISystem.hpp"
 
 namespace KappaEngine {
+
+    /**
+     * @brief CollideBoxSystem handles the collisions between entities that are attached to a CollideBox component.
+     * 
+     */
     class CollideBoxSystem : public ISystem {
         public:
             explicit CollideBoxSystem(Scene *scene) : ISystem(scene) {};
