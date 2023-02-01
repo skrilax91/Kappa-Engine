@@ -2,8 +2,8 @@
 // Created by Sebayl on 23/01/2023.
 //
 
-#include "KappaEngine/Systems/SpriteRendererSystem.hpp"
-#include "KappaEngine/GameManager.hpp"
+#include "Systems/SpriteRendererSystem.hpp"
+#include "GameManager.hpp"
 
 namespace KappaEngine {
     void SpriteRendererSystem::Awake() {

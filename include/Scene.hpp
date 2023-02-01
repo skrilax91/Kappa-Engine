@@ -13,8 +13,8 @@ namespace KappaEngine {
 }
 
 #include <SFML/Graphics.hpp>
-#include "KappaEngine/SystemManager.hpp"
-#include "KappaEngine/EntityManager.hpp"
+#include "SystemManager.hpp"
+#include "EntityManager.hpp"
 
 namespace KappaEngine {
 

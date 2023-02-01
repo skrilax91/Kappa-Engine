@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <thread>
+#include <iostream>
 #include <SFML/Window/Event.hpp>
 
 namespace KappaEngine {
@@ -14,7 +15,7 @@ namespace KappaEngine {
     class ISystem;
 }
 
-#include "KappaEngine/Time.hpp"
+#include "Time.hpp"
 
 #include "Systems/ISystem.hpp"
 #include "Scene.hpp"

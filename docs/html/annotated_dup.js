@@ -8,7 +8,7 @@ var annotated_dup =
       [ "SpriteRenderer", "class_component_1_1_sprite_renderer.html", "class_component_1_1_sprite_renderer" ],
       [ "Transform", "class_component_1_1_transform.html", "class_component_1_1_transform" ]
     ] ],
-    [ "KappaEngine", "namespace_kappa_engine.html", [
+    [ "include", "namespace_kappa_engine.html", [
       [ "CollideBoxSystem", "class_kappa_engine_1_1_collide_box_system.html", "class_kappa_engine_1_1_collide_box_system" ],
       [ "Entity", "class_kappa_engine_1_1_entity.html", "class_kappa_engine_1_1_entity" ],
       [ "EntityManager", "class_kappa_engine_1_1_entity_manager.html", "class_kappa_engine_1_1_entity_manager" ],

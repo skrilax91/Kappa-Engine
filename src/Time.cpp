@@ -2,7 +2,7 @@
 // Created by leo_b on 28/01/2023.
 //
 
-#include "KappaEngine/Time.hpp"
+#include "Time.hpp"
 
 namespace KappaEngine {
     sf::Time Time::_deltaTime = sf::Time::Zero;

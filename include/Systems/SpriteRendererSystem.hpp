@@ -5,9 +5,9 @@
 #include <iostream>
 #include <unordered_map>
 #include "ISystem.hpp"
-#include "KappaEngine/Components/SpriteRenderer.hpp"
-#include "KappaEngine/Components/Transform.hpp"
-#include "KappaEngine/Components/Camera.hpp"
+#include "Components/SpriteRenderer.hpp"
+#include "Components/Transform.hpp"
+#include "Components/Camera.hpp"
 
 namespace KappaEngine {
     class SpriteRendererSystem : public ISystem {
