@@ -13,7 +13,7 @@ namespace Interface {
             ButtonComponent() = default;
 
             sf::Vector2f position = {0, 0};
-            sf::Vector2f size = {0, 0};
+            sf::Vector2f scale = {0, 0};
             Anchor anchor = Anchor::TOP_LEFT;
 
             sf::Color color = sf::Color::White;
@@ -22,14 +22,18 @@ namespace Interface {
             sf::Color textColor = sf::Color::Black;
             sf::Font font = sf::Font();
 
+            sf::Sprite sprite = sf::Sprite();
+            std::string texturePath = "";
+            sf::IntRect textureRect = {0, 0, 50, 100};
 
             std::function<void()> onClick;
             std::function<void()> onRelease;
 
             std::function<void()> onHover;
             std::function<void()> onUnhover;
+
+            void draw() override;
     };
 }
-
 
 #endif //KAPPA_ENGINE_BUTTONCOMPONENT_HPP

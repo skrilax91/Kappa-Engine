@@ -25,6 +25,9 @@ namespace Interface {
     class IInterface {
         public:
             virtual ~IInterface() = default;
+
+            virtual void draw() {};
+
             enabled = true;
     };
 }
