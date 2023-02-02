@@ -11,6 +11,8 @@
 #include <vector>
 
 #include "Scene.hpp"
+#include "KappaEngine/Network/ServerInterface.hpp"
+#include "KappaEngine/Network/ClientInterface.hpp"
 
 namespace KappaEngine {
 
@@ -75,12 +77,48 @@ namespace KappaEngine {
             static Scene* GetScene(const std::string& name);
 
 
+            Template<class T>
+            static void makeServer(int port) {
+                static_assert(std::is_base_of<ServerInterface, T>::value, "T must inherit from ServerInterface");
+
+                if (isNetworked())
+                    throw std::runtime_error("A networked game is already running"
+
+                _server = new T(port);
+            }
+
+            Template<class T>
+            static void makeClient() {
+                static_assert(std::is_base_of<ClientInterface, T>::value, "T must inherit from ClientInterface");
+
+                if (isNetworked())
+                    throw std::runtime_error("A networked game is already running"
+
+
+                _client = new T();
+            }
+
+            static bool isNetworked() {
+                return getClient() || getServer();
+            }
+
+            static ServerInterface* getServer() {
+                return _server;
+            }
+
+            static ClientInterface* getClient() {
+                return _client;
+            }
+
         private:
             static sf::RenderWindow *_window;
             static std::string _name;
             static bool _fullscreen;
 
             static std::vector<Scene *> _scenes;
+
+            static ServerInterface *_server;
+            static ClientInterface *_client;
 
 
     };
