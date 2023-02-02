@@ -23,7 +23,7 @@ file(GLOB SOURCE_FILES
 
 find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 
-add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
+add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS} src/Interfaces/Text.cpp include/KappaEngine/Interfaces/Text.hpp)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 target_link_libraries(${PROJECT_NAME} sfml::sfml)

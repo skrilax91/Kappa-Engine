@@ -5,6 +5,9 @@
 #ifndef KAPPA_ENGINE_IINTERFACE_HPP
 #define KAPPA_ENGINE_IINTERFACE_HPP
 
+#include <SFML/Graphics.hpp>
+#include "KappaEngine/GameManager.hpp"
+
 namespace Interface {
 
     enum Anchor {
@@ -26,9 +29,9 @@ namespace Interface {
         public:
             virtual ~IInterface() = default;
 
-            virtual void draw() {};
+            virtual void draw() = 0;
 
-            enabled = true;
+            bool enabled = true;
     };
 }
 

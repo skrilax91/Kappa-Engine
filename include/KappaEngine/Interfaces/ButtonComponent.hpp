@@ -5,6 +5,7 @@
 #ifndef KAPPA_ENGINE_BUTTONCOMPONENT_HPP
 #define KAPPA_ENGINE_BUTTONCOMPONENT_HPP
 
+#include <functional>
 #include "KappaEngine/Interfaces/IInterface.hpp"
 
 namespace Interface {
@@ -13,7 +14,9 @@ namespace Interface {
             ButtonComponent() = default;
 
             sf::Vector2f position = {0, 0};
+            sf::Vector2f rotation = {0, 0};
             sf::Vector2f scale = {0, 0};
+
             Anchor anchor = Anchor::TOP_LEFT;
 
             sf::Color color = sf::Color::White;
