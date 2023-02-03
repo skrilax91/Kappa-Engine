@@ -23,7 +23,7 @@ find_package(SFML 2.5 REQUIRED)
 find_package(asio REQUIRED)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR})
 
 target_link_libraries(${PROJECT_NAME} sfml::sfml asio::asio)
 

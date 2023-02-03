@@ -39,8 +39,8 @@ class KappaEngineConan(ConanFile):
     def package(self):
         cmake = CMake(self)
         cmake.install()
-        copy(self, "*.h", self.source_folder, join(self.package_folder, "include"))
-        copy(self, "*.hpp", self.source_folder, join(self.package_folder, "include"))
+        copy(self, "*.h", join(self.source_folder, "include"), join(self.package_folder, "include"))
+        copy(self, "*.hpp", join(self.source_folder, "include"), join(self.package_folder, "include"))
         copy(self, "*.lib", self.build_folder, join(self.package_folder, "lib"))
         copy(self, "*.dll", self.build_folder, join(self.package_folder, "bin"))
         copy(self, "*.so", self.build_folder, join(self.package_folder, "lib"))
