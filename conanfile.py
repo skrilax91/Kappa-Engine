@@ -5,7 +5,6 @@ from conan.tools.cmake import CMake, cmake_layout, CMakeToolchain, CMakeDeps
 from conan.tools.files import copy
 
 
-
 class KappaEngineConan(ConanFile):
     name = "kappa"
     version = "0.1"
@@ -19,7 +18,7 @@ class KappaEngineConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": False}
-    generators = "CMakeDeps"
+    generators = "CMakeDeps", "CMakeToolchain"
 
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
 

@@ -19,7 +19,7 @@ file(GLOB SOURCE_FILES
 
         )
 
-find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
 find_package(Asio REQUIRED)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
