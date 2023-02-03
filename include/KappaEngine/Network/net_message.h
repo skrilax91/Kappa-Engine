@@ -10,28 +10,26 @@
 
 namespace Network {
 
-    template<typename T>
     struct MessageHeader {
-        T id{};
+        uint32_t id = 0;
         uint32_t size = 0;
     };
 
-    template<typename T>
     struct Message {
-        MessageHeader<T> header{};
+        MessageHeader header{};
         std::vector<uint8_t> body;
 
         size_t size() const {
-            return sizeof(MessageHeader<T>) + body.size();
+            return sizeof(MessageHeader) + body.size();
         }
 
-        friend std::ostream& operator<<(std::ostream& os, const Message<T>& msg) {
-            os << "ID: " << int(msg.header.id) << " Size: " << msg.header.size;
+        friend std::ostream& operator<<(std::ostream& os, const Message& msg) {
+            os << "ID: " << msg.header.id << " Size: " << msg.header.size;
             return os;
         }
 
         template<typename DataType>
-        friend Message<T>& operator<<(Message<T>& msg, const DataType& data) {
+        friend Message& operator<<(Message& msg, const DataType& data) {
             static_assert(std::is_standard_layout<DataType>::value, "Data is too complex to be pushed into vector");
 
             size_t i = msg.body.size();
@@ -42,7 +40,7 @@ namespace Network {
         }
 
         template<typename DataType>
-        friend Message<T>& operator>>(Message<T>& msg, DataType& data) {
+        friend Message& operator>>(Message& msg, DataType& data) {
             static_assert(std::is_standard_layout<DataType>::value, "Data is too complex to be pushed into vector");
 
             size_t i = msg.body.size() - sizeof(DataType);
@@ -54,15 +52,13 @@ namespace Network {
 
     };
 
-    template<typename T>
     class Connection;
 
-    template<typename T>
     struct OwnedMessage {
-        std::shared_ptr<Connection<T>> remote = nullptr;
-        Message<T> msg;
+        std::shared_ptr<Connection> remote = nullptr;
+        Message msg;
 
-        friend std::ostream& operator<<(std::ostream& os, const OwnedMessage<T>& msg) {
+        friend std::ostream& operator<<(std::ostream& os, const OwnedMessage& msg) {
             os << msg.msg;
             return os;
         }

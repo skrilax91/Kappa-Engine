@@ -42,6 +42,20 @@ namespace KappaEngine {
             void Awake();
 
             /**
+             * @brief Update Update the system manager.
+             *
+             * This function will update the system manager.
+             */
+            void Update();
+
+            /**
+             * @brief OnRenderObject Render the scene.
+             *
+             * This function will render the scene.
+             */
+            void OnRenderObject();
+
+            /**
              * @brief registerSystem Register a system.
              *
              * This function will register a system to the system manager.

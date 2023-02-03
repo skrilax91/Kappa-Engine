@@ -1,0 +1,10 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "D:\\Dev\\epitech\\Kappa-Engine\\build\\generators\\CMakePresets.json",
+        "D:/Dev/epitech/Kappa-Engine\\build\\generators\\CMakePresets.json"
+    ]
+}

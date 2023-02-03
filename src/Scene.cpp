@@ -12,8 +12,20 @@ namespace KappaEngine {
         std::cout << "Scene created" << std::endl;
     }
 
-    void Scene::StartSystemManager() {
+    void Scene::Awake() {
+        _systemManager->Awake();
+    }
+
+    void Scene::Start() {
         _systemManager->Start();
+    }
+
+    void Scene::Update() {
+        _systemManager->Update();
+    }
+
+    void Scene::OnRenderObject() {
+        _systemManager->OnRenderObject();
     }
 
     SystemManager *Scene::getSystemManager() {

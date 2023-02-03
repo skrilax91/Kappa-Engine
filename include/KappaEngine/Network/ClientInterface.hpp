@@ -13,7 +13,6 @@
 
 namespace Network {
 
-    template<typename T>
     class ClientInterface {
         public:
 
@@ -32,8 +31,8 @@ namespace Network {
                     asio::ip::tcp::resolver resolver(_ioContext);
                     asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(host, std::to_string(port));
 
-                    _connection = std::make_unique<Connection<T>>(
-                        Connection<T>::Owner::Client,
+                    _connection = std::make_unique<Connection>(
+                        Connection::Owner::Client,
                         _ioContext,
                         asio::ip::tcp::socket(_ioContext),
                         _incomingMessages
@@ -66,22 +65,32 @@ namespace Network {
                 return _connection && _connection->IsConnected();
             }
 
-            void Send(const Message<T>& msg) {
+            void Send(const Message& msg) {
                 if (IsConnected()) {
                     _connection->Send(msg);
                 }
             }
 
-            NetworkQueue<OwnedMessage<T>>& GetIncomingMessages() {
+            void Update(size_t maxMessages = -1) {
+
+                size_t messageCount = 0;
+                while ((maxMessages == -1 || messageCount < maxMessages) && !_incomingMessages.empty()) {
+                    auto msg = _incomingMessages.popFront().msg;
+                    // TODO: Handle message
+                    messageCount++;
+                }
+            }
+
+            NetworkQueue<OwnedMessage>& GetIncomingMessages() {
                 return _incomingMessages;
             }
 
         protected:
             asio::io_context _ioContext;
             std::thread _threadContext;
-            std::unique_ptr<Connection<T>> _connection;
+            std::unique_ptr<Connection> _connection;
 
         private:
-            NetworkQueue<OwnedMessage<T>> _incomingMessages;
+            NetworkQueue<OwnedMessage> _incomingMessages;
     };
 }

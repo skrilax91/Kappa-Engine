@@ -1,10 +1,13 @@
+from os.path import join
+
 from conans import ConanFile
-from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
+from conan.tools.cmake import CMake, CMakeToolchain
+from conan.tools.files import copy
 
 
 class KappaEngineConan(ConanFile):
     name = "KappaEngine"
-    version = "0.1"
+    version = "0.2"
 
     license = "<Put the package license here>"
     author = "Leo Brossard leo.brossard@epitech.eu"
@@ -13,22 +16,15 @@ class KappaEngineConan(ConanFile):
     topics = ("Game", "CPP", "Engine")
 
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False], "fPIC": [True, False]}
-    default_options = {"shared": False, "fPIC": True}
+    options = {"shared": [True, False]}
+    default_options = {"shared": False}
     generators = "CMakeDeps"
 
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
 
-    def config_options(self):
-        if self.settings.os == "Windows":
-            del self.options.fPIC
-
     def requirements(self):
         self.requires("sfml/2.5.1")
         self.requires("asio/1.24.0")
-
-    def layout(self):
-        cmake_layout(self)
 
     def generate(self):
         tc = CMakeToolchain(self)
@@ -43,13 +39,13 @@ class KappaEngineConan(ConanFile):
     def package(self):
         cmake = CMake(self)
         cmake.install()
-        self.copy("*.h", dst="include", src="include")
-        self.copy("*.hpp", dst="include", src="include")
-        self.copy("*.lib", dst="lib", keep_path=False)
-        self.copy("*.dll", dst="bin", keep_path=False)
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.dylib", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
+        copy(self, "*.h", join(self.source_folder, "include"), join(self.package_folder, "include"))
+        copy(self, "*.hpp", join(self.source_folder, "include"), join(self.package_folder, "include"))
+        copy(self, "*.lib", self.build_folder, join(self.package_folder, "lib"))
+        copy(self, "*.dll", self.build_folder, join(self.package_folder, "bin"))
+        copy(self, "*.so", self.build_folder, join(self.package_folder, "lib"))
+        copy(self, "*.dylib", self.build_folder, join(self.package_folder, "lib"))
+        copy(self, "*.a", self.build_folder, join(self.package_folder, "lib"))
 
     def package_info(self):
         self.cpp_info.libs = ["KappaEngine"]
