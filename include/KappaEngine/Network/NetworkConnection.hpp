@@ -12,15 +12,14 @@
 
 namespace Network {
 
-    template<typename T>
-    class Connection: public std::enable_shared_from_this<Connection<T>> {
+    class Connection: public std::enable_shared_from_this<Connection> {
         public:
             enum class Owner {
                 Server,
                 Client
             };
 
-            Connection(Owner parent, asio::io_context& context, asio::ip::tcp::socket socket, NetworkQueue<OwnedMessage<T>>& qin)
+            Connection(Owner parent, asio::io_context& context, asio::ip::tcp::socket socket, NetworkQueue<OwnedMessage>& qin)
             : _socket(std::move(socket)), _ioContext(context), _incomingMessages(qin) {
                 _ownerType = parent;
             };
@@ -66,7 +65,7 @@ namespace Network {
                 return _socket.is_open();
             };
 
-            void Send(const Message<T>& msg) {
+            void Send(const Message& msg) {
                 if (IsConnected()) {
                     _ioContext.post([this, msg]() {
                         bool writeInProgress = !_outgoingMessages.empty();
@@ -84,10 +83,10 @@ namespace Network {
             asio::ip::tcp::socket _socket;
             asio::io_context& _ioContext;
 
-            NetworkQueue<OwnedMessage<T>>& _incomingMessages;
-            Message<T> _tmpMessage;
+            NetworkQueue<OwnedMessage>& _incomingMessages;
+            Message _tmpMessage;
 
-            NetworkQueue<Message<T>> _outgoingMessages;
+            NetworkQueue<Message> _outgoingMessages;
             Owner _ownerType = Owner::Server;
             uint32_t _id = 0;
 
@@ -99,7 +98,7 @@ namespace Network {
              * ASYNC FUNCTION
              */
             void ReadHeader() {
-                asio::async_read(_socket, asio::buffer(&_tmpMessage.header, sizeof(MessageHeader<T>)),
+                asio::async_read(_socket, asio::buffer(&_tmpMessage.header, sizeof(MessageHeader)),
                      [this](std::error_code ec, std::size_t length) {
                          if (!ec) {
                              if (_tmpMessage.header.size > 0) {
@@ -138,7 +137,7 @@ namespace Network {
              * ASYNC FUNCTION
              */
             void WriteHeader() {
-                asio::async_write(_socket, asio::buffer(&_outgoingMessages.front().header, sizeof(MessageHeader<T>)),
+                asio::async_write(_socket, asio::buffer(&_outgoingMessages.front().header, sizeof(MessageHeader)),
                      [this](std::error_code ec, std::size_t length) {
                          if (!ec) {
                              if (_outgoingMessages.front().header.size > 0) {

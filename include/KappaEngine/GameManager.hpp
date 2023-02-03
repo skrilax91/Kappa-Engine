@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "Scene.hpp"
+#include "Console/Console.hpp"
 #include "KappaEngine/Network/ServerInterface.hpp"
 #include "KappaEngine/Network/ClientInterface.hpp"
 
@@ -62,6 +63,18 @@ namespace KappaEngine {
             static void CloseWindow();
 
 
+            static void StartGame();
+
+            static bool GameStarted();
+
+            ///////////////////////////
+            // Console
+            ///////////////////////////
+
+            static Console::Console *console;
+
+
+
             /**
              * @brief Create a scene
              * @param name The name of the scene
@@ -76,14 +89,53 @@ namespace KappaEngine {
              */
             static Scene* GetScene(const std::string& name);
 
+            /**
+             * @brief Get the selected scene
+             * @return The selected scene
+             */
+            static Scene* GetSelectedScene();
+
+            /**
+             * @brief Select the scene
+             * @param name The name of the scene
+             */
+            static void SelectScene(const std::string& name);
+
+
+            static bool isNetworked();
+
+            static void makeServer(int port) {
+
+                if (isNetworked())
+                    throw std::runtime_error("Cannot make a server if a client is already running");
+
+                _server = new Network::ServerInterface(port);
+            }
+
+            static void makeClient() {
+
+                if (isNetworked())
+                    throw std::runtime_error("Cannot make a client if a server is already running");
+
+                _client = new Network::ClientInterface();
+            }
+
+            static Network::ServerInterface *GetServer();
+            static Network::ClientInterface *GetClient();
+
+            static void StartServer();
+
         private:
             static sf::RenderWindow *_window;
             static std::string _name;
+            static bool _started;
             static bool _fullscreen;
 
             static std::vector<Scene *> _scenes;
+            static Scene *_selectedScene;
 
-
+            static Network::ServerInterface *_server;
+            static Network::ClientInterface *_client;
     };
 }
 

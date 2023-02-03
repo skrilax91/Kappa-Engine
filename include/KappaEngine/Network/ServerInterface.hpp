@@ -13,8 +13,6 @@
 #include "NetworkQueue.hpp"
 
 namespace Network {
-
-    template<typename T>
     class ServerInterface {
 
         public:
@@ -56,8 +54,8 @@ namespace Network {
                             if (!ec) {
                                 std::cout << "[SERVER] New connection: " << socket.remote_endpoint() << std::endl;
 
-                                std::shared_ptr<Connection<T>> newConnection = std::make_shared<Connection<T>>(
-                                        Connection<T>::Owner::Server,
+                                std::shared_ptr<Connection> newConnection = std::make_shared<Connection>(
+                                        Connection::Owner::Server,
                                         _ioContext,
                                         std::move(socket),
                                         _incomingMessages
@@ -80,7 +78,7 @@ namespace Network {
                         });
             };
 
-            void MessageClient( const std::shared_ptr<Connection<T>>& client, const Message<T>& msg ) {
+            void MessageClient(std::shared_ptr<Connection>& client, const Message& msg ) {
                 if (client && client->IsConnected()) {
                     client->Send(msg);
                 }else {
@@ -90,7 +88,7 @@ namespace Network {
                 }
             };
 
-            void MessageAllClients( const Message<T>& msg, const std::shared_ptr<Connection<T>>& ignore = nullptr ) {
+            void MessageAllClients( const Message& msg, const std::shared_ptr<Connection>& ignore = nullptr ) {
                 bool invalidClientExists = false;
                 for (auto& client : _connections) {
                     if (client && client->IsConnected()) {
@@ -123,17 +121,24 @@ namespace Network {
                 }
             };
 
+            /////////////////////////////////
+            // Server Console Commands
+            /////////////////////////////////
+
+
+
+
         protected:
 
             /**
              * @brief Incoming messages from the clients
              */
-            NetworkQueue<OwnedMessage<T>> _incomingMessages;
+            NetworkQueue<OwnedMessage> _incomingMessages;
 
             /**
              * @brief List of active client connections
              */
-            std::deque<std::shared_ptr<Connection<T>>> _connections;
+            std::deque<std::shared_ptr<Connection>> _connections;
 
             /**
              * @brief Context for the asio network operations
@@ -163,7 +168,7 @@ namespace Network {
              * @param client
              * @return true if the client is accepted, false otherwise
              */
-            virtual bool OnClientConnect( std::shared_ptr<Connection<T>> client ) {
+            virtual bool OnClientConnect( std::shared_ptr<Connection> client ) {
                 return false;
             };
 
@@ -171,7 +176,7 @@ namespace Network {
              * @brief Called when a client disconnects
              * @param client
              */
-            virtual void OnClientDisconnect( std::shared_ptr<Connection<T>> client ) {
+            virtual void OnClientDisconnect( std::shared_ptr<Connection> client ) {
 
             };
 
@@ -180,7 +185,7 @@ namespace Network {
              * @param client
              * @param msg
              */
-            virtual void OnMessage( std::shared_ptr<Connection<T>> client, Message<T>& msg ) {
+            virtual void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
 
             };
 

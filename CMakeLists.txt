@@ -17,6 +17,9 @@ file(GLOB SOURCE_FILES
         "src/Systems/SpriteRendererSystem.cpp"
         "src/Systems/NetworkSystem.cpp"
 
+        "src/Console/Console.cpp"
+        "src/Console/Command.cpp"
+
         )
 
 find_package(SFML 2.5 REQUIRED)

@@ -29,7 +29,15 @@ namespace KappaEngine {
                 return _name;
             }
 
-            void StartSystemManager();
+            //////////////////////////
+            // Lifecycle functions
+            //////////////////////////
+
+            void Awake();
+            void Start();
+            void Update();
+            void OnRenderObject();
+
 
         private:
             std::string _name;

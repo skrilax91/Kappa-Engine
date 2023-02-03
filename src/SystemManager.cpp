@@ -35,55 +35,49 @@ namespace KappaEngine {
         for (auto &system: _systems) {
             system->Start();
         }
-
         _started = true;
-        std::cout << "SystemManager started" << std::endl;
-
         Time::resetTimeLib();
+        std::cout << "SystemManager started" << std::endl;
+    }
 
-        while (_started) {
-            Time::UpdateDeltaTime();
+    void SystemManager::Update() {
+        Time::UpdateDeltaTime();
 
-            sf::Event event{};
-            _events.clear();
-            while (GameManager::GetWindow()->pollEvent(event)) {
-                _events.push_back(event);
-            }
-
-            Input::setEvents(GetEvents<sf::Event::KeyReleased>());
-
-            if (getEvent<sf::Event::Closed>()) {
-                _started = false;
-                GameManager::CloseWindow();
-                break;
-            }
-
-            Time::RunOnFixedEnv([&] {
-                for (auto &system: _systems) {
-                    system->FixedUpdate();
-                }
-            });
-
-            /*std::vector<std::thread> threads;
-
-            for (auto &system: _systems) {
-                std::thread t(&ISystem::Update, system);
-                threads.push_back(std::move(t));
-            }
-            for (auto &thread: threads) {
-                thread.join();
-            }*/
-
-            GameManager::GetWindow()->clear();
-            for (auto &system: _systems) {
-                system->OnRenderObject();
-            }
-
-
-            GameManager::RenderWindow();
-            //std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
+        sf::Event event{};
+        _events.clear();
+        while (GameManager::GetWindow()->pollEvent(event)) {
+            _events.push_back(event);
         }
 
-        std::cout << "SystemManager stopped" << std::endl;
+        Input::setEvents(GetEvents<sf::Event::KeyReleased>());
+
+        if (getEvent<sf::Event::Closed>()) {
+            _started = false;
+            GameManager::CloseWindow();
+            return;
+        }
+
+        Time::RunOnFixedEnv([&] {
+            for (auto &system: _systems) {
+                system->FixedUpdate();
+            }
+        });
+
+        for (auto &system: _systems) {
+            system->Update();
+        }
+
+        for (auto &system: _systems) {
+            system->LateUpdate();
+        }
+        //std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
+    }
+
+
+    void SystemManager::OnRenderObject() {
+
+        for (auto &system: _systems) {
+            system->OnRenderObject();
+        }
     }
 }
