@@ -11,13 +11,16 @@ namespace KappaEngine {
     std::string GameManager::_name = "Kappa Engine Game";
     bool GameManager::_fullscreen = false;
     std::vector<Scene *> GameManager::_scenes = std::vector<Scene *>();
+    Scene *GameManager::_selectedScene = nullptr;
+
+    Console::Console *GameManager::_console = nullptr;
 
 
     ///////////////////////////
     // WINDOW
     ///////////////////////////
 
-    void GameManager::CreateWindow(const std::string &name, int width, int height) {
+    void GameManager::CreateGameWindow(const std::string &name, int width, int height) {
         _name = name;
         _window = new sf::RenderWindow();
         _window->create(sf::VideoMode(width, height), name);
@@ -65,6 +68,46 @@ namespace KappaEngine {
         _window->close();
     }
 
+    void GameManager::StartGame() {
+        if (!_window && !_server)
+            throw std::runtime_error("Cannot start a game if the window is not created");
+        else if (_window && _server)
+            throw std::runtime_error("A Server and a Window cannot be created at the same time");
+
+        _started = true;
+
+        _console = new Console::Console();
+
+        for (auto scene : _scenes) {
+            scene->Awake();
+        }
+
+        _selectedScene->Start();
+
+        while (_started) {
+            if (_server)
+                _server->Update();
+            else if (_window && !_window->isOpen())
+                _started = false;
+
+            if (_client && _client->IsConnected())
+                _client->Update();
+
+            _selectedScene->Update();
+
+            if (_window) {
+                _window->clear();
+                _selectedScene->OnRenderObject();
+                RenderWindow();
+            }
+        }
+    }
+
+    bool GameManager::GameStarted() {
+        return _started;
+    }
+
+    bool GameManager::_started = false;
 
     ///////////////////////////
     // SCENE
@@ -72,6 +115,8 @@ namespace KappaEngine {
 
     Scene *GameManager::CreateScene(const std::string &name) {
         auto *scene = new Scene(name);
+        if (!_selectedScene)
+            _selectedScene = scene;
         _scenes.push_back(scene);
         return scene;
     }
@@ -83,5 +128,49 @@ namespace KappaEngine {
         }
         return nullptr;
     }
+
+    Scene* GameManager::GetSelectedScene() {
+        return _selectedScene;
+    }
+
+    void GameManager::SelectScene(const std::string &name) {
+        for (auto scene : _scenes) {
+            if (scene->getName() == name) {
+                _selectedScene = scene;
+                if (_started)
+                    _selectedScene->Start();
+                break;
+            }
+        }
+    }
+
+    ///////////////////////////
+    // NETWORK
+    ///////////////////////////
+
+    Network::ServerInterface *GameManager::_server = nullptr;
+    Network::ClientInterface *GameManager::_client = nullptr;
+
+
+    bool GameManager::isNetworked() {
+        return _server || _client;
+    }
+
+    void GameManager::StartServer() {
+        if (!_server)
+            throw std::runtime_error("Cannot start a server if it is not created");
+
+        _server->Start();
+    }
+
+    Network::ServerInterface *GameManager::GetServer() {
+        return _server;
+    }
+
+    Network::ClientInterface *GameManager::GetClient() {
+        return _client;
+    }
+
+
 
 }

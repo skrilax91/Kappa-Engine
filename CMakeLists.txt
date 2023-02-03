@@ -3,6 +3,7 @@ project (KappaEngine LANGUAGES CXX VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+file (GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h")
 file(GLOB SOURCE_FILES
         "src/GameManager.cpp"
         "src/Time.cpp"
@@ -14,38 +15,19 @@ file(GLOB SOURCE_FILES
         "src/Systems/RigidBodySystem.cpp"
         "src/Systems/CollideBoxSystem.cpp"
         "src/Systems/SpriteRendererSystem.cpp"
+        "src/Systems/NetworkSystem.cpp"
+
+        "src/Console/Console.cpp"
+        "src/Console/Command.cpp"
 
         )
 
-file(GLOB HEADER_FILES
-        "KappaEngine/GameManager.hpp"
-        "KappaEngine/Time.hpp"
-        "KappaEngine/Input.hpp"
-        "KappaEngine/Scene.hpp"
-        "KappaEngine/EntityManager.hpp"
-        "KappaEngine/SystemManager.hpp"
+find_package(SFML 2.5 REQUIRED)
+find_package(asio REQUIRED)
 
-        "KappaEngine/Systems/ISystem.hpp"
-        "KappaEngine/Systems/RigidBodySystem.hpp"
-        "KappaEngine/Systems/CollideBoxSystem.hpp"
-        "KappaEngine/Systems/SpriteRendererSystem.hpp"
+add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
+target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR})
 
-        "KappaEngine/Entity/Entity.hpp"
+target_link_libraries(${PROJECT_NAME} sfml::sfml asio::asio)
 
-        "KappaEngine/Components/IComponent.hpp"
-        "KappaEngine/Components/Transform.hpp"
-        "KappaEngine/Components/RigidBody.hpp"
-        "KappaEngine/Components/CollideBox.hpp"
-        "KappaEngine/Components/SpriteRenderer.hpp"
-        "KappaEngine/Components/Camera.hpp"
-        )
-
-find_package(SFML 2.5.1 REQUIRED)
-
-add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
-
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CONAN_INCLUDE_DIRS_SFML})
-target_link_libraries(${PROJECT_NAME} sfml::sfml)
-
-install(TARGETS ${PROJECT_NAME} DESTINATION lib)
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/KappaEngine DESTINATION include)
+install(TARGETS ${PROJECT_NAME})

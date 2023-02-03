@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <thread>
+#include <iostream>
 #include <SFML/Window/Event.hpp>
 
 namespace KappaEngine {
@@ -14,7 +15,7 @@ namespace KappaEngine {
     class ISystem;
 }
 
-#include "KappaEngine/Time.hpp"
+#include "Time.hpp"
 
 #include "Systems/ISystem.hpp"
 #include "Scene.hpp"
@@ -39,6 +40,20 @@ namespace KappaEngine {
             void Start();
 
             void Awake();
+
+            /**
+             * @brief Update Update the system manager.
+             *
+             * This function will update the system manager.
+             */
+            void Update();
+
+            /**
+             * @brief OnRenderObject Render the scene.
+             *
+             * This function will render the scene.
+             */
+            void OnRenderObject();
 
             /**
              * @brief registerSystem Register a system.

@@ -13,8 +13,8 @@ namespace KappaEngine {
 }
 
 #include <SFML/Graphics.hpp>
-#include "KappaEngine/SystemManager.hpp"
-#include "KappaEngine/EntityManager.hpp"
+#include "SystemManager.hpp"
+#include "EntityManager.hpp"
 
 namespace KappaEngine {
 
@@ -29,7 +29,15 @@ namespace KappaEngine {
                 return _name;
             }
 
-            void StartSystemManager();
+            //////////////////////////
+            // Lifecycle functions
+            //////////////////////////
+
+            void Awake();
+            void Start();
+            void Update();
+            void OnRenderObject();
+
 
         private:
             std::string _name;
