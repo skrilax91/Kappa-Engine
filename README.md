@@ -30,6 +30,8 @@ After you need to change your default build profile with "Visual Studio" as tool
 And select "Visual Studio 17 2022" as generator. You can find the documentation [here](https://docs.conan.io/en/latest/integrations/build_system/cmake/cmake_generator.html#visual-studio)
 The Build directory MUST be set to `build` in the CMake options.
 
+![Screenshot_27](https://user-images.githubusercontent.com/6585219/216644812-121d6113-85b0-4d7d-b441-ced12b90e3cd.png)
+
 Next you need to install the dependencies.
 ```bash
 mkdir build && cd build
