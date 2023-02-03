@@ -1,12 +1,12 @@
 from os.path import join
 
-from conan import ConanFile
-from conan.tools.cmake import CMake, cmake_layout, CMakeToolchain, CMakeDeps
+from conans import ConanFile
+from conan.tools.cmake import CMake, CMakeToolchain
 from conan.tools.files import copy
 
 
 class KappaEngineConan(ConanFile):
-    name = "kappa"
+    name = "KappaEngine"
     version = "0.1"
 
     license = "<Put the package license here>"
@@ -18,7 +18,7 @@ class KappaEngineConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": False}
-    generators = "CMakeDeps", "CMakeToolchain"
+    generators = "CMakeDeps"
 
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
 
@@ -26,15 +26,9 @@ class KappaEngineConan(ConanFile):
         self.requires("sfml/2.5.1")
         self.requires("asio/1.24.0")
 
-    def layout(self):
-        cmake_layout(self)
-
     def generate(self):
         tc = CMakeToolchain(self)
         tc.generate()
-
-        deps = CMakeDeps(self)
-        deps.generate()
 
     def build(self):
         self.run("cmake --version")
@@ -54,4 +48,4 @@ class KappaEngineConan(ConanFile):
         copy(self, "*.a", self.build_folder, join(self.package_folder, "lib"))
 
     def package_info(self):
-        self.cpp_info.libs = ["kappa"]
+        self.cpp_info.libs = ["KappaEngine"]
