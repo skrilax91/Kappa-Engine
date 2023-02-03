@@ -121,10 +121,28 @@ namespace Network {
                 }
             };
 
-            /////////////////////////////////
-            // Server Console Commands
-            /////////////////////////////////
+/**
+             * @brief Get the number of connected clients
+             * @return Number of connected clients
+             */
+            size_t GetClientCount() const {
+                return _connections.size();
+            };
 
+
+            /**
+             * @brief Get the client at the specified ID
+             * @param id ID of the client
+             * @return Pointer to the client
+             */
+            std::shared_ptr<Connection> GetClient(uint32_t id) {
+                for (auto& client : _connections) {
+                    if (client->GetID() == id) {
+                        return client;
+                    }
+                }
+                return nullptr;
+            };
 
 
 

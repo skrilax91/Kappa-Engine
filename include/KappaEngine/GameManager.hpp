@@ -67,13 +67,6 @@ namespace KappaEngine {
 
             static bool GameStarted();
 
-            ///////////////////////////
-            // Console
-            ///////////////////////////
-
-            static Console::Console *console;
-
-
 
             /**
              * @brief Create a scene
@@ -126,6 +119,9 @@ namespace KappaEngine {
             static void StartServer();
 
         private:
+            static Console::Console *_console;
+
+
             static sf::RenderWindow *_window;
             static std::string _name;
             static bool _started;

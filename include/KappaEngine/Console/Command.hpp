@@ -14,21 +14,19 @@
 namespace Console {
     class Command {
         public:
-            Command(std::string string, std::function<void(CmdArguments)> function, CmdArguments args = {});
-            Command(std::string string, std::string helper, std::function<void(CmdArguments)> function, CmdArguments args = {});
+            Command(std::string string, std::function<void(CmdArguments)> function);
+            Command(std::string string, std::string helper, std::function<void(CmdArguments)> function);
 
             virtual ~Command() = default;
 
             std::string getString() const;
             std::string getHelper() const;
             std::function<void(CmdArguments)> getFunction() const;
-            CmdArguments getArgs() const;
 
         private:
             std::string _string;
             std::string _helper;
             std::function<void(std::vector<std::string>)> _function;
-            CmdArguments _args;
 
     };
 }

@@ -45,11 +45,14 @@ namespace KappaEngine {
 
         sf::Event event{};
         _events.clear();
-        while (GameManager::GetWindow()->pollEvent(event)) {
-            _events.push_back(event);
-        }
 
-        Input::setEvents(GetEvents<sf::Event::KeyReleased>());
+        if (GameManager::GetWindow() != nullptr) {
+            while (GameManager::GetWindow()->pollEvent(event)) {
+                _events.push_back(event);
+            }
+
+            Input::setEvents(GetEvents<sf::Event::KeyReleased>());
+        }
 
         if (getEvent<sf::Event::Closed>()) {
             _started = false;

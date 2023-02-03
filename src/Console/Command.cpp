@@ -6,8 +6,8 @@
 
 namespace Console {
 
-    Command::Command(std::string string, std::function<void(CmdArguments)> function, CmdArguments args) : _string(std::move(string)), _function(std::move(function)), _args(std::move(args)) {}
-    Command::Command(std::string string, std::string helper, std::function<void(CmdArguments)> function, CmdArguments args) : _string(std::move(string)), _helper(std::move(helper)), _function(std::move(function)), _args(std::move(args)) {}
+    Command::Command(std::string string, std::function<void(CmdArguments)> function) : _string(std::move(string)), _function(std::move(function)) {}
+    Command::Command(std::string string, std::string helper, std::function<void(CmdArguments)> function) : _string(std::move(string)), _helper(std::move(helper)), _function(std::move(function)) {}
 
     std::string Command::getString() const {
         return _string;
@@ -19,9 +19,5 @@ namespace Console {
 
     std::function<void(CmdArguments)> Command::getFunction() const {
         return _function;
-    }
-
-    CmdArguments Command::getArgs() const {
-        return _args;
     }
 }

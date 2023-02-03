@@ -11,6 +11,9 @@ namespace KappaEngine {
     std::string GameManager::_name = "Kappa Engine Game";
     bool GameManager::_fullscreen = false;
     std::vector<Scene *> GameManager::_scenes = std::vector<Scene *>();
+    Scene *GameManager::_selectedScene = nullptr;
+
+    Console::Console *GameManager::_console = nullptr;
 
 
     ///////////////////////////
@@ -72,6 +75,8 @@ namespace KappaEngine {
             throw std::runtime_error("A Server and a Window cannot be created at the same time");
 
         _started = true;
+
+        _console = new Console::Console();
 
         for (auto scene : _scenes) {
             scene->Awake();
