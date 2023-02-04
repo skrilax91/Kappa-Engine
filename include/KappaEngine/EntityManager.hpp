@@ -34,6 +34,7 @@ namespace KappaEngine {
              * @param name The name of the entity.
              * @param cb The callback function that will be called when the entity is created.
              * @return The entity created.
+             * @throw std::runtime_error If the entity already exists.
              */
             Entity &createEntity(const std::string& name, void (*cb)(Entity&) );
 
@@ -44,8 +45,20 @@ namespace KappaEngine {
              *
              * @param name The name of the entity.
              * @return The entity created.
+             * @throw std::runtime_error If the entity already exists.
              */
             Entity &createEntity(const std::string& name);
+
+
+            /**
+             * @brief destroyEntity Destroy an entity.
+             *
+             * This function will destroy an entity.
+             *
+             * @param name The name of the entity.
+             * @throw std::runtime_error If the entity doesn't exist.
+             */
+            void destroyEntity(const std::string& name);
 
             /**
              * @brief Get all entities.
