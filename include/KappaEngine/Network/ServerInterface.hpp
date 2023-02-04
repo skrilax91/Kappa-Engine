@@ -241,8 +241,8 @@ namespace Network {
 
             /**
              * @brief Called when a message is received from a client
-             * @param client
-             * @param msg
+             * @param client Client that sent the message
+             * @param msg Message received
              */
             void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
                 uint32_t id = msg.header.id;
