@@ -14,6 +14,15 @@
 #include "Transform.hpp"
 
 namespace Component {
+
+    /**
+     * @brief The SpriteRenderer class
+     * @def This class is used to create a sprite renderer
+     * @def The position is the relative position of the sprite
+     * @def The texturePath is the path to the texture
+     * @def The textureRect is the rectangle of the texture to use
+     * @def The layer is the layer to render the sprite
+     */
     class SpriteRenderer : public IComponent {
         public:
             SpriteRenderer(struct coord2d position, std::string texturePath, sf::IntRect textureRect = sf::IntRect(), std::string layer = "default"):

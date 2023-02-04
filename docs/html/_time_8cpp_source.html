@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +48,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -62,30 +62,24 @@ $(document).ready(function(){initNavTree('_time_8cpp_source.html',''); initResiz
   <div class="headertitle"><div class="title">Time.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_time_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by leo_b on 28/01/2023.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_time_8hpp.html">KappaEngine/Time.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;KappaEngine/Time.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_kappa_engine.html">KappaEngine</a> {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    sf::Time <a class="code hl_variable" href="class_kappa_engine_1_1_time.html#a5be0bb6e9a38836276841a945cb7bd64">Time::_deltaTime</a> = sf::Time::Zero;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_kappa_engine_1_1_time.html#a159e1db9ba3ce6cbe2b1caf91e3a1f78">Time::_fixedDeltaTime</a> = 0.01;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_kappa_engine_1_1_time.html#aeed9b427a58bb9f6598bcad872180e34">Time::_lags</a> = 0.0;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    sf::Clock <a class="code hl_variable" href="class_kappa_engine_1_1_time.html#ad6da12fe394c1216cf6af572ffc72506">Time::_deltaClock</a> = sf::Clock();</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>KappaEngine {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    sf::Time Time::_deltaTime = sf::Time::Zero;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">double</span> Time::_fixedDeltaTime = 0.01;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">double</span> Time::_lags = 0.0;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    sf::Clock Time::_deltaClock = sf::Clock();</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
-<div class="ttc" id="a_time_8hpp_html"><div class="ttname"><a href="_time_8hpp.html">Time.hpp</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_time_html_a159e1db9ba3ce6cbe2b1caf91e3a1f78"><div class="ttname"><a href="class_kappa_engine_1_1_time.html#a159e1db9ba3ce6cbe2b1caf91e3a1f78">KappaEngine::Time::_fixedDeltaTime</a></div><div class="ttdeci">static double _fixedDeltaTime</div><div class="ttdef"><b>Definition:</b> <a href="_time_8hpp_source.html#l00044">Time.hpp:44</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_time_html_a5be0bb6e9a38836276841a945cb7bd64"><div class="ttname"><a href="class_kappa_engine_1_1_time.html#a5be0bb6e9a38836276841a945cb7bd64">KappaEngine::Time::_deltaTime</a></div><div class="ttdeci">static sf::Time _deltaTime</div><div class="ttdef"><b>Definition:</b> <a href="_time_8hpp_source.html#l00043">Time.hpp:43</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_time_html_ad6da12fe394c1216cf6af572ffc72506"><div class="ttname"><a href="class_kappa_engine_1_1_time.html#ad6da12fe394c1216cf6af572ffc72506">KappaEngine::Time::_deltaClock</a></div><div class="ttdeci">static sf::Clock _deltaClock</div><div class="ttdef"><b>Definition:</b> <a href="_time_8hpp_source.html#l00042">Time.hpp:42</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_time_html_aeed9b427a58bb9f6598bcad872180e34"><div class="ttname"><a href="class_kappa_engine_1_1_time.html#aeed9b427a58bb9f6598bcad872180e34">KappaEngine::Time::_lags</a></div><div class="ttdeci">static double _lags</div><div class="ttdef"><b>Definition:</b> <a href="_time_8hpp_source.html#l00045">Time.hpp:45</a></div></div>
-<div class="ttc" id="anamespace_kappa_engine_html"><div class="ttname"><a href="namespace_kappa_engine.html">KappaEngine</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00015">Entity.hpp:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_time_8cpp.html">Time.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>Time.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

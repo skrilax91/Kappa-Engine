@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +48,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -62,58 +62,50 @@ $(document).ready(function(){initNavTree('_scene_8cpp_source.html',''); initResi
   <div class="headertitle"><div class="title">Scene.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_scene_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by leo_b on 23/01/2023.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html">KappaEngine/Scene.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;KappaEngine/Scene.hpp&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_kappa_engine.html">KappaEngine</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_scene.html#ad9d9663f7d4ea2ab3d5836fb95cc4038">    9</a></span>    <a class="code hl_function" href="class_kappa_engine_1_1_scene.html#ad9d9663f7d4ea2ab3d5836fb95cc4038">Scene::Scene</a>(std::string name): _name(name), _window(sf::VideoMode::getFullscreenModes()[0], name, sf::Style::Fullscreen) {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        _systemManager = <span class="keyword">new</span> <a class="code hl_class" href="class_kappa_engine_1_1_system_manager.html">SystemManager</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        _entityManager = <span class="keyword">new</span> <a class="code hl_class" href="class_kappa_engine_1_1_entity_manager.html">EntityManager</a>();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        _window.setFramerateLimit(60);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Scene created&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_scene.html#a818ee7e2c0b0bb29de73758987778ca7">   16</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_kappa_engine_1_1_scene.html#a818ee7e2c0b0bb29de73758987778ca7">Scene::StartSystemManager</a>() {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        _systemManager-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_system_manager.html#a1690421036de0ac40de0d1e3b52bb2c8">Start</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_scene.html#a7f8c97a6268fd94de8597a9854047e82">   20</a></span>    <a class="code hl_class" href="class_kappa_engine_1_1_system_manager.html">SystemManager</a> *<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#a7f8c97a6268fd94de8597a9854047e82">Scene::getSystemManager</a>() {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">return</span> _systemManager;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">   24</a></span>    <a class="code hl_class" href="class_kappa_engine_1_1_entity_manager.html">EntityManager</a> *<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">Scene::getEntityManager</a>() {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> _entityManager;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_scene.html#a672686054ddf374fc555ef5fdc84cadf">   28</a></span>    sf::RenderWindow *<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#a672686054ddf374fc555ef5fdc84cadf">Scene::getWindow</a>() {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">return</span> &amp;_window;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_scene.html#aa5497c94a0c38c61afb084fb83bee119">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_kappa_engine_1_1_scene.html#aa5497c94a0c38c61afb084fb83bee119">Scene::RenderWindow</a>() { </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        _window.display();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
-<div class="ttc" id="a_scene_8hpp_html"><div class="ttname"><a href="_scene_8hpp.html">Scene.hpp</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_entity_manager_html"><div class="ttname"><a href="class_kappa_engine_1_1_entity_manager.html">KappaEngine::EntityManager</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8hpp_source.html#l00015">EntityManager.hpp:15</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_a672686054ddf374fc555ef5fdc84cadf"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#a672686054ddf374fc555ef5fdc84cadf">KappaEngine::Scene::getWindow</a></div><div class="ttdeci">sf::RenderWindow * getWindow()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00028">Scene.cpp:28</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_a7f8c97a6268fd94de8597a9854047e82"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#a7f8c97a6268fd94de8597a9854047e82">KappaEngine::Scene::getSystemManager</a></div><div class="ttdeci">SystemManager * getSystemManager()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00020">Scene.cpp:20</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_a818ee7e2c0b0bb29de73758987778ca7"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#a818ee7e2c0b0bb29de73758987778ca7">KappaEngine::Scene::StartSystemManager</a></div><div class="ttdeci">void StartSystemManager()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00016">Scene.cpp:16</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_aa5497c94a0c38c61afb084fb83bee119"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#aa5497c94a0c38c61afb084fb83bee119">KappaEngine::Scene::RenderWindow</a></div><div class="ttdeci">void RenderWindow()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00032">Scene.cpp:32</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_abf7ea38d3482cd40ee4d69dd2a38a2bd"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">KappaEngine::Scene::getEntityManager</a></div><div class="ttdeci">EntityManager * getEntityManager()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00024">Scene.cpp:24</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_ad9d9663f7d4ea2ab3d5836fb95cc4038"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#ad9d9663f7d4ea2ab3d5836fb95cc4038">KappaEngine::Scene::Scene</a></div><div class="ttdeci">Scene(std::string name)</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00009">Scene.cpp:9</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_system_manager_html"><div class="ttname"><a href="class_kappa_engine_1_1_system_manager.html">KappaEngine::SystemManager</a></div><div class="ttdoc">The SystemManager class is the class that will manage all the systems of the engine.</div><div class="ttdef"><b>Definition:</b> <a href="_system_manager_8hpp_source.html#l00028">SystemManager.hpp:28</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_system_manager_html_a1690421036de0ac40de0d1e3b52bb2c8"><div class="ttname"><a href="class_kappa_engine_1_1_system_manager.html#a1690421036de0ac40de0d1e3b52bb2c8">KappaEngine::SystemManager::Start</a></div><div class="ttdeci">void Start()</div><div class="ttdoc">Start Start the system manager.</div><div class="ttdef"><b>Definition:</b> <a href="_system_manager_8cpp_source.html#l00032">SystemManager.cpp:32</a></div></div>
-<div class="ttc" id="anamespace_kappa_engine_html"><div class="ttname"><a href="namespace_kappa_engine.html">KappaEngine</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00015">Entity.hpp:15</a></div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>KappaEngine {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    Scene::Scene(std::string name): _name(name) {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        _systemManager = <span class="keyword">new</span> SystemManager(<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        _entityManager = <span class="keyword">new</span> EntityManager();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Scene created&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> Scene::Awake() {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        _systemManager-&gt;Awake();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> Scene::Start() {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        _systemManager-&gt;Start();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> Scene::Update() {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        _systemManager-&gt;Update();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> Scene::OnRenderObject() {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        _systemManager-&gt;OnRenderObject();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    SystemManager *Scene::getSystemManager() {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> _systemManager;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    EntityManager *Scene::getEntityManager() {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> _entityManager;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_scene_8cpp.html">Scene.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>Scene.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

@@ -49,6 +49,10 @@ namespace KappaEngine {
              */
             static sf::RenderWindow *GetWindow();
 
+            /**
+             * @brief Draw a drawable
+             * @param drawable
+             */
             static void Draw(sf::Drawable& drawable);
 
             /**
@@ -63,8 +67,19 @@ namespace KappaEngine {
             static void CloseWindow();
 
 
+            /**
+             * @brief Start the game
+             *
+             * @details This function will start the game logic
+             * @details It will call the Awake() function of all systems and call the Start() function of active scene systems
+             * @details It will then run the game loop
+             */
             static void StartGame();
 
+            /**
+             * @brief Check if the game is started
+             * @return True if the game is started
+             */
             static bool GameStarted();
 
 
@@ -95,8 +110,19 @@ namespace KappaEngine {
             static void SelectScene(const std::string& name);
 
 
+            /**
+             * @brief Check if the game is networked
+             * @return True if the game is networked, false otherwise
+             */
             static bool isNetworked();
 
+            /**
+             * @brief Make the game a server
+             * @attention This function will throw an exception if a client or a server is already running
+             *
+             * @param port The port of the server
+             * @throw std::runtime_error
+             */
             static void makeServer(int port) {
 
                 if (isNetworked())
@@ -105,6 +131,12 @@ namespace KappaEngine {
                 _server = new Network::ServerInterface(port);
             }
 
+            /**
+             * @brief Make the game a client
+             * @attention This function will throw an exception if a client or a server is already running
+             *
+             * @throw std::runtime_error
+             */
             static void makeClient() {
 
                 if (isNetworked())
@@ -113,9 +145,24 @@ namespace KappaEngine {
                 _client = new Network::ClientInterface();
             }
 
+            /**
+             * @brief Get the server
+             * @return The server if the game is a server, nullptr otherwise
+             */
             static Network::ServerInterface *GetServer();
+
+            /**
+             * @brief Get the client
+             * @return The client if the game is a client, nullptr otherwise
+             */
             static Network::ClientInterface *GetClient();
 
+            /**
+             * @brief Start the server
+             * @attention This function will throw an exception if the game is not a server
+             *
+             * @throw std::runtime_error
+             */
             static void StartServer();
 
         private:

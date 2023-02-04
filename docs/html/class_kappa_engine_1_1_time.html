@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +48,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -67,35 +67,47 @@ $(document).ready(function(){initNavTree('class_kappa_engine_1_1_time.html','');
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_kappa_engine_1_1_time.html" title="Time class.">Time</a> class.  
+ <a href="class_kappa_engine_1_1_time.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_time_8hpp_source.html">Time.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad8731b072c9af8419e95778da4f65723"><td class="memItemLeft" align="right" valign="top">static sf::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#ad8731b072c9af8419e95778da4f65723">DeltaTime</a> ()</td></tr>
+<tr class="memdesc:ad8731b072c9af8419e95778da4f65723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the delta time.  <br /></td></tr>
 <tr class="separator:ad8731b072c9af8419e95778da4f65723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c8ea91a431b412df1d75d30ffba4bb8"><td class="memItemLeft" align="right" valign="top">static sf::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a4c8ea91a431b412df1d75d30ffba4bb8">UpdateDeltaTime</a> ()</td></tr>
+<tr class="memdesc:a4c8ea91a431b412df1d75d30ffba4bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the delta time.  <br /></td></tr>
 <tr class="separator:a4c8ea91a431b412df1d75d30ffba4bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70625a8c0dfba5f224b8448407c9b6d0"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a70625a8c0dfba5f224b8448407c9b6d0">FixedDeltaTime</a> ()</td></tr>
+<tr class="memdesc:a70625a8c0dfba5f224b8448407c9b6d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the fixed delta time.  <br /></td></tr>
 <tr class="separator:a70625a8c0dfba5f224b8448407c9b6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20ee5a40870ca3d8f03c7b0a86a6fa8d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a20ee5a40870ca3d8f03c7b0a86a6fa8d">resetTimeLib</a> ()</td></tr>
+<tr class="memdesc:a20ee5a40870ca3d8f03c7b0a86a6fa8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the time library.  <br /></td></tr>
 <tr class="separator:a20ee5a40870ca3d8f03c7b0a86a6fa8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3114b70f88e5b010decdfeb4d27abe9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#ae3114b70f88e5b010decdfeb4d27abe9">RunOnFixedEnv</a> (const std::function&lt; void()&gt; &amp;func)</td></tr>
+<tr class="memdesc:ae3114b70f88e5b010decdfeb4d27abe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a function on a fixed environment.  <br /></td></tr>
 <tr class="separator:ae3114b70f88e5b010decdfeb4d27abe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ad6da12fe394c1216cf6af572ffc72506"><td class="memItemLeft" align="right" valign="top">static sf::Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#ad6da12fe394c1216cf6af572ffc72506">_deltaClock</a> = sf::Clock()</td></tr>
+<tr class="memitem:ad6da12fe394c1216cf6af572ffc72506"><td class="memItemLeft" align="right" valign="top">static sf::Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#ad6da12fe394c1216cf6af572ffc72506">_deltaClock</a></td></tr>
 <tr class="separator:ad6da12fe394c1216cf6af572ffc72506"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5be0bb6e9a38836276841a945cb7bd64"><td class="memItemLeft" align="right" valign="top">static sf::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a5be0bb6e9a38836276841a945cb7bd64">_deltaTime</a> = sf::Time::Zero</td></tr>
+<tr class="memitem:a5be0bb6e9a38836276841a945cb7bd64"><td class="memItemLeft" align="right" valign="top">static sf::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a5be0bb6e9a38836276841a945cb7bd64">_deltaTime</a></td></tr>
 <tr class="separator:a5be0bb6e9a38836276841a945cb7bd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a159e1db9ba3ce6cbe2b1caf91e3a1f78"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a159e1db9ba3ce6cbe2b1caf91e3a1f78">_fixedDeltaTime</a> = 0.01</td></tr>
+<tr class="memitem:a159e1db9ba3ce6cbe2b1caf91e3a1f78"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#a159e1db9ba3ce6cbe2b1caf91e3a1f78">_fixedDeltaTime</a></td></tr>
 <tr class="separator:a159e1db9ba3ce6cbe2b1caf91e3a1f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed9b427a58bb9f6598bcad872180e34"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#aeed9b427a58bb9f6598bcad872180e34">_lags</a> = 0.0</td></tr>
+<tr class="memitem:aeed9b427a58bb9f6598bcad872180e34"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_time.html#aeed9b427a58bb9f6598bcad872180e34">_lags</a></td></tr>
 <tr class="separator:aeed9b427a58bb9f6598bcad872180e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00012">12</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<div class="textblock"><p><a class="el" href="class_kappa_engine_1_1_time.html" title="Time class.">Time</a> class. </p>
+<p>This class is used to get the delta time</p>
+<p>It is used to get the fixed delta time</p>
+<p>It is used to run a function on a fixed environment </p>
+
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00018">18</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad8731b072c9af8419e95778da4f65723" name="ad8731b072c9af8419e95778da4f65723"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8731b072c9af8419e95778da4f65723">&#9670;&#160;</a></span>DeltaTime()</h2>
@@ -120,7 +132,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00014">14</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p>Get the delta time. </p>
+<p>This function is used to get the delta time</p>
+<p>The delta time is the time between two frames</p>
+<p>It is used to make the game framerate independent </p><dl class="section return"><dt>Returns</dt><dd>The delta time </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00028">28</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -147,7 +164,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00023">23</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p>Get the fixed delta time. </p>
+<p>This function is used to get the fixed delta time</p>
+<p>The fixed delta time is a fixed time used to update the game logic (physics, ...)</p>
+<p>It is used to make the game framerate independent </p><dl class="section return"><dt>Returns</dt><dd>The fixed delta time </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00050">50</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -174,7 +196,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00027">27</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p>Reset the time library. </p>
+<p>This function is used to reset the time library </p>
+
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00058">58</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -202,7 +227,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00034">34</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p>Run a function on a fixed environment. </p>
+<p>This function is used to run a function on a fixed environment</p>
+<p>It is used to make the game framerate independent </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The function to run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00071">71</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -229,7 +263,11 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00018">18</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p>Update the delta time. </p>
+<p>This function is used to update the delta time</p>
+<p>It is used to make the game framerate independent </p><dl class="section return"><dt>Returns</dt><dd>The delta time </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00038">38</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -244,7 +282,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sf::Clock KappaEngine::Time::_deltaClock = sf::Clock()</td>
+          <td class="memname">sf::Clock KappaEngine::Time::_deltaClock</td>
         </tr>
       </table>
   </td>
@@ -254,7 +292,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00042">42</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00079">79</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -268,7 +306,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sf::Time KappaEngine::Time::_deltaTime = sf::Time::Zero</td>
+          <td class="memname">sf::Time KappaEngine::Time::_deltaTime</td>
         </tr>
       </table>
   </td>
@@ -278,7 +316,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00043">43</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00080">80</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -292,7 +330,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double KappaEngine::Time::_fixedDeltaTime = 0.01</td>
+          <td class="memname">double KappaEngine::Time::_fixedDeltaTime</td>
         </tr>
       </table>
   </td>
@@ -302,7 +340,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00044">44</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00081">81</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +354,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double KappaEngine::Time::_lags = 0.0</td>
+          <td class="memname">double KappaEngine::Time::_lags</td>
         </tr>
       </table>
   </td>
@@ -326,13 +364,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00045">45</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_time_8hpp_source.html#l00082">82</a> of file <a class="el" href="_time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>KappaEngine/<a class="el" href="_time_8hpp_source.html">Time.hpp</a></li>
-<li>src/<a class="el" href="_time_8cpp_source.html">Time.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/KappaEngine/<a class="el" href="_time_8hpp_source.html">Time.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

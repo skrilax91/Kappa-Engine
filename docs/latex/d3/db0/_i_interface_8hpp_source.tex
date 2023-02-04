@@ -1,0 +1,40 @@
+\hypertarget{_i_interface_8hpp_source}{}\doxysection{IInterface.\+hpp}
+\label{_i_interface_8hpp_source}\index{include/KappaEngine/Interfaces/IInterface.hpp@{include/KappaEngine/Interfaces/IInterface.hpp}}
+\mbox{\hyperlink{_i_interface_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 01/02/2023.}}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ KAPPA\_ENGINE\_IINTERFACE\_HPP}}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#define\ KAPPA\_ENGINE\_IINTERFACE\_HPP}}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_interface}{Interface}}\ \{}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00010}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315}{00010}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315}{Anchor}}\ \{}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00011}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a9dc3146d880e3123e256dff3c6edce25}{00011}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a9dc3146d880e3123e256dff3c6edce25}{TOP\_LEFT}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00012}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a8ac779350826cbe78b5d8108afae2247}{00012}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a8ac779350826cbe78b5d8108afae2247}{TOP\_RIGHT}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00013}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315aea541178ccf12ce89e17613b76d45bcd}{00013}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315aea541178ccf12ce89e17613b76d45bcd}{TOP\_CENTER}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00015}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315af63306188e603028d9aa3808c1e69dbb}{00015}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315af63306188e603028d9aa3808c1e69dbb}{CENTER\_LEFT}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00016}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315adf4067e433ed8b1f3453bd9f159daf24}{00016}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315adf4067e433ed8b1f3453bd9f159daf24}{CENTER\_RIGHT}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00017}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315aa647ffef28e56c40c6183b5b3e265305}{00017}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315aa647ffef28e56c40c6183b5b3e265305}{CENTER\_CENTER}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00019}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a89f69a0e0c01ddef1305451a50a11462}{00019}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a89f69a0e0c01ddef1305451a50a11462}{BOTTOM\_LEFT}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00020}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a3b5b83283ae62f7a7535688342858dd2}{00020}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a3b5b83283ae62f7a7535688342858dd2}{BOTTOM\_RIGHT}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00021}\mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a33398997891ff2257964f8b7f27a1d3a}{00021}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_interface_a29d5bb0910fd2880f9ee343226e5f315a33398997891ff2257964f8b7f27a1d3a}{BOTTOM\_CENTER}},}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00022}00022\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00025}\mbox{\hyperlink{class_interface_1_1_i_interface}{00025}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_interface_1_1_i_interface}{IInterface}}\ \{}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00027}\mbox{\hyperlink{class_interface_1_1_i_interface_a0670a4e0c044cfb6b692e0c61fd6147a}{00027}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_interface_1_1_i_interface_a0670a4e0c044cfb6b692e0c61fd6147a}{\string~IInterface}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00028}\mbox{\hyperlink{class_interface_1_1_i_interface_a50e7d773b7b2f23593113d1a91941e81}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_interface_1_1_i_interface_a50e7d773b7b2f23593113d1a91941e81}{enabled}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00029}00029\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_i_interface_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAPPA\_ENGINE\_IINTERFACE\_HPP}}
+
+\end{DoxyCode}

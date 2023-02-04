@@ -13,9 +13,20 @@
 #include "NetworkQueue.hpp"
 
 namespace Network {
+
+    /**
+     * @brief The ServerInterface class is the class that will manage the server.
+     */
     class ServerInterface {
 
         public:
+            /**
+             * @brief ServerInterface Constructor of the ServerInterface class.
+             *
+             * This function will construct the ServerInterface class.
+             *
+             * @param port The port of the server.
+             */
             ServerInterface( uint16_t port ): _acceptor( _ioContext, asio::ip::tcp::endpoint( asio::ip::tcp::v4(), port )) {
 
             };
@@ -23,6 +34,14 @@ namespace Network {
                 Stop();
             };
 
+            /**
+             * @brief Start the server.
+             *
+             * This function will start the server.
+             * It will also start the thread that will manage the server.
+             *
+             * @return True if the server is started, false otherwise.
+             */
             bool Start() {
                 try {
                     WaitForClient();
@@ -36,6 +55,12 @@ namespace Network {
                 return true;
             };
 
+            /**
+             * @brief Stop the server.
+             *
+             * This function will stop the server.
+             * It will also stop the thread that is managing the server.
+             */
             void Stop() {
                 _ioContext.stop();
                 if (_threadContext.joinable()) {
@@ -78,6 +103,11 @@ namespace Network {
                         });
             };
 
+            /**
+             * @brief Send a message to a client
+             * @param client Client to send message to
+             * @param msg Message to send
+             */
             void MessageClient(std::shared_ptr<Connection>& client, const Message& msg ) {
                 if (client && client->IsConnected()) {
                     client->Send(msg);
@@ -88,6 +118,11 @@ namespace Network {
                 }
             };
 
+            /**
+             * @brief Send a message to all clients
+             * @param msg Message to send
+             * @param ignoreClient Client to ignore
+             */
             void MessageAllClients( const Message& msg, const std::shared_ptr<Connection>& ignore = nullptr ) {
                 bool invalidClientExists = false;
                 for (auto& client : _connections) {
@@ -121,7 +156,7 @@ namespace Network {
                 }
             };
 
-/**
+            /**
              * @brief Get the number of connected clients
              * @return Number of connected clients
              */

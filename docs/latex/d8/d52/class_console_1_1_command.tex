@@ -1,0 +1,103 @@
+\hypertarget{class_console_1_1_command}{}\doxysection{Console\+::Command Class Reference}
+\label{class_console_1_1_command}\index{Console::Command@{Console::Command}}
+
+
+Class that represents a command.  
+
+
+
+
+{\ttfamily \#include $<$Command.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_console_1_1_command_a19eb43516f6e95057e333656f2728d80}{Command}} (std\+::string string, std\+::function$<$ void(\mbox{\hyperlink{_command_8hpp_a64b3d05de00aaa349cfca695941b552b}{Cmd\+Arguments}})$>$ function)
+\item 
+\mbox{\hyperlink{class_console_1_1_command_a65f773fcf048874bf0f4fca108aff0e3}{Command}} (std\+::string string, std\+::string helper, std\+::function$<$ void(\mbox{\hyperlink{_command_8hpp_a64b3d05de00aaa349cfca695941b552b}{Cmd\+Arguments}})$>$ function)
+\item 
+virtual \mbox{\hyperlink{class_console_1_1_command_a3c0c07349b4b1461e198bea42287ad22}{$\sim$\+Command}} ()=default
+\item 
+std\+::string \mbox{\hyperlink{class_console_1_1_command_af3aa5242cd14205976a28adb71a2f26d}{get\+String}} () const
+\begin{DoxyCompactList}\small\item\em Get the string of the command. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_console_1_1_command_a98d3dd995b8742d93fd84da4badd3632}{get\+Helper}} () const
+\begin{DoxyCompactList}\small\item\em Get the helper of the command. \end{DoxyCompactList}\item 
+std\+::function$<$ void(\mbox{\hyperlink{_command_8hpp_a64b3d05de00aaa349cfca695941b552b}{Cmd\+Arguments}})$>$ \mbox{\hyperlink{class_console_1_1_command_afddf01f7d49fdfe777c299f809f98790}{get\+Function}} () const
+\begin{DoxyCompactList}\small\item\em Get the function of the command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents a command. 
+
+This class is used to create a command that can be used in the console 
+
+Definition at line \mbox{\hyperlink{_command_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{_command_8hpp_source}{Command.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_console_1_1_command_a19eb43516f6e95057e333656f2728d80}\label{class_console_1_1_command_a19eb43516f6e95057e333656f2728d80}} 
+\index{Console::Command@{Console::Command}!Command@{Command}}
+\index{Command@{Command}!Console::Command@{Console::Command}}
+\doxysubsubsection{\texorpdfstring{Command()}{Command()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Console\+::\+Command\+::\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{string,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{_command_8hpp_a64b3d05de00aaa349cfca695941b552b}{Cmd\+Arguments}})$>$}]{function }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_console_1_1_command_a65f773fcf048874bf0f4fca108aff0e3}\label{class_console_1_1_command_a65f773fcf048874bf0f4fca108aff0e3}} 
+\index{Console::Command@{Console::Command}!Command@{Command}}
+\index{Command@{Command}!Console::Command@{Console::Command}}
+\doxysubsubsection{\texorpdfstring{Command()}{Command()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Console\+::\+Command\+::\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{string,  }\item[{std\+::string}]{helper,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{_command_8hpp_a64b3d05de00aaa349cfca695941b552b}{Cmd\+Arguments}})$>$}]{function }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_console_1_1_command_a3c0c07349b4b1461e198bea42287ad22}\label{class_console_1_1_command_a3c0c07349b4b1461e198bea42287ad22}} 
+\index{Console::Command@{Console::Command}!````~Command@{$\sim$Command}}
+\index{````~Command@{$\sim$Command}!Console::Command@{Console::Command}}
+\doxysubsubsection{\texorpdfstring{$\sim$Command()}{~Command()}}
+{\footnotesize\ttfamily virtual Console\+::\+Command\+::$\sim$\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_console_1_1_command_afddf01f7d49fdfe777c299f809f98790}\label{class_console_1_1_command_afddf01f7d49fdfe777c299f809f98790}} 
+\index{Console::Command@{Console::Command}!getFunction@{getFunction}}
+\index{getFunction@{getFunction}!Console::Command@{Console::Command}}
+\doxysubsubsection{\texorpdfstring{getFunction()}{getFunction()}}
+{\footnotesize\ttfamily std\+::function$<$ void(\mbox{\hyperlink{_command_8hpp_a64b3d05de00aaa349cfca695941b552b}{Cmd\+Arguments}})$>$ Console\+::\+Command\+::get\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the function of the command. 
+
+\begin{DoxyReturn}{Returns}
+The function of the command 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_console_1_1_command_a98d3dd995b8742d93fd84da4badd3632}\label{class_console_1_1_command_a98d3dd995b8742d93fd84da4badd3632}} 
+\index{Console::Command@{Console::Command}!getHelper@{getHelper}}
+\index{getHelper@{getHelper}!Console::Command@{Console::Command}}
+\doxysubsubsection{\texorpdfstring{getHelper()}{getHelper()}}
+{\footnotesize\ttfamily std\+::string Console\+::\+Command\+::get\+Helper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the helper of the command. 
+
+\begin{DoxyReturn}{Returns}
+The helper of the command 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_console_1_1_command_af3aa5242cd14205976a28adb71a2f26d}\label{class_console_1_1_command_af3aa5242cd14205976a28adb71a2f26d}} 
+\index{Console::Command@{Console::Command}!getString@{getString}}
+\index{getString@{getString}!Console::Command@{Console::Command}}
+\doxysubsubsection{\texorpdfstring{getString()}{getString()}}
+{\footnotesize\ttfamily std\+::string Console\+::\+Command\+::get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the string of the command. 
+
+\begin{DoxyReturn}{Returns}
+The string of the command 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Console/\mbox{\hyperlink{_command_8hpp}{Command.\+hpp}}\end{DoxyCompactItemize}
