@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <memory>
 #include <asio.hpp>
+#include <utility>
 
 #include "net_message.h"
 #include "NetworkConnection.hpp"
@@ -223,7 +224,7 @@ namespace Network {
              */
             bool OnClientConnect( std::shared_ptr<Connection> client ) {
                 if (_onClientConnect) {
-                    return _onClientConnect(client);
+                    return _onClientConnect(std::move(client));
                 }
                 return false;
             };
@@ -234,7 +235,7 @@ namespace Network {
              */
             void OnClientDisconnect( std::shared_ptr<Connection> client ) {
                 if (_onClientDisconnect) {
-                    _onClientDisconnect(client);
+                    _onClientDisconnect(std::move(client));
                 }
             };
 
@@ -244,26 +245,47 @@ namespace Network {
              * @param msg
              */
             void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
-                if (_onMessage) {
-                    _onMessage(client, msg);
+                uint32_t id = msg.header.id;
+                auto iter = _onMessageMap.find(id);
+
+                if (iter != _onMessageMap.end()) {
+                    iter->second(std::move(client), msg);
                 }
             };
 
+            /**
+             * @brief Set the callback for when a client connects
+             * @param callback Callback function
+             *
+             * The callback should return true if the client is accepted, false otherwise
+             */
             void SetOnClientConnect( std::function<bool(std::shared_ptr<Connection>)> callback ) {
-                _onClientConnect = callback;
+                _onClientConnect = std::move(callback);
             };
 
+
+            /**
+             * @brief Set the callback for when a client disconnects
+             * @param callback Callback function
+             */
             void SetOnClientDisconnect( std::function<void(std::shared_ptr<Connection>)> callback ) {
-                _onClientDisconnect = callback;
+                _onClientDisconnect = std::move(callback);
             };
 
+            /**
+             * @brief Add a callback for when a message is received
+             * @param id Message ID
+             * @param callback Callback function
+             *
+             * The callback function should take a shared pointer to the client and a reference to the message
+             */
             void AddOnMessageCallback( uint32_t id, std::function<void(std::shared_ptr<Connection>, Message&)> callback ) {
                 if (_onMessageMap.find(id) != _onMessageMap.end()) {
                     std::cerr << "[SERVER] Message ID " << id << " already has a callback" << std::endl;
                     return;
                 }
 
-                _onMessageMap[id] = callback;
+                _onMessageMap[id] = std::move(callback);
             };
 
         private:
