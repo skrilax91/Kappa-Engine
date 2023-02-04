@@ -5,11 +5,13 @@ digraph "KappaEngine::ISystem"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node1 [label="KappaEngine::ISystem",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="KappaEngine::ISystem",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="The ISystem class is the base class of all systems of the engine."];
   Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
   Node2 [label="KappaEngine::CollideBoxSystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_collide_box_system.html",tooltip=" "];
   Node1 -> Node3 [dir="back",color="steelblue1",style="solid"];
-  Node3 [label="KappaEngine::RigidBodySystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_rigid_body_system.html",tooltip=" "];
+  Node3 [label="KappaEngine::NetworkSystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_network_system.html",tooltip="The NetworkSystem class is the class that will manage all the network of the engine."];
   Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
-  Node4 [label="KappaEngine::SpriteRenderer\lSystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_sprite_renderer_system.html",tooltip=" "];
+  Node4 [label="KappaEngine::RigidBodySystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_rigid_body_system.html",tooltip="The RigidBodySystem class is the class that will manage all the rigid bodies of the engine."];
+  Node1 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="KappaEngine::SpriteRenderer\lSystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_sprite_renderer_system.html",tooltip="System that handles the rendering of sprites."];
 }

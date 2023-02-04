@@ -2,6 +2,11 @@
 \label{class_kappa_engine_1_1_rigid_body_system}\index{KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}}
 
 
+The \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} class is the class that will manage all the rigid bodies of the engine.  
+
+
+
+
 {\ttfamily \#include $<$Rigid\+Body\+System.\+hpp$>$}
 
 
@@ -14,51 +19,56 @@ Collaboration diagram for Kappa\+Engine\+::Rigid\+Body\+System\+:
 % FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_aa6ce226c4a4aea3d4c0275910c952db1}{Rigid\+Body\+System}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}{Awake}} () override
-\item
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}{Fixed\+Update}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fixed\+Update Called every fixed time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{Kappa\+Engine\+::\+ISystem}}}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}{ISystem}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Awake}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}{Start}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Start Called when the system is started. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}{Fixed\+Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Fixed\+Update Called every fixed time. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}{Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Update Called every frame. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}{Late\+Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Late\+Update Called every frame after the Update function. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}{On\+Render\+Object}} ()
-\item
+\begin{DoxyCompactList}\small\item\em On\+GUI Called every frame after the Update function. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}{On\+Destroy}} (\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$)
-\item
+\begin{DoxyCompactList}\small\item\em On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}{On\+Disable}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_aca2c86629a975e279ae6eff67898c20a}{apply\+Force}} (\mbox{\hyperlink{class_component_1_1_rigid_body}{Component\+::\+Rigid\+Body}} $\ast$rg, sf\+::\+Vector2f force)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{Kappa\+Engine\+::\+ISystem}}}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\+\_\+scene}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} class is the class that will manage all the rigid bodies of the engine. 
 
-
-Definition at line \mbox{\hyperlink{_rigid_body_system_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{_rigid_body_system_8hpp_source}{Rigid\+Body\+System.\+hpp}}.
+Definition at line \mbox{\hyperlink{_rigid_body_system_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{_rigid_body_system_8hpp_source}{Rigid\+Body\+System.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_aa6ce226c4a4aea3d4c0275910c952db1}\label{class_kappa_engine_1_1_rigid_body_system_aa6ce226c4a4aea3d4c0275910c952db1}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_aa6ce226c4a4aea3d4c0275910c952db1}\label{class_kappa_engine_1_1_rigid_body_system_aa6ce226c4a4aea3d4c0275910c952db1}} 
 \index{KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}!RigidBodySystem@{RigidBodySystem}}
 \index{RigidBodySystem@{RigidBodySystem}!KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}}
 \doxysubsubsection{\texorpdfstring{RigidBodySystem()}{RigidBodySystem()}}
@@ -66,12 +76,29 @@ Definition at line \mbox{\hyperlink{_rigid_body_system_8hpp_source_l00012}{12}} 
 
 
 
-Definition at line \mbox{\hyperlink{_rigid_body_system_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{_rigid_body_system_8hpp_source}{Rigid\+Body\+System.\+hpp}}.
+\mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} class. 
+
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system}{Rigid\+Body\+System}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The scene that the rigid body system will manage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_rigid_body_system_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{_rigid_body_system_8hpp_source}{Rigid\+Body\+System.\+hpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}\label{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_aca2c86629a975e279ae6eff67898c20a}\label{class_kappa_engine_1_1_rigid_body_system_aca2c86629a975e279ae6eff67898c20a}} 
+\index{KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}!applyForce@{applyForce}}
+\index{applyForce@{applyForce}!KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}}
+\doxysubsubsection{\texorpdfstring{applyForce()}{applyForce()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Rigid\+Body\+System\+::apply\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_component_1_1_rigid_body}{Component\+::\+Rigid\+Body}} $\ast$}]{rg,  }\item[{sf\+::\+Vector2f}]{force }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}\label{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}} 
 \index{KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}!Awake@{Awake}}
 \index{Awake@{Awake}!KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}}
 \doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
@@ -79,13 +106,13 @@ Definition at line \mbox{\hyperlink{_rigid_body_system_8hpp_source_l00014}{14}} 
 
 
 
+Awake Called when the system is created. 
+
+This function will be called when the system is created. 
+
 Reimplemented from \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Kappa\+Engine\+::\+ISystem}}.
 
-
-
-Definition at line \mbox{\hyperlink{_rigid_body_system_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_rigid_body_system_8cpp_source}{Rigid\+Body\+System.\+cpp}}.
-
-\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}\label{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}\label{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}} 
 \index{KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}!FixedUpdate@{FixedUpdate}}
 \index{FixedUpdate@{FixedUpdate}!KappaEngine::RigidBodySystem@{KappaEngine::RigidBodySystem}}
 \doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
@@ -93,15 +120,19 @@ Definition at line \mbox{\hyperlink{_rigid_body_system_8cpp_source_l00010}{10}} 
 
 
 
+Fixed\+Update Called every fixed time. 
+
+This function will be called every fixed time. It will be called after the Start function. It will be called before the Update function. It is used for physics calculations.
+
+\begin{DoxyAttention}{Attention}
+This function is called multiple times per frame. 
+\end{DoxyAttention}
+
+
 Reimplemented from \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}{Kappa\+Engine\+::\+ISystem}}.
 
 
 
-Definition at line \mbox{\hyperlink{_rigid_body_system_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_rigid_body_system_8cpp_source}{Rigid\+Body\+System.\+cpp}}.
-
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item
-Kappa\+Engine/\+Systems/\mbox{\hyperlink{_rigid_body_system_8hpp}{Rigid\+Body\+System.\+hpp}}\item
-src/\+Systems/\mbox{\hyperlink{_rigid_body_system_8cpp}{Rigid\+Body\+System.\+cpp}}\end{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Systems/\mbox{\hyperlink{_rigid_body_system_8hpp}{Rigid\+Body\+System.\+hpp}}\end{DoxyCompactItemize}

@@ -2,34 +2,43 @@
 \label{class_kappa_engine_1_1_scene}\index{KappaEngine::Scene@{KappaEngine::Scene}}
 
 
+The \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} class is the class that will manage all entities and systems of the engine.  
+
+
+
+
 {\ttfamily \#include $<$Scene.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_scene_ad9d9663f7d4ea2ab3d5836fb95cc4038}{Scene}} (std\+::string name)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}{get\+System\+Manager}} ()
-\item
+\begin{DoxyCompactList}\small\item\em get\+System\+Manager Get the system manager of the scene. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{get\+Entity\+Manager}} ()
-\item
-sf\+::\+Render\+Window $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{get\+Window}} ()
-\item
-void \mbox{\hyperlink{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}{Start\+System\+Manager}} ()
-\item
-void \mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}{Render\+Window}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em get\+Entity\+Manager Get the entity manager of the scene. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_kappa_engine_1_1_scene_aa5cbb5ba7e52abae5cf8e141bb748693}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em get\+Name Get the name of the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_scene_a91f2b37877da8f62f73fc04a6a9b3fe8}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Awake Awake the scene. This function will awake the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_scene_a6b58477a4130e40325e191a7b7055c48}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Start Start the scene. This function will start the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_scene_a1d730cf746c969019b4ef21313508312}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Fixed\+Update Fixed\+Update the scene. This function will Fixed\+Update the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_scene_afabd84f3ccfaf145e67b478484e2da71}{On\+Render\+Object}} ()
+\begin{DoxyCompactList}\small\item\em On\+Render\+Object On\+Render\+Object the scene. This function will On\+Render\+Object the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} class is the class that will manage all entities and systems of the engine. 
 
-
-Definition at line \mbox{\hyperlink{_scene_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{_scene_8hpp_source}{Scene.\+hpp}}.
+Definition at line \mbox{\hyperlink{_scene_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{_scene_8hpp_source}{Scene.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_scene_ad9d9663f7d4ea2ab3d5836fb95cc4038}\label{class_kappa_engine_1_1_scene_ad9d9663f7d4ea2ab3d5836fb95cc4038}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_ad9d9663f7d4ea2ab3d5836fb95cc4038}\label{class_kappa_engine_1_1_scene_ad9d9663f7d4ea2ab3d5836fb95cc4038}} 
 \index{KappaEngine::Scene@{KappaEngine::Scene}!Scene@{Scene}}
 \index{Scene@{Scene}!KappaEngine::Scene@{KappaEngine::Scene}}
 \doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
@@ -37,12 +46,29 @@ Definition at line \mbox{\hyperlink{_scene_8hpp_source_l00021}{21}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} class. 
 
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}\label{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a91f2b37877da8f62f73fc04a6a9b3fe8}\label{class_kappa_engine_1_1_scene_a91f2b37877da8f62f73fc04a6a9b3fe8}} 
+\index{KappaEngine::Scene@{KappaEngine::Scene}!Awake@{Awake}}
+\index{Awake@{Awake}!KappaEngine::Scene@{KappaEngine::Scene}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Scene\+::\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Awake Awake the scene. This function will awake the scene. 
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}\label{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}} 
 \index{KappaEngine::Scene@{KappaEngine::Scene}!getEntityManager@{getEntityManager}}
 \index{getEntityManager@{getEntityManager}!KappaEngine::Scene@{KappaEngine::Scene}}
 \doxysubsubsection{\texorpdfstring{getEntityManager()}{getEntityManager()}}
@@ -50,9 +76,33 @@ Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00009}{9}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+get\+Entity\+Manager Get the entity manager of the scene. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}\label{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}}
+This function will return the entity manager of the scene.
+
+\begin{DoxyReturn}{Returns}
+The entity manager of the scene. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_aa5cbb5ba7e52abae5cf8e141bb748693}\label{class_kappa_engine_1_1_scene_aa5cbb5ba7e52abae5cf8e141bb748693}} 
+\index{KappaEngine::Scene@{KappaEngine::Scene}!getName@{getName}}
+\index{getName@{getName}!KappaEngine::Scene@{KappaEngine::Scene}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Kappa\+Engine\+::\+Scene\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Name Get the name of the scene. 
+
+This function will return the name of the scene.
+
+\begin{DoxyReturn}{Returns}
+The name of the scene. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_scene_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{_scene_8hpp_source}{Scene.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}\label{class_kappa_engine_1_1_scene_a7f8c97a6268fd94de8597a9854047e82}} 
 \index{KappaEngine::Scene@{KappaEngine::Scene}!getSystemManager@{getSystemManager}}
 \index{getSystemManager@{getSystemManager}!KappaEngine::Scene@{KappaEngine::Scene}}
 \doxysubsubsection{\texorpdfstring{getSystemManager()}{getSystemManager()}}
@@ -60,41 +110,45 @@ Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00024}{24}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+get\+System\+Manager Get the system manager of the scene. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}\label{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}}
-\index{KappaEngine::Scene@{KappaEngine::Scene}!getWindow@{getWindow}}
-\index{getWindow@{getWindow}!KappaEngine::Scene@{KappaEngine::Scene}}
-\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
-{\footnotesize\ttfamily sf\+::\+Render\+Window $\ast$ Kappa\+Engine\+::\+Scene\+::get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+This function will return the system manager of the scene.
 
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
-
-\mbox{\Hypertarget{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}\label{class_kappa_engine_1_1_scene_aa5497c94a0c38c61afb084fb83bee119}}
-\index{KappaEngine::Scene@{KappaEngine::Scene}!RenderWindow@{RenderWindow}}
-\index{RenderWindow@{RenderWindow}!KappaEngine::Scene@{KappaEngine::Scene}}
-\doxysubsubsection{\texorpdfstring{RenderWindow()}{RenderWindow()}}
-{\footnotesize\ttfamily void Kappa\+Engine\+::\+Scene\+::\+Render\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\begin{DoxyReturn}{Returns}
+The system manager of the scene. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_afabd84f3ccfaf145e67b478484e2da71}\label{class_kappa_engine_1_1_scene_afabd84f3ccfaf145e67b478484e2da71}} 
+\index{KappaEngine::Scene@{KappaEngine::Scene}!OnRenderObject@{OnRenderObject}}
+\index{OnRenderObject@{OnRenderObject}!KappaEngine::Scene@{KappaEngine::Scene}}
+\doxysubsubsection{\texorpdfstring{OnRenderObject()}{OnRenderObject()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Scene\+::\+On\+Render\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+On\+Render\+Object On\+Render\+Object the scene. This function will On\+Render\+Object the scene. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}\label{class_kappa_engine_1_1_scene_a818ee7e2c0b0bb29de73758987778ca7}}
-\index{KappaEngine::Scene@{KappaEngine::Scene}!StartSystemManager@{StartSystemManager}}
-\index{StartSystemManager@{StartSystemManager}!KappaEngine::Scene@{KappaEngine::Scene}}
-\doxysubsubsection{\texorpdfstring{StartSystemManager()}{StartSystemManager()}}
-{\footnotesize\ttfamily void Kappa\+Engine\+::\+Scene\+::\+Start\+System\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a6b58477a4130e40325e191a7b7055c48}\label{class_kappa_engine_1_1_scene_a6b58477a4130e40325e191a7b7055c48}} 
+\index{KappaEngine::Scene@{KappaEngine::Scene}!Start@{Start}}
+\index{Start@{Start}!KappaEngine::Scene@{KappaEngine::Scene}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Scene\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item
-Kappa\+Engine/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}}\item
-src/\mbox{\hyperlink{_scene_8cpp}{Scene.\+cpp}}\end{DoxyCompactItemize}
+Start Start the scene. This function will start the scene. 
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_scene_a1d730cf746c969019b4ef21313508312}\label{class_kappa_engine_1_1_scene_a1d730cf746c969019b4ef21313508312}} 
+\index{KappaEngine::Scene@{KappaEngine::Scene}!Update@{Update}}
+\index{Update@{Update}!KappaEngine::Scene@{KappaEngine::Scene}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Scene\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fixed\+Update Fixed\+Update the scene. This function will Fixed\+Update the scene. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}}\end{DoxyCompactItemize}

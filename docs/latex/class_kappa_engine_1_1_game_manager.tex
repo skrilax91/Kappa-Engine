@@ -1,0 +1,361 @@
+\hypertarget{class_kappa_engine_1_1_game_manager}{}\doxysection{Kappa\+Engine\+::Game\+Manager Class Reference}
+\label{class_kappa_engine_1_1_game_manager}\index{KappaEngine::GameManager@{KappaEngine::GameManager}}
+
+
+The \mbox{\hyperlink{class_kappa_engine_1_1_game_manager}{Game\+Manager}} class is used to manage the entire game.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Manager.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_ae3c4eaa416527c538bf22ce2021ff200}{Create\+Game\+Window}} (const std\+::string \&name, int width, int height)
+\begin{DoxyCompactList}\small\item\em Create a window. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a17d8c2e94b6a7514abeb63e63c69f118}{set\+Framerate\+Limit}} (int limit)
+\begin{DoxyCompactList}\small\item\em Set the framerate limit of the window. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_af23d731ec329e2f17fcbf7c89d0908fb}{set\+Fullscreen}} (bool fullscreen)
+\begin{DoxyCompactList}\small\item\em Set the fullscreen mode of the window. \end{DoxyCompactList}\item 
+static sf\+::\+Render\+Window $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a453e794077bc6eafcb361d5d285a0ef0}{Get\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Get the window. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a0ab93c36ad119dd2a8a624221bb8c5c8}{Draw}} (sf\+::\+Drawable \&drawable)
+\begin{DoxyCompactList}\small\item\em Draw a drawable. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_adcae8184c3d089708316723acac7df5c}{Render\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Render the window. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a85da7f07e1418e53e3d4c6cbbbb992b3}{Close\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Close the window. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_af7c24f7d00f75047b257da2deed8a645}{Start\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Start the game. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a92d5bb5a2ff0515aa599534deb5a4227}{Game\+Started}} ()
+\begin{DoxyCompactList}\small\item\em Check if the game is started. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a77ea5277f83d81a750b07b9bf6db3313}{Create\+Scene}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Create a scene. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_aa81b0b760ac4897ec03d7349ac6533ed}{Get\+Scene}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Get the scene. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a4df83c860c46df353267dc44f15595ce}{Get\+Selected\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Get the selected scene. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a85047960521a10b18a62ec4bcb01cbd0}{Select\+Scene}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Select the scene. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a522547bd25542351ef398497aff74109}{is\+Networked}} ()
+\begin{DoxyCompactList}\small\item\em Check if the game is networked. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_ab80944f32669de605f255905fa890f4e}{make\+Server}} (int port)
+\begin{DoxyCompactList}\small\item\em Make the game a server. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a977e43c4390607d5dc4893c0dc9401bf}{make\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Make the game a client. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_network_1_1_server_interface}{Network\+::\+Server\+Interface}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a0411389c2eff2018fb8dbb3d79d6f49c}{Get\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Get the server. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_network_1_1_client_interface}{Network\+::\+Client\+Interface}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a8db9e80c570abe560183c7dc84b52158}{Get\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Get the client. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_game_manager_a07e75042ae04faf617a3c3c89f6f461c}{Start\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Start the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_game_manager}{Game\+Manager}} class is used to manage the entire game. 
+
+Definition at line \mbox{\hyperlink{_game_manager_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{_game_manager_8hpp_source}{Game\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a85da7f07e1418e53e3d4c6cbbbb992b3}\label{class_kappa_engine_1_1_game_manager_a85da7f07e1418e53e3d4c6cbbbb992b3}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!CloseWindow@{CloseWindow}}
+\index{CloseWindow@{CloseWindow}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{CloseWindow()}{CloseWindow()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Close\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Close the window. 
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_ae3c4eaa416527c538bf22ce2021ff200}\label{class_kappa_engine_1_1_game_manager_ae3c4eaa416527c538bf22ce2021ff200}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!CreateGameWindow@{CreateGameWindow}}
+\index{CreateGameWindow@{CreateGameWindow}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{CreateGameWindow()}{CreateGameWindow()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Create\+Game\+Window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the window \\
+\hline
+{\em width} & The width of the window \\
+\hline
+{\em height} & The height of the window \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a77ea5277f83d81a750b07b9bf6db3313}\label{class_kappa_engine_1_1_game_manager_a77ea5277f83d81a750b07b9bf6db3313}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!CreateScene@{CreateScene}}
+\index{CreateScene@{CreateScene}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{CreateScene()}{CreateScene()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ Kappa\+Engine\+::\+Game\+Manager\+::\+Create\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The scene 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a0ab93c36ad119dd2a8a624221bb8c5c8}\label{class_kappa_engine_1_1_game_manager_a0ab93c36ad119dd2a8a624221bb8c5c8}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!Draw@{Draw}}
+\index{Draw@{Draw}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Draw (\begin{DoxyParamCaption}\item[{sf\+::\+Drawable \&}]{drawable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Draw a drawable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drawable} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a92d5bb5a2ff0515aa599534deb5a4227}\label{class_kappa_engine_1_1_game_manager_a92d5bb5a2ff0515aa599534deb5a4227}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!GameStarted@{GameStarted}}
+\index{GameStarted@{GameStarted}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{GameStarted()}{GameStarted()}}
+{\footnotesize\ttfamily static bool Kappa\+Engine\+::\+Game\+Manager\+::\+Game\+Started (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check if the game is started. 
+
+\begin{DoxyReturn}{Returns}
+True if the game is started 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a8db9e80c570abe560183c7dc84b52158}\label{class_kappa_engine_1_1_game_manager_a8db9e80c570abe560183c7dc84b52158}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!GetClient@{GetClient}}
+\index{GetClient@{GetClient}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{GetClient()}{GetClient()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_network_1_1_client_interface}{Network\+::\+Client\+Interface}} $\ast$ Kappa\+Engine\+::\+Game\+Manager\+::\+Get\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the client. 
+
+\begin{DoxyReturn}{Returns}
+The client if the game is a client, nullptr otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_aa81b0b760ac4897ec03d7349ac6533ed}\label{class_kappa_engine_1_1_game_manager_aa81b0b760ac4897ec03d7349ac6533ed}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ Kappa\+Engine\+::\+Game\+Manager\+::\+Get\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The scene 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a4df83c860c46df353267dc44f15595ce}\label{class_kappa_engine_1_1_game_manager_a4df83c860c46df353267dc44f15595ce}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!GetSelectedScene@{GetSelectedScene}}
+\index{GetSelectedScene@{GetSelectedScene}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{GetSelectedScene()}{GetSelectedScene()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ Kappa\+Engine\+::\+Game\+Manager\+::\+Get\+Selected\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the selected scene. 
+
+\begin{DoxyReturn}{Returns}
+The selected scene 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a0411389c2eff2018fb8dbb3d79d6f49c}\label{class_kappa_engine_1_1_game_manager_a0411389c2eff2018fb8dbb3d79d6f49c}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!GetServer@{GetServer}}
+\index{GetServer@{GetServer}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{GetServer()}{GetServer()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_network_1_1_server_interface}{Network\+::\+Server\+Interface}} $\ast$ Kappa\+Engine\+::\+Game\+Manager\+::\+Get\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the server. 
+
+\begin{DoxyReturn}{Returns}
+The server if the game is a server, nullptr otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a453e794077bc6eafcb361d5d285a0ef0}\label{class_kappa_engine_1_1_game_manager_a453e794077bc6eafcb361d5d285a0ef0}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!GetWindow@{GetWindow}}
+\index{GetWindow@{GetWindow}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{GetWindow()}{GetWindow()}}
+{\footnotesize\ttfamily static sf\+::\+Render\+Window $\ast$ Kappa\+Engine\+::\+Game\+Manager\+::\+Get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the window. 
+
+\begin{DoxyReturn}{Returns}
+The window 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a522547bd25542351ef398497aff74109}\label{class_kappa_engine_1_1_game_manager_a522547bd25542351ef398497aff74109}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!isNetworked@{isNetworked}}
+\index{isNetworked@{isNetworked}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{isNetworked()}{isNetworked()}}
+{\footnotesize\ttfamily static bool Kappa\+Engine\+::\+Game\+Manager\+::is\+Networked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check if the game is networked. 
+
+\begin{DoxyReturn}{Returns}
+True if the game is networked, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a977e43c4390607d5dc4893c0dc9401bf}\label{class_kappa_engine_1_1_game_manager_a977e43c4390607d5dc4893c0dc9401bf}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!makeClient@{makeClient}}
+\index{makeClient@{makeClient}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{makeClient()}{makeClient()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::make\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Make the game a client. 
+
+\begin{DoxyAttention}{Attention}
+This function will throw an exception if a client or a server is already running
+\end{DoxyAttention}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_game_manager_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{_game_manager_8hpp_source}{Game\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_ab80944f32669de605f255905fa890f4e}\label{class_kappa_engine_1_1_game_manager_ab80944f32669de605f255905fa890f4e}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!makeServer@{makeServer}}
+\index{makeServer@{makeServer}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{makeServer()}{makeServer()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::make\+Server (\begin{DoxyParamCaption}\item[{int}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Make the game a server. 
+
+\begin{DoxyAttention}{Attention}
+This function will throw an exception if a client or a server is already running
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port of the server \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_game_manager_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{_game_manager_8hpp_source}{Game\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_adcae8184c3d089708316723acac7df5c}\label{class_kappa_engine_1_1_game_manager_adcae8184c3d089708316723acac7df5c}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!RenderWindow@{RenderWindow}}
+\index{RenderWindow@{RenderWindow}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{RenderWindow()}{RenderWindow()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Render\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Render the window. 
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a85047960521a10b18a62ec4bcb01cbd0}\label{class_kappa_engine_1_1_game_manager_a85047960521a10b18a62ec4bcb01cbd0}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!SelectScene@{SelectScene}}
+\index{SelectScene@{SelectScene}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{SelectScene()}{SelectScene()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Select\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Select the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a17d8c2e94b6a7514abeb63e63c69f118}\label{class_kappa_engine_1_1_game_manager_a17d8c2e94b6a7514abeb63e63c69f118}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!setFramerateLimit@{setFramerateLimit}}
+\index{setFramerateLimit@{setFramerateLimit}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{setFramerateLimit()}{setFramerateLimit()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::set\+Framerate\+Limit (\begin{DoxyParamCaption}\item[{int}]{limit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the framerate limit of the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The framerate limit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_af23d731ec329e2f17fcbf7c89d0908fb}\label{class_kappa_engine_1_1_game_manager_af23d731ec329e2f17fcbf7c89d0908fb}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!setFullscreen@{setFullscreen}}
+\index{setFullscreen@{setFullscreen}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{setFullscreen()}{setFullscreen()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::set\+Fullscreen (\begin{DoxyParamCaption}\item[{bool}]{fullscreen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the fullscreen mode of the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fullscreen} & The fullscreen mode \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_af7c24f7d00f75047b257da2deed8a645}\label{class_kappa_engine_1_1_game_manager_af7c24f7d00f75047b257da2deed8a645}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!StartGame@{StartGame}}
+\index{StartGame@{StartGame}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{StartGame()}{StartGame()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Start\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start the game. 
+
+This function will start the game logic
+
+It will call the Awake() function of all systems and call the Start() function of active scene systems
+
+It will then run the game loop \mbox{\Hypertarget{class_kappa_engine_1_1_game_manager_a07e75042ae04faf617a3c3c89f6f461c}\label{class_kappa_engine_1_1_game_manager_a07e75042ae04faf617a3c3c89f6f461c}} 
+\index{KappaEngine::GameManager@{KappaEngine::GameManager}!StartServer@{StartServer}}
+\index{StartServer@{StartServer}!KappaEngine::GameManager@{KappaEngine::GameManager}}
+\doxysubsubsection{\texorpdfstring{StartServer()}{StartServer()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Game\+Manager\+::\+Start\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start the server. 
+
+\begin{DoxyAttention}{Attention}
+This function will throw an exception if the game is not a server
+\end{DoxyAttention}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\mbox{\hyperlink{_game_manager_8hpp}{Game\+Manager.\+hpp}}\end{DoxyCompactItemize}

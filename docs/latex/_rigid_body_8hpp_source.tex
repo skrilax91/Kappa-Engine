@@ -1,5 +1,5 @@
 \hypertarget{_rigid_body_8hpp_source}{}\doxysection{Rigid\+Body.\+hpp}
-\label{_rigid_body_8hpp_source}\index{KappaEngine/Components/RigidBody.hpp@{KappaEngine/Components/RigidBody.hpp}}
+\label{_rigid_body_8hpp_source}\index{include/KappaEngine/Components/RigidBody.hpp@{include/KappaEngine/Components/RigidBody.hpp}}
 \mbox{\hyperlink{_rigid_body_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
@@ -12,17 +12,20 @@
 \DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00009}00009\ }
 \DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_component_8hpp}{IComponent.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_component}{Component}}\ \{}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00013}\mbox{\hyperlink{class_component_1_1_rigid_body}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_component_1_1_rigid_body}{RigidBody}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component_1_1_i_component}{IComponent}}\ \{}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00015}\mbox{\hyperlink{class_component_1_1_rigid_body_ae7aabd77bd4e007f36d7b359d2b73d2a}{00015}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_rigid_body_ae7aabd77bd4e007f36d7b359d2b73d2a}{RigidBody}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}})\ :\ \mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}}(\mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}}),\ \mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}}(\mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}})\ \{\};}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00016}\mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{00016}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}}\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00017}\mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{00017}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}}\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00019}00019\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00020}00020\ \}}
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAPPA\_ENGINE\_RIGIDBODY\_HPP}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_component}{Component}}\ \{}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00021}\mbox{\hyperlink{class_component_1_1_rigid_body}{00021}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_component_1_1_rigid_body}{RigidBody}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component_1_1_i_component}{IComponent}}\ \{}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00023}\mbox{\hyperlink{class_component_1_1_rigid_body_ae7aabd77bd4e007f36d7b359d2b73d2a}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_component_1_1_rigid_body_ae7aabd77bd4e007f36d7b359d2b73d2a}{RigidBody}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}})\ :\ \mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}}(\mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}}),\ \mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}}(\mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}})\ \{\};}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00024}\mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_a12ddbba9dc0dd9b12516559761f0523b}{mass}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00025}\mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_component_1_1_rigid_body_aa42eb262b7f7170cd8ae0f81095518eb}{gravity}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00026}\mbox{\hyperlink{class_component_1_1_rigid_body_a411acfc66104a9ef2c48fd9d381f68c7}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_component_1_1_rigid_body_a411acfc66104a9ef2c48fd9d381f68c7}{velocity}}\ =\ \{0,\ 0\};}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00028}00028\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_rigid_body_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAPPA\_ENGINE\_RIGIDBODY\_HPP}}
 
 \end{DoxyCode}

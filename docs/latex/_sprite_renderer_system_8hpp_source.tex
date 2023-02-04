@@ -1,5 +1,5 @@
 \hypertarget{_sprite_renderer_system_8hpp_source}{}\doxysection{Sprite\+Renderer\+System.\+hpp}
-\label{_sprite_renderer_system_8hpp_source}\index{KappaEngine/Systems/SpriteRendererSystem.hpp@{KappaEngine/Systems/SpriteRendererSystem.hpp}}
+\label{_sprite_renderer_system_8hpp_source}\index{include/KappaEngine/Systems/SpriteRendererSystem.hpp@{include/KappaEngine/Systems/SpriteRendererSystem.hpp}}
 \mbox{\hyperlink{_sprite_renderer_system_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
@@ -14,17 +14,18 @@
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8hpp}{KappaEngine/Components/Camera.hpp}}"{}}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00011}00011\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00013}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{SpriteRendererSystem}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}}\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00015}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}{00015}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}{SpriteRendererSystem}}(\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}}\ *scene)\ :\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}}(scene)\ \{\};}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{Awake}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{OnDestroy}}(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ *)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{OnRenderObject}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>\ \_textureCache\ =\ std::unordered\_map<std::string,\ sf::Texture>();}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00023}00023\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00024}00024\ \};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00016}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{00016}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{SpriteRendererSystem}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}}\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00025}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}{SpriteRendererSystem}}(\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}}\ *scene)\ :\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}}(scene)\ \{\};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00028}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{Awake}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00029}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{00029}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{OnDestroy}}(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00030}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{00030}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{OnRenderObject}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>\ \_textureCache\ =\ std::unordered\_map<std::string,\ sf::Texture>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8hpp_source_l00035}00035\ \};}
 
 \end{DoxyCode}

@@ -1,0 +1,154 @@
+\hypertarget{class_console_1_1_console}{}\doxysection{Console\+::Console Class Reference}
+\label{class_console_1_1_console}\index{Console::Console@{Console::Console}}
+
+
+Class that represents the console.  
+
+
+
+
+{\ttfamily \#include $<$Console.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_console_1_1_console_a632451791389a060e37d9380dac6c6cf}{Console}} ()
+\item 
+virtual \mbox{\hyperlink{class_console_1_1_console_add57c437157e46d0176d56d4cfb14986}{$\sim$\+Console}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_console_1_1_console_a9b7fe4f14a2997434024c76bac87c401}{register\+Server\+Command}} (\mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$command)
+\begin{DoxyCompactList}\small\item\em Register a command to the server console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_console_1_1_console_a0d2d7366b9f1c269d26563b90c8809ce}{register\+Client\+Command}} (\mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$command)
+\begin{DoxyCompactList}\small\item\em Register a command to the client console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_console_1_1_console_a3badef6bdce25c4ce99c86399587ddc2}{register\+Command}} (\mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$command)
+\begin{DoxyCompactList}\small\item\em Register a command to the console. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$ \mbox{\hyperlink{class_console_1_1_console_a290c6d14d3b6160747c92ec78726da55}{get\+Command}} (const std\+::string \&command)
+\begin{DoxyCompactList}\small\item\em Get a command from the console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_console_1_1_console_a99dee269a4f244dd24bee9a6dda85406}{execute\+Command}} (std\+::string command)
+\begin{DoxyCompactList}\small\item\em Execute a command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents the console. 
+
+This class is used to create a console that can be used to execute commands 
+
+Definition at line \mbox{\hyperlink{_console_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{_console_8hpp_source}{Console.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_console_1_1_console_a632451791389a060e37d9380dac6c6cf}\label{class_console_1_1_console_a632451791389a060e37d9380dac6c6cf}} 
+\index{Console::Console@{Console::Console}!Console@{Console}}
+\index{Console@{Console}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{Console()}{Console()}}
+{\footnotesize\ttfamily Console\+::\+Console\+::\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_console_1_1_console_add57c437157e46d0176d56d4cfb14986}\label{class_console_1_1_console_add57c437157e46d0176d56d4cfb14986}} 
+\index{Console::Console@{Console::Console}!````~Console@{$\sim$Console}}
+\index{````~Console@{$\sim$Console}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{$\sim$Console()}{~Console()}}
+{\footnotesize\ttfamily virtual Console\+::\+Console\+::$\sim$\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_console_1_1_console_a99dee269a4f244dd24bee9a6dda85406}\label{class_console_1_1_console_a99dee269a4f244dd24bee9a6dda85406}} 
+\index{Console::Console@{Console::Console}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}}
+{\footnotesize\ttfamily static void Console\+::\+Console\+::execute\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Execute a command. 
+
+This function is used to execute a command
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The string of the command \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_console_1_1_console_a290c6d14d3b6160747c92ec78726da55}\label{class_console_1_1_console_a290c6d14d3b6160747c92ec78726da55}} 
+\index{Console::Console@{Console::Console}!getCommand@{getCommand}}
+\index{getCommand@{getCommand}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{getCommand()}{getCommand()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$ Console\+::\+Console\+::get\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get a command from the console. 
+
+This function is used to get a command from the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The string of the command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The command 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_console_1_1_console_a0d2d7366b9f1c269d26563b90c8809ce}\label{class_console_1_1_console_a0d2d7366b9f1c269d26563b90c8809ce}} 
+\index{Console::Console@{Console::Console}!registerClientCommand@{registerClientCommand}}
+\index{registerClientCommand@{registerClientCommand}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{registerClientCommand()}{registerClientCommand()}}
+{\footnotesize\ttfamily static void Console\+::\+Console\+::register\+Client\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Register a command to the client console. 
+
+This function is used to register a command to the client console \begin{DoxyAttention}{Attention}
+The command will be only available in the client console
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to register \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_console_1_1_console_a3badef6bdce25c4ce99c86399587ddc2}\label{class_console_1_1_console_a3badef6bdce25c4ce99c86399587ddc2}} 
+\index{Console::Console@{Console::Console}!registerCommand@{registerCommand}}
+\index{registerCommand@{registerCommand}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{registerCommand()}{registerCommand()}}
+{\footnotesize\ttfamily static void Console\+::\+Console\+::register\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Register a command to the console. 
+
+This function is used to register a command to the console \begin{DoxyAttention}{Attention}
+The command will be available in the client and server console
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to register \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_console_1_1_console_a9b7fe4f14a2997434024c76bac87c401}\label{class_console_1_1_console_a9b7fe4f14a2997434024c76bac87c401}} 
+\index{Console::Console@{Console::Console}!registerServerCommand@{registerServerCommand}}
+\index{registerServerCommand@{registerServerCommand}!Console::Console@{Console::Console}}
+\doxysubsubsection{\texorpdfstring{registerServerCommand()}{registerServerCommand()}}
+{\footnotesize\ttfamily static void Console\+::\+Console\+::register\+Server\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_console_1_1_command}{Command}} $\ast$}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Register a command to the server console. 
+
+This function is used to register a command to the server console \begin{DoxyAttention}{Attention}
+The command will be only available in the server console
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to register \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Console/\mbox{\hyperlink{_console_8hpp}{Console.\+hpp}}\end{DoxyCompactItemize}

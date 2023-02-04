@@ -2,7 +2,7 @@
 \label{class_kappa_engine_1_1_system_manager}\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 
 
-The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class is the class that will manage all the systems of the engine.
+The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class is the class that will manage all the systems of the engine.  
 
 
 
@@ -11,34 +11,40 @@ The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} cl
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}{System\+Manager}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}{$\sim$\+System\+Manager}} ()=default
-\item
+\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}{Start}} ()
-\begin{DoxyCompactList}\small\item\em Start Start the system manager. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em Start Start the system manager. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}{Awake}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Awake Awake the system manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a4f2285e01c2b8a7002bb7ccb1ad1263c}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Update Update the system manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_ae063d1178bd3b02f35c27c47add63410}{On\+Render\+Object}} ()
+\begin{DoxyCompactList}\small\item\em On\+Render\+Object Render the scene. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}{register\+System}} ()
-\begin{DoxyCompactList}\small\item\em register\+System Register a system. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em register\+System Register a system. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}{get\+System}} ()
-\begin{DoxyCompactList}\small\item\em get\+System Get the first system of the given type. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em get\+System Get the first system of the given type. \end{DoxyCompactList}\item 
 {\footnotesize template$<$sf\+::\+Event\+::\+Event\+Type E$>$ }\\const sf\+::\+Event $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_ab798c22389858d0b2a527fed50d4ca26}{get\+Event}} ()
-\begin{DoxyCompactList}\small\item\em get\+Event Get the first event of the given type. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em get\+Event Get the first event of the given type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$sf\+::\+Event\+::\+Event\+Type E$>$ }\\std\+::vector$<$ const sf\+::\+Event $\ast$ $>$ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a018799450cf290c9ac5b91c44ab67dfb}{Get\+Events}} ()
+\begin{DoxyCompactList}\small\item\em get\+Events Get all the events of the given type. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}{get\+Scene}} () const
 \begin{DoxyCompactList}\small\item\em get\+Scene Get the scene of the system manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class is the class that will manage all the systems of the engine.
+The \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class is the class that will manage all the systems of the engine. 
 
-Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}\label{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}\label{class_kappa_engine_1_1_system_manager_a9a97f547d217019481667a7f94417505}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!SystemManager@{SystemManager}}
 \index{SystemManager@{SystemManager}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{SystemManager()}{SystemManager()}}
@@ -46,9 +52,16 @@ Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00028}{28}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
+\mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}\label{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}}
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_system_manager}{System\+Manager}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The scene that the system manager will manage. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}\label{class_kappa_engine_1_1_system_manager_a0d7761d58dc2f2d866245586dd2e599e}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!````~SystemManager@{$\sim$SystemManager}}
 \index{````~SystemManager@{$\sim$SystemManager}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{$\sim$SystemManager()}{~SystemManager()}}
@@ -57,7 +70,7 @@ Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00014}{14}} of 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}\label{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}\label{class_kappa_engine_1_1_system_manager_a994057bafc54331dcad0bcbf89f88cfc}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!Awake@{Awake}}
 \index{Awake@{Awake}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
@@ -65,9 +78,9 @@ Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00014}{14}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
+Awake Awake the system manager. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_ab798c22389858d0b2a527fed50d4ca26}\label{class_kappa_engine_1_1_system_manager_ab798c22389858d0b2a527fed50d4ca26}}
+This function will awake the system manager. \mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_ab798c22389858d0b2a527fed50d4ca26}\label{class_kappa_engine_1_1_system_manager_ab798c22389858d0b2a527fed50d4ca26}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!getEvent@{getEvent}}
 \index{getEvent@{getEvent}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{getEvent()}{getEvent()}}
@@ -76,7 +89,7 @@ const sf\+::\+Event $\ast$ Kappa\+Engine\+::\+System\+Manager\+::get\+Event (\be
 
 
 
-get\+Event Get the first event of the given type.
+get\+Event Get the first event of the given type. 
 
 This function will return the first event of the given type.
 
@@ -86,13 +99,38 @@ This function will return the first event of the given type.
 \hline
 \end{DoxyTemplParams}
 \begin{DoxyReturn}{Returns}
-A pointer to the event if found, nullptr otherwise.
+A pointer to the event if found, nullptr otherwise. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00090}{90}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}\label{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a018799450cf290c9ac5b91c44ab67dfb}\label{class_kappa_engine_1_1_system_manager_a018799450cf290c9ac5b91c44ab67dfb}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!GetEvents@{GetEvents}}
+\index{GetEvents@{GetEvents}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetEvents()}{GetEvents()}}
+{\footnotesize\ttfamily template$<$sf\+::\+Event\+::\+Event\+Type E$>$ \\
+std\+::vector$<$ const sf\+::\+Event $\ast$ $>$ Kappa\+Engine\+::\+System\+Manager\+::\+Get\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Events Get all the events of the given type. 
+
+This function will return all the events of the given type.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em E} & The type of the events to get. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A vector of all the events of the given type. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00139}{139}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}\label{class_kappa_engine_1_1_system_manager_a8b88772da8fefbcde4baf685b2223cc3}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!getScene@{getScene}}
 \index{getScene@{getScene}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{getScene()}{getScene()}}
@@ -100,18 +138,18 @@ Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00090}{90}} of 
 
 
 
-get\+Scene Get the scene of the system manager.
+get\+Scene Get the scene of the system manager. 
 
 This function will return the scene of the system manager.
 
 \begin{DoxyReturn}{Returns}
-A pointer to the scene.
+A pointer to the scene. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00106}{106}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}\label{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}\label{class_kappa_engine_1_1_system_manager_a348c5cf96e7b7e4ba7f43db42c22e1b3}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!getSystem@{getSystem}}
 \index{getSystem@{getSystem}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{getSystem()}{getSystem()}}
@@ -120,7 +158,7 @@ T $\ast$ Kappa\+Engine\+::\+System\+Manager\+::get\+System (\begin{DoxyParamCapt
 
 
 
-get\+System Get the first system of the given type.
+get\+System Get the first system of the given type. 
 
 This function will return the first system of the given type.
 
@@ -130,13 +168,23 @@ This function will return the first system of the given type.
 \hline
 \end{DoxyTemplParams}
 \begin{DoxyReturn}{Returns}
-A pointer to the system if found, nullptr otherwise.
+A pointer to the system if found, nullptr otherwise. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00100}{100}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}\label{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_ae063d1178bd3b02f35c27c47add63410}\label{class_kappa_engine_1_1_system_manager_ae063d1178bd3b02f35c27c47add63410}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!OnRenderObject@{OnRenderObject}}
+\index{OnRenderObject@{OnRenderObject}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{OnRenderObject()}{OnRenderObject()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+On\+Render\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+On\+Render\+Object Render the scene. 
+
+This function will render the scene. \mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}\label{class_kappa_engine_1_1_system_manager_a133a4236d8227527ce1e636e46b71e62}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!registerSystem@{registerSystem}}
 \index{registerSystem@{registerSystem}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{registerSystem()}{registerSystem()}}
@@ -145,7 +193,7 @@ void Kappa\+Engine\+::\+System\+Manager\+::register\+System (\begin{DoxyParamCap
 
 
 
-register\+System Register a system.
+register\+System Register a system. 
 
 This function will register a system to the system manager.
 
@@ -156,9 +204,9 @@ This function will register a system to the system manager.
 \end{DoxyTemplParams}
 
 
-Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
+Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00079}{79}} of file \mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}\label{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}\label{class_kappa_engine_1_1_system_manager_a1690421036de0ac40de0d1e3b52bb2c8}} 
 \index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!Start@{Start}}
 \index{Start@{Start}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
 \doxysubsubsection{\texorpdfstring{Start()}{Start()}}
@@ -166,15 +214,20 @@ Definition at line \mbox{\hyperlink{_system_manager_8hpp_source_l00051}{51}} of 
 
 
 
-Start Start the system manager.
+Start Start the system manager. 
 
-This function will start the system manager.
+This function will start the system manager. \mbox{\Hypertarget{class_kappa_engine_1_1_system_manager_a4f2285e01c2b8a7002bb7ccb1ad1263c}\label{class_kappa_engine_1_1_system_manager_a4f2285e01c2b8a7002bb7ccb1ad1263c}} 
+\index{KappaEngine::SystemManager@{KappaEngine::SystemManager}!Update@{Update}}
+\index{Update@{Update}!KappaEngine::SystemManager@{KappaEngine::SystemManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+System\+Manager\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Definition at line \mbox{\hyperlink{_system_manager_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_system_manager_8cpp_source}{System\+Manager.\+cpp}}.
 
 
+Update Update the system manager. 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item
-Kappa\+Engine/\mbox{\hyperlink{_system_manager_8hpp}{System\+Manager.\+hpp}}\item
-src/\mbox{\hyperlink{_system_manager_8cpp}{System\+Manager.\+cpp}}\end{DoxyCompactItemize}
+This function will update the system manager. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\mbox{\hyperlink{_system_manager_8hpp}{System\+Manager.\+hpp}}\end{DoxyCompactItemize}

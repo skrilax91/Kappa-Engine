@@ -2,6 +2,11 @@
 \label{class_kappa_engine_1_1_i_system}\index{KappaEngine::ISystem@{KappaEngine::ISystem}}
 
 
+The \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class is the base class of all systems of the engine.  
+
+
+
+
 {\ttfamily \#include $<$ISystem.\+hpp$>$}
 
 
@@ -14,41 +19,41 @@ Collaboration diagram for Kappa\+Engine\+::ISystem\+:
 % FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}{ISystem}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Awake}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}{Start}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Start Called when the system is started. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}{Fixed\+Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Fixed\+Update Called every fixed time. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}{Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Update Called every frame. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}{Late\+Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Late\+Update Called every frame after the Update function. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}{On\+Render\+Object}} ()
-\item
+\begin{DoxyCompactList}\small\item\em On\+GUI Called every frame after the Update function. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}{On\+Destroy}} (\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$)
-\item
+\begin{DoxyCompactList}\small\item\em On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}{On\+Disable}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\+\_\+scene}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class is the base class of all systems of the engine. 
 
-
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}\label{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}\label{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!ISystem@{ISystem}}
 \index{ISystem@{ISystem}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{ISystem()}{ISystem()}}
@@ -56,12 +61,23 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00020}{20}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+\mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class. 
+
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The scene that the system will manage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}\label{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}\label{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!Awake@{Awake}}
 \index{Awake@{Awake}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
@@ -69,13 +85,17 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00023}{23}} of file \
 
 
 
-Reimplemented in \mbox{\hyperlink{class_kappa_engine_1_1_collide_box_system_a02005ca6e3e63d46b8ce60237bfa408b}{Kappa\+Engine\+::\+Collide\+Box\+System}}, \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}{Kappa\+Engine\+::\+Rigid\+Body\+System}}, and \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{Kappa\+Engine\+::\+Sprite\+Renderer\+System}}.
+Awake Called when the system is created. 
+
+This function will be called when the system is created. 
+
+Reimplemented in \mbox{\hyperlink{class_kappa_engine_1_1_collide_box_system_a02005ca6e3e63d46b8ce60237bfa408b}{Kappa\+Engine\+::\+Collide\+Box\+System}}, \mbox{\hyperlink{class_kappa_engine_1_1_network_system_a872a7992913cd854073913e5ed3b9ec6}{Kappa\+Engine\+::\+Network\+System}}, \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_a3c86afdeb83d56ddc3932c22de21e803}{Kappa\+Engine\+::\+Rigid\+Body\+System}}, and \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{Kappa\+Engine\+::\+Sprite\+Renderer\+System}}.
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}\label{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}\label{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!FixedUpdate@{FixedUpdate}}
 \index{FixedUpdate@{FixedUpdate}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
@@ -83,13 +103,22 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00025}{25}} of file \
 
 
 
+Fixed\+Update Called every fixed time. 
+
+This function will be called every fixed time. It will be called after the Start function. It will be called before the Update function. It is used for physics calculations.
+
+\begin{DoxyAttention}{Attention}
+This function is called multiple times per frame. 
+\end{DoxyAttention}
+
+
 Reimplemented in \mbox{\hyperlink{class_kappa_engine_1_1_rigid_body_system_adf2a78721e4ea14539732ab1c5c7bfeb}{Kappa\+Engine\+::\+Rigid\+Body\+System}}.
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}\label{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}\label{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!LateUpdate@{LateUpdate}}
 \index{LateUpdate@{LateUpdate}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
@@ -97,9 +126,13 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00027}{27}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Late\+Update Called every frame after the Update function. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}\label{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}}
+This function will be called every frame after the Update function. It is used for logic calculations. 
+
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}\label{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!OnDestroy@{OnDestroy}}
 \index{OnDestroy@{OnDestroy}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
@@ -107,13 +140,17 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00029}{29}} of file \
 
 
 
+On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. 
+
+
+
 Reimplemented in \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{Kappa\+Engine\+::\+Sprite\+Renderer\+System}}.
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}\label{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}\label{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!OnDisable@{OnDisable}}
 \index{OnDisable@{OnDisable}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
@@ -121,9 +158,9 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00034}{34}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}\label{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}\label{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!OnRenderObject@{OnRenderObject}}
 \index{OnRenderObject@{OnRenderObject}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{OnRenderObject()}{OnRenderObject()}}
@@ -131,13 +168,17 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00035}{35}} of file \
 
 
 
+On\+GUI Called every frame after the Update function. 
+
+This function will be called every frame after the Update function. It is used for GUI rendering. 
+
 Reimplemented in \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{Kappa\+Engine\+::\+Sprite\+Renderer\+System}}.
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}\label{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}\label{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!Start@{Start}}
 \index{Start@{Start}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{Start()}{Start()}}
@@ -145,9 +186,13 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00031}{31}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Start Called when the system is started. 
 
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}\label{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}}
+This function will be called when the system is started. It will be called after the Awake function. 
+
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}\label{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!Update@{Update}}
 \index{Update@{Update}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
@@ -155,12 +200,16 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00026}{26}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Update Called every frame. 
+
+This function will be called every frame. It will be called after the Fixed\+Update function. It is used for logic calculations. 
+
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}\label{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}\label{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}} 
 \index{KappaEngine::ISystem@{KappaEngine::ISystem}!\_scene@{\_scene}}
 \index{\_scene@{\_scene}!KappaEngine::ISystem@{KappaEngine::ISystem}}
 \doxysubsubsection{\texorpdfstring{\_scene}{\_scene}}
@@ -168,10 +217,10 @@ Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00028}{28}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
+Definition at line \mbox{\hyperlink{_i_system_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
-\item
-Kappa\+Engine/\+Systems/\mbox{\hyperlink{_i_system_8hpp}{ISystem.\+hpp}}\end{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Systems/\mbox{\hyperlink{_i_system_8hpp}{ISystem.\+hpp}}\end{DoxyCompactItemize}

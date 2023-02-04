@@ -2,6 +2,11 @@
 \label{class_kappa_engine_1_1_sprite_renderer_system}\index{KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}}
 
 
+System that handles the rendering of sprites.  
+
+
+
+
 {\ttfamily \#include $<$Sprite\+Renderer\+System.\+hpp$>$}
 
 
@@ -14,53 +19,53 @@ Collaboration diagram for Kappa\+Engine\+::Sprite\+Renderer\+System\+:
 % FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}{Sprite\+Renderer\+System}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{Sprite\+Renderer\+System}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{Sprite\+Renderer\+System}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{Awake}} () override
-\item
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{On\+Destroy}} (\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$) override
-\item
+\begin{DoxyCompactList}\small\item\em On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{On\+Render\+Object}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em On\+GUI Called every frame after the Update function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{Kappa\+Engine\+::\+ISystem}}}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}{ISystem}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
-\item
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Awake}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}{Start}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Start Called when the system is started. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}{Fixed\+Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Fixed\+Update Called every fixed time. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}{Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Update Called every frame. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}{Late\+Update}} ()
-\item
+\begin{DoxyCompactList}\small\item\em Late\+Update Called every frame after the Update function. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}{On\+Render\+Object}} ()
-\item
+\begin{DoxyCompactList}\small\item\em On\+GUI Called every frame after the Update function. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}{On\+Destroy}} (\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$)
-\item
+\begin{DoxyCompactList}\small\item\em On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}{On\+Disable}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{Kappa\+Engine\+::\+ISystem}}}
 \begin{DoxyCompactItemize}
-\item
+\item 
 \mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\+\_\+scene}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+System that handles the rendering of sprites. 
 
-
-Definition at line \mbox{\hyperlink{_sprite_renderer_system_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{_sprite_renderer_system_8hpp_source}{Sprite\+Renderer\+System.\+hpp}}.
+Definition at line \mbox{\hyperlink{_sprite_renderer_system_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{_sprite_renderer_system_8hpp_source}{Sprite\+Renderer\+System.\+hpp}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}\label{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}\label{class_kappa_engine_1_1_sprite_renderer_system_a03dcf7ffb0666c037bf3e6b62fbd370a}} 
 \index{KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}!SpriteRendererSystem@{SpriteRendererSystem}}
 \index{SpriteRendererSystem@{SpriteRendererSystem}!KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}}
 \doxysubsubsection{\texorpdfstring{SpriteRendererSystem()}{SpriteRendererSystem()}}
@@ -68,12 +73,23 @@ Definition at line \mbox{\hyperlink{_sprite_renderer_system_8hpp_source_l00013}{
 
 
 
-Definition at line \mbox{\hyperlink{_sprite_renderer_system_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{_sprite_renderer_system_8hpp_source}{Sprite\+Renderer\+System.\+hpp}}.
+\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{Sprite\+Renderer\+System}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{Sprite\+Renderer\+System}} class. 
+
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system}{Sprite\+Renderer\+System}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The scene that the system will manage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_sprite_renderer_system_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{_sprite_renderer_system_8hpp_source}{Sprite\+Renderer\+System.\+hpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}\label{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}\label{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}} 
 \index{KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}!Awake@{Awake}}
 \index{Awake@{Awake}!KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}}
 \doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
@@ -81,27 +97,27 @@ Definition at line \mbox{\hyperlink{_sprite_renderer_system_8hpp_source_l00015}{
 
 
 
+Awake Called when the system is created. 
+
+This function will be called when the system is created. 
+
 Reimplemented from \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Kappa\+Engine\+::\+ISystem}}.
 
-
-
-Definition at line \mbox{\hyperlink{_sprite_renderer_system_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_sprite_renderer_system_8cpp_source}{Sprite\+Renderer\+System.\+cpp}}.
-
-\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}\label{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}\label{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}} 
 \index{KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}!OnDestroy@{OnDestroy}}
 \index{OnDestroy@{OnDestroy}!KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}}
 \doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
-{\footnotesize\ttfamily void Kappa\+Engine\+::\+Sprite\+Renderer\+System\+::\+On\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Sprite\+Renderer\+System\+::\+On\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. 
 
 
 
 Reimplemented from \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}{Kappa\+Engine\+::\+ISystem}}.
 
-
-
-Definition at line \mbox{\hyperlink{_sprite_renderer_system_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_sprite_renderer_system_8cpp_source}{Sprite\+Renderer\+System.\+cpp}}.
-
-\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}\label{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}}
+\mbox{\Hypertarget{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}\label{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}} 
 \index{KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}!OnRenderObject@{OnRenderObject}}
 \index{OnRenderObject@{OnRenderObject}!KappaEngine::SpriteRendererSystem@{KappaEngine::SpriteRendererSystem}}
 \doxysubsubsection{\texorpdfstring{OnRenderObject()}{OnRenderObject()}}
@@ -109,15 +125,14 @@ Definition at line \mbox{\hyperlink{_sprite_renderer_system_8cpp_source_l00044}{
 
 
 
+On\+GUI Called every frame after the Update function. 
+
+This function will be called every frame after the Update function. It is used for GUI rendering. 
+
 Reimplemented from \mbox{\hyperlink{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}{Kappa\+Engine\+::\+ISystem}}.
 
 
 
-Definition at line \mbox{\hyperlink{_sprite_renderer_system_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_sprite_renderer_system_8cpp_source}{Sprite\+Renderer\+System.\+cpp}}.
-
-
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item
-Kappa\+Engine/\+Systems/\mbox{\hyperlink{_sprite_renderer_system_8hpp}{Sprite\+Renderer\+System.\+hpp}}\item
-src/\+Systems/\mbox{\hyperlink{_sprite_renderer_system_8cpp}{Sprite\+Renderer\+System.\+cpp}}\end{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Systems/\mbox{\hyperlink{_sprite_renderer_system_8hpp}{Sprite\+Renderer\+System.\+hpp}}\end{DoxyCompactItemize}

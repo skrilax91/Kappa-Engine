@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +48,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -66,27 +66,39 @@ $(document).ready(function(){initNavTree('class_kappa_engine_1_1_entity_manager.
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> class is the class that will manage all entities of a scene.  
+ <a href="class_kappa_engine_1_1_entity_manager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0457fe3ff1de88e3e37d657b97ea4916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a0457fe3ff1de88e3e37d657b97ea4916">EntityManager</a> ()=default</td></tr>
+<tr class="memdesc:a0457fe3ff1de88e3e37d657b97ea4916"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> Constructor of the <a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> class.  <br /></td></tr>
 <tr class="separator:a0457fe3ff1de88e3e37d657b97ea4916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30bc02be492d99cd19567b389bbfb27"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#ab30bc02be492d99cd19567b389bbfb27">~EntityManager</a> ()=default</td></tr>
 <tr class="separator:ab30bc02be492d99cd19567b389bbfb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60560f8a1da03910a6227721ae0f5069"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a60560f8a1da03910a6227721ae0f5069">createEntity</a> (const std::string &amp;name, void(*cb)(<a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp;))</td></tr>
-<tr class="separator:a60560f8a1da03910a6227721ae0f5069"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac17b8a7ed3daee936793238181484bfd"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#ac17b8a7ed3daee936793238181484bfd">getEntities</a> ()</td></tr>
-<tr class="separator:ac17b8a7ed3daee936793238181484bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e492fc1e06b7a717776411faf3979d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#ac1e492fc1e06b7a717776411faf3979d">getEntity</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:ac1e492fc1e06b7a717776411faf3979d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b05a5d24f936e1d7c1ec8e89bce775a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a9b05a5d24f936e1d7c1ec8e89bce775a">createEntity</a> (const std::string &amp;name, void(*cb)(<a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp;))</td></tr>
+<tr class="memdesc:a9b05a5d24f936e1d7c1ec8e89bce775a"><td class="mdescLeft">&#160;</td><td class="mdescRight">createEntity Create an entity.  <br /></td></tr>
+<tr class="separator:a9b05a5d24f936e1d7c1ec8e89bce775a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5d2f2629b12f246c7baf7b5be5dc2e"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a5d5d2f2629b12f246c7baf7b5be5dc2e">getEntities</a> ()</td></tr>
+<tr class="memdesc:a5d5d2f2629b12f246c7baf7b5be5dc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all entities.  <br /></td></tr>
+<tr class="separator:a5d5d2f2629b12f246c7baf7b5be5dc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340026dabe23daae02b1995e5dd8cd82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a340026dabe23daae02b1995e5dd8cd82">getEntity</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a340026dabe23daae02b1995e5dd8cd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an entity by its name.  <br /></td></tr>
+<tr class="separator:a340026dabe23daae02b1995e5dd8cd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95df578581bdfdf1f07a857e446fb073"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a95df578581bdfdf1f07a857e446fb073"><td class="memTemplItemLeft" align="right" valign="top">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a95df578581bdfdf1f07a857e446fb073">getEntitiesWithComponent</a> ()</td></tr>
+<tr class="memdesc:a95df578581bdfdf1f07a857e446fb073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all entities with a specific component.  <br /></td></tr>
 <tr class="separator:a95df578581bdfdf1f07a857e446fb073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6482cf75e4def4bfa73327467f831ffd"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_entity_manager.html#a6482cf75e4def4bfa73327467f831ffd">getEntitiesByTag</a> (const std::string &amp;tag)</td></tr>
+<tr class="memdesc:a6482cf75e4def4bfa73327467f831ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all entities with a specific tag.  <br /></td></tr>
+<tr class="separator:a6482cf75e4def4bfa73327467f831ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8hpp_source.html#l00015">15</a> of file <a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>.</p>
+<div class="textblock"><p>The <a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> class is the class that will manage all entities of a scene. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8hpp_source.html#l00018">18</a> of file <a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0457fe3ff1de88e3e37d657b97ea4916" name="a0457fe3ff1de88e3e37d657b97ea4916"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0457fe3ff1de88e3e37d657b97ea4916">&#9670;&#160;</a></span>EntityManager()</h2>
@@ -110,6 +122,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> Constructor of the <a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> class. </p>
+<p>This function will construct the <a class="el" href="class_kappa_engine_1_1_entity_manager.html" title="The EntityManager class is the class that will manage all entities of a scene.">EntityManager</a> class. </p>
 
 </div>
 </div>
@@ -139,14 +154,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a60560f8a1da03910a6227721ae0f5069" name="a60560f8a1da03910a6227721ae0f5069"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60560f8a1da03910a6227721ae0f5069">&#9670;&#160;</a></span>createEntity()</h2>
+<a id="a9b05a5d24f936e1d7c1ec8e89bce775a" name="a9b05a5d24f936e1d7c1ec8e89bce775a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b05a5d24f936e1d7c1ec8e89bce775a">&#9670;&#160;</a></span>createEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp; EntityManager::createEntity </td>
+          <td class="memname"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp; KappaEngine::EntityManager::createEntity </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -165,18 +180,27 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00010">10</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>createEntity Create an entity. </p>
+<p>This function will create an entity.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity. </td></tr>
+    <tr><td class="paramname">cb</td><td>The callback function that will be called when the entity is created. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The entity created. </dd></dl>
 
 </div>
 </div>
-<a id="ac17b8a7ed3daee936793238181484bfd" name="ac17b8a7ed3daee936793238181484bfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac17b8a7ed3daee936793238181484bfd">&#9670;&#160;</a></span>getEntities()</h2>
+<a id="a5d5d2f2629b12f246c7baf7b5be5dc2e" name="a5d5d2f2629b12f246c7baf7b5be5dc2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5d2f2629b12f246c7baf7b5be5dc2e">&#9670;&#160;</a></span>getEntities()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt; EntityManager::getEntities </td>
+          <td class="memname">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt; KappaEngine::EntityManager::getEntities </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -184,7 +208,35 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00023">23</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>Get all entities. </p>
+<dl class="section return"><dt>Returns</dt><dd>A list of all entities. </dd></dl>
+
+</div>
+</div>
+<a id="a6482cf75e4def4bfa73327467f831ffd" name="a6482cf75e4def4bfa73327467f831ffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6482cf75e4def4bfa73327467f831ffd">&#9670;&#160;</a></span>getEntitiesByTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &gt; &gt; KappaEngine::EntityManager::getEntitiesByTag </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all entities with a specific tag. </p>
+<p>This function will return a list of all entities that have a specific tag. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>The tag of the entities. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of all entities with the tag. </dd></dl>
 
 </div>
 </div>
@@ -213,18 +265,28 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8hpp_source.html#l00026">26</a> of file <a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>.</p>
+<p>Get all entities with a specific component. </p>
+<p>This function will return a list of all entities that have a specific component.</p>
+<p>The component must inherit from <a class="el" href="class_component_1_1_i_component.html" title="Base class for all components.">Component::IComponent</a>. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the component. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of all entities with the component. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8hpp_source.html#l00060">60</a> of file <a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac1e492fc1e06b7a717776411faf3979d" name="ac1e492fc1e06b7a717776411faf3979d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e492fc1e06b7a717776411faf3979d">&#9670;&#160;</a></span>getEntity()</h2>
+<a id="a340026dabe23daae02b1995e5dd8cd82" name="a340026dabe23daae02b1995e5dd8cd82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340026dabe23daae02b1995e5dd8cd82">&#9670;&#160;</a></span>getEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp; EntityManager::getEntity </td>
+          <td class="memname"><a class="el" href="class_kappa_engine_1_1_entity.html">Entity</a> &amp; KappaEngine::EntityManager::getEntity </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -233,13 +295,19 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<p>Get an entity by its name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The entity. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>KappaEngine/<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a></li>
-<li>src/<a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/KappaEngine/<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
