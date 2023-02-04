@@ -36,6 +36,8 @@ namespace KappaEngine {
                 return entities;
             }
 
+            std::list<std::shared_ptr<Entity>> getEntitiesByTag(const std::string& tag);
+
 
 
         private:
