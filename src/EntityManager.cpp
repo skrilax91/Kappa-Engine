@@ -32,3 +32,14 @@ Entity &EntityManager::getEntity(const std::string& name) {
     }
     throw std::runtime_error("Entity not found");
 }
+
+std::list <std::shared_ptr<Entity>> EntityManager::getEntitiesByTag(const std::string& tag) {
+    std::list <std::shared_ptr<Entity>> entities;
+
+    for (auto &entity: _entities) {
+        if (entity->hasTag(tag)) {
+            entities.push_back(entity);
+        }
+    }
+    return entities;
+}

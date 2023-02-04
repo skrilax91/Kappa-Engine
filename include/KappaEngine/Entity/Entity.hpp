@@ -6,6 +6,8 @@
 #define KAPPA_ENGINE_ENTITY_HPP
 
 #include <list>
+#include <string>
+#include <vector>
 #include <memory>
 #include <algorithm>
 #include <utility>
@@ -73,10 +75,27 @@ namespace KappaEngine {
                 }
             }
 
+            bool hasTag(const std::string &tag) {
+                return std::find(_tags.begin(), _tags.end(), tag) != _tags.end();
+            }
+
+            void addTag(const std::string &tag) {
+                if (!hasTag(tag)) {
+                    _tags.push_back(tag);
+                }
+            }
+
+            void removeTag(const std::string &tag) {
+                if (hasTag(tag)) {
+                    _tags.erase(std::remove(_tags.begin(), _tags.end(), tag), _tags.end());
+                }
+            }
+
 
         private:
             std::string _id;
             std::list<std::shared_ptr<Component::IComponent>> _components;
+            std::vector<std::string> _tags;
     };
 }
 
