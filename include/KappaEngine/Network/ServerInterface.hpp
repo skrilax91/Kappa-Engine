@@ -221,7 +221,10 @@ namespace Network {
              * @param client
              * @return true if the client is accepted, false otherwise
              */
-            virtual bool OnClientConnect( std::shared_ptr<Connection> client ) {
+            bool OnClientConnect( std::shared_ptr<Connection> client ) {
+                if (_onClientConnect) {
+                    return _onClientConnect(client);
+                }
                 return false;
             };
 
@@ -229,8 +232,10 @@ namespace Network {
              * @brief Called when a client disconnects
              * @param client
              */
-            virtual void OnClientDisconnect( std::shared_ptr<Connection> client ) {
-
+            void OnClientDisconnect( std::shared_ptr<Connection> client ) {
+                if (_onClientDisconnect) {
+                    _onClientDisconnect(client);
+                }
             };
 
             /**
@@ -238,9 +243,34 @@ namespace Network {
              * @param client
              * @param msg
              */
-            virtual void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
-
+            void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
+                if (_onMessage) {
+                    _onMessage(client, msg);
+                }
             };
+
+            void SetOnClientConnect( std::function<bool(std::shared_ptr<Connection>)> callback ) {
+                _onClientConnect = callback;
+            };
+
+            void SetOnClientDisconnect( std::function<void(std::shared_ptr<Connection>)> callback ) {
+                _onClientDisconnect = callback;
+            };
+
+            void AddOnMessageCallback( uint32_t id, std::function<void(std::shared_ptr<Connection>, Message&)> callback ) {
+                if (_onMessageMap.find(id) != _onMessageMap.end()) {
+                    std::cerr << "[SERVER] Message ID " << id << " already has a callback" << std::endl;
+                    return;
+                }
+
+                _onMessageMap[id] = callback;
+            };
+
+        private:
+            std::function<bool(std::shared_ptr<Connection>)> _onClientConnect = nullptr;
+            std::function<void(std::shared_ptr<Connection>)> _onClientDisconnect = nullptr;
+
+            std::map<uint32_t, std::function<void(std::shared_ptr<Connection>, Message&)> > _onMessageMap;
 
     };
 }
