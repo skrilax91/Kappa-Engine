@@ -13,9 +13,17 @@
 
 namespace Network {
 
+    /**
+     * @brief The ClientInterface class is the class that will manage the client.
+     */
     class ClientInterface {
         public:
 
+            /**
+             * @brief ClientInterface Constructor of the ClientInterface class.
+             *
+             * This function will construct the ClientInterface class.
+             */
             ClientInterface() {
 
             }
@@ -24,6 +32,15 @@ namespace Network {
                 Disconnect();
             }
 
+            /**
+             * @brief Connect to a server.
+             *
+             * This function will connect the client to a server.
+             *
+             * @param host The host of the server.
+             * @param port The port of the server.
+             * @return True if the client is connected to the server, false otherwise.
+             */
             bool Connect(const std::string& host, const uint16_t port) {
                 try {
 
@@ -50,6 +67,11 @@ namespace Network {
                 return true;
             }
 
+            /**
+             * @brief Disconnect the client from the server.
+             *
+             * This function will disconnect the client from the server.
+             */
             void Disconnect() {
                 if (IsConnected()) {
                     _connection->Disconnect();
@@ -61,16 +83,38 @@ namespace Network {
                 _connection.release();
             }
 
+            /**
+             * @brief Check if the client is connected to the server.
+             *
+             * This function will check if the client is connected to the server.
+             *
+             * @return True if the client is connected to the server, false otherwise.
+             */
             bool IsConnected() const {
                 return _connection && _connection->IsConnected();
             }
 
+            /**
+             * @brief Send a message to the server.
+             *
+             * This function will send a message to the server.
+             *
+             * @param msg The message to send.
+             */
             void Send(const Message& msg) {
                 if (IsConnected()) {
                     _connection->Send(msg);
                 }
             }
 
+            /**
+             * @brief Update the client.
+             *
+             * This function will update the client.
+             * It will handle the incoming messages.
+             *
+             * @param maxMessages The maximum number of messages to handle.
+             */
             void Update(size_t maxMessages = -1) {
 
                 size_t messageCount = 0;
@@ -81,6 +125,13 @@ namespace Network {
                 }
             }
 
+            /**
+             * @brief Get the incoming messages.
+             *
+             * This function will return the incoming messages.
+             *
+             * @return The incoming messages.
+             */
             NetworkQueue<OwnedMessage>& GetIncomingMessages() {
                 return _incomingMessages;
             }

@@ -1,0 +1,79 @@
+\hypertarget{_network_queue_8hpp_source}{}\doxysection{Network\+Queue.\+hpp}
+\label{_network_queue_8hpp_source}\index{include/KappaEngine/Network/NetworkQueue.hpp@{include/KappaEngine/Network/NetworkQueue.hpp}}
+\mbox{\hyperlink{_network_queue_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 30/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <deque>}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00010}00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_network}{Network}}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00017}\mbox{\hyperlink{class_network_1_1_network_queue}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_network_queue}{NetworkQueue}}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00024}\mbox{\hyperlink{class_network_1_1_network_queue_a88f0caf10d180581d8ea0992e548af52}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_network_queue_a88f0caf10d180581d8ea0992e548af52}{NetworkQueue}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00025}\mbox{\hyperlink{class_network_1_1_network_queue_a6f68b05b60e84e101ddae9a2664715f2}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_network_queue_a6f68b05b60e84e101ddae9a2664715f2}{NetworkQueue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_network_1_1_network_queue}{NetworkQueue<T>}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00026}\mbox{\hyperlink{class_network_1_1_network_queue_aff1401d38e2e7d1f779d4f94708e6203}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_network_queue_aff1401d38e2e7d1f779d4f94708e6203}{\string~NetworkQueue}}()\ \{\ \mbox{\hyperlink{class_network_1_1_network_queue_ae2be47f7bc1e55849e3b9367df865dc8}{clear}}();\ \};}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00032}\mbox{\hyperlink{class_network_1_1_network_queue_afe091f58e3b0249b186c1b674225989c}{00032}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{class_network_1_1_network_queue_afe091f58e3b0249b186c1b674225989c}{front}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_queue.front();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00041}\mbox{\hyperlink{class_network_1_1_network_queue_aa2066f38bf75bf3142830bc59e7ad79f}{00041}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{class_network_1_1_network_queue_aa2066f38bf75bf3142830bc59e7ad79f}{back}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_queue.back();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00050}\mbox{\hyperlink{class_network_1_1_network_queue_a1df18cb1cb945cf52655760f0d23aac8}{00050}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_network_queue_a1df18cb1cb945cf52655760f0d23aac8}{empty}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_queue.empty();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00059}\mbox{\hyperlink{class_network_1_1_network_queue_a6c24ab99c532860db4ebe26cd648436e}{00059}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_network_1_1_network_queue_a6c24ab99c532860db4ebe26cd648436e}{size}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_queue.size();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00067}\mbox{\hyperlink{class_network_1_1_network_queue_ae2be47f7bc1e55849e3b9367df865dc8}{00067}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_network_queue_ae2be47f7bc1e55849e3b9367df865dc8}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_queue.clear();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00076}\mbox{\hyperlink{class_network_1_1_network_queue_a45f8aef0b7dec61dea6269c9ea384f53}{00076}}\ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{class_network_1_1_network_queue_a45f8aef0b7dec61dea6269c9ea384f53}{popFront}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ t\ =\ std::move(\_queue.front());}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_queue.pop\_front();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00087}\mbox{\hyperlink{class_network_1_1_network_queue_a47ee5bf0dcad626264dd556dda48a085}{00087}}\ \ \ \ \ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{class_network_1_1_network_queue_a47ee5bf0dcad626264dd556dda48a085}{popBack}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ t\ =\ std::move(\_queue.back());}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_queue.pop\_back();}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00098}\mbox{\hyperlink{class_network_1_1_network_queue_abc6d4f8a4c368bb324778fe9a45ac587}{00098}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_network_queue_abc6d4f8a4c368bb324778fe9a45ac587}{pushBack}}(\textcolor{keyword}{const}\ T\&\ item)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_queue.emplace\_back(std::move(item));}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00107}\mbox{\hyperlink{class_network_1_1_network_queue_a57640f4fe7a77706b90cc27a4dcf595a}{00107}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_network_queue_a57640f4fe7a77706b90cc27a4dcf595a}{pushFront}}(\textcolor{keyword}{const}\ T\&\ item)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::scoped\_lock\ lock(\_mutex);}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_queue.emplace\_front(std::move(item));}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ std::deque<T>\ \_queue;}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ std::mutex\ \_mutex;}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00116}00116\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_queue_8hpp_source_l00117}00117\ \}}
+
+\end{DoxyCode}

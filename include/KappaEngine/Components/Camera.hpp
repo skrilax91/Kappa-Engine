@@ -7,6 +7,14 @@
 #include "IComponent.hpp"
 
 namespace Component {
+
+    /**
+     * @brief The Camera class
+     * @def This class is used to create a camera, it will render the layers in the list
+     * @def The position is the relative position of the camera
+     * @def The layers are the layers to render
+     * @def The camera will render the layers in the order of the list
+     */
     class Camera : public IComponent {
         public:
             /**

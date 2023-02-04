@@ -18,13 +18,45 @@ namespace KappaEngine {
 
 namespace KappaEngine {
 
+    /**
+     * @brief The Scene class is the class that will manage all entities and systems of the engine.
+     */
     class Scene {
         public:
+            /**
+             * @brief Scene Constructor of the Scene class.
+             *
+             * This function will construct the Scene class.
+             *
+             * @param name The name of the scene.
+             */
             Scene(std::string name);
 
+            /**
+             * @brief getSystemManager Get the system manager of the scene.
+             *
+             * This function will return the system manager of the scene.
+             *
+             * @return The system manager of the scene.
+             */
             SystemManager *getSystemManager();
+
+            /**
+             * @brief getEntityManager Get the entity manager of the scene.
+             *
+             * This function will return the entity manager of the scene.
+             *
+             * @return The entity manager of the scene.
+             */
             EntityManager *getEntityManager();
 
+            /**
+             * @brief getName Get the name of the scene.
+             *
+             * This function will return the name of the scene.
+             *
+             * @return The name of the scene.
+             */
             std::string getName() {
                 return _name;
             }
@@ -33,9 +65,28 @@ namespace KappaEngine {
             // Lifecycle functions
             //////////////////////////
 
+            /**
+             * @brief Awake Awake the scene.
+             * This function will awake the scene.
+             */
             void Awake();
+
+            /**
+             * @brief Start Start the scene.
+             * This function will start the scene.
+             */
             void Start();
+
+            /**
+             * @brief FixedUpdate FixedUpdate the scene.
+             * This function will FixedUpdate the scene.
+             */
             void Update();
+
+            /**
+             * @brief OnRenderObject OnRenderObject the scene.
+             * This function will OnRenderObject the scene.
+             */
             void OnRenderObject();
 
 

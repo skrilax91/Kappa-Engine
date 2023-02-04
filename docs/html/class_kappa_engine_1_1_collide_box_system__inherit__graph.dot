@@ -6,5 +6,5 @@ digraph "KappaEngine::CollideBoxSystem"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   Node1 [label="KappaEngine::CollideBoxSystem",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node2 [label="KappaEngine::ISystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_i_system.html",tooltip=" "];
+  Node2 [label="KappaEngine::ISystem",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_i_system.html",tooltip="The ISystem class is the base class of all systems of the engine."];
 }

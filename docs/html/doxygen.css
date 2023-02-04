@@ -161,10 +161,7 @@ html {
 
 }
 
-@media (prefers-color-scheme: dark) {
-  html:not(.dark-mode) {
-    color-scheme: dark;
-
+html.dark-mode {
 /* page base colors */
 --page-background-color: black;
 --page-foreground-color: #C9D1D9;
@@ -323,7 +320,8 @@ html {
 --font-family-icon: Arial,Helvetica;
 --font-family-tooltip: Roboto,sans-serif;
 
-}}
+}
+
 body {
     background-color: var(--page-background-color);
     color: var(--page-foreground-color);
@@ -743,7 +741,7 @@ img.light-mode-visible {
 }
 
 img.formulaDsp {
-
+	
 }
 
 img.formulaInl, img.inline {
@@ -808,19 +806,19 @@ span.charliteral {
 	color: var(--code-char-literal-color);
 }
 
-span.vhdldigit {
+span.vhdldigit { 
 	color: var(--code-vhdl-digit-color);
 }
 
-span.vhdlchar {
+span.vhdlchar { 
 	color: var(--code-vhdl-char-color);
 }
 
-span.vhdlkeyword {
+span.vhdlkeyword { 
 	color: var(--code-vhdl-keyword-color);
 }
 
-span.vhdllogic {
+span.vhdllogic { 
 	color: var(--code-vhdl-logic-color);
 }
 
@@ -1547,12 +1545,12 @@ dl.section dd {
 	vertical-align: bottom;
 	border-collapse: separate;
 }
-
+ 
 #projectlogo img
-{
+{ 
 	border: 0px none;
 }
-
+ 
 #projectalign
 {
         vertical-align: middle;
@@ -1987,20 +1985,3 @@ details[open]>summary::before {
     font-size: 80%;
 }
 
-body {
-    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-background-color);
-}
-
-::-webkit-scrollbar {
-        background-color: var(--scrollbar-background-color);
-        height: 12px;
-        width: 12px;
-}
-::-webkit-scrollbar-thumb {
-        border-radius: 6px;
-        box-shadow: inset 0 0 12px 12px var(--scrollbar-thumb-color);
-        border: solid 2px transparent;
-}
-::-webkit-scrollbar-corner {
-        background-color: var(--scrollbar-background-color);
-}

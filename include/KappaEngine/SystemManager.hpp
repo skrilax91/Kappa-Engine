@@ -28,6 +28,14 @@ namespace KappaEngine {
      */
     class SystemManager {
         public:
+
+            /**
+             * @brief SystemManager Constructor of the SystemManager class.
+             *
+             * This function will construct the SystemManager class.
+             *
+             * @param scene The scene that the system manager will manage.
+             */
             explicit SystemManager(Scene *scene);
             ~SystemManager() = default;
 
@@ -39,6 +47,11 @@ namespace KappaEngine {
              */
             void Start();
 
+            /**
+             * @brief Awake Awake the system manager.
+             *
+             * This function will awake the system manager.
+             */
             void Awake();
 
             /**

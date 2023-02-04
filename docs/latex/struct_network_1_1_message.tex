@@ -1,0 +1,136 @@
+\hypertarget{struct_network_1_1_message}{}\doxysection{Network\+::Message Struct Reference}
+\label{struct_network_1_1_message}\index{Network::Message@{Network::Message}}
+
+
+The \mbox{\hyperlink{struct_network_1_1_message}{Message}} struct is the message that will be sent between the server and the client. It contains the header and the body of the message.  
+
+
+
+
+{\ttfamily \#include $<$net\+\_\+message.\+h$>$}
+
+
+
+Collaboration diagram for Network\+::Message\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct_network_1_1_message_a007fca2e46e2a49499ac82eb8505d750}{size}} () const
+\begin{DoxyCompactList}\small\item\em Get the size of the message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_network_1_1_message_header}{Message\+Header}} \mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}} \{\}
+\begin{DoxyCompactList}\small\item\em The header of the message. \end{DoxyCompactList}\item 
+std\+::vector$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}
+\begin{DoxyCompactList}\small\item\em The body of the message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{struct_network_1_1_message_a9b64ed8c4d6a67a51a2a09cf48692d11}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_network_1_1_message}{Message}} \&msg)
+\item 
+{\footnotesize template$<$typename Data\+Type $>$ }\\\mbox{\hyperlink{struct_network_1_1_message}{Message}} \& \mbox{\hyperlink{struct_network_1_1_message_a8e0e3b7d6e6f492da359592f4b952e11}{operator$<$$<$}} (\mbox{\hyperlink{struct_network_1_1_message}{Message}} \&msg, const Data\+Type \&data)
+\item 
+{\footnotesize template$<$typename Data\+Type $>$ }\\\mbox{\hyperlink{struct_network_1_1_message}{Message}} \& \mbox{\hyperlink{struct_network_1_1_message_a45a8083ead65cd6ba8bcf032e4c2d8b4}{operator$>$$>$}} (\mbox{\hyperlink{struct_network_1_1_message}{Message}} \&msg, Data\+Type \&data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{struct_network_1_1_message}{Message}} struct is the message that will be sent between the server and the client. It contains the header and the body of the message. 
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00027}{27}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_network_1_1_message_a007fca2e46e2a49499ac82eb8505d750}\label{struct_network_1_1_message_a007fca2e46e2a49499ac82eb8505d750}} 
+\index{Network::Message@{Network::Message}!size@{size}}
+\index{size@{size}!Network::Message@{Network::Message}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Network\+::\+Message\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the size of the message. 
+
+This function will return the size of the message.
+
+\begin{DoxyReturn}{Returns}
+The size of the message. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00046}{46}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{struct_network_1_1_message_a8e0e3b7d6e6f492da359592f4b952e11}\label{struct_network_1_1_message_a8e0e3b7d6e6f492da359592f4b952e11}} 
+\index{Network::Message@{Network::Message}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Network::Message@{Network::Message}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Data\+Type $>$ \\
+\mbox{\hyperlink{struct_network_1_1_message}{Message}} \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_network_1_1_message}{Message}} \&}]{msg,  }\item[{const Data\+Type \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00057}{57}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+\mbox{\Hypertarget{struct_network_1_1_message_a9b64ed8c4d6a67a51a2a09cf48692d11}\label{struct_network_1_1_message_a9b64ed8c4d6a67a51a2a09cf48692d11}} 
+\index{Network::Message@{Network::Message}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Network::Message@{Network::Message}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{struct_network_1_1_message}{Message}} \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00051}{51}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+\mbox{\Hypertarget{struct_network_1_1_message_a45a8083ead65cd6ba8bcf032e4c2d8b4}\label{struct_network_1_1_message_a45a8083ead65cd6ba8bcf032e4c2d8b4}} 
+\index{Network::Message@{Network::Message}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Network::Message@{Network::Message}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily template$<$typename Data\+Type $>$ \\
+\mbox{\hyperlink{struct_network_1_1_message}{Message}} \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_network_1_1_message}{Message}} \&}]{msg,  }\item[{Data\+Type \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00069}{69}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}\label{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}} 
+\index{Network::Message@{Network::Message}!body@{body}}
+\index{body@{body}!Network::Message@{Network::Message}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily std\+::vector$<$uint8\+\_\+t$>$ Network\+::\+Message\+::body}
+
+
+
+The body of the message. 
+
+
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00037}{37}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+\mbox{\Hypertarget{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}\label{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}} 
+\index{Network::Message@{Network::Message}!header@{header}}
+\index{header@{header}!Network::Message@{Network::Message}}
+\doxysubsubsection{\texorpdfstring{header}{header}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_network_1_1_message_header}{Message\+Header}} Network\+::\+Message\+::header \{\}}
+
+
+
+The header of the message. 
+
+
+
+Definition at line \mbox{\hyperlink{net__message_8h_source_l00032}{32}} of file \mbox{\hyperlink{net__message_8h_source}{net\+\_\+message.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Network/\mbox{\hyperlink{net__message_8h}{net\+\_\+message.\+h}}\end{DoxyCompactItemize}

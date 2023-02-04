@@ -1,0 +1,106 @@
+\hypertarget{class_kappa_engine_1_1_network_system}{}\doxysection{Kappa\+Engine\+::Network\+System Class Reference}
+\label{class_kappa_engine_1_1_network_system}\index{KappaEngine::NetworkSystem@{KappaEngine::NetworkSystem}}
+
+
+The \mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} class is the class that will manage all the network of the engine.  
+
+
+
+
+{\ttfamily \#include $<$Network\+System.\+hpp$>$}
+
+
+
+Inheritance diagram for Kappa\+Engine\+::Network\+System\+:
+% FIG 0
+
+
+Collaboration diagram for Kappa\+Engine\+::Network\+System\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_network_system_adfca34179aff3d894255cb630df745a4}{Network\+System}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_network_system_a872a7992913cd854073913e5ed3b9ec6}{Awake}} () override
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{Kappa\+Engine\+::\+ISystem}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_i_system_aaf2fe72d8465ca265d6ab5704da87bb5}{ISystem}} (\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{ISystem}} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em Awake Called when the system is created. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_abcdf68242834816033d37e3c4213eb56}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Start Called when the system is started. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a0c47a39fb09270ac08fe6e0c3406f751}{Fixed\+Update}} ()
+\begin{DoxyCompactList}\small\item\em Fixed\+Update Called every fixed time. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e294876566bbdf7865185acd6559f6d}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Update Called every frame. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_af319a466338847993b2d44e82aab8e01}{Late\+Update}} ()
+\begin{DoxyCompactList}\small\item\em Late\+Update Called every frame after the Update function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_ac4b7ac9f50e6d16ae93b5254eb051c49}{On\+Render\+Object}} ()
+\begin{DoxyCompactList}\small\item\em On\+GUI Called every frame after the Update function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a6e47e66c697e8d3138120c7cc711d73d}{On\+Destroy}} (\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $\ast$)
+\begin{DoxyCompactList}\small\item\em On\+Destroy Called when the system is destroyed. This function will be called when the system is destroyed. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_kappa_engine_1_1_i_system_adbead4dfe886a5fd0d302bf738ca7775}{On\+Disable}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_kappa_engine_1_1_i_system}{Kappa\+Engine\+::\+ISystem}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\+\_\+scene}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} class is the class that will manage all the network of the engine. 
+
+Definition at line \mbox{\hyperlink{_network_system_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{_network_system_8hpp_source}{Network\+System.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_network_system_adfca34179aff3d894255cb630df745a4}\label{class_kappa_engine_1_1_network_system_adfca34179aff3d894255cb630df745a4}} 
+\index{KappaEngine::NetworkSystem@{KappaEngine::NetworkSystem}!NetworkSystem@{NetworkSystem}}
+\index{NetworkSystem@{NetworkSystem}!KappaEngine::NetworkSystem@{KappaEngine::NetworkSystem}}
+\doxysubsubsection{\texorpdfstring{NetworkSystem()}{NetworkSystem()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+Network\+System\+::\+Network\+System (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_kappa_engine_1_1_scene}{Scene}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} class. 
+
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_network_system}{Network\+System}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The scene that the network system will manage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_network_system_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{_network_system_8hpp_source}{Network\+System.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_network_system_a872a7992913cd854073913e5ed3b9ec6}\label{class_kappa_engine_1_1_network_system_a872a7992913cd854073913e5ed3b9ec6}} 
+\index{KappaEngine::NetworkSystem@{KappaEngine::NetworkSystem}!Awake@{Awake}}
+\index{Awake@{Awake}!KappaEngine::NetworkSystem@{KappaEngine::NetworkSystem}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Network\+System\+::\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Awake Called when the system is created. 
+
+This function will be called when the system is created. 
+
+Reimplemented from \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a9d4814f001059e3639aa04fb1eeaf9b6}{Kappa\+Engine\+::\+ISystem}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Systems/\mbox{\hyperlink{_network_system_8hpp}{Network\+System.\+hpp}}\end{DoxyCompactItemize}
