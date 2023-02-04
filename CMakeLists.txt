@@ -20,6 +20,8 @@ file(GLOB SOURCE_FILES
         "src/Console/Console.cpp"
         "src/Console/Command.cpp"
 
+        "src/Network/NetworkConnection.cpp"
+
         )
 
 find_package(SFML 2.5 REQUIRED)

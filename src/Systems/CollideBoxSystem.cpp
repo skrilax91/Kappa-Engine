@@ -6,13 +6,7 @@
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
 
 namespace KappaEngine {
-    void CollideBoxSystem::Awake() {
-        std::srand(std::time(nullptr));
-
-        int rand = std::rand();
-
-        for (int i = 0; i < rand ; i++);
-
-        std::cout << "CollideBoxSystem Awake rand " << rand << std::endl;
+    void CollideBoxSystem::Awake(std::shared_ptr<Entity> entity) {
+        std::cout << "CollideBoxSystem Awake"<< std::endl;
     }
 }

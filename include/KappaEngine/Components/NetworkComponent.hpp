@@ -22,12 +22,13 @@ namespace Component {
     class NetworkComponent: public IComponent {
         public:
             NetworkComponent() = default;
+            NetworkComponent(uint32_t ownerId) : ownerId(ownerId) {};
 
+            uint32_t uniqueId = 0;
+            uint32_t ownerId = 0;
             bool clientPrediction = false;
             bool ignorePrediction = false;
             bool asAuthority = false;
-
-
     };
 }
 

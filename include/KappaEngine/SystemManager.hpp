@@ -46,6 +46,7 @@ namespace KappaEngine {
              * This function will start the system manager.
              */
             void Start();
+            void Start(std::shared_ptr<Entity> entity);
 
             /**
              * @brief Awake Awake the system manager.
@@ -53,6 +54,7 @@ namespace KappaEngine {
              * This function will awake the system manager.
              */
             void Awake();
+            void Awake(std::shared_ptr<Entity> entity);
 
             /**
              * @brief Update Update the system manager.

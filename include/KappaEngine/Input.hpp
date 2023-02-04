@@ -23,7 +23,7 @@ namespace KappaEngine {
              */
             template<sf::Keyboard::Key T>
             static bool IsKeyPressed() {
-                return sf::Keyboard::isKeyPressed(T);
+                return _keysPressed[T];
             }
 
             /*
@@ -56,6 +56,8 @@ namespace KappaEngine {
                 return false;
             }
 
+
+
             /*
              * @brief Set the events of the input
              */
@@ -63,6 +65,7 @@ namespace KappaEngine {
 
         private:
             static std::vector<const sf::Event *> _events;
+            static std::map<sf::Keyboard::Key, bool> _keysPressed;
     };
 }
 

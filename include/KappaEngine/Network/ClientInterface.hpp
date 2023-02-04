@@ -5,6 +5,7 @@
 #pragma once
 
 #include <asio.hpp>
+#include <utility>
 
 #include "NetworkQueue.hpp"
 #include "net_message.h"
@@ -30,6 +31,14 @@ namespace Network {
 
             virtual ~ClientInterface() {
                 Disconnect();
+            }
+
+            uint32_t GetID() const {
+                if (_connection) {
+                    return _connection->GetID();
+                } else {
+                    return 0;
+                }
             }
 
             /**
@@ -120,9 +129,39 @@ namespace Network {
                 size_t messageCount = 0;
                 while ((maxMessages == -1 || messageCount < maxMessages) && !_incomingMessages.empty()) {
                     auto msg = _incomingMessages.popFront().msg;
-                    // TODO: Handle message
+                    OnMessage(msg);
                     messageCount++;
                 }
+            }
+
+            /**
+             * @brief Called when a message is received from the server
+             * @param msg Message received
+             */
+            void OnMessage(Message& msg ) {
+                uint32_t id = msg.header.id;
+                auto iter = _onMessageMap.find(id);
+
+                if (iter != _onMessageMap.end()) {
+                    iter->second(msg);
+                }
+            };
+
+            /**
+             * @brief Register a callback for a message.
+             *
+             * This function will register a callback for a message.
+             *
+             * @param id The id of the message.
+             * @param callback The callback to register.
+             */
+            void RegisterMessageCallback(uint32_t id, std::function<void(Message&)> callback) {
+                if (_onMessageMap.find(id) != _onMessageMap.end()) {
+                    std::cerr << "Callback already registered for message id: " << id << std::endl;
+                    return;
+                }
+
+                _onMessageMap[id] = std::move(callback);
             }
 
             /**
@@ -143,5 +182,6 @@ namespace Network {
 
         private:
             NetworkQueue<OwnedMessage> _incomingMessages;
+            std::unordered_map<uint32_t, std::function<void(Message&)> > _onMessageMap;
     };
 }
