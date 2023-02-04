@@ -1,0 +1,302 @@
+\hypertarget{class_kappa_engine_1_1_entity}{}\doxysection{Kappa\+Engine\+::Entity Class Reference}
+\label{class_kappa_engine_1_1_entity}\index{KappaEngine::Entity@{KappaEngine::Entity}}
+
+
+\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} class.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}{Entity}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}{$\sim$\+Entity}} ()=default
+\item 
+const std\+::string \& \mbox{\hyperlink{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the Id of the entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\bool \mbox{\hyperlink{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}{has\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Check if the entity has a component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}{register\+Component}} (T component)
+\begin{DoxyCompactList}\small\item\em Register a component to the entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}{get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Get a component from the entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}{enable\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Enable a component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}{disable\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Disable a component. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_kappa_engine_1_1_entity_a9cf58ddb941ffc3fa84ff378eebf110f}{has\+Tag}} (const std\+::string \&tag)
+\begin{DoxyCompactList}\small\item\em Check if the entity has a tag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_entity_a2f2a59de38dde40e1181da2bb59f3044}{add\+Tag}} (const std\+::string \&tag)
+\begin{DoxyCompactList}\small\item\em Add a tag to the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_kappa_engine_1_1_entity_a5ac123d2d8ef230dd8ef11e93d721a24}{remove\+Tag}} (const std\+::string \&tag)
+\begin{DoxyCompactList}\small\item\em Remove a tag from the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} class. 
+
+This class is used to create entities in the game 
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}\label{class_kappa_engine_1_1_entity_a1e27f64b5b1d1142b3ee5534325deced}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} class. 
+
+This constructor is used to create an entity
+
+It takes an id as parameter
+
+The id is used to identify the entity 
+\begin{DoxyParams}{Parameters}
+{\em id} & The id of the entity \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}\label{class_kappa_engine_1_1_entity_ab47af5de69aa4e053176aaf549eab618}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!````~Entity@{$\sim$Entity}}
+\index{````~Entity@{$\sim$Entity}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{$\sim$Entity()}{~Entity()}}
+{\footnotesize\ttfamily virtual Kappa\+Engine\+::\+Entity\+::$\sim$\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a2f2a59de38dde40e1181da2bb59f3044}\label{class_kappa_engine_1_1_entity_a2f2a59de38dde40e1181da2bb59f3044}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!addTag@{addTag}}
+\index{addTag@{addTag}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{addTag()}{addTag()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Entity\+::add\+Tag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a tag to the entity. 
+
+This method is used to add a tag to the entity
+
+It takes a tag as parameter 
+\begin{DoxyParams}{Parameters}
+{\em tag} & The tag to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}\label{class_kappa_engine_1_1_entity_ac1013f8ac0bbbe410bdfcc470048459f}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!disableComponent@{disableComponent}}
+\index{disableComponent@{disableComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{disableComponent()}{disableComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Kappa\+Engine\+::\+Entity\+::disable\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disable a component. 
+
+This method is used to disable a component
+
+It takes a template parameter
+
+The template parameter must inherit from \mbox{\hyperlink{namespace_component}{Component}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00128}{128}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}\label{class_kappa_engine_1_1_entity_a61bd1223f2967ad17af7c7d87df7cde8}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!enableComponent@{enableComponent}}
+\index{enableComponent@{enableComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{enableComponent()}{enableComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Kappa\+Engine\+::\+Entity\+::enable\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable a component. 
+
+This method is used to enable a component
+
+It takes a template parameter
+
+The template parameter must inherit from \mbox{\hyperlink{namespace_component}{Component}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00112}{112}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}\label{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ Kappa\+Engine\+::\+Entity\+::get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a component from the entity. 
+
+This method is used to get a component from the entity
+
+It takes a template parameter
+
+The template parameter must inherit from \mbox{\hyperlink{namespace_component}{Component}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The component if the entity has it, nullptr otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}\label{class_kappa_engine_1_1_entity_aca8bca01b676408304d0a3dff8ba86c8}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!getId@{getId}}
+\index{getId@{getId}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily const std\+::string \& Kappa\+Engine\+::\+Entity\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Id of the entity. 
+
+This method is used to get the id of the entity \begin{DoxyReturn}{Returns}
+The id of the entity 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}\label{class_kappa_engine_1_1_entity_aaa3c4a8b18e27a84e06e1403ab4192f9}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!hasComponent@{hasComponent}}
+\index{hasComponent@{hasComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{hasComponent()}{hasComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool Kappa\+Engine\+::\+Entity\+::has\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the entity has a component. 
+
+This method is used to check if the entity has a component
+
+It takes a template parameter
+
+The template parameter must inherit from \mbox{\hyperlink{namespace_component}{Component}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+True if the entity has the component, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a9cf58ddb941ffc3fa84ff378eebf110f}\label{class_kappa_engine_1_1_entity_a9cf58ddb941ffc3fa84ff378eebf110f}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!hasTag@{hasTag}}
+\index{hasTag@{hasTag}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{hasTag()}{hasTag()}}
+{\footnotesize\ttfamily bool Kappa\+Engine\+::\+Entity\+::has\+Tag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the entity has a tag. 
+
+This method is used to check if the entity has a tag
+
+It takes a tag as parameter 
+\begin{DoxyParams}{Parameters}
+{\em tag} & The tag to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the entity has the tag, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00143}{143}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}\label{class_kappa_engine_1_1_entity_a0dfe4ccb1bc56e6df8a98988d99b3d15}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!registerComponent@{registerComponent}}
+\index{registerComponent@{registerComponent}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{registerComponent()}{registerComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool Kappa\+Engine\+::\+Entity\+::register\+Component (\begin{DoxyParamCaption}\item[{T}]{component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Register a component to the entity. 
+
+This method is used to register a component to the entity
+
+It takes a template parameter
+
+The template parameter must inherit from \mbox{\hyperlink{namespace_component}{Component}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The component to register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the component has been registered, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_a5ac123d2d8ef230dd8ef11e93d721a24}\label{class_kappa_engine_1_1_entity_a5ac123d2d8ef230dd8ef11e93d721a24}} 
+\index{KappaEngine::Entity@{KappaEngine::Entity}!removeTag@{removeTag}}
+\index{removeTag@{removeTag}!KappaEngine::Entity@{KappaEngine::Entity}}
+\doxysubsubsection{\texorpdfstring{removeTag()}{removeTag()}}
+{\footnotesize\ttfamily void Kappa\+Engine\+::\+Entity\+::remove\+Tag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a tag from the entity. 
+
+This method is used to remove a tag from the entity
+
+It takes a tag as parameter 
+\begin{DoxyParams}{Parameters}
+{\em tag} & The tag to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_entity_8hpp_source_l00165}{165}} of file \mbox{\hyperlink{_entity_8hpp_source}{Entity.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Entity/\mbox{\hyperlink{_entity_8hpp}{Entity.\+hpp}}\end{DoxyCompactItemize}

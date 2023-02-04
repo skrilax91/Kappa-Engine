@@ -1,0 +1,195 @@
+\hypertarget{class_kappa_engine_1_1_time}{}\doxysection{Kappa\+Engine\+::Time Class Reference}
+\label{class_kappa_engine_1_1_time}\index{KappaEngine::Time@{KappaEngine::Time}}
+
+
+\mbox{\hyperlink{class_kappa_engine_1_1_time}{Time}} class.  
+
+
+
+
+{\ttfamily \#include $<$Time.\+hpp$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static sf\+::\+Time \mbox{\hyperlink{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}{Delta\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Get the delta time. \end{DoxyCompactList}\item 
+static sf\+::\+Time \mbox{\hyperlink{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}{Update\+Delta\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Update the delta time. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{class_kappa_engine_1_1_time_a70625a8c0dfba5f224b8448407c9b6d0}{Fixed\+Delta\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Get the fixed delta time. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}{reset\+Time\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Reset the time library. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}{Run\+On\+Fixed\+Env}} (const std\+::function$<$ void()$>$ \&func)
+\begin{DoxyCompactList}\small\item\em Run a function on a fixed environment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static sf\+::\+Clock \mbox{\hyperlink{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}{\+\_\+delta\+Clock}}
+\item 
+static sf\+::\+Time \mbox{\hyperlink{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}{\+\_\+delta\+Time}}
+\item 
+static double \mbox{\hyperlink{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}{\+\_\+fixed\+Delta\+Time}}
+\item 
+static double \mbox{\hyperlink{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}{\+\_\+lags}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_kappa_engine_1_1_time}{Time}} class. 
+
+This class is used to get the delta time
+
+It is used to get the fixed delta time
+
+It is used to run a function on a fixed environment 
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}\label{class_kappa_engine_1_1_time_ad8731b072c9af8419e95778da4f65723}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!DeltaTime@{DeltaTime}}
+\index{DeltaTime@{DeltaTime}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{DeltaTime()}{DeltaTime()}}
+{\footnotesize\ttfamily static sf\+::\+Time Kappa\+Engine\+::\+Time\+::\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the delta time. 
+
+This function is used to get the delta time
+
+The delta time is the time between two frames
+
+It is used to make the game framerate independent \begin{DoxyReturn}{Returns}
+The delta time 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_a70625a8c0dfba5f224b8448407c9b6d0}\label{class_kappa_engine_1_1_time_a70625a8c0dfba5f224b8448407c9b6d0}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!FixedDeltaTime@{FixedDeltaTime}}
+\index{FixedDeltaTime@{FixedDeltaTime}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{FixedDeltaTime()}{FixedDeltaTime()}}
+{\footnotesize\ttfamily static double Kappa\+Engine\+::\+Time\+::\+Fixed\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the fixed delta time. 
+
+This function is used to get the fixed delta time
+
+The fixed delta time is a fixed time used to update the game logic (physics, ...)
+
+It is used to make the game framerate independent \begin{DoxyReturn}{Returns}
+The fixed delta time 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}\label{class_kappa_engine_1_1_time_a20ee5a40870ca3d8f03c7b0a86a6fa8d}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!resetTimeLib@{resetTimeLib}}
+\index{resetTimeLib@{resetTimeLib}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{resetTimeLib()}{resetTimeLib()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Time\+::reset\+Time\+Lib (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reset the time library. 
+
+This function is used to reset the time library 
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}\label{class_kappa_engine_1_1_time_ae3114b70f88e5b010decdfeb4d27abe9}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!RunOnFixedEnv@{RunOnFixedEnv}}
+\index{RunOnFixedEnv@{RunOnFixedEnv}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{RunOnFixedEnv()}{RunOnFixedEnv()}}
+{\footnotesize\ttfamily static void Kappa\+Engine\+::\+Time\+::\+Run\+On\+Fixed\+Env (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Run a function on a fixed environment. 
+
+This function is used to run a function on a fixed environment
+
+It is used to make the game framerate independent 
+\begin{DoxyParams}{Parameters}
+{\em func} & The function to run \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}\label{class_kappa_engine_1_1_time_a4c8ea91a431b412df1d75d30ffba4bb8}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!UpdateDeltaTime@{UpdateDeltaTime}}
+\index{UpdateDeltaTime@{UpdateDeltaTime}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{UpdateDeltaTime()}{UpdateDeltaTime()}}
+{\footnotesize\ttfamily static sf\+::\+Time Kappa\+Engine\+::\+Time\+::\+Update\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Update the delta time. 
+
+This function is used to update the delta time
+
+It is used to make the game framerate independent \begin{DoxyReturn}{Returns}
+The delta time 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}\label{class_kappa_engine_1_1_time_ad6da12fe394c1216cf6af572ffc72506}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!\_deltaClock@{\_deltaClock}}
+\index{\_deltaClock@{\_deltaClock}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{\_deltaClock}{\_deltaClock}}
+{\footnotesize\ttfamily sf\+::\+Clock Kappa\+Engine\+::\+Time\+::\+\_\+delta\+Clock\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00079}{79}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}\label{class_kappa_engine_1_1_time_a5be0bb6e9a38836276841a945cb7bd64}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!\_deltaTime@{\_deltaTime}}
+\index{\_deltaTime@{\_deltaTime}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{\_deltaTime}{\_deltaTime}}
+{\footnotesize\ttfamily sf\+::\+Time Kappa\+Engine\+::\+Time\+::\+\_\+delta\+Time\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}\label{class_kappa_engine_1_1_time_a159e1db9ba3ce6cbe2b1caf91e3a1f78}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!\_fixedDeltaTime@{\_fixedDeltaTime}}
+\index{\_fixedDeltaTime@{\_fixedDeltaTime}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{\_fixedDeltaTime}{\_fixedDeltaTime}}
+{\footnotesize\ttfamily double Kappa\+Engine\+::\+Time\+::\+\_\+fixed\+Delta\+Time\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}\label{class_kappa_engine_1_1_time_aeed9b427a58bb9f6598bcad872180e34}} 
+\index{KappaEngine::Time@{KappaEngine::Time}!\_lags@{\_lags}}
+\index{\_lags@{\_lags}!KappaEngine::Time@{KappaEngine::Time}}
+\doxysubsubsection{\texorpdfstring{\_lags}{\_lags}}
+{\footnotesize\ttfamily double Kappa\+Engine\+::\+Time\+::\+\_\+lags\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_time_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{_time_8hpp_source}{Time.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\mbox{\hyperlink{_time_8hpp}{Time.\+hpp}}\end{DoxyCompactItemize}

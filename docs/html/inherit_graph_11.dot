@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="KappaEngine::SystemManager",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_kappa_engine_1_1_system_manager.html",tooltip="The SystemManager class is the class that will manage all the systems of the engine."];
+  Node0 [label="KappaEngine::SystemManager",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dc/d43/class_kappa_engine_1_1_system_manager.html",tooltip="The SystemManager class is the class that will manage all the systems of the engine."];
 }

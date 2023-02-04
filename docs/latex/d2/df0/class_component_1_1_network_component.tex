@@ -1,0 +1,114 @@
+\hypertarget{class_component_1_1_network_component}{}\doxysection{Component\+::Network\+Component Class Reference}
+\label{class_component_1_1_network_component}\index{Component::NetworkComponent@{Component::NetworkComponent}}
+
+
+\mbox{\hyperlink{namespace_network}{Network}} component.  
+
+
+
+
+{\ttfamily \#include $<$Network\+Component.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Network\+Component\+:
+% FIG 0
+
+
+Collaboration diagram for Component\+::Network\+Component\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_component_1_1_network_component_a953c9a6080dec1ca1ca8ca60fb401f90}{Network\+Component}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component_1_1_i_component}{Component\+::\+IComponent}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_component_1_1_i_component_a93afaa09a5b580bc53fdd64ebdee7a1a}{$\sim$\+IComponent}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_component_1_1_network_component_a9ff9ff0f07fbdf769922829f443afebc}{client\+Prediction}} = false
+\item 
+bool \mbox{\hyperlink{class_component_1_1_network_component_a65bbfe22f0e53229a46567e1063ed64e}{ignore\+Prediction}} = false
+\item 
+bool \mbox{\hyperlink{class_component_1_1_network_component_ab44a2d679d5b9615da8059d9b609175e}{as\+Authority}} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_component_1_1_i_component}{Component\+::\+IComponent}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_component_1_1_i_component_a02192fbddab2f763884f5639e4decd53}{enabled}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespace_network}{Network}} component. 
+
+This component is used to define if the entity is networked or not
+
+If the entity is networked, it will be replicated on the network
+
+If the entity is not networked, it will be only on the local machine
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Prediction} & If the entity is predicted by the client \\
+\hline
+{\em ignore\+Prediction} & If the entity is predicted by the server \\
+\hline
+{\em as\+Authority} & If the entity is the authority of the prediction \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_network_component_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{_network_component_8hpp_source}{Network\+Component.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_component_1_1_network_component_a953c9a6080dec1ca1ca8ca60fb401f90}\label{class_component_1_1_network_component_a953c9a6080dec1ca1ca8ca60fb401f90}} 
+\index{Component::NetworkComponent@{Component::NetworkComponent}!NetworkComponent@{NetworkComponent}}
+\index{NetworkComponent@{NetworkComponent}!Component::NetworkComponent@{Component::NetworkComponent}}
+\doxysubsubsection{\texorpdfstring{NetworkComponent()}{NetworkComponent()}}
+{\footnotesize\ttfamily Component\+::\+Network\+Component\+::\+Network\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_component_1_1_network_component_ab44a2d679d5b9615da8059d9b609175e}\label{class_component_1_1_network_component_ab44a2d679d5b9615da8059d9b609175e}} 
+\index{Component::NetworkComponent@{Component::NetworkComponent}!asAuthority@{asAuthority}}
+\index{asAuthority@{asAuthority}!Component::NetworkComponent@{Component::NetworkComponent}}
+\doxysubsubsection{\texorpdfstring{asAuthority}{asAuthority}}
+{\footnotesize\ttfamily bool Component\+::\+Network\+Component\+::as\+Authority = false}
+
+
+
+Definition at line \mbox{\hyperlink{_network_component_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{_network_component_8hpp_source}{Network\+Component.\+hpp}}.
+
+\mbox{\Hypertarget{class_component_1_1_network_component_a9ff9ff0f07fbdf769922829f443afebc}\label{class_component_1_1_network_component_a9ff9ff0f07fbdf769922829f443afebc}} 
+\index{Component::NetworkComponent@{Component::NetworkComponent}!clientPrediction@{clientPrediction}}
+\index{clientPrediction@{clientPrediction}!Component::NetworkComponent@{Component::NetworkComponent}}
+\doxysubsubsection{\texorpdfstring{clientPrediction}{clientPrediction}}
+{\footnotesize\ttfamily bool Component\+::\+Network\+Component\+::client\+Prediction = false}
+
+
+
+Definition at line \mbox{\hyperlink{_network_component_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{_network_component_8hpp_source}{Network\+Component.\+hpp}}.
+
+\mbox{\Hypertarget{class_component_1_1_network_component_a65bbfe22f0e53229a46567e1063ed64e}\label{class_component_1_1_network_component_a65bbfe22f0e53229a46567e1063ed64e}} 
+\index{Component::NetworkComponent@{Component::NetworkComponent}!ignorePrediction@{ignorePrediction}}
+\index{ignorePrediction@{ignorePrediction}!Component::NetworkComponent@{Component::NetworkComponent}}
+\doxysubsubsection{\texorpdfstring{ignorePrediction}{ignorePrediction}}
+{\footnotesize\ttfamily bool Component\+::\+Network\+Component\+::ignore\+Prediction = false}
+
+
+
+Definition at line \mbox{\hyperlink{_network_component_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_network_component_8hpp_source}{Network\+Component.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Components/\mbox{\hyperlink{_network_component_8hpp}{Network\+Component.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,158 @@
+\hypertarget{class_kappa_engine_1_1_entity_manager}{}\doxysection{Kappa\+Engine\+::Entity\+Manager Class Reference}
+\label{class_kappa_engine_1_1_entity_manager}\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+
+
+The \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} class is the class that will manage all entities of a scene.  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}{Entity\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}{$\sim$\+Entity\+Manager}} ()=default
+\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a9b05a5d24f936e1d7c1ec8e89bce775a}{create\+Entity}} (const std\+::string \&name, void($\ast$cb)(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \&))
+\begin{DoxyCompactList}\small\item\em create\+Entity Create an entity. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a5d5d2f2629b12f246c7baf7b5be5dc2e}{get\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Get all entities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a340026dabe23daae02b1995e5dd8cd82}{get\+Entity}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Get an entity by its name. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{get\+Entities\+With\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Get all entities with a specific component. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a6482cf75e4def4bfa73327467f831ffd}{get\+Entities\+By\+Tag}} (const std\+::string \&tag)
+\begin{DoxyCompactList}\small\item\em Get all entities with a specific tag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} class is the class that will manage all entities of a scene. 
+
+Definition at line \mbox{\hyperlink{_entity_manager_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{_entity_manager_8hpp_source}{Entity\+Manager.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}\label{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!EntityManager@{EntityManager}}
+\index{EntityManager@{EntityManager}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{EntityManager()}{EntityManager()}}
+{\footnotesize\ttfamily Kappa\+Engine\+::\+Entity\+Manager\+::\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} Constructor of the \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} class. 
+
+This function will construct the \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{Entity\+Manager}} class. \mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}\label{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!````~EntityManager@{$\sim$EntityManager}}
+\index{````~EntityManager@{$\sim$EntityManager}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$EntityManager()}{~EntityManager()}}
+{\footnotesize\ttfamily virtual Kappa\+Engine\+::\+Entity\+Manager\+::$\sim$\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a9b05a5d24f936e1d7c1ec8e89bce775a}\label{class_kappa_engine_1_1_entity_manager_a9b05a5d24f936e1d7c1ec8e89bce775a}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& Kappa\+Engine\+::\+Entity\+Manager\+::create\+Entity (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{void($\ast$)(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \&)}]{cb }\end{DoxyParamCaption})}
+
+
+
+create\+Entity Create an entity. 
+
+This function will create an entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the entity. \\
+\hline
+{\em cb} & The callback function that will be called when the entity is created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entity created. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a5d5d2f2629b12f246c7baf7b5be5dc2e}\label{class_kappa_engine_1_1_entity_manager_a5d5d2f2629b12f246c7baf7b5be5dc2e}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntities@{getEntities}}
+\index{getEntities@{getEntities}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntities()}{getEntities()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ Kappa\+Engine\+::\+Entity\+Manager\+::get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get all entities. 
+
+\begin{DoxyReturn}{Returns}
+A list of all entities. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a6482cf75e4def4bfa73327467f831ffd}\label{class_kappa_engine_1_1_entity_manager_a6482cf75e4def4bfa73327467f831ffd}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntitiesByTag@{getEntitiesByTag}}
+\index{getEntitiesByTag@{getEntitiesByTag}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntitiesByTag()}{getEntitiesByTag()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ Kappa\+Engine\+::\+Entity\+Manager\+::get\+Entities\+By\+Tag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tag }\end{DoxyParamCaption})}
+
+
+
+Get all entities with a specific tag. 
+
+This function will return a list of all entities that have a specific tag. 
+\begin{DoxyParams}{Parameters}
+{\em tag} & The tag of the entities. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of all entities with the tag. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}\label{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntitiesWithComponent@{getEntitiesWithComponent}}
+\index{getEntitiesWithComponent@{getEntitiesWithComponent}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntitiesWithComponent()}{getEntitiesWithComponent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} $>$ $>$ Kappa\+Engine\+::\+Entity\+Manager\+::get\+Entities\+With\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all entities with a specific component. 
+
+This function will return a list of all entities that have a specific component.
+
+The component must inherit from \mbox{\hyperlink{class_component_1_1_i_component}{Component\+::\+IComponent}}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A list of all entities with the component. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_entity_manager_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{_entity_manager_8hpp_source}{Entity\+Manager.\+hpp}}.
+
+\mbox{\Hypertarget{class_kappa_engine_1_1_entity_manager_a340026dabe23daae02b1995e5dd8cd82}\label{class_kappa_engine_1_1_entity_manager_a340026dabe23daae02b1995e5dd8cd82}} 
+\index{KappaEngine::EntityManager@{KappaEngine::EntityManager}!getEntity@{getEntity}}
+\index{getEntity@{getEntity}!KappaEngine::EntityManager@{KappaEngine::EntityManager}}
+\doxysubsubsection{\texorpdfstring{getEntity()}{getEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}} \& Kappa\+Engine\+::\+Entity\+Manager\+::get\+Entity (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Get an entity by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entity. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\mbox{\hyperlink{_entity_manager_8hpp}{Entity\+Manager.\+hpp}}\end{DoxyCompactItemize}

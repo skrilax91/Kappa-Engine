@@ -1,0 +1,55 @@
+\hypertarget{_entity_manager_8hpp_source}{}\doxysection{Entity\+Manager.\+hpp}
+\label{_entity_manager_8hpp_source}\index{include/KappaEngine/EntityManager.hpp@{include/KappaEngine/EntityManager.hpp}}
+\mbox{\hyperlink{_entity_manager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 23/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ KAPPA\_ENGINE\_ENTITYMANAGER\_HPP}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#define\ KAPPA\_ENGINE\_ENTITYMANAGER\_HPP}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8hpp}{Entity/Entity.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00014}00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00018}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{00018}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager}{EntityManager}}\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00025}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a0457fe3ff1de88e3e37d657b97ea4916}{EntityManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00026}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_ab30bc02be492d99cd19567b389bbfb27}{\string~EntityManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00037}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a9b05a5d24f936e1d7c1ec8e89bce775a}{00037}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ \&\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a9b05a5d24f936e1d7c1ec8e89bce775a}{createEntity}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{void}\ (*cb)(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\&)\ );}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00043}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a5d5d2f2629b12f246c7baf7b5be5dc2e}{00043}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::list<std::shared\_ptr<Entity>>\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a5d5d2f2629b12f246c7baf7b5be5dc2e}{getEntities}}();}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00050}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a340026dabe23daae02b1995e5dd8cd82}{00050}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ \&\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a340026dabe23daae02b1995e5dd8cd82}{getEntity}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00060}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{00060}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::list<std::shared\_ptr<Entity>>\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{getEntitiesWithComponent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component::IComponent,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ inherit\ from\ Component"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::list<std::shared\_ptr<Entity>>\ entities;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&entity:\ \_entities)\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (entity-\/>hasComponent<T>())\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entities.push\_back(entity);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ entities;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00079}\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a6482cf75e4def4bfa73327467f831ffd}{00079}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::list<std::shared\_ptr<Entity>>\ \mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a6482cf75e4def4bfa73327467f831ffd}{getEntitiesByTag}}(\textcolor{keyword}{const}\ std::string\&\ tag);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::list<std::shared\_ptr<Entity>>\ \_entities;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00085}00085\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8hpp_source_l00088}00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//KAPPA\_ENGINE\_ENTITYMANAGER\_HPP}}
+
+\end{DoxyCode}

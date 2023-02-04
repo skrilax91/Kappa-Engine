@@ -7,5 +7,5 @@ digraph "Graphical Class Hierarchy"
   rankdir="LR";
   Node0 [label="std::enable_shared\l_from_this",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node1 [label="Network::Connection",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_network_1_1_connection.html",tooltip="The Connection class is the class that will manage the connection between the server and the client."];
+  Node1 [label="Network::Connection",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d4/dd8/class_network_1_1_connection.html",tooltip="The Connection class is the class that will manage the connection between the server and the client."];
 }
