@@ -33,6 +33,14 @@ namespace Network {
                 Disconnect();
             }
 
+            uint32_t GetID() const {
+                if (_connection) {
+                    return _connection->GetID();
+                } else {
+                    return 0;
+                }
+            }
+
             /**
              * @brief Connect to a server.
              *

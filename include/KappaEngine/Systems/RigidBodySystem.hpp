@@ -23,7 +23,7 @@ namespace KappaEngine {
              * @param scene The scene that the rigid body system will manage.
              */
             explicit RigidBodySystem(Scene *scene) : ISystem(scene) {};
-            void Awake() override;
+            void Awake(std::shared_ptr<Entity>) override;
             void FixedUpdate() override;
 
             static void applyForce(Component::RigidBody *rg, sf::Vector2f force);

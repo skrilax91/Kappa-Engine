@@ -9,14 +9,8 @@
 #include "KappaEngine/Time.hpp"
 
 namespace KappaEngine {
-    void RigidBodySystem::Awake() {
-        std::srand(std::time(nullptr) + 10);
-
-        int rand = std::rand();
-
-        for (int i = 0; i < rand ; i++);
-
-        std::cout << "RigidBodySystem Awake rand " << rand << std::endl;
+    void RigidBodySystem::Awake(std::shared_ptr<Entity> entity) {
+        std::cout << "RigidBodySystem Awake" << std::endl;
     }
 
     void RigidBodySystem::FixedUpdate() {

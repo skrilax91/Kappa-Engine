@@ -24,20 +24,37 @@ namespace KappaEngine {
     };
 
     void SystemManager::Awake() {
-        for (auto &system: _systems) {
-            system->Awake();
+        auto ents = _scene->getEntityManager()->getEntities();
+
+        for (auto ent : ents) {
+            Awake(ent);
         }
 
         std::cout << "SystemManager awake" << std::endl;
     }
 
-    void SystemManager::Start() {
+    void SystemManager::Awake(std::shared_ptr<Entity> entity) {
         for (auto &system: _systems) {
-            system->Start();
+            system->Awake(entity);
         }
+    }
+
+    void SystemManager::Start() {
+        auto ents = _scene->getEntityManager()->getEntities();
+
+        for (auto ent : ents) {
+            Start(ent);
+        }
+
         _started = true;
         Time::resetTimeLib();
         std::cout << "SystemManager started" << std::endl;
+    }
+
+    void SystemManager::Start(std::shared_ptr<Entity> entity) {
+        for (auto &system: _systems) {
+            system->Start(entity);
+        }
     }
 
     void SystemManager::Update() {
@@ -78,7 +95,6 @@ namespace KappaEngine {
 
 
     void SystemManager::OnRenderObject() {
-
         for (auto &system: _systems) {
             system->OnRenderObject();
         }

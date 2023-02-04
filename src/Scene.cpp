@@ -3,12 +3,13 @@
 //
 
 #include <iostream>
+#include <utility>
 #include "KappaEngine/Scene.hpp"
 
 namespace KappaEngine {
-    Scene::Scene(std::string name): _name(name) {
+    Scene::Scene(std::string name): _name(std::move(name)) {
         _systemManager = new SystemManager(this);
-        _entityManager = new EntityManager();
+        _entityManager = new EntityManager(this);
         std::cout << "Scene created" << std::endl;
     }
 

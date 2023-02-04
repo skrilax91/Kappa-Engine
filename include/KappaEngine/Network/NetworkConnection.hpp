@@ -7,6 +7,11 @@
 #include <memory>
 #include <asio.hpp>
 
+
+namespace Network {
+    class ServerInterface;
+}
+
 #include "net_message.h"
 #include "NetworkQueue.hpp"
 
@@ -39,6 +44,15 @@ namespace Network {
             Connection(Owner parent, asio::io_context& context, asio::ip::tcp::socket socket, NetworkQueue<OwnedMessage>& qin)
             : _socket(std::move(socket)), _ioContext(context), _incomingMessages(qin) {
                 _ownerType = parent;
+
+                if (_ownerType == Owner::Server) {
+                    _handshakeOut = uint64_t(std::chrono::system_clock::now().time_since_epoch().count());
+
+                    _handshakeCheck = scramble(_handshakeOut);
+                } else {
+                    _handshakeIn = 0;
+                    _handshakeOut = 0;
+                }
             };
 
             virtual ~Connection() = default;
@@ -58,11 +72,12 @@ namespace Network {
              * @brief Connect to a client
              * @param id The id of the client
              */
-            void ConnectToClient(uint32_t id = 0) {
+            void ConnectToClient(Network::ServerInterface *server, uint32_t id = 0) {
                 if (_ownerType == Owner::Server) {
                     if (_socket.is_open()) {
                         _id = id;
-                        ReadHeader();
+                        WriteValidation();
+                        ReadValidation(server);
                     }
                 }
             }
@@ -76,7 +91,7 @@ namespace Network {
                     asio::async_connect(_socket, endpoints,
                         [this](std::error_code ec, asio::ip::tcp::endpoint endpoint) {
                             if (!ec) {
-                                ReadHeader();
+                                ReadValidation();
                             }
                         }
                     );
@@ -135,7 +150,7 @@ namespace Network {
 
             NetworkQueue<Message> _outgoingMessages;
             Owner _ownerType = Owner::Server;
-            uint32_t _id = 0;
+            uint32_t _id = -1;
 
 
         private:
@@ -235,5 +250,33 @@ namespace Network {
 
                 ReadHeader();
             };
+
+            uint64_t scramble(uint64_t x) {
+                uint64_t out = x ^ 0xDEADBEEFC0DECAFE;
+                out = (out & 0xF0F0F0F0F0F0F0) >> 4 | (out & 0xF0F0F0F0F0F0F0) << 4;
+                return out ^ 0xC0DEFACE12345678;
+            }
+
+            void WriteValidation() {
+                asio::async_write(_socket, asio::buffer(&_handshakeOut, sizeof(uint64_t)),
+                     [this](std::error_code ec, std::size_t length) {
+                         if (!ec) {
+                             if (_ownerType == Owner::Client)
+                                 ReadHeader();
+
+                         } else {
+                             std::cout << "[CLIENT::" << _id << "] Failed to write validation" << std::endl;
+                             _socket.close();
+                         }
+                     }
+                );
+            }
+
+            void ReadValidation(Network::ServerInterface* server = nullptr);
+
+
+            uint64_t _handshakeOut = 0;
+            uint64_t _handshakeIn = 0;
+            uint64_t _handshakeCheck = 0;
     };
 }

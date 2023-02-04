@@ -6,42 +6,42 @@
 #include "KappaEngine/GameManager.hpp"
 
 namespace KappaEngine {
-    void SpriteRendererSystem::Awake() {
+    void SpriteRendererSystem::Awake(std::shared_ptr<Entity> entity) {
         std::cout << "SpriteRendererSystem Awake" << std::endl;
 
-        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::SpriteRenderer>();
+        auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
+        auto transform = entity->getComponent<Component::Transform>();
 
-        for (auto &ent : ents) {
-            auto spriteRenderer = ent->getComponent<Component::SpriteRenderer>();
-            auto transform = ent->getComponent<Component::Transform>();
-
-            if (!transform || !transform->enabled)
-                spriteRenderer->enabled = false;
-            else {
-                spriteRenderer->_sprite.setTextureRect(spriteRenderer->_textureRect);
-            }
-
-            if (_textureCache.contains(spriteRenderer->_texturePath)) {
-                std::cout << "SpriteRendererSystem: texture " + spriteRenderer->_texturePath + " already loaded" << std::endl;
-                spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
-                continue;
-            } else {
-                std::cout << "SpriteRendererSystem: loading texture " + spriteRenderer->_texturePath << std::endl;
-            }
-
-            sf::Texture texture;
-            if (!texture.loadFromFile(spriteRenderer->_texturePath)) {
-                std::cerr << "Error while loading texture " << spriteRenderer->_texturePath << std::endl;
-                continue;
-            }
-
-            _textureCache[spriteRenderer->_texturePath] = texture;
-            spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
-            std::cout << "SpriteRendererSystem: added texture " + spriteRenderer->_texturePath << std::endl;
+        if (spriteRenderer == nullptr || transform == nullptr) {
+            return;
         }
+
+        if (!transform->enabled)
+            spriteRenderer->enabled = false;
+        else {
+            spriteRenderer->_sprite.setTextureRect(spriteRenderer->_textureRect);
+        }
+
+        if (_textureCache.contains(spriteRenderer->_texturePath)) {
+            std::cout << "SpriteRendererSystem: texture " + spriteRenderer->_texturePath + " already loaded" << std::endl;
+            spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
+            return;
+        } else {
+            std::cout << "SpriteRendererSystem: loading texture " + spriteRenderer->_texturePath << std::endl;
+        }
+
+        sf::Texture texture;
+        if (!texture.loadFromFile(spriteRenderer->_texturePath)) {
+            std::cout << "Error while loading texture " << spriteRenderer->_texturePath << std::endl;
+            return;
+        }
+
+        _textureCache[spriteRenderer->_texturePath] = texture;
+        spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
+        std::cout << "SpriteRendererSystem: added texture " + spriteRenderer->_texturePath << std::endl;
     }
 
-    void SpriteRendererSystem::OnDestroy(Entity *entity) {
+    void SpriteRendererSystem::OnDestroy(std::shared_ptr<Entity> entity) {
         std::cout << "SpriteRenderSystem::OnDestroy" << std::endl;
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
 

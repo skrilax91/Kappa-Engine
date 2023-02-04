@@ -36,7 +36,7 @@ namespace KappaEngine {
              *
              * This function will be called when the system is created.
              */
-            virtual void Awake() {};
+            virtual void Awake(std::shared_ptr<Entity>) {};
 
             /**
              * @brief Start Called when the system is started.
@@ -45,7 +45,7 @@ namespace KappaEngine {
              * It will be called after the Awake function.
              *
              */
-            virtual void Start() {};
+            virtual void Start(std::shared_ptr<Entity>) {};
 
             /**
              * @brief FixedUpdate Called every fixed time.
@@ -88,9 +88,9 @@ namespace KappaEngine {
              * @brief OnDestroy Called when the system is destroyed.
              * This function will be called when the system is destroyed.
              */
-            virtual void OnDestroy(Entity *) {};
+            virtual void OnDestroy(std::shared_ptr<Entity>) {};
 
-            virtual void OnDisable() {};
+            virtual void OnDisable(std::shared_ptr<Entity>) {};
 
         protected:
             Scene *_scene;

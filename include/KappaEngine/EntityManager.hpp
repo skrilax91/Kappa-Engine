@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "Entity/Entity.hpp"
+#include "Scene.hpp"
 
 namespace KappaEngine {
     /**
@@ -22,7 +23,7 @@ namespace KappaEngine {
              *
              * This function will construct the EntityManager class.
              */
-            EntityManager() = default;
+            EntityManager(Scene *scene) : _scene(scene) {};
             virtual ~EntityManager() = default;
 
             /**
@@ -35,6 +36,16 @@ namespace KappaEngine {
              * @return The entity created.
              */
             Entity &createEntity(const std::string& name, void (*cb)(Entity&) );
+
+            /**
+             * @brief createEntity Create an entity.
+             *
+             * This function will create an entity.
+             *
+             * @param name The name of the entity.
+             * @return The entity created.
+             */
+            Entity &createEntity(const std::string& name);
 
             /**
              * @brief Get all entities.
@@ -81,6 +92,7 @@ namespace KappaEngine {
 
 
         private:
+            Scene *_scene;
             std::list<std::shared_ptr<Entity>> _entities;
     };
 }

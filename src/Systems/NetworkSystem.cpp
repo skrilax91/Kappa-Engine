@@ -6,7 +6,7 @@
 #include "KappaEngine/Components/NetworkComponent.hpp"
 
 namespace KappaEngine {
-    void NetworkSystem::Awake() {
+    void NetworkSystem::Awake(std::shared_ptr<Entity> entity) {
 
     }
 }

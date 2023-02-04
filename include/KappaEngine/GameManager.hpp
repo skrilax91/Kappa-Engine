@@ -165,6 +165,24 @@ namespace KappaEngine {
              */
             static void StartServer();
 
+
+            /**
+             * @brief Register new server message handler
+             *
+             * @param id The id of the message
+             * @param callback The callback function
+             */
+            static void RegisterServerMessageHandler(uint32_t id, std::function<void(std::shared_ptr<Network::Connection>, Network::Message&)> callback);
+
+            /**
+             * @brief Register new client message handler
+             *
+             * @param id The id of the message
+             * @param callback The callback function
+             */
+            static void RegisterClientMessageHandler(uint32_t id, std::function<void(Network::Message&)> callback);
+
+
         private:
             static Console::Console *_console;
 

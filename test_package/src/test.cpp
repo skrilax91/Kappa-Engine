@@ -3,9 +3,9 @@
 #include "KappaEngine/EntityManager.hpp"
 
 int main() {
-    KappaEngine::EntityManager entityManager;
+    KappaEngine::Scene scene("test");
 
-    entityManager.createEntity("test", [](KappaEngine::Entity& entity) {});
+    scene.getEntityManager()->createEntity("test");
 
 
     std::cout << "Successfully passed tests" << std::endl;
