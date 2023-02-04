@@ -11,6 +11,10 @@ struct coord2d {
 };
 
 namespace Component {
+
+    /**
+     * @brief Base class for all components
+     */
     class IComponent {
         public:
             virtual ~IComponent() = default;

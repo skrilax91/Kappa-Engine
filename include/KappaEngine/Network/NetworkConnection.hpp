@@ -12,19 +12,44 @@
 
 namespace Network {
 
+    /**
+     * @brief The Connection class is the class that will manage the connection between the server and the client.
+     */
     class Connection: public std::enable_shared_from_this<Connection> {
         public:
+
+            /**
+             * @brief The Owner enum is the enum that will define the owner of the connection.
+             */
             enum class Owner {
                 Server,
                 Client
             };
 
+            /**
+             * @brief Connection Constructor of the Connection class.
+             *
+             * This function will construct the Connection class.
+             *
+             * @param parent The owner of the connection.
+             * @param context The context of the connection.
+             * @param socket The socket of the connection.
+             * @param qin The queue of the incoming messages.
+             */
             Connection(Owner parent, asio::io_context& context, asio::ip::tcp::socket socket, NetworkQueue<OwnedMessage>& qin)
             : _socket(std::move(socket)), _ioContext(context), _incomingMessages(qin) {
                 _ownerType = parent;
             };
+
             virtual ~Connection() = default;
 
+            /**
+             * @brief Get the id of the connection.
+             *
+             * This function will return the id of the connection.
+             *
+             * @return The id of the connection.
+             */
             uint32_t GetID() {
                 return _id;
             }
@@ -42,6 +67,10 @@ namespace Network {
                 }
             }
 
+            /**
+             * @brief Connect to a server
+             * @param endpoints The endpoints of the server
+             */
             void ConnectToServer(const asio::ip::tcp::resolver::results_type& endpoints) {
                 if (_ownerType == Owner::Client) {
                     asio::async_connect(_socket, endpoints,
@@ -54,17 +83,35 @@ namespace Network {
                 }
             };
 
-
+            /**
+             * @brief Disconnect the connection.
+             *
+             * This function will disconnect the connection.
+             */
             void Disconnect() {
                 if (IsConnected()) {
                     _ioContext.post([this]() { _socket.close(); });
                 }
             };
 
+            /**
+             * @brief Check if the connection is connected.
+             *
+             * This function will check if the connection is connected.
+             *
+             * @return True if the connection is connected, false otherwise.
+             */
             bool IsConnected() {
                 return _socket.is_open();
             };
 
+            /**
+             * @brief Send a message to the connection.
+             *
+             * This function will send a message to the connection.
+             *
+             * @param msg The message to send.
+             */
             void Send(const Message& msg) {
                 if (IsConnected()) {
                     _ioContext.post([this, msg]() {
@@ -176,6 +223,9 @@ namespace Network {
                 );
             };
 
+            /**
+             * @brief Add the message to the incoming message queue
+             */
             void AddToIncomingMessageQueue() {
                 if (_ownerType == Owner::Server) {
                     _incomingMessages.pushBack({this->shared_from_this(), _tmpMessage});

@@ -1,0 +1,77 @@
+\hypertarget{net__message_8h_source}{}\doxysection{net\+\_\+message.\+h}
+\label{net__message_8h_source}\index{include/KappaEngine/Network/net\_message.h@{include/KappaEngine/Network/net\_message.h}}
+\mbox{\hyperlink{net__message_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 30/01/2023.}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00005}00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_network}{Network}}\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00018}\mbox{\hyperlink{struct_network_1_1_message_header}{00018}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_network_1_1_message_header}{MessageHeader}}\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00019}\mbox{\hyperlink{struct_network_1_1_message_header_a22a2c9303ab1661cc2174a76f7ebc466}{00019}}\ \ \ \ \ \ \ \ \ uint32\_t\ \textcolor{keywordtype}{id}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00020}\mbox{\hyperlink{struct_network_1_1_message_header_a518b2544a9f9286455c26db68c783243}{00020}}\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_network_1_1_message_header_a518b2544a9f9286455c26db68c783243}{size}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00021}00021\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00027}\mbox{\hyperlink{struct_network_1_1_message}{00027}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_network_1_1_message}{Message}}\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00032}\mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{00032}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_network_1_1_message_header}{MessageHeader}}\ \mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}}\{\};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00037}\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{00037}}\ \ \ \ \ \ \ \ \ std::vector<uint8\_t>\ \mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00046}\mbox{\hyperlink{struct_network_1_1_message_a007fca2e46e2a49499ac82eb8505d750}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_network_1_1_message_a007fca2e46e2a49499ac82eb8505d750}{size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_network_1_1_message_header}{MessageHeader}})\ +\ \mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.size();}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00051}\mbox{\hyperlink{struct_network_1_1_message_a9b64ed8c4d6a67a51a2a09cf48692d11}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{struct_network_1_1_message_a9b64ed8c4d6a67a51a2a09cf48692d11}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_network_1_1_message}{Message}}\&\ msg)\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}ID:\ "{}}\ <<\ msg.\mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}}.\mbox{\hyperlink{struct_network_1_1_message_header_a22a2c9303ab1661cc2174a76f7ebc466}{id}}\ <<\ \textcolor{stringliteral}{"{}\ Size:\ "{}}\ <<\ msg.\mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}}.\mbox{\hyperlink{struct_network_1_1_message_header_a518b2544a9f9286455c26db68c783243}{size}};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ DataType>}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00057}\mbox{\hyperlink{struct_network_1_1_message_a8e0e3b7d6e6f492da359592f4b952e11}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{struct_network_1_1_message}{Message}}\&\ \mbox{\hyperlink{struct_network_1_1_message_a8e0e3b7d6e6f492da359592f4b952e11}{operator<<}}(\mbox{\hyperlink{struct_network_1_1_message}{Message}}\&\ msg,\ \textcolor{keyword}{const}\ DataType\&\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_standard\_layout<DataType>::value,\ \textcolor{stringliteral}{"{}Data\ is\ too\ complex\ to\ be\ pushed\ into\ vector"{}});}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i\ =\ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.size();}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.resize(msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.size()\ +\ \textcolor{keyword}{sizeof}(DataType));}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::memcpy(msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.data()\ +\ i,\ \&data,\ \textcolor{keyword}{sizeof}(DataType));}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}}.\mbox{\hyperlink{struct_network_1_1_message_header_a518b2544a9f9286455c26db68c783243}{size}}\ =\ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.size();}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ msg;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ DataType>}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00069}\mbox{\hyperlink{struct_network_1_1_message_a45a8083ead65cd6ba8bcf032e4c2d8b4}{00069}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{struct_network_1_1_message}{Message}}\&\ \mbox{\hyperlink{struct_network_1_1_message_a45a8083ead65cd6ba8bcf032e4c2d8b4}{operator>>}}(\mbox{\hyperlink{struct_network_1_1_message}{Message}}\&\ msg,\ DataType\&\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_standard\_layout<DataType>::value,\ \textcolor{stringliteral}{"{}Data\ is\ too\ complex\ to\ be\ pushed\ into\ vector"{}});}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i\ =\ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.size()\ -\/\ \textcolor{keyword}{sizeof}(DataType);}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::memcpy(\&data,\ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.data()\ +\ i,\ \textcolor{keyword}{sizeof}(DataType));}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.resize(i);}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}}.\mbox{\hyperlink{struct_network_1_1_message_header_a518b2544a9f9286455c26db68c783243}{size}}\ =\ msg.\mbox{\hyperlink{struct_network_1_1_message_a2c8e9f3a2e4c0208eb9868ba5b2133c4}{body}}.size();}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ msg;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00079}00079\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{class\ }Connection;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00083}\mbox{\hyperlink{struct_network_1_1_owned_message}{00083}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_network_1_1_owned_message}{OwnedMessage}}\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00084}\mbox{\hyperlink{struct_network_1_1_owned_message_ae9cebdb142a007350aa88822425c4687}{00084}}\ \ \ \ \ \ \ \ \ std::shared\_ptr<Connection>\ \mbox{\hyperlink{struct_network_1_1_owned_message_ae9cebdb142a007350aa88822425c4687}{remote}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00085}\mbox{\hyperlink{struct_network_1_1_owned_message_a648508cc9ce97e8c4c5809167f9f30a6}{00085}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_network_1_1_message}{Message}}\ \mbox{\hyperlink{struct_network_1_1_owned_message_a648508cc9ce97e8c4c5809167f9f30a6}{msg}};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00087}\mbox{\hyperlink{struct_network_1_1_owned_message_a623bef142a1baf4f7db2b822306651ba}{00087}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{struct_network_1_1_owned_message_a623bef142a1baf4f7db2b822306651ba}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_network_1_1_owned_message}{OwnedMessage}}\&\ \mbox{\hyperlink{struct_network_1_1_owned_message_a648508cc9ce97e8c4c5809167f9f30a6}{msg}})\ \{}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{struct_network_1_1_owned_message_a648508cc9ce97e8c4c5809167f9f30a6}{msg}}.msg;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00091}00091\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{net__message_8h_source_l00093}00093\ \}}
+
+\end{DoxyCode}

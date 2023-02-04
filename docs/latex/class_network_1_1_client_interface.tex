@@ -1,0 +1,234 @@
+\hypertarget{class_network_1_1_client_interface}{}\doxysection{Network\+::Client\+Interface Class Reference}
+\label{class_network_1_1_client_interface}\index{Network::ClientInterface@{Network::ClientInterface}}
+
+
+The \mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} class is the class that will manage the client.  
+
+
+
+
+{\ttfamily \#include $<$Client\+Interface.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_network_1_1_client_interface_a10dbca8c72dca44d81169952346a09bd}{Client\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} Constructor of the \mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_network_1_1_client_interface_a552c238839a1de7ea772ed6d5faa6f10}{$\sim$\+Client\+Interface}} ()
+\item 
+bool \mbox{\hyperlink{class_network_1_1_client_interface_a849a34fdbf572fbe0cb275b3d86730ce}{Connect}} (const std\+::string \&host, const uint16\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Connect to a server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_interface_a97c6795a5375987cd744619b0c54dcb2}{Disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnect the client from the server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_network_1_1_client_interface_a00759a40a88e40fecabe30e9de8a8925}{Is\+Connected}} () const
+\begin{DoxyCompactList}\small\item\em Check if the client is connected to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_interface_a46a5585037a8ca22cfc214128df098ab}{Send}} (const \mbox{\hyperlink{struct_network_1_1_message}{Message}} \&msg)
+\begin{DoxyCompactList}\small\item\em Send a message to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_interface_a4786d2e90708b844e08b5f2e548d1588}{Update}} (size\+\_\+t max\+Messages=-\/1)
+\begin{DoxyCompactList}\small\item\em Update the client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$ \mbox{\hyperlink{struct_network_1_1_owned_message}{Owned\+Message}} $>$ \& \mbox{\hyperlink{class_network_1_1_client_interface_a3cddbfe90fd4619c81021c28f5695855}{Get\+Incoming\+Messages}} ()
+\begin{DoxyCompactList}\small\item\em Get the incoming messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+asio\+::io\+\_\+context \mbox{\hyperlink{class_network_1_1_client_interface_abc8924b0c708e887cc56768b85799736}{\+\_\+io\+Context}}
+\item 
+std\+::thread \mbox{\hyperlink{class_network_1_1_client_interface_ac76fe2ff2613d6dca3d1c015066261be}{\+\_\+thread\+Context}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_network_1_1_connection}{Connection}} $>$ \mbox{\hyperlink{class_network_1_1_client_interface_af0f8fcc6c11e333cff4652e1e2084536}{\+\_\+connection}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} class is the class that will manage the client. 
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_network_1_1_client_interface_a10dbca8c72dca44d81169952346a09bd}\label{class_network_1_1_client_interface_a10dbca8c72dca44d81169952346a09bd}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!ClientInterface@{ClientInterface}}
+\index{ClientInterface@{ClientInterface}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{ClientInterface()}{ClientInterface()}}
+{\footnotesize\ttfamily Network\+::\+Client\+Interface\+::\+Client\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} Constructor of the \mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} class. 
+
+This function will construct the \mbox{\hyperlink{class_network_1_1_client_interface}{Client\+Interface}} class. 
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_a552c238839a1de7ea772ed6d5faa6f10}\label{class_network_1_1_client_interface_a552c238839a1de7ea772ed6d5faa6f10}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!````~ClientInterface@{$\sim$ClientInterface}}
+\index{````~ClientInterface@{$\sim$ClientInterface}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$ClientInterface()}{~ClientInterface()}}
+{\footnotesize\ttfamily virtual Network\+::\+Client\+Interface\+::$\sim$\+Client\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_network_1_1_client_interface_a849a34fdbf572fbe0cb275b3d86730ce}\label{class_network_1_1_client_interface_a849a34fdbf572fbe0cb275b3d86730ce}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!Connect@{Connect}}
+\index{Connect@{Connect}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+Interface\+::\+Connect (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{host,  }\item[{const uint16\+\_\+t}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Connect to a server. 
+
+This function will connect the client to a server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em host} & The host of the server. \\
+\hline
+{\em port} & The port of the server. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the client is connected to the server, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_a97c6795a5375987cd744619b0c54dcb2}\label{class_network_1_1_client_interface_a97c6795a5375987cd744619b0c54dcb2}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!Disconnect@{Disconnect}}
+\index{Disconnect@{Disconnect}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{Disconnect()}{Disconnect()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+Interface\+::\+Disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disconnect the client from the server. 
+
+This function will disconnect the client from the server. 
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_a3cddbfe90fd4619c81021c28f5695855}\label{class_network_1_1_client_interface_a3cddbfe90fd4619c81021c28f5695855}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!GetIncomingMessages@{GetIncomingMessages}}
+\index{GetIncomingMessages@{GetIncomingMessages}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{GetIncomingMessages()}{GetIncomingMessages()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$ \mbox{\hyperlink{struct_network_1_1_owned_message}{Owned\+Message}} $>$ \& Network\+::\+Client\+Interface\+::\+Get\+Incoming\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the incoming messages. 
+
+This function will return the incoming messages.
+
+\begin{DoxyReturn}{Returns}
+The incoming messages. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00135}{135}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_a00759a40a88e40fecabe30e9de8a8925}\label{class_network_1_1_client_interface_a00759a40a88e40fecabe30e9de8a8925}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!IsConnected@{IsConnected}}
+\index{IsConnected@{IsConnected}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{IsConnected()}{IsConnected()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+Interface\+::\+Is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the client is connected to the server. 
+
+This function will check if the client is connected to the server.
+
+\begin{DoxyReturn}{Returns}
+True if the client is connected to the server, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_a46a5585037a8ca22cfc214128df098ab}\label{class_network_1_1_client_interface_a46a5585037a8ca22cfc214128df098ab}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!Send@{Send}}
+\index{Send@{Send}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+Interface\+::\+Send (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_network_1_1_message}{Message}} \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Send a message to the server. 
+
+This function will send a message to the server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The message to send. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_a4786d2e90708b844e08b5f2e548d1588}\label{class_network_1_1_client_interface_a4786d2e90708b844e08b5f2e548d1588}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!Update@{Update}}
+\index{Update@{Update}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+Interface\+::\+Update (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{max\+Messages = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the client. 
+
+This function will update the client. It will handle the incoming messages.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Messages} & The maximum number of messages to handle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_network_1_1_client_interface_af0f8fcc6c11e333cff4652e1e2084536}\label{class_network_1_1_client_interface_af0f8fcc6c11e333cff4652e1e2084536}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!\_connection@{\_connection}}
+\index{\_connection@{\_connection}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{\_connection}{\_connection}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_network_1_1_connection}{Connection}}$>$ Network\+::\+Client\+Interface\+::\+\_\+connection\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00142}{142}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_abc8924b0c708e887cc56768b85799736}\label{class_network_1_1_client_interface_abc8924b0c708e887cc56768b85799736}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!\_ioContext@{\_ioContext}}
+\index{\_ioContext@{\_ioContext}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{\_ioContext}{\_ioContext}}
+{\footnotesize\ttfamily asio\+::io\+\_\+context Network\+::\+Client\+Interface\+::\+\_\+io\+Context\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_client_interface_ac76fe2ff2613d6dca3d1c015066261be}\label{class_network_1_1_client_interface_ac76fe2ff2613d6dca3d1c015066261be}} 
+\index{Network::ClientInterface@{Network::ClientInterface}!\_threadContext@{\_threadContext}}
+\index{\_threadContext@{\_threadContext}!Network::ClientInterface@{Network::ClientInterface}}
+\doxysubsubsection{\texorpdfstring{\_threadContext}{\_threadContext}}
+{\footnotesize\ttfamily std\+::thread Network\+::\+Client\+Interface\+::\+\_\+thread\+Context\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_client_interface_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{_client_interface_8hpp_source}{Client\+Interface.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Network/\mbox{\hyperlink{_client_interface_8hpp}{Client\+Interface.\+hpp}}\end{DoxyCompactItemize}

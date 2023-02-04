@@ -1,0 +1,324 @@
+\hypertarget{class_network_1_1_connection}{}\doxysection{Network\+::Connection Class Reference}
+\label{class_network_1_1_connection}\index{Network::Connection@{Network::Connection}}
+
+
+The \mbox{\hyperlink{class_network_1_1_connection}{Connection}} class is the class that will manage the connection between the server and the client.  
+
+
+
+
+{\ttfamily \#include $<$Network\+Connection.\+hpp$>$}
+
+
+
+Inheritance diagram for Network\+::Connection\+:
+% FIG 0
+
+
+Collaboration diagram for Network\+::Connection\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}} \{ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}{Server}}
+, \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a577d7068826de925ea2aec01dbadf5e4}{Client}}
+ \}
+\begin{DoxyCompactList}\small\item\em The Owner enum is the enum that will define the owner of the connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_network_1_1_connection_a9542754fdce623a512d7c145c18e6247}{Connection}} (\mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}} parent, asio\+::io\+\_\+context \&context, asio\+::ip\+::tcp\+::socket socket, \mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$ \mbox{\hyperlink{struct_network_1_1_owned_message}{Owned\+Message}} $>$ \&qin)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_network_1_1_connection}{Connection}} Constructor of the \mbox{\hyperlink{class_network_1_1_connection}{Connection}} class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_network_1_1_connection_af4965c70c8249232246f84af01144b89}{$\sim$\+Connection}} ()=default
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_network_1_1_connection_a782e8d7063b717dd60fef20b18433e96}{Get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Get the id of the connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_connection_a0d9c14d08fe275e1879dbb3f6c7cf1b9}{Connect\+To\+Client}} (uint32\+\_\+t id=0)
+\begin{DoxyCompactList}\small\item\em Connect to a client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_connection_a846d0a6b6e7d004d5dc35d8fbc4584a8}{Connect\+To\+Server}} (const asio\+::ip\+::tcp\+::resolver\+::results\+\_\+type \&endpoints)
+\begin{DoxyCompactList}\small\item\em Connect to a server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_connection_a343a51555309c32ad9e62b8a9f3ec817}{Disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnect the connection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}{Is\+Connected}} ()
+\begin{DoxyCompactList}\small\item\em Check if the connection is connected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_connection_a19c0dd9237e7ee2695eba299a2fc3ddf}{Send}} (const \mbox{\hyperlink{struct_network_1_1_message}{Message}} \&msg)
+\begin{DoxyCompactList}\small\item\em Send a message to the connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+asio\+::ip\+::tcp\+::socket \mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\+\_\+socket}}
+\item 
+asio\+::io\+\_\+context \& \mbox{\hyperlink{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}{\+\_\+io\+Context}}
+\item 
+\mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$ \mbox{\hyperlink{struct_network_1_1_owned_message}{Owned\+Message}} $>$ \& \mbox{\hyperlink{class_network_1_1_connection_a592cb645a2ed645d5f2d8d73873fb7b7}{\+\_\+incoming\+Messages}}
+\item 
+\mbox{\hyperlink{struct_network_1_1_message}{Message}} \mbox{\hyperlink{class_network_1_1_connection_a0dc54e37eb0df0d13c73df6cc5ff2b03}{\+\_\+tmp\+Message}}
+\item 
+\mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$ \mbox{\hyperlink{struct_network_1_1_message}{Message}} $>$ \mbox{\hyperlink{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}{\+\_\+outgoing\+Messages}}
+\item 
+\mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}} \mbox{\hyperlink{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}{\+\_\+owner\+Type}} = \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}{Owner\+::\+Server}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}{\+\_\+id}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_network_1_1_connection}{Connection}} class is the class that will manage the connection between the server and the client. 
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}\label{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}} 
+\index{Network::Connection@{Network::Connection}!Owner@{Owner}}
+\index{Owner@{Owner}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{Owner}{Owner}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Network\+::\+Connection\+::\+Owner}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+The Owner enum is the enum that will define the owner of the connection. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Server@{Server}!Network::Connection@{Network::Connection}}\index{Network::Connection@{Network::Connection}!Server@{Server}}}\mbox{\Hypertarget{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}\label{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}} 
+Server&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Client@{Client}!Network::Connection@{Network::Connection}}\index{Network::Connection@{Network::Connection}!Client@{Client}}}\mbox{\Hypertarget{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a577d7068826de925ea2aec01dbadf5e4}\label{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a577d7068826de925ea2aec01dbadf5e4}} 
+Client&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_network_1_1_connection_a9542754fdce623a512d7c145c18e6247}\label{class_network_1_1_connection_a9542754fdce623a512d7c145c18e6247}} 
+\index{Network::Connection@{Network::Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{Connection()}{Connection()}}
+{\footnotesize\ttfamily Network\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}}}]{parent,  }\item[{asio\+::io\+\_\+context \&}]{context,  }\item[{asio\+::ip\+::tcp\+::socket}]{socket,  }\item[{\mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$ \mbox{\hyperlink{struct_network_1_1_owned_message}{Owned\+Message}} $>$ \&}]{qin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_network_1_1_connection}{Connection}} Constructor of the \mbox{\hyperlink{class_network_1_1_connection}{Connection}} class. 
+
+This function will construct the \mbox{\hyperlink{class_network_1_1_connection}{Connection}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The owner of the connection. \\
+\hline
+{\em context} & The context of the connection. \\
+\hline
+{\em socket} & The socket of the connection. \\
+\hline
+{\em qin} & The queue of the incoming messages. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_af4965c70c8249232246f84af01144b89}\label{class_network_1_1_connection_af4965c70c8249232246f84af01144b89}} 
+\index{Network::Connection@{Network::Connection}!````~Connection@{$\sim$Connection}}
+\index{````~Connection@{$\sim$Connection}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{$\sim$Connection()}{~Connection()}}
+{\footnotesize\ttfamily virtual Network\+::\+Connection\+::$\sim$\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_network_1_1_connection_a0d9c14d08fe275e1879dbb3f6c7cf1b9}\label{class_network_1_1_connection_a0d9c14d08fe275e1879dbb3f6c7cf1b9}} 
+\index{Network::Connection@{Network::Connection}!ConnectToClient@{ConnectToClient}}
+\index{ConnectToClient@{ConnectToClient}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{ConnectToClient()}{ConnectToClient()}}
+{\footnotesize\ttfamily void Network\+::\+Connection\+::\+Connect\+To\+Client (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Connect to a client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The id of the client \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a846d0a6b6e7d004d5dc35d8fbc4584a8}\label{class_network_1_1_connection_a846d0a6b6e7d004d5dc35d8fbc4584a8}} 
+\index{Network::Connection@{Network::Connection}!ConnectToServer@{ConnectToServer}}
+\index{ConnectToServer@{ConnectToServer}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{ConnectToServer()}{ConnectToServer()}}
+{\footnotesize\ttfamily void Network\+::\+Connection\+::\+Connect\+To\+Server (\begin{DoxyParamCaption}\item[{const asio\+::ip\+::tcp\+::resolver\+::results\+\_\+type \&}]{endpoints }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Connect to a server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em endpoints} & The endpoints of the server \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a343a51555309c32ad9e62b8a9f3ec817}\label{class_network_1_1_connection_a343a51555309c32ad9e62b8a9f3ec817}} 
+\index{Network::Connection@{Network::Connection}!Disconnect@{Disconnect}}
+\index{Disconnect@{Disconnect}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{Disconnect()}{Disconnect()}}
+{\footnotesize\ttfamily void Network\+::\+Connection\+::\+Disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disconnect the connection. 
+
+This function will disconnect the connection. 
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a782e8d7063b717dd60fef20b18433e96}\label{class_network_1_1_connection_a782e8d7063b717dd60fef20b18433e96}} 
+\index{Network::Connection@{Network::Connection}!GetID@{GetID}}
+\index{GetID@{GetID}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily uint32\+\_\+t Network\+::\+Connection\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the id of the connection. 
+
+This function will return the id of the connection.
+
+\begin{DoxyReturn}{Returns}
+The id of the connection. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}\label{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}} 
+\index{Network::Connection@{Network::Connection}!IsConnected@{IsConnected}}
+\index{IsConnected@{IsConnected}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{IsConnected()}{IsConnected()}}
+{\footnotesize\ttfamily bool Network\+::\+Connection\+::\+Is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the connection is connected. 
+
+This function will check if the connection is connected.
+
+\begin{DoxyReturn}{Returns}
+True if the connection is connected, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a19c0dd9237e7ee2695eba299a2fc3ddf}\label{class_network_1_1_connection_a19c0dd9237e7ee2695eba299a2fc3ddf}} 
+\index{Network::Connection@{Network::Connection}!Send@{Send}}
+\index{Send@{Send}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily void Network\+::\+Connection\+::\+Send (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_network_1_1_message}{Message}} \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Send a message to the connection. 
+
+This function will send a message to the connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The message to send. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00115}{115}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}\label{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}} 
+\index{Network::Connection@{Network::Connection}!\_id@{\_id}}
+\index{\_id@{\_id}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_id}{\_id}}
+{\footnotesize\ttfamily uint32\+\_\+t Network\+::\+Connection\+::\+\_\+id = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a592cb645a2ed645d5f2d8d73873fb7b7}\label{class_network_1_1_connection_a592cb645a2ed645d5f2d8d73873fb7b7}} 
+\index{Network::Connection@{Network::Connection}!\_incomingMessages@{\_incomingMessages}}
+\index{\_incomingMessages@{\_incomingMessages}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_incomingMessages}{\_incomingMessages}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$\mbox{\hyperlink{struct_network_1_1_owned_message}{Owned\+Message}}$>$\& Network\+::\+Connection\+::\+\_\+incoming\+Messages\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}\label{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}} 
+\index{Network::Connection@{Network::Connection}!\_ioContext@{\_ioContext}}
+\index{\_ioContext@{\_ioContext}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_ioContext}{\_ioContext}}
+{\footnotesize\ttfamily asio\+::io\+\_\+context\& Network\+::\+Connection\+::\+\_\+io\+Context\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}\label{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}} 
+\index{Network::Connection@{Network::Connection}!\_outgoingMessages@{\_outgoingMessages}}
+\index{\_outgoingMessages@{\_outgoingMessages}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_outgoingMessages}{\_outgoingMessages}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_network_1_1_network_queue}{Network\+Queue}}$<$\mbox{\hyperlink{struct_network_1_1_message}{Message}}$>$ Network\+::\+Connection\+::\+\_\+outgoing\+Messages\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}\label{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}} 
+\index{Network::Connection@{Network::Connection}!\_ownerType@{\_ownerType}}
+\index{\_ownerType@{\_ownerType}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_ownerType}{\_ownerType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}} Network\+::\+Connection\+::\+\_\+owner\+Type = \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}{Owner\+::\+Server}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00137}{137}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}\label{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}} 
+\index{Network::Connection@{Network::Connection}!\_socket@{\_socket}}
+\index{\_socket@{\_socket}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_socket}{\_socket}}
+{\footnotesize\ttfamily asio\+::ip\+::tcp\+::socket Network\+::\+Connection\+::\+\_\+socket\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00130}{130}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+\mbox{\Hypertarget{class_network_1_1_connection_a0dc54e37eb0df0d13c73df6cc5ff2b03}\label{class_network_1_1_connection_a0dc54e37eb0df0d13c73df6cc5ff2b03}} 
+\index{Network::Connection@{Network::Connection}!\_tmpMessage@{\_tmpMessage}}
+\index{\_tmpMessage@{\_tmpMessage}!Network::Connection@{Network::Connection}}
+\doxysubsubsection{\texorpdfstring{\_tmpMessage}{\_tmpMessage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_network_1_1_message}{Message}} Network\+::\+Connection\+::\+\_\+tmp\+Message\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_network_connection_8hpp_source_l00134}{134}} of file \mbox{\hyperlink{_network_connection_8hpp_source}{Network\+Connection.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Kappa\+Engine/\+Network/\mbox{\hyperlink{_network_connection_8hpp}{Network\+Connection.\+hpp}}\end{DoxyCompactItemize}

@@ -1,26 +1,26 @@
 \hypertarget{_sprite_renderer_system_8cpp_source}{}\doxysection{Sprite\+Renderer\+System.\+cpp}
 \label{_sprite_renderer_system_8cpp_source}\index{src/Systems/SpriteRendererSystem.cpp@{src/Systems/SpriteRendererSystem.cpp}}
-\mbox{\hyperlink{_sprite_renderer_system_8cpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ Sebayl\ on\ 23/01/2023.}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00004}00004\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sprite_renderer_system_8hpp}{KappaEngine/Systems/SpriteRendererSystem.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}KappaEngine/Systems/SpriteRendererSystem.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}KappaEngine/GameManager.hpp"{}}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_kappa_engine}{KappaEngine}}\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00009}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{00009}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a295fe0a176b5a00c47c78921d1bdc0b0}{SpriteRendererSystem::Awake}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }KappaEngine\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{void}\ SpriteRendererSystem::Awake()\ \{}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SpriteRendererSystem\ Awake"{}}\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ents\ =\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\_scene}}-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{getEntityManager}}()-\/>\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{getEntitiesWithComponent}}<\mbox{\hyperlink{class_component_1_1_sprite_renderer}{Component::SpriteRenderer}}>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ents\ =\ \_scene-\/>getEntityManager()-\/>getEntitiesWithComponent<Component::SpriteRenderer>();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00013}00013\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&ent\ :\ ents)\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spriteRenderer\ =\ ent-\/>getComponent<\mbox{\hyperlink{class_component_1_1_sprite_renderer}{Component::SpriteRenderer}}>();}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ transform\ =\ ent-\/>getComponent<\mbox{\hyperlink{class_component_1_1_transform}{Component::Transform}}>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spriteRenderer\ =\ ent-\/>getComponent<Component::SpriteRenderer>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ transform\ =\ ent-\/>getComponent<Component::Transform>();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!transform\ ||\ !transform-\/>\mbox{\hyperlink{class_component_1_1_i_component_a02192fbddab2f763884f5639e4decd53}{enabled}})}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteRenderer-\/>\mbox{\hyperlink{class_component_1_1_i_component_a02192fbddab2f763884f5639e4decd53}{enabled}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!transform\ ||\ !transform-\/>enabled)}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteRenderer-\/>enabled\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteRenderer-\/>\_sprite.setTextureRect(spriteRenderer-\/>\_textureRect);}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
@@ -45,43 +45,43 @@
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00042}00042\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00044}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{00044}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_aed568cab51de3868f8eb492b8cdffedc}{SpriteRendererSystem::OnDestroy}}(\mbox{\hyperlink{class_kappa_engine_1_1_entity}{Entity}}\ *entity)\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{void}\ SpriteRendererSystem::OnDestroy(Entity\ *entity)\ \{}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SpriteRenderSystem::OnDestroy"{}}\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spriteRenderer\ =\ entity-\/>\mbox{\hyperlink{class_kappa_engine_1_1_entity_a1d69502490957b5b22f8611e6f5113fa}{getComponent}}<\mbox{\hyperlink{class_component_1_1_sprite_renderer}{Component::SpriteRenderer}}>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spriteRenderer\ =\ entity-\/>getComponent<Component::SpriteRenderer>();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00047}00047\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spriteRenderer\ ==\ \textcolor{keyword}{nullptr})}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \&spriteRenderer-\/>\mbox{\hyperlink{class_component_1_1_sprite_renderer_a2e6d472a2bd164132b8eeae03a8089ad}{\_sprite}};}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \&spriteRenderer-\/>\_sprite;}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00052}00052\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00054}\mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{00054}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_kappa_engine_1_1_sprite_renderer_system_a454d777223a7ec78ed32feba8c516518}{SpriteRendererSystem::OnRenderObject}}()\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ents\ =\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\_scene}}-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{getEntityManager}}()-\/>\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{getEntitiesWithComponent}}<\mbox{\hyperlink{class_component_1_1_sprite_renderer}{Component::SpriteRenderer}}>();}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cams\ =\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\_scene}}-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_abf7ea38d3482cd40ee4d69dd2a38a2bd}{getEntityManager}}()-\/>\mbox{\hyperlink{class_kappa_engine_1_1_entity_manager_a95df578581bdfdf1f07a857e446fb073}{getEntitiesWithComponent}}<\mbox{\hyperlink{class_component_1_1_camera}{Component::Camera}}>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{void}\ SpriteRendererSystem::OnRenderObject()\ \{}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ents\ =\ \_scene-\/>getEntityManager()-\/>getEntitiesWithComponent<Component::SpriteRenderer>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cams\ =\ \_scene-\/>getEntityManager()-\/>getEntitiesWithComponent<Component::Camera>();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00057}00057\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&cam\ :\ cams)\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ camera\ =\ cam-\/>getComponent<\mbox{\hyperlink{class_component_1_1_camera}{Component::Camera}}>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ camera\ =\ cam-\/>getComponent<Component::Camera>();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00060}00060\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!camera\ ||\ !camera-\/>enabled)}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00063}00063\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&ent\ :\ ents)\ \{}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spriteRenderer\ =\ ent-\/>getComponent<\mbox{\hyperlink{class_component_1_1_sprite_renderer}{Component::SpriteRenderer}}>();}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ transform\ =\ ent-\/>getComponent<\mbox{\hyperlink{class_component_1_1_transform}{Component::Transform}}>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spriteRenderer\ =\ ent-\/>getComponent<Component::SpriteRenderer>();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ transform\ =\ ent-\/>getComponent<Component::Transform>();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00067}00067\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ camera-\/>\_layers.begin();\ it\ !=\ camera-\/>\_layers.end();\ it++)\ \{}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ spriteRenderer-\/>\_layer\ \&\&\ spriteRenderer-\/>enabled)\ \{}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ winSize\ =\ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\_scene}}-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{getWindow}}()-\/>getSize();}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ winSize\ =\ GameManager::GetWindow()-\/>getSize();}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00072}00072\ }
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ transform-\/>position.x\ +\ spriteRenderer-\/>\mbox{\hyperlink{class_component_1_1_sprite_renderer_ad05c07e428d32348a456138c2a3d7c01}{\_position}}.\mbox{\hyperlink{structcoord2d_a19d7d0071aba7b052c0c64ae045f5822}{x}}\ -\/\ camera-\/>\_position.x\ +\ winSize.x\ /\ 2;}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ transform-\/>position.y\ +\ spriteRenderer-\/>\mbox{\hyperlink{class_component_1_1_sprite_renderer_ad05c07e428d32348a456138c2a3d7c01}{\_position}}.\mbox{\hyperlink{structcoord2d_a493eecab339f7ac057be08de2854e956}{y}}\ -\/\ camera-\/>\_position.y\ +\ winSize.y\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ transform-\/>position.x\ +\ spriteRenderer-\/>\_position.x\ -\/\ camera-\/>\_position.x\ +\ winSize.x\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ transform-\/>position.y\ +\ spriteRenderer-\/>\_position.y\ -\/\ camera-\/>\_position.y\ +\ winSize.y\ /\ 2;}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00075}00075\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ (x\ <\ -\/winSize.x\ ||\ x\ >\ winSize.x\ ||\ y\ <\ -\/winSize.y\ ||\ y\ >\ winSize.y)}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ continue;}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00078}00078\ }
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteRenderer-\/>\_sprite.setPosition(x,\ y);}
-\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_kappa_engine_1_1_i_system_a475fd14946fc2d66af733cf0ed130c82}{\_scene}}-\/>\mbox{\hyperlink{class_kappa_engine_1_1_scene_a672686054ddf374fc555ef5fdc84cadf}{getWindow}}()-\/>draw(spriteRenderer-\/>\_sprite);}
+\DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GameManager::Draw(spriteRenderer-\/>\_sprite);}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_sprite_renderer_system_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}

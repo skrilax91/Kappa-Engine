@@ -1,0 +1,17 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [label="KappaEngine::ISystem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d6a/class_kappa_engine_1_1_i_system.html",tooltip="The ISystem class is the base class of all systems of the engine."];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="KappaEngine::CollideBoxSystem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/df0/class_kappa_engine_1_1_collide_box_system.html",tooltip=" "];
+  Node0 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="KappaEngine::NetworkSystem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/dc9/class_kappa_engine_1_1_network_system.html",tooltip="The NetworkSystem class is the class that will manage all the network of the engine."];
+  Node0 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="KappaEngine::RigidBodySystem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$db/d79/class_kappa_engine_1_1_rigid_body_system.html",tooltip="The RigidBodySystem class is the class that will manage all the rigid bodies of the engine."];
+  Node0 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="KappaEngine::SpriteRenderer\lSystem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d52/class_kappa_engine_1_1_sprite_renderer_system.html",tooltip="System that handles the rendering of sprites."];
+}

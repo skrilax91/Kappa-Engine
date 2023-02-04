@@ -9,8 +9,19 @@
 #include "KappaEngine/Components/RigidBody.hpp"
 
 namespace KappaEngine {
+
+    /**
+     * @brief The RigidBodySystem class is the class that will manage all the rigid bodies of the engine.
+     */
     class RigidBodySystem : public ISystem {
         public:
+            /**
+             * @brief RigidBodySystem Constructor of the RigidBodySystem class.
+             *
+             * This function will construct the RigidBodySystem class.
+             *
+             * @param scene The scene that the rigid body system will manage.
+             */
             explicit RigidBodySystem(Scene *scene) : ISystem(scene) {};
             void Awake() override;
             void FixedUpdate() override;

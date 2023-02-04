@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +48,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -62,25 +62,25 @@ $(document).ready(function(){initNavTree('_sprite_renderer_system_8cpp_source.ht
   <div class="headertitle"><div class="title">SpriteRendererSystem.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_sprite_renderer_system_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by Sebayl on 23/01/2023.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_sprite_renderer_system_8hpp.html">KappaEngine/Systems/SpriteRendererSystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;KappaEngine/Systems/SpriteRendererSystem.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;KappaEngine/GameManager.hpp&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_kappa_engine.html">KappaEngine</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_sprite_renderer_system.html#a295fe0a176b5a00c47c78921d1bdc0b0">    9</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_kappa_engine_1_1_sprite_renderer_system.html#a295fe0a176b5a00c47c78921d1bdc0b0">SpriteRendererSystem::Awake</a>() {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>KappaEngine {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">void</span> SpriteRendererSystem::Awake() {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;SpriteRendererSystem Awake&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keyword">auto</span> ents = <a class="code hl_variable" href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">_scene</a>-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">getEntityManager</a>()-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_entity_manager.html#a95df578581bdfdf1f07a857e446fb073">getEntitiesWithComponent</a>&lt;<a class="code hl_class" href="class_component_1_1_sprite_renderer.html">Component::SpriteRenderer</a>&gt;();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keyword">auto</span> ents = _scene-&gt;getEntityManager()-&gt;getEntitiesWithComponent&lt;Component::SpriteRenderer&gt;();</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;ent : ents) {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            <span class="keyword">auto</span> spriteRenderer = ent-&gt;getComponent&lt;<a class="code hl_class" href="class_component_1_1_sprite_renderer.html">Component::SpriteRenderer</a>&gt;();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <span class="keyword">auto</span> transform = ent-&gt;getComponent&lt;<a class="code hl_class" href="class_component_1_1_transform.html">Component::Transform</a>&gt;();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            <span class="keyword">auto</span> spriteRenderer = ent-&gt;getComponent&lt;Component::SpriteRenderer&gt;();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <span class="keyword">auto</span> transform = ent-&gt;getComponent&lt;Component::Transform&gt;();</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keywordflow">if</span> (!transform || !transform-&gt;<a class="code hl_variable" href="class_component_1_1_i_component.html#a02192fbddab2f763884f5639e4decd53">enabled</a>)</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                spriteRenderer-&gt;<a class="code hl_variable" href="class_component_1_1_i_component.html#a02192fbddab2f763884f5639e4decd53">enabled</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keywordflow">if</span> (!transform || !transform-&gt;enabled)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                spriteRenderer-&gt;enabled = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                spriteRenderer-&gt;_sprite.setTextureRect(spriteRenderer-&gt;_textureRect);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            }</div>
@@ -105,43 +105,43 @@ $(document).ready(function(){initNavTree('_sprite_renderer_system_8cpp_source.ht
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_sprite_renderer_system.html#aed568cab51de3868f8eb492b8cdffedc">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_kappa_engine_1_1_sprite_renderer_system.html#aed568cab51de3868f8eb492b8cdffedc">SpriteRendererSystem::OnDestroy</a>(<a class="code hl_class" href="class_kappa_engine_1_1_entity.html">Entity</a> *entity) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> SpriteRendererSystem::OnDestroy(Entity *entity) {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;SpriteRenderSystem::OnDestroy&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">auto</span> spriteRenderer = entity-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_entity.html#a1d69502490957b5b22f8611e6f5113fa">getComponent</a>&lt;<a class="code hl_class" href="class_component_1_1_sprite_renderer.html">Component::SpriteRenderer</a>&gt;();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">auto</span> spriteRenderer = entity-&gt;getComponent&lt;Component::SpriteRenderer&gt;();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (spriteRenderer == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">delete</span> &amp;spriteRenderer-&gt;<a class="code hl_variable" href="class_component_1_1_sprite_renderer.html#a2e6d472a2bd164132b8eeae03a8089ad">_sprite</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">delete</span> &amp;spriteRenderer-&gt;_sprite;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_kappa_engine_1_1_sprite_renderer_system.html#a454d777223a7ec78ed32feba8c516518">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_kappa_engine_1_1_sprite_renderer_system.html#a454d777223a7ec78ed32feba8c516518">SpriteRendererSystem::OnRenderObject</a>() {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">auto</span> ents = <a class="code hl_variable" href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">_scene</a>-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">getEntityManager</a>()-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_entity_manager.html#a95df578581bdfdf1f07a857e446fb073">getEntitiesWithComponent</a>&lt;<a class="code hl_class" href="class_component_1_1_sprite_renderer.html">Component::SpriteRenderer</a>&gt;();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">auto</span> cams = <a class="code hl_variable" href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">_scene</a>-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">getEntityManager</a>()-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_entity_manager.html#a95df578581bdfdf1f07a857e446fb073">getEntitiesWithComponent</a>&lt;<a class="code hl_class" href="class_component_1_1_camera.html">Component::Camera</a>&gt;();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> SpriteRendererSystem::OnRenderObject() {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">auto</span> ents = _scene-&gt;getEntityManager()-&gt;getEntitiesWithComponent&lt;Component::SpriteRenderer&gt;();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">auto</span> cams = _scene-&gt;getEntityManager()-&gt;getEntitiesWithComponent&lt;Component::Camera&gt;();</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;cam : cams) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">auto</span> camera = cam-&gt;getComponent&lt;<a class="code hl_class" href="class_component_1_1_camera.html">Component::Camera</a>&gt;();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">auto</span> camera = cam-&gt;getComponent&lt;Component::Camera&gt;();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">if</span> (!camera || !camera-&gt;enabled)</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;ent : ents) {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keyword">auto</span> spriteRenderer = ent-&gt;getComponent&lt;<a class="code hl_class" href="class_component_1_1_sprite_renderer.html">Component::SpriteRenderer</a>&gt;();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keyword">auto</span> transform = ent-&gt;getComponent&lt;<a class="code hl_class" href="class_component_1_1_transform.html">Component::Transform</a>&gt;();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keyword">auto</span> spriteRenderer = ent-&gt;getComponent&lt;Component::SpriteRenderer&gt;();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keyword">auto</span> transform = ent-&gt;getComponent&lt;Component::Transform&gt;();</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = camera-&gt;_layers.begin(); it != camera-&gt;_layers.end(); it++) {</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <span class="keywordflow">if</span> (*it == spriteRenderer-&gt;_layer &amp;&amp; spriteRenderer-&gt;enabled) {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                        <span class="keyword">auto</span> winSize = <a class="code hl_variable" href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">_scene</a>-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#a672686054ddf374fc555ef5fdc84cadf">getWindow</a>()-&gt;getSize();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                        <span class="keyword">auto</span> winSize = GameManager::GetWindow()-&gt;getSize();</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                        <span class="keywordtype">float</span> x = transform-&gt;position.x + spriteRenderer-&gt;<a class="code hl_variable" href="class_component_1_1_sprite_renderer.html#ad05c07e428d32348a456138c2a3d7c01">_position</a>.<a class="code hl_variable" href="structcoord2d.html#a19d7d0071aba7b052c0c64ae045f5822">x</a> - camera-&gt;_position.x + winSize.x / 2;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                        <span class="keywordtype">float</span> y = transform-&gt;position.y + spriteRenderer-&gt;<a class="code hl_variable" href="class_component_1_1_sprite_renderer.html#ad05c07e428d32348a456138c2a3d7c01">_position</a>.<a class="code hl_variable" href="structcoord2d.html#a493eecab339f7ac057be08de2854e956">y</a> - camera-&gt;_position.y + winSize.y / 2;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                        <span class="keywordtype">float</span> x = transform-&gt;position.x + spriteRenderer-&gt;_position.x - camera-&gt;_position.x + winSize.x / 2;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                        <span class="keywordtype">float</span> y = transform-&gt;position.y + spriteRenderer-&gt;_position.y - camera-&gt;_position.y + winSize.y / 2;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                        <span class="comment">//if (x &lt; -winSize.x || x &gt; winSize.x || y &lt; -winSize.y || y &gt; winSize.y)</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                        <span class="comment">//    continue;</span></div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                        spriteRenderer-&gt;_sprite.setPosition(x, y);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                        <a class="code hl_variable" href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">_scene</a>-&gt;<a class="code hl_function" href="class_kappa_engine_1_1_scene.html#a672686054ddf374fc555ef5fdc84cadf">getWindow</a>()-&gt;draw(spriteRenderer-&gt;_sprite);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                        GameManager::Draw(spriteRenderer-&gt;_sprite);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                        <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    }</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                }</div>
@@ -149,31 +149,12 @@ $(document).ready(function(){initNavTree('_sprite_renderer_system_8cpp_source.ht
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
-<div class="ttc" id="a_sprite_renderer_system_8hpp_html"><div class="ttname"><a href="_sprite_renderer_system_8hpp.html">SpriteRendererSystem.hpp</a></div></div>
-<div class="ttc" id="aclass_component_1_1_camera_html"><div class="ttname"><a href="class_component_1_1_camera.html">Component::Camera</a></div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00010">Camera.hpp:10</a></div></div>
-<div class="ttc" id="aclass_component_1_1_i_component_html_a02192fbddab2f763884f5639e4decd53"><div class="ttname"><a href="class_component_1_1_i_component.html#a02192fbddab2f763884f5639e4decd53">Component::IComponent::enabled</a></div><div class="ttdeci">bool enabled</div><div class="ttdef"><b>Definition:</b> <a href="_i_component_8hpp_source.html#l00017">IComponent.hpp:17</a></div></div>
-<div class="ttc" id="aclass_component_1_1_sprite_renderer_html"><div class="ttname"><a href="class_component_1_1_sprite_renderer.html">Component::SpriteRenderer</a></div><div class="ttdef"><b>Definition:</b> <a href="_sprite_renderer_8hpp_source.html#l00016">SpriteRenderer.hpp:16</a></div></div>
-<div class="ttc" id="aclass_component_1_1_sprite_renderer_html_a2e6d472a2bd164132b8eeae03a8089ad"><div class="ttname"><a href="class_component_1_1_sprite_renderer.html#a2e6d472a2bd164132b8eeae03a8089ad">Component::SpriteRenderer::_sprite</a></div><div class="ttdeci">sf::Sprite _sprite</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_renderer_8hpp_source.html#l00026">SpriteRenderer.hpp:26</a></div></div>
-<div class="ttc" id="aclass_component_1_1_sprite_renderer_html_ad05c07e428d32348a456138c2a3d7c01"><div class="ttname"><a href="class_component_1_1_sprite_renderer.html#ad05c07e428d32348a456138c2a3d7c01">Component::SpriteRenderer::_position</a></div><div class="ttdeci">struct coord2d _position</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_renderer_8hpp_source.html#l00024">SpriteRenderer.hpp:24</a></div></div>
-<div class="ttc" id="aclass_component_1_1_transform_html"><div class="ttname"><a href="class_component_1_1_transform.html">Component::Transform</a></div><div class="ttdef"><b>Definition:</b> <a href="_transform_8hpp_source.html#l00013">Transform.hpp:13</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_entity_html"><div class="ttname"><a href="class_kappa_engine_1_1_entity.html">KappaEngine::Entity</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00016">Entity.hpp:16</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_entity_html_a1d69502490957b5b22f8611e6f5113fa"><div class="ttname"><a href="class_kappa_engine_1_1_entity.html#a1d69502490957b5b22f8611e6f5113fa">KappaEngine::Entity::getComponent</a></div><div class="ttdeci">T * getComponent()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00047">Entity.hpp:47</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_entity_manager_html_a95df578581bdfdf1f07a857e446fb073"><div class="ttname"><a href="class_kappa_engine_1_1_entity_manager.html#a95df578581bdfdf1f07a857e446fb073">KappaEngine::EntityManager::getEntitiesWithComponent</a></div><div class="ttdeci">std::list&lt; std::shared_ptr&lt; Entity &gt; &gt; getEntitiesWithComponent()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_manager_8hpp_source.html#l00026">EntityManager.hpp:26</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_i_system_html_a475fd14946fc2d66af733cf0ed130c82"><div class="ttname"><a href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">KappaEngine::ISystem::_scene</a></div><div class="ttdeci">Scene * _scene</div><div class="ttdef"><b>Definition:</b> <a href="_i_system_8hpp_source.html#l00038">ISystem.hpp:38</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_a672686054ddf374fc555ef5fdc84cadf"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#a672686054ddf374fc555ef5fdc84cadf">KappaEngine::Scene::getWindow</a></div><div class="ttdeci">sf::RenderWindow * getWindow()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00028">Scene.cpp:28</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_scene_html_abf7ea38d3482cd40ee4d69dd2a38a2bd"><div class="ttname"><a href="class_kappa_engine_1_1_scene.html#abf7ea38d3482cd40ee4d69dd2a38a2bd">KappaEngine::Scene::getEntityManager</a></div><div class="ttdeci">EntityManager * getEntityManager()</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00024">Scene.cpp:24</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_sprite_renderer_system_html_a295fe0a176b5a00c47c78921d1bdc0b0"><div class="ttname"><a href="class_kappa_engine_1_1_sprite_renderer_system.html#a295fe0a176b5a00c47c78921d1bdc0b0">KappaEngine::SpriteRendererSystem::Awake</a></div><div class="ttdeci">void Awake() override</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_renderer_system_8cpp_source.html#l00009">SpriteRendererSystem.cpp:9</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_sprite_renderer_system_html_a454d777223a7ec78ed32feba8c516518"><div class="ttname"><a href="class_kappa_engine_1_1_sprite_renderer_system.html#a454d777223a7ec78ed32feba8c516518">KappaEngine::SpriteRendererSystem::OnRenderObject</a></div><div class="ttdeci">void OnRenderObject() override</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_renderer_system_8cpp_source.html#l00054">SpriteRendererSystem.cpp:54</a></div></div>
-<div class="ttc" id="aclass_kappa_engine_1_1_sprite_renderer_system_html_aed568cab51de3868f8eb492b8cdffedc"><div class="ttname"><a href="class_kappa_engine_1_1_sprite_renderer_system.html#aed568cab51de3868f8eb492b8cdffedc">KappaEngine::SpriteRendererSystem::OnDestroy</a></div><div class="ttdeci">void OnDestroy(Entity *) override</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_renderer_system_8cpp_source.html#l00044">SpriteRendererSystem.cpp:44</a></div></div>
-<div class="ttc" id="anamespace_kappa_engine_html"><div class="ttname"><a href="namespace_kappa_engine.html">KappaEngine</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_8hpp_source.html#l00015">Entity.hpp:15</a></div></div>
-<div class="ttc" id="astructcoord2d_html_a19d7d0071aba7b052c0c64ae045f5822"><div class="ttname"><a href="structcoord2d.html#a19d7d0071aba7b052c0c64ae045f5822">coord2d::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> <a href="_i_component_8hpp_source.html#l00009">IComponent.hpp:9</a></div></div>
-<div class="ttc" id="astructcoord2d_html_a493eecab339f7ac057be08de2854e956"><div class="ttname"><a href="structcoord2d.html#a493eecab339f7ac057be08de2854e956">coord2d::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> <a href="_i_component_8hpp_source.html#l00010">IComponent.hpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_900c20bb70493231141df6997ccd6b87.html">Systems</a></li><li class="navelem"><a class="el" href="_sprite_renderer_system_8cpp.html">SpriteRendererSystem.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_900c20bb70493231141df6997ccd6b87.html">Systems</a></li><li class="navelem"><b>SpriteRendererSystem.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

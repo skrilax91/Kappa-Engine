@@ -1,0 +1,15 @@
+\hypertarget{_button_component_8hpp}{}\doxysection{include/\+Kappa\+Engine/\+Interfaces/\+Button\+Component.hpp File Reference}
+\label{_button_component_8hpp}\index{include/KappaEngine/Interfaces/ButtonComponent.hpp@{include/KappaEngine/Interfaces/ButtonComponent.hpp}}
+{\ttfamily \#include \char`\"{}Kappa\+Engine/\+Interfaces/\+IInterface.\+hpp\char`\"{}}\newline
+Include dependency graph for Button\+Component.\+hpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_interface_1_1_button_component}{Interface\+::\+Button\+Component}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_interface}{Interface}}
+\end{DoxyCompactItemize}

@@ -1,0 +1,176 @@
+\hypertarget{_network_connection_8hpp_source}{}\doxysection{Network\+Connection.\+hpp}
+\label{_network_connection_8hpp_source}\index{include/KappaEngine/Network/NetworkConnection.hpp@{include/KappaEngine/Network/NetworkConnection.hpp}}
+\mbox{\hyperlink{_network_connection_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ leo\_b\ on\ 30/01/2023.}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <asio.hpp>}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{net__message_8h}{net\_message.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_network_queue_8hpp}{NetworkQueue.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_network}{Network}}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00018}\mbox{\hyperlink{class_network_1_1_connection}{00018}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_connection}{Connection}}:\ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<Connection>\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00024}\mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}{Server}},}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a577d7068826de925ea2aec01dbadf5e4}{Client}}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00039}\mbox{\hyperlink{class_network_1_1_connection_a9542754fdce623a512d7c145c18e6247}{00039}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_a9542754fdce623a512d7c145c18e6247}{Connection}}(\mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}}\ parent,\ asio::io\_context\&\ context,\ asio::ip::tcp::socket\ socket,\ \mbox{\hyperlink{class_network_1_1_network_queue}{NetworkQueue<OwnedMessage>}}\&\ qin)}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}}(std::move(socket)),\ \mbox{\hyperlink{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}{\_ioContext}}(context),\ \mbox{\hyperlink{class_network_1_1_connection_a592cb645a2ed645d5f2d8d73873fb7b7}{\_incomingMessages}}(qin)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}{\_ownerType}}\ =\ parent;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00044}\mbox{\hyperlink{class_network_1_1_connection_af4965c70c8249232246f84af01144b89}{00044}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_network_1_1_connection_af4965c70c8249232246f84af01144b89}{\string~Connection}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00053}\mbox{\hyperlink{class_network_1_1_connection_a782e8d7063b717dd60fef20b18433e96}{00053}}\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_network_1_1_connection_a782e8d7063b717dd60fef20b18433e96}{GetID}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}{\_id}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00061}\mbox{\hyperlink{class_network_1_1_connection_a0d9c14d08fe275e1879dbb3f6c7cf1b9}{00061}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_connection_a0d9c14d08fe275e1879dbb3f6c7cf1b9}{ConnectToClient}}(uint32\_t\ \textcolor{keywordtype}{id}\ =\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}{\_ownerType}}\ ==\ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}{Owner::Server}})\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}}.is\_open())\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}{\_id}}\ =\ id;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadHeader();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00074}\mbox{\hyperlink{class_network_1_1_connection_a846d0a6b6e7d004d5dc35d8fbc4584a8}{00074}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_connection_a846d0a6b6e7d004d5dc35d8fbc4584a8}{ConnectToServer}}(\textcolor{keyword}{const}\ asio::ip::tcp::resolver::results\_type\&\ endpoints)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}{\_ownerType}}\ ==\ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a577d7068826de925ea2aec01dbadf5e4}{Owner::Client}})\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ asio::async\_connect(\mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}},\ endpoints,}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this}](std::error\_code\ ec,\ asio::ip::tcp::endpoint\ endpoint)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ec)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadHeader();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00091}\mbox{\hyperlink{class_network_1_1_connection_a343a51555309c32ad9e62b8a9f3ec817}{00091}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_connection_a343a51555309c32ad9e62b8a9f3ec817}{Disconnect}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}{IsConnected}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}{\_ioContext}}.post([\textcolor{keyword}{this}]()\ \{\ \mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}}.close();\ \});}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00104}\mbox{\hyperlink{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}{00104}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}{IsConnected}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}}.is\_open();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00115}\mbox{\hyperlink{class_network_1_1_connection_a19c0dd9237e7ee2695eba299a2fc3ddf}{00115}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_connection_a19c0dd9237e7ee2695eba299a2fc3ddf}{Send}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_network_1_1_message}{Message}}\&\ msg)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_network_1_1_connection_a5c953818458ef829b1109ad0a4889b3b}{IsConnected}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}{\_ioContext}}.post([\textcolor{keyword}{this},\ msg]()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ writeInProgress\ =\ !\mbox{\hyperlink{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}{\_outgoingMessages}}.empty();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}{\_outgoingMessages}}.pushBack(msg);}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!writeInProgress)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteHeader();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00130}\mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{00130}}\ \ \ \ \ \ \ \ \ \ \ \ \ asio::ip::tcp::socket\ \mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00131}\mbox{\hyperlink{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}{00131}}\ \ \ \ \ \ \ \ \ \ \ \ \ asio::io\_context\&\ \mbox{\hyperlink{class_network_1_1_connection_a15e247aa3c1670821588bdeb20be79c9}{\_ioContext}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00133}\mbox{\hyperlink{class_network_1_1_connection_a592cb645a2ed645d5f2d8d73873fb7b7}{00133}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_network_queue}{NetworkQueue<OwnedMessage>}}\&\ \mbox{\hyperlink{class_network_1_1_connection_a592cb645a2ed645d5f2d8d73873fb7b7}{\_incomingMessages}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00134}\mbox{\hyperlink{class_network_1_1_connection_a0dc54e37eb0df0d13c73df6cc5ff2b03}{00134}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_network_1_1_message}{Message}}\ \mbox{\hyperlink{class_network_1_1_connection_a0dc54e37eb0df0d13c73df6cc5ff2b03}{\_tmpMessage}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00136}\mbox{\hyperlink{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}{00136}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_network_queue}{NetworkQueue<Message>}}\ \mbox{\hyperlink{class_network_1_1_connection_a72644b8207f2f0919ba3c55ff6f7dd34}{\_outgoingMessages}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00137}\mbox{\hyperlink{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}{00137}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97}{Owner}}\ \mbox{\hyperlink{class_network_1_1_connection_a677be19e160c6e3e75087db28684e396}{\_ownerType}}\ =\ \mbox{\hyperlink{class_network_1_1_connection_af894bf71b52c8f6700013d3ef7be7f97a9aa1b03934893d7134a660af4204f2a9}{Owner::Server}};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00138}\mbox{\hyperlink{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}{00138}}\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_network_1_1_connection_a00c10822658d79f79db9bfdef1eb24cf}{\_id}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ReadHeader()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ asio::async\_read(\mbox{\hyperlink{class_network_1_1_connection_aeceb1809c632c25dac89725564fa27d7}{\_socket}},\ asio::buffer(\&\mbox{\hyperlink{class_network_1_1_connection_a0dc54e37eb0df0d13c73df6cc5ff2b03}{\_tmpMessage}}.\mbox{\hyperlink{struct_network_1_1_message_ad3e998f93a9b8ad5c674e9b9fb558aee}{header}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_network_1_1_message_header}{MessageHeader}})),}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this}](std::error\_code\ ec,\ std::size\_t\ length)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!ec)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (\_tmpMessage.header.size\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_tmpMessage.body.resize(\_tmpMessage.header.size);}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadBody();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddToIncomingMessageQueue();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CLIENT::"{}}\ <<\ \_id\ <<\ \textcolor{stringliteral}{"{}]\ Failed\ to\ read\ header"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_socket.close();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ReadBody()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ asio::async\_read(\_socket,\ asio::buffer(\_tmpMessage.body.data(),\ \_tmpMessage.body.size()),}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this}](std::error\_code\ ec,\ std::size\_t\ length)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!ec)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddToIncomingMessageQueue();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CLIENT::"{}}\ <<\ \_id\ <<\ \textcolor{stringliteral}{"{}]\ Failed\ to\ read\ body"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_socket.close();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ WriteHeader()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ asio::async\_write(\_socket,\ asio::buffer(\&\_outgoingMessages.front().header,\ \textcolor{keyword}{sizeof}(MessageHeader)),}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this}](std::error\_code\ ec,\ std::size\_t\ length)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!ec)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (\_outgoingMessages.front().header.size\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteBody();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ else\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_outgoingMessages.popFront();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!\_outgoingMessages.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteHeader();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CLIENT::"{}}\ <<\ \_id\ <<\ \textcolor{stringliteral}{"{}]\ Failed\ to\ write\ header"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_socket.close();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ WriteBody()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ asio::async\_write(\_socket,\ asio::buffer(\_outgoingMessages.front().body.data(),\ \_outgoingMessages.front().header.size),}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this}](std::error\_code\ ec,\ std::size\_t\ length)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!ec)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_outgoingMessages.popFront();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!\_outgoingMessages.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteHeader();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}[CLIENT::"{}}\ <<\ \_id\ <<\ \textcolor{stringliteral}{"{}]\ Failed\ to\ write\ body"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_socket.close();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddToIncomingMessageQueue()\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_ownerType\ ==\ Owner::Server)\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_incomingMessages.pushBack(\{this-\/>shared\_from\_this(),\ \_tmpMessage\});}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_incomingMessages.pushBack(\{\textcolor{keyword}{nullptr},\ \_tmpMessage\});}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadHeader();}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00238}00238\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_network_connection_8hpp_source_l00239}00239\ \}}
+
+\end{DoxyCode}

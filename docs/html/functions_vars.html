@@ -13,7 +13,10 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +51,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -59,35 +62,140 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </script>
 <div id="doc-content">
 <div class="contents">
-&#160;<ul>
-<li>_deltaClock&#160;:&#160;<a class="el" href="class_kappa_engine_1_1_time.html#ad6da12fe394c1216cf6af572ffc72506">KappaEngine::Time</a></li>
-<li>_deltaTime&#160;:&#160;<a class="el" href="class_kappa_engine_1_1_time.html#a5be0bb6e9a38836276841a945cb7bd64">KappaEngine::Time</a></li>
-<li>_fixedDeltaTime&#160;:&#160;<a class="el" href="class_kappa_engine_1_1_time.html#a159e1db9ba3ce6cbe2b1caf91e3a1f78">KappaEngine::Time</a></li>
-<li>_lags&#160;:&#160;<a class="el" href="class_kappa_engine_1_1_time.html#aeed9b427a58bb9f6598bcad872180e34">KappaEngine::Time</a></li>
-<li>_layer&#160;:&#160;<a class="el" href="class_component_1_1_sprite_renderer.html#aa0a261e8293b4183dab3b5f20516b12c">Component::SpriteRenderer</a></li>
-<li>_layers&#160;:&#160;<a class="el" href="class_component_1_1_camera.html#a8d470de884d0f297abfa945478d4e20d">Component::Camera</a></li>
-<li>_position&#160;:&#160;<a class="el" href="class_component_1_1_camera.html#a2bc0f7ca627b468356318ab2a1ff05fb">Component::Camera</a>, <a class="el" href="class_component_1_1_sprite_renderer.html#ad05c07e428d32348a456138c2a3d7c01">Component::SpriteRenderer</a></li>
-<li>_scene&#160;:&#160;<a class="el" href="class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">KappaEngine::ISystem</a></li>
-<li>_sprite&#160;:&#160;<a class="el" href="class_component_1_1_sprite_renderer.html#a2e6d472a2bd164132b8eeae03a8089ad">Component::SpriteRenderer</a></li>
-<li>_texturePath&#160;:&#160;<a class="el" href="class_component_1_1_sprite_renderer.html#a5b6961fd98f2a21fd163258e506b06b9">Component::SpriteRenderer</a></li>
-<li>_textureRect&#160;:&#160;<a class="el" href="class_component_1_1_sprite_renderer.html#af72d65b2343773a1b2f2d42c50e813eb">Component::SpriteRenderer</a></li>
-<li>enabled&#160;:&#160;<a class="el" href="class_component_1_1_i_component.html#a02192fbddab2f763884f5639e4decd53">Component::IComponent</a></li>
-<li>gravity&#160;:&#160;<a class="el" href="class_component_1_1_rigid_body.html#aa42eb262b7f7170cd8ae0f81095518eb">Component::RigidBody</a></li>
-<li>height&#160;:&#160;<a class="el" href="struct_component_1_1_collide_box.html#aedcd7962da69a6fa9df5908a219ae2c9">Component::CollideBox</a></li>
-<li>mass&#160;:&#160;<a class="el" href="class_component_1_1_rigid_body.html#a12ddbba9dc0dd9b12516559761f0523b">Component::RigidBody</a></li>
-<li>position&#160;:&#160;<a class="el" href="class_component_1_1_transform.html#a83e5d46b314c8a519782b7c6db88f6f5">Component::Transform</a></li>
-<li>rotation&#160;:&#160;<a class="el" href="class_component_1_1_transform.html#a98c8b2aca7cc96f2959d2a110759f957">Component::Transform</a></li>
-<li>scale&#160;:&#160;<a class="el" href="class_component_1_1_transform.html#a1a08a9055f3077b5f646f19efc553886">Component::Transform</a></li>
-<li>width&#160;:&#160;<a class="el" href="struct_component_1_1_collide_box.html#afacfedd794dbb71d608ac8bbcec94136">Component::CollideBox</a></li>
-<li>x&#160;:&#160;<a class="el" href="structcoord2d.html#a19d7d0071aba7b052c0c64ae045f5822">coord2d</a></li>
-<li>y&#160;:&#160;<a class="el" href="structcoord2d.html#a493eecab339f7ac057be08de2854e956">coord2d</a></li>
+&#160;
+
+<h3><a id="index__5F" name="index__5F"></a>- _ -</h3><ul>
+<li>_acceptor&#160;:&#160;<a class="el" href="dc/d6a/class_network_1_1_server_interface.html#ab09a9d64ef2cb7b9a8d486895069ceaf">Network::ServerInterface</a></li>
+<li>_connection&#160;:&#160;<a class="el" href="d1/ded/class_network_1_1_client_interface.html#af0f8fcc6c11e333cff4652e1e2084536">Network::ClientInterface</a></li>
+<li>_connections&#160;:&#160;<a class="el" href="dc/d6a/class_network_1_1_server_interface.html#a2ee251861a53061deb96b84e5dfd6ea0">Network::ServerInterface</a></li>
+<li>_deltaClock&#160;:&#160;<a class="el" href="d7/dca/class_kappa_engine_1_1_time.html#ad6da12fe394c1216cf6af572ffc72506">KappaEngine::Time</a></li>
+<li>_deltaTime&#160;:&#160;<a class="el" href="d7/dca/class_kappa_engine_1_1_time.html#a5be0bb6e9a38836276841a945cb7bd64">KappaEngine::Time</a></li>
+<li>_fixedDeltaTime&#160;:&#160;<a class="el" href="d7/dca/class_kappa_engine_1_1_time.html#a159e1db9ba3ce6cbe2b1caf91e3a1f78">KappaEngine::Time</a></li>
+<li>_id&#160;:&#160;<a class="el" href="d4/dd8/class_network_1_1_connection.html#a00c10822658d79f79db9bfdef1eb24cf">Network::Connection</a></li>
+<li>_idCounter&#160;:&#160;<a class="el" href="dc/d6a/class_network_1_1_server_interface.html#a838a575afe591b76ece71186471606a0">Network::ServerInterface</a></li>
+<li>_incomingMessages&#160;:&#160;<a class="el" href="d4/dd8/class_network_1_1_connection.html#a592cb645a2ed645d5f2d8d73873fb7b7">Network::Connection</a>, <a class="el" href="dc/d6a/class_network_1_1_server_interface.html#a1b5bc300a68ffe76192539fc4efe5a79">Network::ServerInterface</a></li>
+<li>_ioContext&#160;:&#160;<a class="el" href="d1/ded/class_network_1_1_client_interface.html#abc8924b0c708e887cc56768b85799736">Network::ClientInterface</a>, <a class="el" href="d4/dd8/class_network_1_1_connection.html#a15e247aa3c1670821588bdeb20be79c9">Network::Connection</a>, <a class="el" href="dc/d6a/class_network_1_1_server_interface.html#aca1d56d0519a47c1092d8f5c3540874e">Network::ServerInterface</a></li>
+<li>_lags&#160;:&#160;<a class="el" href="d7/dca/class_kappa_engine_1_1_time.html#aeed9b427a58bb9f6598bcad872180e34">KappaEngine::Time</a></li>
+<li>_layer&#160;:&#160;<a class="el" href="d3/def/class_component_1_1_sprite_renderer.html#aa0a261e8293b4183dab3b5f20516b12c">Component::SpriteRenderer</a></li>
+<li>_layers&#160;:&#160;<a class="el" href="db/dc7/class_component_1_1_camera.html#a8d470de884d0f297abfa945478d4e20d">Component::Camera</a></li>
+<li>_outgoingMessages&#160;:&#160;<a class="el" href="d4/dd8/class_network_1_1_connection.html#a72644b8207f2f0919ba3c55ff6f7dd34">Network::Connection</a></li>
+<li>_ownerType&#160;:&#160;<a class="el" href="d4/dd8/class_network_1_1_connection.html#a677be19e160c6e3e75087db28684e396">Network::Connection</a></li>
+<li>_position&#160;:&#160;<a class="el" href="db/dc7/class_component_1_1_camera.html#a2bc0f7ca627b468356318ab2a1ff05fb">Component::Camera</a>, <a class="el" href="d3/def/class_component_1_1_sprite_renderer.html#ad05c07e428d32348a456138c2a3d7c01">Component::SpriteRenderer</a></li>
+<li>_scene&#160;:&#160;<a class="el" href="d8/d6a/class_kappa_engine_1_1_i_system.html#a475fd14946fc2d66af733cf0ed130c82">KappaEngine::ISystem</a></li>
+<li>_socket&#160;:&#160;<a class="el" href="d4/dd8/class_network_1_1_connection.html#aeceb1809c632c25dac89725564fa27d7">Network::Connection</a></li>
+<li>_sprite&#160;:&#160;<a class="el" href="d3/def/class_component_1_1_sprite_renderer.html#a2e6d472a2bd164132b8eeae03a8089ad">Component::SpriteRenderer</a></li>
+<li>_texturePath&#160;:&#160;<a class="el" href="d3/def/class_component_1_1_sprite_renderer.html#a5b6961fd98f2a21fd163258e506b06b9">Component::SpriteRenderer</a></li>
+<li>_textureRect&#160;:&#160;<a class="el" href="d3/def/class_component_1_1_sprite_renderer.html#af72d65b2343773a1b2f2d42c50e813eb">Component::SpriteRenderer</a></li>
+<li>_threadContext&#160;:&#160;<a class="el" href="d1/ded/class_network_1_1_client_interface.html#ac76fe2ff2613d6dca3d1c015066261be">Network::ClientInterface</a>, <a class="el" href="dc/d6a/class_network_1_1_server_interface.html#ad41e7487a238c3f823844c40cc11ae91">Network::ServerInterface</a></li>
+<li>_tmpMessage&#160;:&#160;<a class="el" href="d4/dd8/class_network_1_1_connection.html#a0dc54e37eb0df0d13c73df6cc5ff2b03">Network::Connection</a></li>
+</ul>
+
+
+<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>anchor&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#a9f2dbccd739538a5befe1975ef2601f3">Interface::ButtonComponent</a></li>
+<li>asAuthority&#160;:&#160;<a class="el" href="d2/df0/class_component_1_1_network_component.html#ab44a2d679d5b9615da8059d9b609175e">Component::NetworkComponent</a></li>
+</ul>
+
+
+<h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
+<li>body&#160;:&#160;<a class="el" href="d2/daa/struct_network_1_1_message.html#a2c8e9f3a2e4c0208eb9868ba5b2133c4">Network::Message</a></li>
+</ul>
+
+
+<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>clientPrediction&#160;:&#160;<a class="el" href="d2/df0/class_component_1_1_network_component.html#a9ff9ff0f07fbdf769922829f443afebc">Component::NetworkComponent</a></li>
+<li>color&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#a8c1ea60d5a97f71485ffd77392fbb2c1">Interface::ButtonComponent</a></li>
+</ul>
+
+
+<h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>enabled&#160;:&#160;<a class="el" href="d4/d04/class_component_1_1_i_component.html#a02192fbddab2f763884f5639e4decd53">Component::IComponent</a>, <a class="el" href="da/dd1/class_interface_1_1_i_interface.html#a50e7d773b7b2f23593113d1a91941e81">Interface::IInterface</a></li>
+</ul>
+
+
+<h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>font&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#a8dd9f10244b3dcf8a51fa3f7335b4d4e">Interface::ButtonComponent</a></li>
+</ul>
+
+
+<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>gravity&#160;:&#160;<a class="el" href="db/d72/class_component_1_1_rigid_body.html#aa42eb262b7f7170cd8ae0f81095518eb">Component::RigidBody</a></li>
+</ul>
+
+
+<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
+<li>header&#160;:&#160;<a class="el" href="d2/daa/struct_network_1_1_message.html#ad3e998f93a9b8ad5c674e9b9fb558aee">Network::Message</a></li>
+<li>height&#160;:&#160;<a class="el" href="d9/dab/struct_component_1_1_collide_box.html#aedcd7962da69a6fa9df5908a219ae2c9">Component::CollideBox</a></li>
+</ul>
+
+
+<h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
+<li>id&#160;:&#160;<a class="el" href="d3/d89/struct_network_1_1_message_header.html#a22a2c9303ab1661cc2174a76f7ebc466">Network::MessageHeader</a></li>
+<li>ignorePrediction&#160;:&#160;<a class="el" href="d2/df0/class_component_1_1_network_component.html#a65bbfe22f0e53229a46567e1063ed64e">Component::NetworkComponent</a></li>
+</ul>
+
+
+<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>mass&#160;:&#160;<a class="el" href="db/d72/class_component_1_1_rigid_body.html#a12ddbba9dc0dd9b12516559761f0523b">Component::RigidBody</a></li>
+<li>msg&#160;:&#160;<a class="el" href="da/db6/struct_network_1_1_owned_message.html#a648508cc9ce97e8c4c5809167f9f30a6">Network::OwnedMessage</a></li>
+</ul>
+
+
+<h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>onClick&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#addee9a95186359b77b33fbbcaf41abdb">Interface::ButtonComponent</a></li>
+<li>onHover&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#a97cfd95b76b608c170559a0abde92efb">Interface::ButtonComponent</a></li>
+<li>onRelease&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#ae45db49bc2df16650dc03185f52afe31">Interface::ButtonComponent</a></li>
+<li>onUnhover&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#afd6975b7bf1b4f9ea02624d3cd0235c7">Interface::ButtonComponent</a></li>
+</ul>
+
+
+<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<li>position&#160;:&#160;<a class="el" href="d5/db8/class_component_1_1_transform.html#ae6784bc4bbb4b82e9c0c9e3305276fd0">Component::Transform</a>, <a class="el" href="d0/d81/class_interface_1_1_button_component.html#a83030a0e132de480391c6f5cee6f4537">Interface::ButtonComponent</a></li>
+</ul>
+
+
+<h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>remote&#160;:&#160;<a class="el" href="da/db6/struct_network_1_1_owned_message.html#ae9cebdb142a007350aa88822425c4687">Network::OwnedMessage</a></li>
+<li>rotation&#160;:&#160;<a class="el" href="d5/db8/class_component_1_1_transform.html#a98c8b2aca7cc96f2959d2a110759f957">Component::Transform</a></li>
+</ul>
+
+
+<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>scale&#160;:&#160;<a class="el" href="d5/db8/class_component_1_1_transform.html#a1a08a9055f3077b5f646f19efc553886">Component::Transform</a></li>
+<li>size&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#ad0ae3242725bcb25585dac234fd06f07">Interface::ButtonComponent</a>, <a class="el" href="d3/d89/struct_network_1_1_message_header.html#a518b2544a9f9286455c26db68c783243">Network::MessageHeader</a></li>
+</ul>
+
+
+<h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>text&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#acdabfadd5ae7f9abe56c5609cda7f998">Interface::ButtonComponent</a></li>
+<li>textColor&#160;:&#160;<a class="el" href="d0/d81/class_interface_1_1_button_component.html#a3d1080ceaa92fb2129e4b8c8c471f8b9">Interface::ButtonComponent</a></li>
+</ul>
+
+
+<h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>velocity&#160;:&#160;<a class="el" href="db/d72/class_component_1_1_rigid_body.html#a411acfc66104a9ef2c48fd9d381f68c7">Component::RigidBody</a></li>
+</ul>
+
+
+<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
+<li>width&#160;:&#160;<a class="el" href="d9/dab/struct_component_1_1_collide_box.html#afacfedd794dbb71d608ac8bbcec94136">Component::CollideBox</a></li>
+</ul>
+
+
+<h3><a id="index_x" name="index_x"></a>- x -</h3><ul>
+<li>x&#160;:&#160;<a class="el" href="d1/d64/structcoord2d.html#a19d7d0071aba7b052c0c64ae045f5822">coord2d</a></li>
+</ul>
+
+
+<h3><a id="index_y" name="index_y"></a>- y -</h3><ul>
+<li>y&#160;:&#160;<a class="el" href="d1/d64/structcoord2d.html#a493eecab339f7ac057be08de2854e956">coord2d</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Sat Feb 4 2023 02:43:36 for Kappa Engine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

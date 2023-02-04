@@ -9,6 +9,4 @@ digraph "src/Systems"
     graph [ bgcolor="#edf0f7", pencolor="grey25", label="src", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html",tooltip=""]
   dir_900c20bb70493231141df6997ccd6b87 [label="Systems", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_900c20bb70493231141df6997ccd6b87.html",tooltip=""];
   }
-  dir_7a044aca65652e510981cdea032e9a30 [label="KappaEngine", fillcolor="#edf0f7", color="red", style="filled", URL="dir_7a044aca65652e510981cdea032e9a30.html",tooltip=""];
-  dir_900c20bb70493231141df6997ccd6b87->dir_7a044aca65652e510981cdea032e9a30 [headlabel="3", labeldistance=1.5 headhref="dir_000014_000010.html" color="steelblue1" fontcolor="steelblue1"];
 }

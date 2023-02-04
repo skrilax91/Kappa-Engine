@@ -10,9 +10,20 @@
 #include "KappaEngine/Components/Camera.hpp"
 
 namespace KappaEngine {
+    /**
+     * @brief System that handles the rendering of sprites
+     */
     class SpriteRendererSystem : public ISystem {
         public:
+            /**
+             * @brief SpriteRendererSystem Constructor of the SpriteRendererSystem class.
+             *
+             * This function will construct the SpriteRendererSystem class.
+             *
+             * @param scene The scene that the system will manage.
+             */
             explicit SpriteRendererSystem(Scene *scene) : ISystem(scene) {};
+
 
             void Awake() override;
             void OnDestroy(Entity *) override;

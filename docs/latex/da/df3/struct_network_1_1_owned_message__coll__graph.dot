@@ -1,0 +1,12 @@
+digraph "Network::OwnedMessage"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="Network::OwnedMessage",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" msg" ];
+  Node2 [label="Network::Message",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/daa/struct_network_1_1_message.html",tooltip="The Message struct is the message that will be sent between the server and the client...."];
+  Node3 -> Node2 [dir="back",color="darkorchid3",style="dashed",label=" header" ];
+  Node3 [label="Network::MessageHeader",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d3/d89/struct_network_1_1_message_header.html",tooltip="The MessageHeader struct is the header of the message. It contains the id of the message and the size..."];
+}

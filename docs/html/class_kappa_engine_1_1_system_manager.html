@@ -22,7 +22,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">Kappa Engine<span id="projectnumber">&#160;0.3.0</span>
    </div>
   </td>
  </tr>
@@ -48,7 +48,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;"
+  <div id="splitbar" style="-moz-user-select:none;" 
        class="ui-resizable-handle">
   </div>
 </div>
@@ -66,7 +66,7 @@ $(document).ready(function(){initNavTree('class_kappa_engine_1_1_system_manager.
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> class is the class that will manage all the systems of the engine.
+<p>The <a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> class is the class that will manage all the systems of the engine.  
  <a href="class_kappa_engine_1_1_system_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>&gt;</code></p>
@@ -74,6 +74,7 @@ $(document).ready(function(){initNavTree('class_kappa_engine_1_1_system_manager.
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a97f547d217019481667a7f94417505"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a9a97f547d217019481667a7f94417505">SystemManager</a> (<a class="el" href="class_kappa_engine_1_1_scene.html">Scene</a> *scene)</td></tr>
+<tr class="memdesc:a9a97f547d217019481667a7f94417505"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> Constructor of the <a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> class.  <br /></td></tr>
 <tr class="separator:a9a97f547d217019481667a7f94417505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d7761d58dc2f2d866245586dd2e599e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a0d7761d58dc2f2d866245586dd2e599e">~SystemManager</a> ()=default</td></tr>
 <tr class="separator:a0d7761d58dc2f2d866245586dd2e599e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -81,7 +82,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1690421036de0ac40de0d1e3b52bb2c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start Start the system manager.  <br /></td></tr>
 <tr class="separator:a1690421036de0ac40de0d1e3b52bb2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a994057bafc54331dcad0bcbf89f88cfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a994057bafc54331dcad0bcbf89f88cfc">Awake</a> ()</td></tr>
+<tr class="memdesc:a994057bafc54331dcad0bcbf89f88cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Awake Awake the system manager.  <br /></td></tr>
 <tr class="separator:a994057bafc54331dcad0bcbf89f88cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f2285e01c2b8a7002bb7ccb1ad1263c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a4f2285e01c2b8a7002bb7ccb1ad1263c">Update</a> ()</td></tr>
+<tr class="memdesc:a4f2285e01c2b8a7002bb7ccb1ad1263c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update Update the system manager.  <br /></td></tr>
+<tr class="separator:a4f2285e01c2b8a7002bb7ccb1ad1263c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae063d1178bd3b02f35c27c47add63410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#ae063d1178bd3b02f35c27c47add63410">OnRenderObject</a> ()</td></tr>
+<tr class="memdesc:ae063d1178bd3b02f35c27c47add63410"><td class="mdescLeft">&#160;</td><td class="mdescRight">OnRenderObject Render the scene.  <br /></td></tr>
+<tr class="separator:ae063d1178bd3b02f35c27c47add63410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a133a4236d8227527ce1e636e46b71e62"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a133a4236d8227527ce1e636e46b71e62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a133a4236d8227527ce1e636e46b71e62">registerSystem</a> ()</td></tr>
 <tr class="memdesc:a133a4236d8227527ce1e636e46b71e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">registerSystem Register a system.  <br /></td></tr>
@@ -94,6 +102,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab798c22389858d0b2a527fed50d4ca26"><td class="memTemplItemLeft" align="right" valign="top">const sf::Event *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#ab798c22389858d0b2a527fed50d4ca26">getEvent</a> ()</td></tr>
 <tr class="memdesc:ab798c22389858d0b2a527fed50d4ca26"><td class="mdescLeft">&#160;</td><td class="mdescRight">getEvent Get the first event of the given type.  <br /></td></tr>
 <tr class="separator:ab798c22389858d0b2a527fed50d4ca26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018799450cf290c9ac5b91c44ab67dfb"><td class="memTemplParams" colspan="2">template&lt;sf::Event::EventType E&gt; </td></tr>
+<tr class="memitem:a018799450cf290c9ac5b91c44ab67dfb"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; const sf::Event * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a018799450cf290c9ac5b91c44ab67dfb">GetEvents</a> ()</td></tr>
+<tr class="memdesc:a018799450cf290c9ac5b91c44ab67dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">getEvents Get all the events of the given type.  <br /></td></tr>
+<tr class="separator:a018799450cf290c9ac5b91c44ab67dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b88772da8fefbcde4baf685b2223cc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kappa_engine_1_1_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kappa_engine_1_1_system_manager.html#a8b88772da8fefbcde4baf685b2223cc3">getScene</a> () const</td></tr>
 <tr class="memdesc:a8b88772da8fefbcde4baf685b2223cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">getScene Get the scene of the system manager.  <br /></td></tr>
 <tr class="separator:a8b88772da8fefbcde4baf685b2223cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> class is the class that will manage all the systems of the engine. </p>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00028">28</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00029">29</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9a97f547d217019481667a7f94417505" name="a9a97f547d217019481667a7f94417505"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a97f547d217019481667a7f94417505">&#9670;&#160;</a></span>SystemManager()</h2>
@@ -127,7 +139,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00014">14</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<p><a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> Constructor of the <a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> class. </p>
+<p>This function will construct the <a class="el" href="class_kappa_engine_1_1_system_manager.html" title="The SystemManager class is the class that will manage all the systems of the engine.">SystemManager</a> class.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scene</td><td>The scene that the system manager will manage. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -172,7 +191,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00024">24</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<p>Awake Awake the system manager. </p>
+<p>This function will awake the system manager. </p>
 
 </div>
 </div>
@@ -211,7 +231,46 @@ template&lt;sf::Event::EventType E&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the event if found, nullptr otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00090">90</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00121">121</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a018799450cf290c9ac5b91c44ab67dfb" name="a018799450cf290c9ac5b91c44ab67dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a018799450cf290c9ac5b91c44ab67dfb">&#9670;&#160;</a></span>GetEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;sf::Event::EventType E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; const sf::Event * &gt; KappaEngine::SystemManager::GetEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getEvents Get all the events of the given type. </p>
+<p>This function will return all the events of the given type.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">E</td><td>The type of the events to get. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of all the events of the given type. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00139">139</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +301,7 @@ template&lt;sf::Event::EventType E&gt; </div>
 <p>This function will return the scene of the system manager.</p>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the scene. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00106">106</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00156">156</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +340,27 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the system if found, nullptr otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00069">69</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00100">100</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae063d1178bd3b02f35c27c47add63410" name="ae063d1178bd3b02f35c27c47add63410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae063d1178bd3b02f35c27c47add63410">&#9670;&#160;</a></span>OnRenderObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KappaEngine::SystemManager::OnRenderObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OnRenderObject Render the scene. </p>
+<p>This function will render the scene. </p>
 
 </div>
 </div>
@@ -319,7 +398,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00051">51</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8hpp_source.html#l00079">79</a> of file <a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -341,13 +420,30 @@ template&lt;class T &gt; </div>
 <p>Start Start the system manager. </p>
 <p>This function will start the system manager. </p>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+</div>
+</div>
+<a id="a4f2285e01c2b8a7002bb7ccb1ad1263c" name="a4f2285e01c2b8a7002bb7ccb1ad1263c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f2285e01c2b8a7002bb7ccb1ad1263c">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KappaEngine::SystemManager::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update Update the system manager. </p>
+<p>This function will update the system manager. </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>KappaEngine/<a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a></li>
-<li>src/<a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/KappaEngine/<a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

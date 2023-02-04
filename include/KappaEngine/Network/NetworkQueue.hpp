@@ -8,9 +8,19 @@
 #include <mutex>
 
 namespace Network {
+
+    /**
+     * @brief The NetworkQueue class is a thread-safe queue
+     * @tparam T The type of the queue
+     */
     template<typename T>
     class NetworkQueue {
         public:
+            /**
+             * @brief NetworkQueue Constructor of the NetworkQueue class.
+             *
+             * This function will construct the NetworkQueue class.
+             */
             NetworkQueue() = default;
             NetworkQueue(const NetworkQueue<T>&) = delete;
             ~NetworkQueue() { clear(); };
@@ -59,6 +69,10 @@ namespace Network {
                 _queue.clear();
             }
 
+            /**
+             * @brief Pop the first element of the queue
+             * @return The first element of the queue
+             */
             T popFront() {
                 std::scoped_lock lock(_mutex);
                 auto t = std::move(_queue.front());
@@ -66,6 +80,10 @@ namespace Network {
                 return t;
             }
 
+            /**
+             * @brief Pop the last element of the queue
+             * @return The last element of the queue
+             */
             T popBack() {
                 std::scoped_lock lock(_mutex);
                 auto t = std::move(_queue.back());
@@ -73,11 +91,19 @@ namespace Network {
                 return t;
             }
 
+            /**
+             * @brief Push an element at the end of the queue
+             * @param item The element to push
+             */
             void pushBack(const T& item) {
                 std::scoped_lock lock(_mutex);
                 _queue.emplace_back(std::move(item));
             }
 
+            /**
+             * @brief Push an element at the beginning of the queue
+             * @param item The element to push
+             */
             void pushFront(const T& item) {
                 std::scoped_lock lock(_mutex);
                 _queue.emplace_front(std::move(item));
