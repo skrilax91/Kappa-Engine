@@ -68,7 +68,12 @@ namespace KappaEngine {
                 _events.push_back(event);
             }
 
-            Input::setEvents(GetEvents<sf::Event::KeyReleased>());
+            std::vector<const sf::Event *> events = GetEvents<sf::Event::KeyPressed>();
+            std::vector<const sf::Event *> events2 = GetEvents<sf::Event::KeyReleased>();
+
+            events.insert(events.end(), events2.begin(), events2.end());
+
+            Input::setEvents(events);
         }
 
         if (getEvent<sf::Event::Closed>()) {
