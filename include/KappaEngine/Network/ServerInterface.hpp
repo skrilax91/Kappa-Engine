@@ -166,6 +166,14 @@ namespace Network {
                 return _connections.size();
             };
 
+            /**
+             * @brief Get all connected clients
+             * @return Vector of connected clients
+             */
+            std::deque<std::shared_ptr<Connection>> GetClients() const {
+                return _connections;
+            };
+
 
             /**
              * @brief Get the client at the specified ID
@@ -188,7 +196,7 @@ namespace Network {
             * The callback should return true if the client is accepted, false otherwise
             */
             void SetOnClientConnect( std::function<bool(std::shared_ptr<Connection>)> callback ) {
-                _onClientConnect = std::move(callback);
+                _onClientConnect = callback;
             };
 
 
@@ -197,7 +205,7 @@ namespace Network {
              * @param callback Callback function
              */
             void SetOnClientDisconnect( std::function<void(std::shared_ptr<Connection>)> callback ) {
-                _onClientDisconnect = std::move(callback);
+                _onClientDisconnect = callback;
             };
 
             /**
@@ -205,7 +213,7 @@ namespace Network {
              * @param callback Callback function
              */
             void setOnClientValidated( std::function<void(std::shared_ptr<Connection>)> callback ) {
-                _onClientValidated = std::move(callback);
+                _onClientValidated = callback;
             };
 
 
@@ -222,7 +230,7 @@ namespace Network {
                     return;
                 }
 
-                _onMessageMap[id] = std::move(callback);
+                _onMessageMap[id] = callback;
             };
 
             /**
@@ -282,7 +290,7 @@ namespace Network {
              */
             bool OnClientConnect( std::shared_ptr<Connection> client ) {
                 if (_onClientConnect) {
-                    return _onClientConnect(std::move(client));
+                    return _onClientConnect(client);
                 }
                 return false;
             };
@@ -293,7 +301,7 @@ namespace Network {
              */
             void OnClientDisconnect( std::shared_ptr<Connection> client ) {
                 if (_onClientDisconnect) {
-                    _onClientDisconnect(std::move(client));
+                    _onClientDisconnect(client);
                 }
             };
 
@@ -307,7 +315,7 @@ namespace Network {
                 auto iter = _onMessageMap.find(id);
 
                 if (iter != _onMessageMap.end()) {
-                    iter->second(std::move(client), msg);
+                    iter->second(client, msg);
                 }
             };
 
