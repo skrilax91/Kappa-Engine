@@ -10,7 +10,6 @@
 #include <memory>
 
 #include "Entity/Entity.hpp"
-#include "Components/NetworkComponent.hpp"
 #include "Scene.hpp"
 
 namespace KappaEngine {

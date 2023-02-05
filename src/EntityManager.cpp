@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include "KappaEngine/EntityManager.hpp"
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Components/NetworkComponent.hpp"
 
 using namespace KappaEngine;
 
