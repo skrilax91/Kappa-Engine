@@ -43,6 +43,21 @@ void EntityManager::destroyEntity(const std::string& name) {
     throw std::runtime_error("Entity not found");
 }
 
+void EntityManager::destroyEntity(const std::shared_ptr<Entity> &entity) {
+    destroyEntity(entity->getId());
+}
+
+void EntityManager::destroyNetworkedEntities(uint32_t ownerId) {
+    for (auto &entity: _entities) {
+        if (entity->hasComponent<Component::NetworkComponent>()) {
+            auto networkComponent = entity->getComponent<Component::NetworkComponent>();
+            if (networkComponent->ownerId == ownerId) {
+                destroyEntity(entity);
+            }
+        }
+    }
+}
+
 
 std::list <std::shared_ptr<Entity>> EntityManager::getEntities() {
     return _entities;

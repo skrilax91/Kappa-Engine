@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "Entity/Entity.hpp"
+#include "Components/NetworkComponent.hpp"
 #include "Scene.hpp"
 
 namespace KappaEngine {
@@ -59,6 +60,26 @@ namespace KappaEngine {
              * @throw std::runtime_error If the entity doesn't exist.
              */
             void destroyEntity(const std::string& name);
+
+            /**
+             * @brief destroyEntity Destroy an entity.
+             *
+             * This function will destroy an entity.
+             *
+             * @param entity The entity to destroy.
+             * @throw std::runtime_error If the entity doesn't exist.
+             */
+            void destroyEntity(const std::shared_ptr<Entity>& entity);
+
+            /**
+             * @brief destroyNetworkedEntities Destroy all networked entities.
+             *
+             * This function will destroy all networked entities.
+             *
+             * @param ownerId The owner id of the entities to destroy.
+             * @throw std::runtime_error If the entity doesn't exist.
+             */
+            void destroyNetworkedEntities(uint32_t ownerId);
 
             /**
              * @brief Get all entities.
