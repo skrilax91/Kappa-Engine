@@ -33,6 +33,17 @@ Entity &EntityManager::createEntity(const std::string& name, void (*cb)(Entity &
     return *entity;
 }
 
+void EntityManager::destroyEntity(const std::string& name) {
+    for (auto it = _entities.begin(); it != _entities.end(); it++) {
+        if ((*it)->getId() == name) {
+            _entities.erase(it);
+            return;
+        }
+    }
+    throw std::runtime_error("Entity not found");
+}
+
+
 std::list <std::shared_ptr<Entity>> EntityManager::getEntities() {
     return _entities;
 }
