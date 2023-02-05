@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include "KappaEngine/EntityManager.hpp"
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Components/NetworkComponent.hpp"
 
 using namespace KappaEngine;
 
@@ -41,6 +42,28 @@ void EntityManager::destroyEntity(const std::string& name) {
         }
     }
     throw std::runtime_error("Entity not found");
+}
+
+void EntityManager::destroyEntity(const std::shared_ptr<Entity> &entity) {
+    destroyEntity(entity->getId());
+}
+
+void EntityManager::destroyNetworkedEntities(uint32_t ownerId) {
+    bool entityToDestroy = false;
+    for (auto &entity: _entities) {
+        if (entity->hasComponent<Component::NetworkComponent>()) {
+            auto networkComponent = entity->getComponent<Component::NetworkComponent>();
+            if (networkComponent->ownerId == ownerId) {
+                entityToDestroy = true;
+                entity.reset();
+            }
+        }
+    }
+    if (entityToDestroy) {
+        _entities.remove_if([](const std::shared_ptr<Entity> &entity) {
+            return entity == nullptr;
+        });
+    }
 }
 
 
