@@ -9,6 +9,7 @@
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
+#include "KappaEngine/Systems/NetworkSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
 #include "KappaEngine/Input.hpp"
 
@@ -19,6 +20,7 @@ namespace KappaEngine {
         registerSystem<RigidBodySystem>();
         registerSystem<CollideBoxSystem>();
         registerSystem<SpriteRendererSystem>();
+        registerSystem<NetworkSystem>();
 
         std::cout << "SystemManager created" << std::endl;
     };

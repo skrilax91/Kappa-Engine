@@ -70,6 +70,7 @@ namespace KappaEngine {
              * @brief Get an entity by its name.
              * @param name The name of the entity.
              * @return The entity.
+             * @throw std::runtime_error If the entity doesn't exist.
              */
             Entity &getEntity(const std::string& name);
 
