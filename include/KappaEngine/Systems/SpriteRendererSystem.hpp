@@ -25,8 +25,8 @@ namespace KappaEngine {
             explicit SpriteRendererSystem(Scene *scene) : ISystem(scene) {};
 
 
-            void Awake() override;
-            void OnDestroy(Entity *) override;
+            void Awake(std::shared_ptr<Entity>) override;
+            void OnDestroy(std::shared_ptr<Entity>) override;
             void OnRenderObject() override;
 
         private:

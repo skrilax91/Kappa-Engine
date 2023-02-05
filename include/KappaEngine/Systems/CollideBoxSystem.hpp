@@ -11,7 +11,7 @@ namespace KappaEngine {
     class CollideBoxSystem : public ISystem {
         public:
             explicit CollideBoxSystem(Scene *scene) : ISystem(scene) {};
-            void Awake() override;
+            void Awake(std::shared_ptr<Entity>) override;
     };
 }
 

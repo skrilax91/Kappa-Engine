@@ -7,6 +7,8 @@
 #include <cstdint>
 #include <memory>
 #include <asio.hpp>
+#include <utility>
+#include <map>
 
 #include "net_message.h"
 #include "NetworkConnection.hpp"
@@ -75,32 +77,32 @@ namespace Network {
              */
             void WaitForClient() {
                 _acceptor.async_accept(
-                        [this](std::error_code ec, asio::ip::tcp::socket socket) {
-                            if (!ec) {
-                                std::cout << "[SERVER] New connection: " << socket.remote_endpoint() << std::endl;
+                    [this](std::error_code ec, asio::ip::tcp::socket socket) {
+                        if (!ec) {
+                            std::cout << "[SERVER] New connection: " << socket.remote_endpoint() << std::endl;
 
-                                std::shared_ptr<Connection> newConnection = std::make_shared<Connection>(
-                                        Connection::Owner::Server,
-                                        _ioContext,
-                                        std::move(socket),
-                                        _incomingMessages
-                                        );
+                            std::shared_ptr<Connection> newConnection = std::make_shared<Connection>(
+                                    Connection::Owner::Server,
+                                    _ioContext,
+                                    std::move(socket),
+                                    _incomingMessages
+                                    );
 
 
-                                std::cout << "[DEBUG] Testing client connection approval" << std::endl;
-                                if (OnClientConnect(newConnection)) {
-                                    std::cout << "[DEBUG] Connection approved, pushing back in connection pool" << std::endl;
-                                    _connections.push_back(std::move(newConnection));
-                                    _connections.back()->ConnectToClient(_idCounter++);
-                                    std::cout << "[" << _connections.back()->GetID() << "] Connection approved" << std::endl;
-                                }else {
-                                    std::cout << "[-----] Connection refused" << std::endl;
-                                }
+                            std::cout << "[DEBUG] Testing client connection approval" << std::endl;
+                            if (OnClientConnect(newConnection)) {
+                                std::cout << "[DEBUG] Connection approved, pushing back in connection pool" << std::endl;
+                                _connections.push_back(std::move(newConnection));
+                                _connections.back()->ConnectToClient(this, _idCounter++);
+                                std::cout << "[" << _connections.back()->GetID() << "] Connection approved" << std::endl;
                             }else {
-                                std::cerr << "[SERVER] New connection error: " << ec.message() << std::endl;
+                                std::cout << "[-----] Connection refused" << std::endl;
                             }
-                            WaitForClient();
-                        });
+                        }else {
+                            std::cerr << "[SERVER] New connection error: " << ec.message() << std::endl;
+                        }
+                        WaitForClient();
+                    });
             };
 
             /**
@@ -164,6 +166,14 @@ namespace Network {
                 return _connections.size();
             };
 
+            /**
+             * @brief Get all connected clients
+             * @return Vector of connected clients
+             */
+            std::deque<std::shared_ptr<Connection>> GetClients() const {
+                return _connections;
+            };
+
 
             /**
              * @brief Get the client at the specified ID
@@ -177,6 +187,62 @@ namespace Network {
                     }
                 }
                 return nullptr;
+            };
+
+            /**
+            * @brief Set the callback for when a client connects
+            * @param callback Callback function
+            *
+            * The callback should return true if the client is accepted, false otherwise
+            */
+            void SetOnClientConnect( std::function<bool(std::shared_ptr<Connection>)> callback ) {
+                _onClientConnect = callback;
+            };
+
+
+            /**
+             * @brief Set the callback for when a client disconnects
+             * @param callback Callback function
+             */
+            void SetOnClientDisconnect( std::function<void(std::shared_ptr<Connection>)> callback ) {
+                _onClientDisconnect = callback;
+            };
+
+            /**
+             * @brief Set the callback for when a client is validated
+             * @param callback Callback function
+             */
+            void setOnClientValidated( std::function<void(std::shared_ptr<Connection>)> callback ) {
+                _onClientValidated = callback;
+            };
+
+
+            /**
+             * @brief Add a callback for when a message is received
+             * @param id Message ID
+             * @param callback Callback function
+             *
+             * The callback function should take a shared pointer to the client and a reference to the message
+             */
+            void AddOnMessageCallback( uint32_t id, std::function<void(std::shared_ptr<Connection>, Message&)> callback ) {
+                if (_onMessageMap.find(id) != _onMessageMap.end()) {
+                    std::cerr << "[SERVER] Message ID " << id << " already has a callback" << std::endl;
+                    return;
+                }
+
+                _onMessageMap[id] = callback;
+            };
+
+            /**
+             * @brief Called when a client validates and is accepted
+             * @param client Client that validated
+             */
+            void OnClientValidated( std::shared_ptr<Connection> client ) {
+                std::cout << "[" << client->GetID() << "] Connection Validated" << std::endl;
+
+                if (_onClientValidated) {
+                    _onClientValidated(client);
+                }
             };
 
 
@@ -215,13 +281,17 @@ namespace Network {
 
 
 
+
         protected:
             /**
              * @brief Called when a client connects
              * @param client
              * @return true if the client is accepted, false otherwise
              */
-            virtual bool OnClientConnect( std::shared_ptr<Connection> client ) {
+            bool OnClientConnect( std::shared_ptr<Connection> client ) {
+                if (_onClientConnect) {
+                    return _onClientConnect(client);
+                }
                 return false;
             };
 
@@ -229,18 +299,32 @@ namespace Network {
              * @brief Called when a client disconnects
              * @param client
              */
-            virtual void OnClientDisconnect( std::shared_ptr<Connection> client ) {
-
+            void OnClientDisconnect( std::shared_ptr<Connection> client ) {
+                if (_onClientDisconnect) {
+                    _onClientDisconnect(client);
+                }
             };
 
             /**
              * @brief Called when a message is received from a client
-             * @param client
-             * @param msg
+             * @param client Client that sent the message
+             * @param msg Message received
              */
-            virtual void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
+            void OnMessage( std::shared_ptr<Connection> client, Message& msg ) {
+                uint32_t id = msg.header.id;
+                auto iter = _onMessageMap.find(id);
 
+                if (iter != _onMessageMap.end()) {
+                    iter->second(client, msg);
+                }
             };
+
+        private:
+            std::function<bool(std::shared_ptr<Connection>)> _onClientConnect = nullptr;
+            std::function<void(std::shared_ptr<Connection>)> _onClientDisconnect = nullptr;
+            std::function<void(std::shared_ptr<Connection>)> _onClientValidated = nullptr;
+
+            std::map<uint32_t, std::function<void(std::shared_ptr<Connection>, Message&)> > _onMessageMap;
 
     };
 }

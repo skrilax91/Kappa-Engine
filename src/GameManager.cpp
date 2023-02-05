@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <utility>
 #include "KappaEngine/GameManager.hpp"
 
 namespace KappaEngine {
@@ -171,6 +172,18 @@ namespace KappaEngine {
         return _client;
     }
 
+    void GameManager::RegisterServerMessageHandler(uint32_t id, std::function<void(std::shared_ptr<Network::Connection>, Network::Message&)> callback) {
+        if (!_server)
+            return;
 
+        _server->AddOnMessageCallback(id, std::move(callback));
+    }
+
+    void GameManager::RegisterClientMessageHandler(uint32_t id, std::function<void(Network::Message&)> callback) {
+        if (!_client)
+            return;
+
+        _client->RegisterMessageCallback(id, std::move(callback));
+    }
 
 }
