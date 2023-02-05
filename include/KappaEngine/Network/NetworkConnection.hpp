@@ -262,7 +262,7 @@ namespace Network {
                      [this](std::error_code ec, std::size_t length) {
                          if (!ec) {
                              if (_ownerType == Owner::Client)
-                                 ReadHeader();
+                                 ReadID();
 
                          } else {
                              std::cout << "[CLIENT::" << _id << "] Failed to write validation" << std::endl;
@@ -273,6 +273,42 @@ namespace Network {
             }
 
             void ReadValidation(Network::ServerInterface* server = nullptr);
+
+            void WriteID(uint32_t id) {
+
+                if (_ownerType == Owner::Client)
+                    return;
+
+                asio::async_write(_socket, asio::buffer(&id, sizeof(uint32_t)),
+                     [this](std::error_code ec, std::size_t length) {
+                         if (!ec) {
+                             if (_ownerType == Owner::Server)
+                                 ReadHeader();
+
+                         } else {
+                             std::cout << "[SERVER] Failed to write ID" << std::endl;
+                             _socket.close();
+                         }
+                     }
+                );
+            }
+
+            void ReadID() {
+                if (_ownerType == Owner::Server)
+                    return;
+
+                asio::async_read(_socket, asio::buffer(&_id, sizeof(uint32_t)),
+                     [this](std::error_code ec, std::size_t length) {
+                         if (!ec) {
+                             std::cout << "[CLIENT::" << _id << "] Read ID" << std::endl;
+                             ReadHeader();
+                         } else {
+                             std::cout << "[CLIENT] Failed to read ID" << std::endl;
+                             _socket.close();
+                         }
+                     }
+                );
+            }
 
 
             uint64_t _handshakeOut = 0;
