@@ -8,6 +8,12 @@
 #include "ISystem.hpp"
 
 namespace KappaEngine {
+
+    enum NetworkMsg {
+        ServerReplication = 10000,
+    };
+
+
     /**
      * @brief The NetworkSystem class is the class that will manage all the network of the engine.
      */
@@ -25,6 +31,8 @@ namespace KappaEngine {
             void Awake(std::shared_ptr<Entity>) override;
             void Start(std::shared_ptr<Entity>) override;
             void Update() override;
+
+            sf::Clock _clock;
     };
 }
 

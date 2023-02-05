@@ -15,8 +15,6 @@ namespace Network {
                              std::cout << "[SERVER] Client validated" << std::endl;
                              WriteID(this->_id);
                              server->OnClientValidated(this->shared_from_this());
-
-                             ReadHeader();
                          } else {
                              std::cout << "[SERVER] Client failed validation" << std::endl;
                              _socket.close();

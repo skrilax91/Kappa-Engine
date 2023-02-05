@@ -226,7 +226,6 @@ namespace Network {
              */
             void AddOnMessageCallback( uint32_t id, std::function<void(std::shared_ptr<Connection>, Message&)> callback ) {
                 if (_onMessageMap.find(id) != _onMessageMap.end()) {
-                    std::cerr << "[SERVER] Message ID " << id << " already has a callback" << std::endl;
                     return;
                 }
 

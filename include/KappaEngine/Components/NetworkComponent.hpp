@@ -6,6 +6,7 @@
 #define KAPPA_ENGINE_NETWORKCOMPONENT_HPP
 
 #include "IComponent.hpp"
+#include "Transform.hpp"
 
 namespace Component {
 
@@ -29,6 +30,7 @@ namespace Component {
             bool clientPrediction = false;
             bool ignorePrediction = false;
             bool asAuthority = false;
+            Transform transform = Transform({0, 0}, {0, 0}, {0, 0});
             std::vector<IComponent *> components;
     };
 }

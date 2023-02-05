@@ -223,7 +223,7 @@ namespace Network {
              * ASYNC FUNCTION
              */
             void WriteBody() {
-                asio::async_write(_socket, asio::buffer(_outgoingMessages.front().body.data(), _outgoingMessages.front().header.size),
+                asio::async_write(_socket, asio::buffer(_outgoingMessages.front().body.data(), _outgoingMessages.front().body.size()),
                      [this](std::error_code ec, std::size_t length) {
                          if (!ec) {
                              _outgoingMessages.popFront();

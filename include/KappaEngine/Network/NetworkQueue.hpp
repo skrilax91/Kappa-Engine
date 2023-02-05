@@ -75,7 +75,7 @@ namespace Network {
              */
             T popFront() {
                 std::scoped_lock lock(_mutex);
-                auto t = std::move(_queue.front());
+                auto t = _queue.front();
                 _queue.pop_front();
                 return t;
             }
@@ -86,7 +86,7 @@ namespace Network {
              */
             T popBack() {
                 std::scoped_lock lock(_mutex);
-                auto t = std::move(_queue.back());
+                auto t = _queue.back();
                 _queue.pop_back();
                 return t;
             }
@@ -97,7 +97,7 @@ namespace Network {
              */
             void pushBack(const T& item) {
                 std::scoped_lock lock(_mutex);
-                _queue.emplace_back(std::move(item));
+                _queue.emplace_back(item);
             }
 
             /**
@@ -106,7 +106,7 @@ namespace Network {
              */
             void pushFront(const T& item) {
                 std::scoped_lock lock(_mutex);
-                _queue.emplace_front(std::move(item));
+                _queue.emplace_front(item);
             }
 
 
