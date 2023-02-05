@@ -23,6 +23,8 @@ namespace KappaEngine {
             NetworkSystem(Scene *scene): ISystem(scene) {};
 
             void Awake(std::shared_ptr<Entity>) override;
+            void Start(std::shared_ptr<Entity>) override;
+            void Update() override;
     };
 }
 
