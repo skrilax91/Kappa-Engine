@@ -201,6 +201,15 @@ namespace Network {
             };
 
             /**
+             * @brief Set the callback for when a client is validated
+             * @param callback Callback function
+             */
+            void setOnClientValidated( std::function<void(std::shared_ptr<Connection>)> callback ) {
+                _onClientValidated = std::move(callback);
+            };
+
+
+            /**
              * @brief Add a callback for when a message is received
              * @param id Message ID
              * @param callback Callback function
@@ -221,6 +230,11 @@ namespace Network {
              * @param client Client that validated
              */
             void OnClientValidated( std::shared_ptr<Connection> client ) {
+                std::cout << "[" << client->GetID() << "] Connection Validated" << std::endl;
+
+                if (_onClientValidated) {
+                    _onClientValidated(client);
+                }
             };
 
 
@@ -300,6 +314,7 @@ namespace Network {
         private:
             std::function<bool(std::shared_ptr<Connection>)> _onClientConnect = nullptr;
             std::function<void(std::shared_ptr<Connection>)> _onClientDisconnect = nullptr;
+            std::function<void(std::shared_ptr<Connection>)> _onClientValidated = nullptr;
 
             std::map<uint32_t, std::function<void(std::shared_ptr<Connection>, Message&)> > _onMessageMap;
 
