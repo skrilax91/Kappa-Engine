@@ -2,13 +2,14 @@
 Game engine
 
 Kappa-Engine is a game engine that we have created for this project. It is a C++ library that uses SFML for the graphical part and Asio for the network part. It is cross-platform and can be used on Windows, Linux and Mac OS.
+You can find our Kappa-Engine documentation [here](http://docs.kappa-engine.the-devix.com)
 
 ## Installation
 
 ### Conan
 
-Conan is used to manage this library. You can find the library on [GitHub]()
-You can also find the documentation [here]()
+Conan is used to manage this library. You can find the library on [GitHub](https://github.com/conan-io)
+You can also find the documentation [here](https://docs.conan.io)
 
 You can create a local conan repository to install the library. You can find the documentation [here](https://docs.conan.io/en/latest/reference/commands/creator/create.html)
 ```bash
@@ -40,3 +41,5 @@ conan install ..
 This will install all the dependencies and generate all FindXXX.cmake files in the build directory.
 
 After that you can open the project in CLion and build it.
+
+Made by : Léo Brossard, Jessica Ebely, Sébastien Lamard, Dylan Akpinar and Quentin Capelle
