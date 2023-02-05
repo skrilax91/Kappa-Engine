@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "IComponent.hpp"
+#include "INetworkable.hpp"
 
 namespace Component {
 
@@ -15,10 +16,10 @@ namespace Component {
      * @brief Component that adds a transform to an entity
      * @details This component is used to add a position, a scale and a rotation to an entity
      */
-    class Transform: public IComponent {
+    class Transform: public IComponent, public INetworkable {
         public:
             Transform(sf::Vector2f pos, coord2d scale, coord2d rotation) : position(pos), scale(scale), rotation(rotation) {};
-            sf::Vector2f position{};
+            sf::Vector2f position {};
             coord2d scale{};
             coord2d rotation{};
     };

@@ -31,7 +31,7 @@ namespace Component {
             bool ignorePrediction = false;
             bool asAuthority = false;
             Transform transform = Transform({0, 0}, {0, 0}, {0, 0});
-            std::vector<IComponent *> components;
+            std::vector<INetworkable *> components;
     };
 }
 

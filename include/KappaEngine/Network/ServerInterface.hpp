@@ -128,10 +128,11 @@ namespace Network {
             void MessageAllClients( const Message& msg, const std::shared_ptr<Connection>& ignore = nullptr ) {
                 bool invalidClientExists = false;
                 for (auto& client : _connections) {
+                    if (client == ignore)
+                        continue;
+
                     if (client && client->IsConnected()) {
-                        if (client != ignore) {
-                            client->Send(msg);
-                        }
+                        client->Send(msg);
                     }else {
                         OnClientDisconnect(client);
                         client.reset();
