@@ -29,6 +29,7 @@ namespace Component {
             bool clientPrediction = false;
             bool ignorePrediction = false;
             bool asAuthority = false;
+            std::vector<IComponent *> components;
     };
 }
 
