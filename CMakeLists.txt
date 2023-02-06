@@ -24,7 +24,7 @@ file(GLOB SOURCE_FILES
 
         )
 
-find_package(SFML 2.5 REQUIRED)
+find_package(SFML 2.5 CONFIG REQUIRED)
 find_package(asio REQUIRED)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
