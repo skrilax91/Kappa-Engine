@@ -81,6 +81,7 @@ namespace KappaEngine {
                         //    continue;
 
                         spriteRenderer->_sprite.setPosition(x, y);
+                        spriteRenderer->_sprite.setScale(transform->scale.x, transform->scale.y);
                         GameManager::Draw(spriteRenderer->_sprite);
                         break;
                     }

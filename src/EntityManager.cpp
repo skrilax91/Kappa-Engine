@@ -9,11 +9,11 @@
 
 using namespace KappaEngine;
 
-Entity &EntityManager::createEntity(const std::string& name) {
+std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name) {
     return createEntity(name, [](Entity &entity) {});
 }
 
-Entity &EntityManager::createEntity(const std::string& name, void (*cb)(Entity &)) {
+std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name, void (*cb)(Entity &)) {
     for (auto &entity: _entities) {
         if (entity->getId() == name) {
             throw std::runtime_error("Entity already exist");
@@ -31,7 +31,7 @@ Entity &EntityManager::createEntity(const std::string& name, void (*cb)(Entity &
             _scene->getSystemManager()->Start(entity);
     }
 
-    return *entity;
+    return entity;
 }
 
 void EntityManager::destroyEntity(const std::string& name) {
