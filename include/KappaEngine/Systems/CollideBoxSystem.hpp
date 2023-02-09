@@ -11,7 +11,12 @@ namespace KappaEngine {
     class CollideBoxSystem : public ISystem {
         public:
             explicit CollideBoxSystem(Scene *scene) : ISystem(scene) {};
-            void Awake(std::shared_ptr<Entity>) override;
+            void Update() override;
+
+        private:
+            bool canCollide(const Component::CollideBox *collideBox, const Component::CollideBox *otherCollideBox);
+            bool isColliding(const Component::CollideBox *collideBox, const Component::Transform *transform,
+                            const Component::CollideBox *otherCollideBox, const Component::Transform *otherTransform);
     };
 }
 
