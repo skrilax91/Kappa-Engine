@@ -71,10 +71,10 @@ std::list <std::shared_ptr<Entity>> EntityManager::getEntities() {
     return _entities;
 }
 
-Entity &EntityManager::getEntity(const std::string& name) {
-    for (auto &entity: _entities) {
+std::shared_ptr<Entity> EntityManager::getEntity(const std::string& name) {
+    for (auto entity: _entities) {
         if (entity->getId() == name) {
-            return *entity;
+            return entity;
         }
     }
     throw std::runtime_error("Entity not found");

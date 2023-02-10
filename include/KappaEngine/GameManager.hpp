@@ -6,6 +6,7 @@
 #define KAPPA_ENGINE_GAMEMANAGER_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #include <string>
 #include <vector>
