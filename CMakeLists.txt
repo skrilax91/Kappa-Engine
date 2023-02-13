@@ -46,7 +46,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
 
-#file (GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h")
+file (GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h")
 file(GLOB TEST_SOURCE_FILES "tests/*.cpp")
 
 message(STATUS "HEADERS: ${HEADERS}")
@@ -55,6 +55,12 @@ find_package(SFML 2.5 REQUIRED)
 find_package(asio REQUIRED)
 find_package(GTest REQUIRED)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${TEST_SOURCE_FILES} ${HEADERS})
-target_include_directories(${PROJECT_NAME} PUBLIC include ${HEADERS} ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${GTest_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} sfml::sfml asio::asio GTest::GTest GTest::Main)
+add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES})
+
+enable_testing()
+
+target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${GTest_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} sfml::sfml asio::asio ${GTest_LIBRARIES})
+
+include(GoogleTest)
+gtest_discover_tests(${PROJECT_NAME})
