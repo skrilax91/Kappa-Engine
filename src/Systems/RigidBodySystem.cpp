@@ -5,6 +5,7 @@
 #include <iostream>
 #include <ctime>
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
+#include "KappaEngine/Systems/TriggerBoxSystem.hpp"
 #include "KappaEngine/Components/Transform.hpp"
 #include "KappaEngine/Time.hpp"
 
@@ -16,7 +17,7 @@ namespace KappaEngine {
     void RigidBodySystem::FixedUpdate() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::RigidBody>();
 
-        for (auto &ent: ents) {
+        for (auto ent: ents) {
             auto rg = ent->getComponent<Component::RigidBody>();
             auto tr = ent->getComponent<Component::Transform>();
 
@@ -24,7 +25,12 @@ namespace KappaEngine {
                 continue;
             }
 
+            auto triggerSystem = _scene->getSystemManager()->getSystem<TriggerBoxSystem>();
+            auto oldPos = tr->position;
+
             tr->position += rg->velocity * (float) Time::FixedDeltaTime();
+
+            triggerSystem->checkTrigger(ent, oldPos, tr->position);
         }
     }
 
