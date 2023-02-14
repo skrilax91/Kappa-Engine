@@ -10,7 +10,7 @@
 #include "KappaEngine/Components/TriggerBox.hpp"
 
 namespace KappaEngine {
-    void TriggerBoxSystem::OnTrigger(std::shared_ptr<Entity> entity)
+    void TriggerBoxSystem::OnTriggerCheck(std::shared_ptr<Entity> entity)
     {
         auto trigger = entity->getComponent<Component::TriggerBox>();
         auto transform = entity->getComponent<Component::Transform>();
