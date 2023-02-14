@@ -10,7 +10,7 @@
 #include "KappaEngine/Components/TriggerBox.hpp"
 
 namespace KappaEngine {
-    void TriggerBoxSystem::checkTrigger(std::shared_ptr<Entity> entity, sf::Vector2f oldPos, sf::Vector2f newPos)
+    void TriggerBoxSystem::OnTrigger(std::shared_ptr<Entity> entity)
     {
         auto trigger = entity->getComponent<Component::TriggerBox>();
         auto transform = entity->getComponent<Component::Transform>();
@@ -21,10 +21,6 @@ namespace KappaEngine {
             return;
 
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
-
-        sf::FloatRect oldBox = trigger->_triggerBox;
-        trigger->_triggerBox.left = newPos.x;
-        trigger->_triggerBox.top = newPos.y;
 
         for (auto ent: ents) {
             auto otherTrigger = ent->getComponent<Component::TriggerBox>();
@@ -37,22 +33,27 @@ namespace KappaEngine {
             else if (!otherTrigger->enabled || !otherTransform->enabled)
                 continue;
 
-            if (!oldBox.intersects(otherTrigger->_triggerBox) && trigger->_triggerBox.intersects(otherTrigger->_triggerBox)) {
-                if (trigger->_onEnter)
-                    trigger->_onEnter(entity, ent);
-                if (otherTrigger->_onEnter)
-                    otherTrigger->_onEnter(ent, entity);
-            } else if (oldBox.intersects(otherTrigger->_triggerBox) && trigger->_triggerBox.intersects(otherTrigger->_triggerBox)) {
-                if (trigger->_onStay)
-                    trigger->_onStay(entity, ent);
-                if (otherTrigger->_onStay)
-                    otherTrigger->_onStay(ent, entity);
-            } else if (oldBox.intersects(otherTrigger->_triggerBox) && !trigger->_triggerBox.intersects(otherTrigger->_triggerBox)) {
-                if (trigger->_onExit)
-                    trigger->_onExit(entity, ent);
-                if (otherTrigger->_onExit)
-                    otherTrigger->_onExit(ent, entity);
+            if (trigger->_triggerBox.intersects(otherTrigger->_triggerBox)) {
+                if (!findTrigger(trigger->_triggered, otherTrigger)) {
+                    trigger->_triggered.push_back(*otherTrigger);
+                    if (trigger->_onTriggerEnter)
+                        trigger->_onTriggerEnter(entity, ent);
+                } else if (trigger->_onTriggerStay)
+                    trigger->_onTriggerStay(entity, ent);
+            } else if (findTrigger(trigger->_triggered, otherTrigger)) {
+                trigger->_triggered.remove(*otherTrigger);
+                if (trigger->_onTriggerExit)
+                    trigger->_onTriggerExit(entity, ent);
             }
         }
+    }
+
+    bool TriggerBoxSystem::findTrigger(std::list<Component::TriggerBox &> &list, Component::TriggerBox *trigger)
+    {
+        for (auto &trig: list) {
+            if (&trig == trigger)
+                return true;
+        }
+        return false;
     }
 }

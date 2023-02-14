@@ -16,14 +16,15 @@ namespace Component {
     class TriggerBox : public IComponent {
         public:
             TriggerBox(const sf::FloatRect &triggerBox,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onEnter = nullptr,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onExit = nullptr,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onStay = nullptr)
-                : _triggerBox(triggerBox), _onEnter(onEnter), _onExit(onExit), _onStay(onStay) {};
+                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onTriggerEnter = nullptr,
+                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onTriggerExit = nullptr,
+                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onTriggerStay = nullptr)
+                : _triggerBox(triggerBox), _onTriggerEnter(onTriggerEnter), _onTriggerExit(onTriggerExit), _onTriggerStay(onTriggerStay) {};
 
             sf::FloatRect _triggerBox;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onEnter;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onExit;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onStay;
+            std::list<TriggerBox &> _triggered = {};
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerEnter;
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerExit;
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerStay;
     };
 }
