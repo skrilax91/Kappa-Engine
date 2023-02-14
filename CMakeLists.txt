@@ -51,16 +51,18 @@ file(GLOB TEST_SOURCE_FILES "tests/*.cpp")
 
 message(STATUS "HEADERS: ${HEADERS}")
 
-find_package(SFML 2.5 REQUIRED)
+find_package(SFML 2.5 REQUIRED system window graphics network audio)
 find_package(asio REQUIRED)
 find_package(GTest REQUIRED)
 
-add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES} ${SOURCE_FILES})
 
 enable_testing()
 
+message(STATUS "GTEST: ${GTest_INCLUDE_DIRS}")
+
 target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${GTest_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} sfml::sfml asio::asio ${GTest_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC sfml-system sfml-window sfml-graphics sfml-network sfml-audio asio::asio GTest::GTest GTest::Main)
 
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
