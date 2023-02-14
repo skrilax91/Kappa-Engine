@@ -3,8 +3,6 @@ project (KappaEngine LANGUAGES CXX VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
-
 file (GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h")
 file(GLOB SOURCE_FILES
         "src/GameManager.cpp"
@@ -43,8 +41,6 @@ install(TARGETS ${PROJECT_NAME})
 project(KappaEngineTests LANGUAGES CXX VERSION 0.0.1)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
 
 file (GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h")
 file(GLOB TEST_SOURCE_FILES "tests/*.cpp")
