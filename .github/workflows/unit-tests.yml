@@ -18,4 +18,4 @@ jobs:
       - name: Install dependencies
         run: mkdir build && cd build && conan install .. -s build_type=Debug --build=missing -c tools.system.package_manager:mode=install -c tools.system.package_manager:sudo=True
       - name: Build
-        run: cd build && cmake build .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build . --config Debug --target KappaEngineTests
+        run: cd build && cmake build .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake && cmake --build . --config Debug --target KappaEngineTests
