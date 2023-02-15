@@ -1,4 +1,4 @@
-name: cpp-linter
+name: unit-tests
 
 on:
   push:
@@ -11,8 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install ubuntu dependencies
+        run: apt update && apt install -y libudev-dev
       - name: Install conan
         run: pip install conan
+      - name: Set conan profile
+        run: conan profile new default --detect && conan profile update settings.compiler.libcxx=libstdc++11 default
       - name: Install dependencies
         run: mkdir build && cd build && conan install .. -s build_type=Debug --build=missing
       - name: Build
