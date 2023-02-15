@@ -11,8 +11,8 @@ namespace KappaEngine {
     sf::RenderWindow *GameManager::_window = nullptr;
     std::string GameManager::_name = "Kappa Engine Game";
     bool GameManager::_fullscreen = false;
-    std::vector<Scene *> GameManager::_scenes = std::vector<Scene *>();
-    Scene *GameManager::_selectedScene = nullptr;
+    std::list<std::shared_ptr<Scene>> GameManager::_scenes = std::list<std::shared_ptr<Scene>>();
+    std::shared_ptr<Scene> GameManager::_selectedScene = nullptr;
 
     Console::Console *GameManager::_console = nullptr;
 
@@ -114,15 +114,19 @@ namespace KappaEngine {
     // SCENE
     ///////////////////////////
 
-    Scene *GameManager::CreateScene(const std::string &name) {
-        auto *scene = new Scene(name);
+    std::shared_ptr<Scene> GameManager::CreateScene(const std::string &name) {
+        auto scene = std::make_shared<Scene>(name);
         if (!_selectedScene)
             _selectedScene = scene;
         _scenes.push_back(scene);
         return scene;
     }
 
-    Scene* GameManager::GetScene(const std::string& name) {
+    std::list<std::shared_ptr<Scene>> GameManager::GetScenes() {
+        return _scenes;
+    }
+
+    std::shared_ptr<Scene> GameManager::GetScene(const std::string& name) {
         for (auto scene : _scenes) {
             if (scene->getName() == name)
                 return scene;
@@ -130,7 +134,7 @@ namespace KappaEngine {
         return nullptr;
     }
 
-    Scene* GameManager::GetSelectedScene() {
+    std::shared_ptr<Scene> GameManager::GetSelectedScene() {
         return _selectedScene;
     }
 
