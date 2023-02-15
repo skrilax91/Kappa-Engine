@@ -16,7 +16,7 @@ namespace KappaEngine {
     void RigidBodySystem::FixedUpdate() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::RigidBody>();
 
-        for (auto &ent: ents) {
+        for (auto ent: ents) {
             auto rg = ent->getComponent<Component::RigidBody>();
             auto tr = ent->getComponent<Component::Transform>();
 
