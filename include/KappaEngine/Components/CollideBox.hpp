@@ -16,20 +16,20 @@ namespace Component {
         public:
             CollideBox(sf::FloatRect &collideBox, std::string &tag,
                 std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideEnter =  nullptr,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideExit = nullptr,
-                std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideStay = nullptr,
+                std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideExit = nullptr,
+                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideStay = nullptr,
                 std::vector<std::string> collidingTags = {})
-                    : _collideBox(collideBox), _tag(tag), _collidingTags(collidingTags),
+                    : _collideBox(collideBox), _tag(tag), _notCollidingTags(collidingTags),
                     _onCollideEnter(onCollideEnter), _onCollideExit(onCollideExit), _onCollideStay(onCollideStay) {};
 
             sf::FloatRect _collideBox;
             std::list<CollideBox &> _collided = {};
             std::string _tag;
-            std::vector<std::string> _collidingTags;
+            std::vector<std::string> _notCollidingTags;
 
             std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideEnter;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideExit;
-            std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideStay;
+            std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideExit;
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideStay;
     };
 }
 
