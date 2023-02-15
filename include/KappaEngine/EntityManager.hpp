@@ -126,7 +126,7 @@ namespace KappaEngine {
 
 
         private:
-            Scene *_scene;
+            std::shared_ptr<Scene> _scene;
             std::list<std::shared_ptr<Entity>> _entities;
     };
 }
