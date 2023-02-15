@@ -22,6 +22,14 @@ conan create . kappa/stable
 For development, you can use the `conanfile.py` file in the root of the repository. It will install all the dependencies and build the library.
 You need to have Conan installed on your machine.  
 You can find the documentation [here](https://docs.conan.io/en/latest/installation.html)
+generate the build files with CMake and build the library.
+```bash
+mkdir build && cd build
+conan install .. --build=missing -s build_type=Debug
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
+cmake --build .
+```
+
 
 #### CLion
 
@@ -33,10 +41,10 @@ The Build directory MUST be set to `build` in the CMake options.
 
 ![Screenshot_27](https://user-images.githubusercontent.com/6585219/216644812-121d6113-85b0-4d7d-b441-ced12b90e3cd.png)
 
-Next you need to install the dependencies.
+Next you need to install the dependencies. (You need to set build type to Debug)
 ```bash
 mkdir build && cd build
-conan install ..
+conan install .. -s build_type=Debug --build=missing
 ```
 This will install all the dependencies and generate all FindXXX.cmake files in the build directory.
 

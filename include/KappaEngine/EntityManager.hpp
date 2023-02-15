@@ -92,7 +92,7 @@ namespace KappaEngine {
              * @return The entity.
              * @throw std::runtime_error If the entity doesn't exist.
              */
-            Entity &getEntity(const std::string& name);
+            std::shared_ptr<Entity> getEntity(const std::string& name);
 
             /**
              * @brief Get all entities with a specific component.
@@ -126,7 +126,7 @@ namespace KappaEngine {
 
 
         private:
-            Scene *_scene;
+            std::shared_ptr<Scene> _scene;
             std::list<std::shared_ptr<Entity>> _entities;
     };
 }
