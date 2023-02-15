@@ -4,9 +4,9 @@
 
 #pragma once
 
+#include <cstdint>
 #include <vector>
 #include <iostream>
-#include <cstring>
 
 namespace Network {
 
