@@ -24,7 +24,7 @@ file(GLOB SOURCE_FILES
 
         )
 
-find_package(SFML 2.5 REQUIRED)
+find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 find_package(asio REQUIRED)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
@@ -47,7 +47,7 @@ file(GLOB TEST_SOURCE_FILES "tests/*.cpp")
 
 message(STATUS "HEADERS: ${HEADERS}")
 
-find_package(SFML 2.5 REQUIRED system window graphics network audio)
+find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 find_package(asio REQUIRED)
 find_package(GTest REQUIRED)
 
