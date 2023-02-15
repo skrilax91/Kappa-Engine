@@ -5,15 +5,14 @@
 #include <stdexcept>
 #include "KappaEngine/EntityManager.hpp"
 #include "KappaEngine/GameManager.hpp"
-#include "KappaEngine/Components/NetworkComponent.hpp"
 
 using namespace KappaEngine;
 
-std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name) {
+Entity &EntityManager::createEntity(const std::string& name) {
     return createEntity(name, [](Entity &entity) {});
 }
 
-std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name, void (*cb)(Entity &)) {
+Entity &EntityManager::createEntity(const std::string& name, void (*cb)(Entity &)) {
     for (auto &entity: _entities) {
         if (entity->getId() == name) {
             throw std::runtime_error("Entity already exist");
@@ -31,7 +30,7 @@ std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name, voi
             _scene->getSystemManager()->Start(entity);
     }
 
-    return entity;
+    return *entity;
 }
 
 void EntityManager::destroyEntity(const std::string& name) {
@@ -44,37 +43,15 @@ void EntityManager::destroyEntity(const std::string& name) {
     throw std::runtime_error("Entity not found");
 }
 
-void EntityManager::destroyEntity(const std::shared_ptr<Entity> &entity) {
-    destroyEntity(entity->getId());
-}
-
-void EntityManager::destroyNetworkedEntities(uint32_t ownerId) {
-    bool entityToDestroy = false;
-    for (auto &entity: _entities) {
-        if (entity->hasComponent<Component::NetworkComponent>()) {
-            auto networkComponent = entity->getComponent<Component::NetworkComponent>();
-            if (networkComponent->ownerId == ownerId) {
-                entityToDestroy = true;
-                entity.reset();
-            }
-        }
-    }
-    if (entityToDestroy) {
-        _entities.remove_if([](const std::shared_ptr<Entity> &entity) {
-            return entity == nullptr;
-        });
-    }
-}
-
 
 std::list <std::shared_ptr<Entity>> EntityManager::getEntities() {
     return _entities;
 }
 
-std::shared_ptr<Entity> EntityManager::getEntity(const std::string& name) {
-    for (auto entity: _entities) {
+Entity &EntityManager::getEntity(const std::string& name) {
+    for (auto &entity: _entities) {
         if (entity->getId() == name) {
-            return entity;
+            return *entity;
         }
     }
     throw std::runtime_error("Entity not found");
