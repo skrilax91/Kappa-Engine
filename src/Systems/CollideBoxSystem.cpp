@@ -60,8 +60,8 @@ namespace KappaEngine {
         return false;
     }
 
-    // Pas de rollback sans rigidBody !
-    void CollideBoxSystem::rollback(Component::Transform *transform, Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
+    void CollideBoxSystem::rollback(Component::Transform *transform, Component::RigidBody *rigidBody,
+                                    Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
         sf::Vector2f &collideBoxPos = sf::Vector2f(collideBox->_collideBox.left, collideBox->_collideBox.top);
         sf::Vector2f &collideBoxSize = sf::Vector2f(collideBox->_collideBox.width, collideBox->_collideBox.height);
         sf::Vector2f &otherCollideBoxPos = sf::Vector2f(collideBox->_collideBox.left, collideBox->_collideBox.top);
@@ -80,25 +80,32 @@ namespace KappaEngine {
             float yOffset = abs(collideBoxPos.y - (otherCollideBoxPos.y + otherCollideBoxSize.y));
 
         if (xOffset < yOffset) {
-            transform->position.x -= xOffset;
-            collideBox->_collideBox.left -= xOffset;
+            if (rigidBody->velocity.x > 0) {
+                transform->position.x -= xOffset;
+                collideBox->_collideBox.left -= xOffset;
+            } else if (rigidBody->velocity.x < 0) {
+                transform->position.x += xOffset;
+                collideBox->_collideBox.left += xOffset;
+            }
         } else {
-            transform->position.y -= yOffset;
-            collideBox->_collideBox.top -= yOffset;
+            if (rigidBody->velocity.y > 0) {
+                transform->position.y -= yOffset;
+                collideBox->_collideBox.top -= yOffset;
+            } else if (rigidBody->velocity.y < 0) {
+                transform->position.y += yOffset;
+                collideBox->_collideBox.top += yOffset;
+            }
         }
     }
 
     void CollideBoxSystem::enterCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
                                         Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
         auto transform = entity->getComponent<Component::Transform>();
+        auto rigidBody = entity->getComponent<Component::RigidBody>();
 
-        if (collideBox->_onCollideEnter != nullptr) {
-            if (collideBox->_onCollideEnter(entity, otherEntity))
-                rollback(transform, collideBox, otherCollideBox);
-        }
-        if (otherCollideBox->_onCollideEnter != nullptr) {
-            if (otherCollideBox->_onCollideEnter(otherEntity, entity))
-                return;
+        if (collideBox->_onCollideEnter) {
+            if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
+                rollback(transform, rigidBody, collideBox, otherCollideBox);
         }
     }
 }
