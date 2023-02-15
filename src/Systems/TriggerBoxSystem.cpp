@@ -7,30 +7,27 @@
 
 #include "KappaEngine/Systems/TriggerBoxSystem.hpp"
 #include "KappaEngine/Components/Transform.hpp"
-#include "KappaEngine/Components/TriggerBox.hpp"
 
 namespace KappaEngine {
     void TriggerBoxSystem::OnTriggerCheck(std::shared_ptr<Entity> entity)
     {
         auto trigger = entity->getComponent<Component::TriggerBox>();
-        auto transform = entity->getComponent<Component::Transform>();
 
-        if (trigger == nullptr || transform == nullptr)
+        if (trigger == nullptr)
             return;
-        else if (!trigger->enabled || !transform->enabled)
+        else if (!trigger->enabled)
             return;
 
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
 
         for (auto ent: ents) {
             auto otherTrigger = ent->getComponent<Component::TriggerBox>();
-            auto otherTransform = ent->getComponent<Component::Transform>();
 
             if (ent == entity)
                 continue;
-            if (otherTrigger == nullptr || otherTransform == nullptr)
+            if (otherTrigger == nullptr)
                 continue;
-            else if (!otherTrigger->enabled || !otherTransform->enabled)
+            else if (!otherTrigger->enabled)
                 continue;
 
             if (trigger->_triggerBox.intersects(otherTrigger->_triggerBox)) {

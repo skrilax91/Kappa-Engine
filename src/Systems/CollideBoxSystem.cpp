@@ -7,66 +7,98 @@
 #include "KappaEngine/Components/Transform.hpp"
 
 namespace KappaEngine {
-    void CollideBoxSystem::Update() {
+    void CollideBoxSystem::OnCollideCheck(std::shared_ptr<Entity> entity) {
+        auto collideBox = entity->getComponent<Component::CollideBox>();
+        auto transform = entity->getComponent<Component::Transform>();
+
+        if (collideBox == nullptr || collideBox->_collidingTags.empty() || !collideBox->enabled
+            || transform == nullptr || !transform->enabled)
+            return;
+
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::CollideBox>();
 
-        for (auto ent : ents) {
-            auto *collideBox = ent->getComponent<Component::CollideBox>();
-            auto *transform = ent->getComponent<Component::Transform>();
-            
-            if (!transform) {
-                collideBox->enabled = false;
+        for (auto otherEntity : ents) {
+            if (otherEntity == entity)
                 continue;
-            }
 
-            for (auto otherEnt : ents) {
-                if (ent == otherEnt)
-                    continue;
-                auto *otherCollideBox = otherEnt->getComponent<Component::CollideBox>();
-                if (!canCollide(collideBox, otherCollideBox))
-                    continue;
-                auto *otherTransform = otherEnt->getComponent<Component::Transform>();
-                if (!otherTransform) {
-                    otherCollideBox->enabled = false;
-                    continue;
+            auto otherCollideBox = otherEntity->getComponent<Component::CollideBox>();
+
+            if (otherCollideBox == nullptr || !otherCollideBox->enabled || canCollide(collideBox, otherCollideBox))
+                continue;
+
+            if (collideBox->_collideBox.intersects(otherCollideBox->_collideBox)) {
+                if (!findCollide(collideBox->_collided, otherCollideBox)) {
+                    enterCollideBox(entity, otherEntity, collideBox, otherCollideBox);
+                    collideBox->_collided.push_back(*otherCollideBox);
+                } else {
+                    if (collideBox->_onCollideStay != nullptr)
+                        collideBox->_onCollideStay(entity, otherEntity);
                 }
-                if (isColliding(collideBox, transform, otherCollideBox, otherTransform))
-                    collideBox->_onCollide(otherEnt);
+            } else {
+                if (findCollide(collideBox->_collided, otherCollideBox)) {
+                    if (collideBox->_onCollideExit != nullptr)
+                        collideBox->_onCollideExit(entity, otherEntity);
+                    collideBox->_collided.remove(*otherCollideBox);
+                }
             }
         }
     }
 
+    bool CollideBoxSystem::findCollide(std::list<Component::CollideBox &> &list, Component::CollideBox *collide) {
+        for (auto &collideBox : list) {
+            if (&collideBox == collide)
+                return true;
+        }
+        return false;
+    }
 
-    bool CollideBoxSystem::canCollide(const Component::CollideBox *collideBox, const Component::CollideBox *otherCollideBox)
-    {
-        if (!collideBox->enabled || !otherCollideBox->enabled)
-            return false;
-        for (auto tag : collideBox->_collidingTags) {
+    bool CollideBoxSystem::canCollide(Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
+        for (auto &tag : collideBox->_collidingTags) {
             if (tag == otherCollideBox->_tag)
                 return true;
         }
         return false;
     }
 
-    bool CollideBoxSystem::isColliding(const Component::CollideBox *collideBox, const Component::Transform *transform,
-                                       const Component::CollideBox *otherCollideBox, const Component::Transform *otherTransform)
-    {
-        sf::Vector2f collideBoxPos = transform->position;
-        sf::Vector2f otherCollideBoxPos = otherTransform->position;
-        sf::Vector2f collideBoxSize = sf::Vector2f(collideBox->_width, collideBox->_height);
-        sf::Vector2f otherCollideBoxSize = sf::Vector2f(otherCollideBox->_width, otherCollideBox->_height);
+    // Pas de rollback sans rigidBody !
+    void CollideBoxSystem::rollback(Component::Transform *transform, Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
+        sf::Vector2f &collideBoxPos = sf::Vector2f(collideBox->_collideBox.left, collideBox->_collideBox.top);
+        sf::Vector2f &collideBoxSize = sf::Vector2f(collideBox->_collideBox.width, collideBox->_collideBox.height);
+        sf::Vector2f &otherCollideBoxPos = sf::Vector2f(collideBox->_collideBox.left, collideBox->_collideBox.top);
+        sf::Vector2f &otherCollideBoxSize = sf::Vector2f(collideBox->_collideBox.width, collideBox->_collideBox.height);
 
-        sf::Vector2f collideBoxCenter = collideBoxPos + collideBoxSize / 2.0f;
-        sf::Vector2f otherCollideBoxCenter = otherCollideBoxPos + otherCollideBoxSize / 2.0f;
+        float xOffset(0);
+        float yOffset(0);
 
-        sf::Vector2f collideBoxHalfSize = collideBoxSize / 2.0f;
-        sf::Vector2f otherCollideBoxHalfSize = otherCollideBoxSize / 2.0f;
+        if (collideBoxPos.x < otherCollideBoxPos.x)
+            float xOffset = abs(collideBoxPos.x + collideBoxSize.x - otherCollideBoxPos.x);
+        else if (collideBoxPos.x > otherCollideBoxPos.x)
+            float xOffset = abs(collideBoxPos.x - (otherCollideBoxPos.x + otherCollideBoxSize.x));
+        if (collideBoxPos.y < otherCollideBoxPos.y)
+            float yOffset = abs(collideBoxPos.y + collideBoxSize.y - otherCollideBoxPos.y);
+        else if (collideBoxPos.y > otherCollideBoxPos.y)
+            float yOffset = abs(collideBoxPos.y - (otherCollideBoxPos.y + otherCollideBoxSize.y));
 
-        sf::Vector2f delta = collideBoxCenter - otherCollideBoxCenter;
+        if (xOffset < yOffset) {
+            transform->position.x -= xOffset;
+            collideBox->_collideBox.left -= xOffset;
+        } else {
+            transform->position.y -= yOffset;
+            collideBox->_collideBox.top -= yOffset;
+        }
+    }
 
-        float intersectX = abs(delta.x) - (collideBoxHalfSize.x + otherCollideBoxHalfSize.x);
-        float intersectY = abs(delta.y) - (collideBoxHalfSize.y + otherCollideBoxHalfSize.y);
+    void CollideBoxSystem::enterCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
+                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
+        auto transform = entity->getComponent<Component::Transform>();
 
-        return (intersectX <= 0.0f && intersectY <= 0.0f);
+        if (collideBox->_onCollideEnter != nullptr) {
+            if (collideBox->_onCollideEnter(entity, otherEntity))
+                rollback(transform, collideBox, otherCollideBox);
+        }
+        if (otherCollideBox->_onCollideEnter != nullptr) {
+            if (otherCollideBox->_onCollideEnter(otherEntity, entity))
+                return;
+        }
     }
 }
