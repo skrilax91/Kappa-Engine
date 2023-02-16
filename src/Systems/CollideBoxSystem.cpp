@@ -55,26 +55,47 @@ namespace KappaEngine {
         return true;
     }
 
-    void CollideBoxSystem::rollback(Component::Transform *transform, Component::RigidBody *rigidBody,
-                                    Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox, bool enter) {
+    void CollideBoxSystem::enterCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
+                                        Component::Transform *transform, Component::RigidBody *rigidBody,
+                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
+    {
+        if (collideBox->_onCollideEnter) {
+            if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
+                rollbackOnEnter(transform, rigidBody, collideBox, otherCollideBox);
+            else
+                collideBox->_collided.push_back(*otherCollideBox);
+        } else if (rigidBody)
+            rollbackOnEnter(transform, rigidBody, collideBox, otherCollideBox);
+    }
+
+    void CollideBoxSystem::exitCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
+                                        Component::Transform *transform, Component::RigidBody *rigidBody,
+                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
+    {
+        if (collideBox->_onCollideExit)
+            if (collideBox->_onCollideExit(entity, otherEntity))
+                collideBox->_collided.remove(*otherCollideBox);
+            else if (rigidBody)
+                rollbackOnExit(transform, rigidBody, collideBox, otherCollideBox);
+    }
+
+    void CollideBoxSystem::rollbackOnEnter(Component::Transform *transform, Component::RigidBody *rigidBody,
+                                    Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
+    {
         float xOffset(0);
         float yOffset(0);
 
         if (collideBox->_collideBox.left < otherCollideBox->_collideBox.left)
-            xOffset = abs(collideBox->_collideBox.left + collideBox->_collideBox.width - otherCollideBox->_collideBox.left);
-        else
-            xOffset = abs(collideBox->_collideBox.left - (otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width));
+            xOffset = collideBox->_collideBox.left + collideBox->_collideBox.width - otherCollideBox->_collideBox.left;
+        else if (collideBox->_collideBox.left + collideBox->_collideBox.width > otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width)
+            xOffset = otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width - collideBox->_collideBox.left;
+
         if (collideBox->_collideBox.top < otherCollideBox->_collideBox.top)
-            yOffset = abs(collideBox->_collideBox.top + collideBox->_collideBox.height - otherCollideBox->_collideBox.top);
-        else
-            yOffset = abs(collideBox->_collideBox.top - (otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height));
+            yOffset = collideBox->_collideBox.top + collideBox->_collideBox.height - otherCollideBox->_collideBox.top;
+        else if (collideBox->_collideBox.top + collideBox->_collideBox.height > otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height)
+            yOffset = otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height - collideBox->_collideBox.top;
 
-        if (!enter) {
-            xOffset = abs(xOffset - collideBox->_collideBox.width);
-            yOffset = abs(yOffset - collideBox->_collideBox.height);
-        }
-
-        if (xOffset < yOffset) {
+        if (xOffset < yOffset || yOffset == 0) {
             if (rigidBody->velocity.x > 0) {
                 transform->position.x -= xOffset;
                 collideBox->_collideBox.left -= xOffset;
@@ -82,6 +103,7 @@ namespace KappaEngine {
                 transform->position.x += xOffset;
                 collideBox->_collideBox.left += xOffset;
             }
+
         } else {
             if (rigidBody->velocity.y > 0) {
                 transform->position.y -= yOffset;
@@ -93,27 +115,36 @@ namespace KappaEngine {
         }
     }
 
-    void CollideBoxSystem::enterCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
-                                        Component::Transform *transform, Component::RigidBody *rigidBody,
-                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
+    void CollideBoxSystem::rollbackOnExit(Component::Transform *transform, Component::RigidBody *rigidBody,
+                                    Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
     {
-        if (collideBox->_onCollideEnter) {
-            if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
-                rollback(transform, rigidBody, collideBox, otherCollideBox, true);
-            else
-                collideBox->_collided.push_back(*otherCollideBox);
-        } else if (rigidBody)
-            rollback(transform, rigidBody, collideBox, otherCollideBox, true);
-    }
+        float xOffset(0);
+        float yOffset(0);
 
-    void CollideBoxSystem::exitCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
-                                        Component::Transform *transform, Component::RigidBody *rigidBody,
-                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
-    {
-        if (collideBox->_onCollideExit)
-            if (collideBox->_onCollideExit(entity, otherEntity))
-                collideBox->_collided.remove(*otherCollideBox);
-            else if (rigidBody)
-                rollback(transform, rigidBody, collideBox, otherCollideBox, false);
+        if (collideBox->_collideBox.left < otherCollideBox->_collideBox.left)
+            xOffset = otherCollideBox->_collideBox.left - collideBox->_collideBox.left;
+        else if (collideBox->_collideBox.left + collideBox->_collideBox.width > otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width)
+            xOffset = collideBox->_collideBox.left + collideBox->_collideBox.width - otherCollideBox->_collideBox.left - otherCollideBox->_collideBox.width;
+
+        if (collideBox->_collideBox.top < otherCollideBox->_collideBox.top)
+            yOffset = otherCollideBox->_collideBox.top - collideBox->_collideBox.top;
+        else if (collideBox->_collideBox.top + collideBox->_collideBox.height > otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height)
+            yOffset = collideBox->_collideBox.top + collideBox->_collideBox.height - otherCollideBox->_collideBox.top - otherCollideBox->_collideBox.height;
+        
+        if (rigidBody->velocity.x > 0) {
+            transform->position.x -= xOffset;
+            collideBox->_collideBox.left -= xOffset;
+        } else if (rigidBody->velocity.x < 0) {
+            transform->position.x += xOffset;
+            collideBox->_collideBox.left += xOffset;
+        }
+
+        if (rigidBody->velocity.y > 0) {
+            transform->position.y -= yOffset;
+            collideBox->_collideBox.top -= yOffset;
+        } else if (rigidBody->velocity.y < 0) {
+            transform->position.y += yOffset;
+            collideBox->_collideBox.top += yOffset;
+        }
     }
 }
