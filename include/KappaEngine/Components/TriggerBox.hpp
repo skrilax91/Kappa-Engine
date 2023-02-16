@@ -22,7 +22,7 @@ namespace Component {
                 : _triggerBox(triggerBox), _onTriggerEnter(onTriggerEnter), _onTriggerExit(onTriggerExit), _onTriggerStay(onTriggerStay) {};
 
             sf::FloatRect _triggerBox;
-            std::list<TriggerBox &> _triggered = {};
+            std::list<TriggerBox *> _triggered;
             std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerEnter;
             std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerExit;
             std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerStay;

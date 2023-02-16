@@ -8,6 +8,7 @@
 #pragma once
 
 #include "KappaEngine/Systems/ISystem.hpp"
+#include "KappaEngine/Components/TriggerBox.hpp"
 
 namespace KappaEngine {
     class TriggerBoxSystem : public ISystem {
@@ -16,6 +17,6 @@ namespace KappaEngine {
 
         private:
             void OnTriggerCheck(std::shared_ptr<Entity> entity);
-            bool findTrigger(std::list<Component::TriggerBox &> &list, Component::TriggerBox *trigger);
+            bool findTrigger(std::list<Component::TriggerBox *> list, Component::TriggerBox *trigger);
     };
 }
