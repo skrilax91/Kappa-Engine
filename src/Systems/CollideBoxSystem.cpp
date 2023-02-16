@@ -77,6 +77,8 @@ namespace KappaEngine {
                 collideBox->_collided.remove(*otherCollideBox);
             else if (rigidBody)
                 rollbackOnExit(transform, rigidBody, collideBox, otherCollideBox);
+        else
+            collideBox->_collided.remove(*otherCollideBox);
     }
 
     void CollideBoxSystem::rollbackOnEnter(Component::Transform *transform, Component::RigidBody *rigidBody,
