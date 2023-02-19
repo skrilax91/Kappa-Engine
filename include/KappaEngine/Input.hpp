@@ -36,7 +36,7 @@ namespace KappaEngine {
             template<sf::Keyboard::Key T>
             static bool IsKeyPressed(uint32_t id = -1) {
                 if (GameManager::GetServer()) {
-                    if (id != -1)
+                    if (id == -1)
                         return false;
                     return _networkKeysPressed[id][T];
                 }

@@ -36,7 +36,7 @@ namespace KappaEngine {
              * @return The entity created.
              * @throw std::runtime_error If the entity already exists.
              */
-            std::shared_ptr<Entity> createEntity(const std::string& name, void (*cb)(Entity&) );
+            std::shared_ptr<Entity> createEntity(const std::string& name, const std::function<void(std::shared_ptr<Entity>)>& cb);
 
             /**
              * @brief createEntity Create an entity.
