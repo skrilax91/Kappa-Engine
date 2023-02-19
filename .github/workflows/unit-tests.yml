@@ -1,0 +1,21 @@
+name: unit-tests
+
+on:
+  pull_request:
+    paths-ignore: "docs/**"
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install conan
+        run: pip install conan
+      - name: Set conan profile
+        run: conan profile new default --detect && conan profile update settings.compiler.libcxx=libstdc++11 default
+      - name: Install dependencies
+        run: mkdir build && cd build && conan install .. -s build_type=Debug --build=missing -c tools.system.package_manager:mode=install -c tools.system.package_manager:sudo=True
+      - name: Build
+        run: cd build && cmake build .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake && cmake --build . --config Debug --target KappaEngineTests
+      - name: Run tests
+        run: build/KappaEngineTests --gtest_filter=* --gtest_color=yes

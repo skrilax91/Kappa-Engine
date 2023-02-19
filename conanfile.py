@@ -7,7 +7,7 @@ from conan.tools.files import copy
 
 class KappaEngineConan(ConanFile):
     name = "KappaEngine"
-    version = "0.4.0"
+    version = "0.6.0"
 
     license = "<Put the package license here>"
     author = "Leo Brossard leo.brossard@epitech.eu"
@@ -25,6 +25,7 @@ class KappaEngineConan(ConanFile):
     def requirements(self):
         self.requires("sfml/2.5.1")
         self.requires("asio/1.24.0")
+        self.requires("gtest/1.13.0")
 
     def generate(self):
         tc = CMakeToolchain(self)
