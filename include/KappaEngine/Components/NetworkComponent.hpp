@@ -6,7 +6,6 @@
 #define KAPPA_ENGINE_NETWORKCOMPONENT_HPP
 
 #include "IComponent.hpp"
-#include "Transform.hpp"
 
 namespace Component {
 
@@ -22,16 +21,14 @@ namespace Component {
      */
     class NetworkComponent: public IComponent {
         public:
-            explicit NetworkComponent(uint32_t uniqueId) : uniqueId(uniqueId) {};
-            NetworkComponent(uint32_t uniqueId, uint32_t ownerId) : uniqueId(uniqueId), ownerId(ownerId) {};
+            NetworkComponent() = default;
+            NetworkComponent(uint32_t ownerId) : ownerId(ownerId) {};
 
             uint32_t uniqueId = 0;
             uint32_t ownerId = 0;
             bool clientPrediction = false;
             bool ignorePrediction = false;
             bool asAuthority = false;
-            Transform transform = Transform({0, 0}, {0, 0}, {0, 0});
-            std::vector<INetworkable *> components;
     };
 }
 

@@ -7,10 +7,6 @@
 
 namespace KappaEngine {
     void SpriteRendererSystem::Awake(std::shared_ptr<Entity> entity) {
-        if (GameManager::isNetworked() && GameManager::GetServer()) {
-            return;
-        }
-
         std::cout << "SpriteRendererSystem Awake" << std::endl;
 
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
@@ -81,7 +77,6 @@ namespace KappaEngine {
                         //    continue;
 
                         spriteRenderer->_sprite.setPosition(x, y);
-                        spriteRenderer->_sprite.setScale(transform->scale.x, transform->scale.y);
                         GameManager::Draw(spriteRenderer->_sprite);
                         break;
                     }

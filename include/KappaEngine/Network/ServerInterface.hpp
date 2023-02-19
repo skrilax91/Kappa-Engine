@@ -128,11 +128,10 @@ namespace Network {
             void MessageAllClients( const Message& msg, const std::shared_ptr<Connection>& ignore = nullptr ) {
                 bool invalidClientExists = false;
                 for (auto& client : _connections) {
-                    if (client == ignore)
-                        continue;
-
                     if (client && client->IsConnected()) {
-                        client->Send(msg);
+                        if (client != ignore) {
+                            client->Send(msg);
+                        }
                     }else {
                         OnClientDisconnect(client);
                         client.reset();
@@ -227,6 +226,7 @@ namespace Network {
              */
             void AddOnMessageCallback( uint32_t id, std::function<void(std::shared_ptr<Connection>, Message&)> callback ) {
                 if (_onMessageMap.find(id) != _onMessageMap.end()) {
+                    std::cerr << "[SERVER] Message ID " << id << " already has a callback" << std::endl;
                     return;
                 }
 
