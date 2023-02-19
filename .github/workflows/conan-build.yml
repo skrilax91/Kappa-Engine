@@ -1,0 +1,17 @@
+name: unit-tests
+
+on:
+  pull_request:
+    paths-ignore: "docs/**"
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install conan
+        run: pip install conan
+      - name: Set conan profile
+        run: conan profile new default --detect && conan profile update settings.compiler.libcxx=libstdc++11 default
+      - name: Run conan build package
+        run: conan create . kappa/stable
