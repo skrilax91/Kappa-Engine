@@ -1,4 +1,4 @@
-name: unit-tests
+name: conan-build
 
 on:
   pull_request:
