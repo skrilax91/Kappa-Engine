@@ -5,6 +5,7 @@
 #include <iostream>
 #include <utility>
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Input.hpp"
 
 namespace KappaEngine {
 
@@ -78,6 +79,9 @@ namespace KappaEngine {
         _started = true;
 
         _console = new Console::Console();
+
+        if (_server)
+            Input::InitNetworkKeys();
 
         for (auto scene : _scenes) {
             scene->Awake();
