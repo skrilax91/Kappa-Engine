@@ -7,7 +7,7 @@ from conan.tools.files import copy
 
 class KappaEngineConan(ConanFile):
     name = "KappaEngine"
-    version = "0.5.0"
+    version = "0.6.0"
 
     license = "<Put the package license here>"
     author = "Leo Brossard leo.brossard@epitech.eu"
