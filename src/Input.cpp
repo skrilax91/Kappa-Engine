@@ -13,22 +13,29 @@ namespace KappaEngine {
 
 
     void Input::InitNetworkKeys() {
-        GameManager::RegisterServerMessageHandler(Network::NetworkMsg::InputPressed, [](std::shared_ptr<Network::Connection> client, Network::Message &msg) {
 
+        auto *keys = &_networkKeysPressed;
+
+        GameManager::RegisterServerMessageHandler(Network::NetworkMsg::InputPressed, [keys](std::shared_ptr<Network::Connection> client, Network::Message &msg) {
+            std::cout << "InputPressed from client[" << client->GetID() << "] : ";
             while (!msg.body.empty()) {
                 sf::Keyboard::Key key;
                 msg >> key;
-                _networkKeysPressed[client->GetID()][key] = true;
+                std::cout << key << " ";
+                (*keys)[client->GetID()][key] = true;
             }
+            std::cout << std::endl;
         });
 
-        GameManager::RegisterServerMessageHandler(Network::NetworkMsg::InputReleased, [](std::shared_ptr<Network::Connection> client, Network::Message &msg) {
-
+        GameManager::RegisterServerMessageHandler(Network::NetworkMsg::InputReleased, [keys](std::shared_ptr<Network::Connection> client, Network::Message &msg) {
+            std::cout << "InputRelease from client[" << client->GetID() << "] : ";
             while (!msg.body.empty()) {
                 sf::Keyboard::Key key;
                 msg >> key;
-                _networkKeysPressed[client->GetID()][key] = false;
+                std::cout << key << " ";
+                (*keys)[client->GetID()][key] = false;
             }
+            std::cout << std::endl;
         });
     }
 
@@ -50,6 +57,21 @@ namespace KappaEngine {
 
             if (isPressed)
                 GameManager::GetClient()->Send(msg);
+
+            Network::Message msg2;
+            msg2.header.id = Network::NetworkMsg::InputReleased;
+
+            bool isReleased = false;
+
+            for (auto &event : _events) {
+                if (event->type == sf::Event::KeyReleased) {
+                    isReleased = true;
+                    msg2 << event->key.code;
+                }
+            }
+
+            if (isReleased)
+                GameManager::GetClient()->Send(msg2);
         }
 
         for (auto &event : _events) {

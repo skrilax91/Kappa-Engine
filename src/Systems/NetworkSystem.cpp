@@ -31,8 +31,6 @@ namespace KappaEngine {
                         continue;
                     }
                 }
-
-                std::cout << "ServerReplication of client[" << client->GetID() << "]: " << id << "|" << pos.x << " : " << pos.y << std::endl;
             });
 
             std::cout << "NetworkSystem::Awake: Registered ServerReplication" << std::endl;
@@ -57,7 +55,6 @@ namespace KappaEngine {
                         continue;
                     }
                 }
-                std::cout << "ServerReplication of server for entity[" << id << "]: " << id << "|" << pos.x << " : " << pos.y << std::endl;
             });
         } catch (std::exception &e) {
             std::cout << "[CLIENT][ERROR] " << e.what() << std::endl;
@@ -112,7 +109,6 @@ namespace KappaEngine {
                 Network::Message msg;
                 msg.header.id = Network::NetworkMsg::ServerReplication;
                 msg << net->uniqueId << transform->position;
-                std::cout << "NetworkSystem::Update: Sending ServerReplication: [" << msg << "]" << std::endl;
 
                 GameManager::GetClient()->Send(msg);
             }
