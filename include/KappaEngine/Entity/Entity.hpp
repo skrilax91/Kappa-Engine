@@ -68,7 +68,7 @@ namespace KappaEngine {
              * @details The template parameter must inherit from Component
              * @tparam T The type of the component
              * @param component The component to register
-             * @return True if the component has been registered, false otherwise
+             * @return The component if the entity doesn't have it, nullptr otherwise
              */
             template<typename T>
             std::shared_ptr<T> registerComponent(T component) {
@@ -78,7 +78,7 @@ namespace KappaEngine {
                     return nullptr;
                 }
 
-                auto *newComponent = std::make_shared<T>(component);
+                auto newComponent = std::make_shared<T>(component);
                 _components.push_back(newComponent);
                 return newComponent;
             }
