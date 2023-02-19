@@ -18,7 +18,7 @@ namespace Component {
 
             std::string _texturePath;
             Component::SpriteRenderer & _spriteRenderer;
-            sf::IntRect _textureRect;
+            std::list<sf::IntRect> _textureRect;
             std::string _id;
             int _frameCount;
             float _frameDuration;
