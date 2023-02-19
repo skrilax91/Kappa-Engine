@@ -15,7 +15,7 @@ namespace KappaEngine {
         _clock.restart();
 
         try {
-            GameManager::RegisterServerMessageHandler(NetworkMsg::ServerReplication, [](std::shared_ptr<Network::Connection> client, Network::Message &msg) {
+            GameManager::RegisterServerMessageHandler(Network::NetworkMsg::ServerReplication, [](std::shared_ptr<Network::Connection> client, Network::Message &msg) {
                 uint32_t id;
                 sf::Vector2f pos;
 
@@ -41,7 +41,7 @@ namespace KappaEngine {
         }
 
         try {
-            GameManager::RegisterClientMessageHandler(NetworkMsg::ServerReplication, [](Network::Message &msg) {
+            GameManager::RegisterClientMessageHandler(Network::NetworkMsg::ServerReplication, [](Network::Message &msg) {
                 uint32_t id;
                 sf::Vector2f pos;
 
@@ -103,14 +103,14 @@ namespace KappaEngine {
                 auto client = GameManager::GetServer()->GetClient(net->ownerId);
 
                 Network::Message msg;
-                msg.header.id = NetworkMsg::ServerReplication;
+                msg.header.id = Network::NetworkMsg::ServerReplication;
                 msg << net->uniqueId << transform->position;
 
                 GameManager::GetServer()->MessageAllClients(msg, client);
             } else if (GameManager::GetClient() && net->ownerId == GameManager::GetClient()->GetID()) {
 
                 Network::Message msg;
-                msg.header.id = NetworkMsg::ServerReplication;
+                msg.header.id = Network::NetworkMsg::ServerReplication;
                 msg << net->uniqueId << transform->position;
                 std::cout << "NetworkSystem::Update: Sending ServerReplication: [" << msg << "]" << std::endl;
 

@@ -6,13 +6,9 @@
 #define KAPPA_ENGINE_NETWORKSYSTEM_HPP
 
 #include "ISystem.hpp"
+#include "KappaEngine/Network/MessageDefine.hpp"
 
 namespace KappaEngine {
-
-    enum NetworkMsg {
-        ServerReplication = 10000,
-    };
-
 
     /**
      * @brief The NetworkSystem class is the class that will manage all the network of the engine.

@@ -17,6 +17,11 @@ namespace KappaEngine {
         public:
 
             /*
+             * @brief InitNetworkKeys Initialize the network keys
+             */
+            static void InitNetworkKeys();
+
+            /*
              * @brief IsKeyPressed Check if a key is pressed
              * @tparam T The key to check
              * @return True if the key is pressed, false otherwise
@@ -66,6 +71,7 @@ namespace KappaEngine {
         private:
             static std::vector<const sf::Event *> _events;
             static std::map<sf::Keyboard::Key, bool> _keysPressed;
+            static std::map<uint32_t, std::map<sf::Keyboard::Key, bool>> _networkKeysPressed;
     };
 }
 
