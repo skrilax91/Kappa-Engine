@@ -71,14 +71,16 @@ namespace KappaEngine {
              * @return True if the component has been registered, false otherwise
              */
             template<typename T>
-            bool registerComponent(T component) {
+            std::shared_ptr<T> registerComponent(T component) {
                 static_assert(std::is_base_of<Component::IComponent, T>::value, "T must inherit from Component");
 
                 if (hasComponent<T>()) {
-                    return false;
+                    return nullptr;
                 }
-                _components.push_back(std::make_shared<T>(component));
-                return true;
+
+                auto *newComponent = std::make_shared<T>(component);
+                _components.push_back(newComponent);
+                return newComponent;
             }
 
             /**
