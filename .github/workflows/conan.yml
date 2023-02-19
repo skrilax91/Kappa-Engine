@@ -1,11 +1,11 @@
-name: conan-build
+name: conan
 
 on:
   pull_request:
     paths-ignore: "docs/**"
 
 jobs:
-  unit-tests:
+  package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
