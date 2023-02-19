@@ -47,7 +47,7 @@ namespace KappaEngine {
              * @return The entity created.
              * @throw std::runtime_error If the entity already exists.
              */
-            Entity &createEntity(const std::string& name);
+            std::shared_ptr<Entity> createEntity(const std::string& name);
 
 
             /**
@@ -61,6 +61,26 @@ namespace KappaEngine {
             void destroyEntity(const std::string& name);
 
             /**
+             * @brief destroyEntity Destroy an entity.
+             *
+             * This function will destroy an entity.
+             *
+             * @param entity The entity to destroy.
+             * @throw std::runtime_error If the entity doesn't exist.
+             */
+            void destroyEntity(const std::shared_ptr<Entity>& entity);
+
+            /**
+             * @brief destroyNetworkedEntities Destroy all networked entities.
+             *
+             * This function will destroy all networked entities.
+             *
+             * @param ownerId The owner id of the entities to destroy.
+             * @throw std::runtime_error If the entity doesn't exist.
+             */
+            void destroyNetworkedEntities(uint32_t ownerId);
+
+            /**
              * @brief Get all entities.
              * @return A list of all entities.
              */
@@ -70,8 +90,9 @@ namespace KappaEngine {
              * @brief Get an entity by its name.
              * @param name The name of the entity.
              * @return The entity.
+             * @throw std::runtime_error If the entity doesn't exist.
              */
-            Entity &getEntity(const std::string& name);
+            std::shared_ptr<Entity> getEntity(const std::string& name);
 
             /**
              * @brief Get all entities with a specific component.
@@ -105,7 +126,7 @@ namespace KappaEngine {
 
 
         private:
-            Scene *_scene;
+            std::shared_ptr<Scene> _scene;
             std::list<std::shared_ptr<Entity>> _entities;
     };
 }

@@ -4,9 +4,13 @@
 
 #include "KappaEngine/Systems/NetworkSystem.hpp"
 #include "KappaEngine/Components/NetworkComponent.hpp"
+#include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Components/Transform.hpp"
 
 namespace KappaEngine {
+
     void NetworkSystem::Awake(std::shared_ptr<Entity> entity) {
+        std::cout << "NetworkSystem::Awake" << std::endl;
 
         _clock.restart();
 

@@ -25,6 +25,7 @@ class KappaEngineConan(ConanFile):
     def requirements(self):
         self.requires("sfml/2.5.1")
         self.requires("asio/1.24.0")
+        self.requires("gtest/1.13.0")
 
     def generate(self):
         tc = CMakeToolchain(self)
