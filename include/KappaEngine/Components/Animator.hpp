@@ -13,7 +13,7 @@ namespace Component {
                 _spriteRenderer(spriteRenderer),
                 _frameCount(frameCount),
                 _frameDuration(frameDuration),
-                _loop(loop) {};
+                _loop(loop),
                 _id(id) {};
 
             std::string _texturePath;
@@ -29,5 +29,7 @@ namespace Component {
             Animator(std::list<Animation> animations, std::string idleAnimation):
                 _animations(animations),
                 _idleAnimation(std::move(idleAnimation)) {};
+            std::list<Animation> _animations;
+            std::string _idleAnimation;
     };
 }
