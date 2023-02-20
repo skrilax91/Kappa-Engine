@@ -2,21 +2,24 @@
 #include "KappaEngine/Components/Animator.hpp"
 
 namespace KappaEngine {
-    void AnimationSystem::OnAnimator(std::shared_ptr<Entity> entity) {
-        auto animator = entity->getComponent<Component::Animator>();
-        if (!animator) {
-            return;
-        }
-
-        // Find actual Animation
-        auto currentAnimation = animator->_animations.begin();
-        for (; currentAnimation != animator->_animations.end(); ++currentAnimation) {
-            if (currentAnimation->_id == animator->_idleAnimation) {
-                break;
+    void AnimationSystem::OnAnimator() {
+        auto entities = _scene->getEntityManager()->getEntitiesWithComponent<Component::Animator>();
+        for (auto entity : entities) {
+            auto animator = entity->getComponent<Component::Animator>();
+            auto animation = animator->_animations[animator->_actualAnimation];
+            if (animation._clock.getElapsedTime().asSeconds() >= animation._duration) {
+                animation._actualFrame++;
+                if (animation._actualFrame >= animation._textureRect.size()) {
+                    if (animation._loop) {
+                        animation._actualFrame = 0;
+                    } else {
+                        animation._actualFrame--;
+                    }
+                }
+                animation._clock.restart();
             }
-        }
-        if (currentAnimation == animator->_animations.end()) {
-            return;
+            animation._spriteRenderer._sprite.setTexture(animation._texture);
+            animation._spriteRenderer._sprite.setTextureRect(animation._textureRect[animation._actualFrame]);
         }
     }
 }
