@@ -28,10 +28,12 @@ namespace Interface {
             bool enabled = true;
             bool onFocus = false;
 
-            virtual void OnClick() { if (_onClick) { _onClick() }};
-            virtual void OnRelease() { if (_onRelease) { _onRelease() }};
-            virtual void OnHover() { if (_onHover) { _onHover() }};
-            virtual void OnUnhover() { if (_onUnhover) { _onUnhover() };
+            virtual void OnRenderObject() {};
+
+            virtual void OnClick() { if (_onClick) { _onClick(); }};
+            virtual void OnRelease() { if (_onRelease) { _onRelease(); }};
+            virtual void OnHover() { if (_onHover) { _onHover(); }};
+            virtual void OnUnhover() { if (_onUnhover) { _onUnhover(); }};
 
         protected:
             std::function<void()> _onClick;

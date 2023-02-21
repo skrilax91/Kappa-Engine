@@ -9,6 +9,7 @@
 #include <functional>
 #include <SFML/Graphics.hpp>
 
+#include "KappaEngine/GameManager.hpp"
 #include "KappaEngine/Interfaces/IInterface.hpp"
 
 namespace Interface {
@@ -17,9 +18,9 @@ namespace Interface {
             ButtonInterface();
 
             void OnRenderObject() override
-            {   if (_sprite.getTexture)
+            {   if (_sprite.getTexture())
                     KappaEngine::GameManager::GetWindow()->draw(_sprite);
-                if (_font && _text.getString() != "")
+                if (_text.getString() != "")
                     KappaEngine::GameManager::GetWindow()->draw(_text);   };
 
             void setOnClick(std::function<void()> onClick) { _onClick = onClick; };
@@ -35,7 +36,7 @@ namespace Interface {
             sf::Font _font = sf::Font();
             unsigned int _charSize = 11;
             sf::Vector2f _textPos = sf::Vector2f(0, 0);
-            sf::Text _text = sf::Text(_str, _font, _charSize);
+            sf::Text _text = sf::Text();
     };
 }
 
