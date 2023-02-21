@@ -26,9 +26,19 @@ namespace Interface {
         public:
             virtual ~IInterface() = default;
             bool enabled = true;
+            bool onFocus = false;
 
-            virtual void Awake() {};
-            virtual void OnRenderObject() {};
+            virtual void OnClick() { if (_onClick) { _onClick() }};
+            virtual void OnRelease() { if (_onRelease) { _onRelease() }};
+            virtual void OnHover() { if (_onHover) { _onHover() }};
+            virtual void OnUnhover() { if (_onUnhover) { _onUnhover() };
+
+        protected:
+            std::function<void()> _onClick;
+            std::function<void()> _onRelease;
+
+            std::function<void()> _onHover;
+            std::function<void()> _onUnhover;
     };
 }
 
