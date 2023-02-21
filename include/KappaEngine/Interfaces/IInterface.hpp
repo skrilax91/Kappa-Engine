@@ -25,7 +25,9 @@ namespace Interface {
     class IInterface {
         public:
             virtual ~IInterface() = default;
-            enabled = true;
+            bool enabled = true;
+
+            virtual void OnRenderObject() {};
     };
 }
 
