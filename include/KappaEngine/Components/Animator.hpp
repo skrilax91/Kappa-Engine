@@ -1,3 +1,6 @@
+#ifndef KAPPA_ENGINE_RIGIDBODY_HPP
+#define KAPPA_ENGINE_RIGIDBODY_HPP
+
 #include <string>
 #include "IComponent.hpp"
 #include "SpriteRenderer.hpp"
@@ -38,3 +41,5 @@ namespace Component {
             std::string _actualAnimation;
     };
 }
+
+#endif //KAPPA_ENGINE_RIGIDBODY_HPP
