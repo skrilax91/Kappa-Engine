@@ -14,7 +14,7 @@ jobs:
       - name: Install conan
         run: pip install conan
       - name: Set conan profile
-        run: conan profile new default --detect && conan profile update settings.compiler.libcxx=libstdc++11 default
+        run: conan profile detect --name=default && conan profile update settings.compiler.libcxx=libstdc++11 default
       - name: Install dependencies
         run: mkdir build && cd build && conan install .. -s build_type=Debug --build=missing -c tools.system.package_manager:mode=install -c tools.system.package_manager:sudo=True
       - name: Build
