@@ -16,6 +16,8 @@ namespace KappaEngine {
             || transform == nullptr || !transform->enabled)
             return;
 
+        sf::FloatRect rect = {transform->position.x, transform->position.y, collideBox->_dimensions.x, collideBox->_dimensions.y};
+
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::CollideBox>();
 
         for (auto otherEntity : ents) {
@@ -23,19 +25,28 @@ namespace KappaEngine {
                 continue;
 
             auto otherCollideBox = otherEntity->getComponent<Component::CollideBox>();
+            auto otherTransform = otherEntity->getComponent<Component::Transform>();
 
-            if (otherCollideBox == nullptr || !otherCollideBox->enabled || canCollide(collideBox, otherCollideBox))
+            if (otherCollideBox == nullptr || !otherCollideBox->enabled || canCollide(collideBox, otherCollideBox)
+                || otherTransform == nullptr || !otherTransform->enabled)
                 continue;
 
-            if (collideBox->_collideBox.intersects(otherCollideBox->_collideBox)) {
+            sf::FloatRect otherRect = {otherTransform->position.x, otherTransform->position.y, otherCollideBox->_dimensions.x, otherCollideBox->_dimensions.y};
+
+            if (rect.intersects(otherRect)) {
                 if (!findCollide(collideBox->_collided, otherCollideBox)) {
-                    enterCollideBox(entity, otherEntity, transform, rigidBody, collideBox, otherCollideBox);
-                } else {
-                    if (collideBox->_onCollideStay != nullptr)
-                        collideBox->_onCollideStay(entity, otherEntity);
-                }
-            } else if (findCollide(collideBox->_collided, otherCollideBox))
-                exitCollideBox(entity, otherEntity, transform, rigidBody, collideBox, otherCollideBox);
+                    if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
+                        rollbackOnEnter(rect, otherRect, transform, rigidBody->velocity);
+                    else
+                        collideBox->_collided.push_back(*otherCollideBox);
+                } else
+                    collideBox->_onCollideStay(entity, otherEntity);
+            } else if (findCollide(collideBox->_collided, otherCollideBox)) {
+                if (!collideBox->_onCollideExit(entity, otherEntity) && rigidBody)
+                    rollbackOnExit(rect, otherRect, transform, rigidBody->velocity);
+                else
+                    collideBox->_collided.remove(*otherCollideBox);
+            }
         }
     }
 
@@ -55,98 +66,53 @@ namespace KappaEngine {
         return true;
     }
 
-    void CollideBoxSystem::enterCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
-                                        Component::Transform *transform, Component::RigidBody *rigidBody,
-                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
+    void CollideBoxSystem::rollbackOnEnter(sf::FloatRect rect, sf::FloatRect otherRect,
+                                        Component::Transform *transform, sf::Vector2f velocity)
     {
-        if (collideBox->_onCollideEnter) {
-            if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
-                rollbackOnEnter(transform, rigidBody, collideBox, otherCollideBox);
-            else
-                collideBox->_collided.push_back(*otherCollideBox);
-        } else if (rigidBody)
-            rollbackOnEnter(transform, rigidBody, collideBox, otherCollideBox);
-    }
+        float xOffset = 0;
+        float yOffset = 0;
 
-    void CollideBoxSystem::exitCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
-                                        Component::Transform *transform, Component::RigidBody *rigidBody,
-                                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
-    {
-        if (collideBox->_onCollideExit)
-            if (collideBox->_onCollideExit(entity, otherEntity))
-                collideBox->_collided.remove(*otherCollideBox);
-            else if (rigidBody)
-                rollbackOnExit(transform, rigidBody, collideBox, otherCollideBox);
-        else
-            collideBox->_collided.remove(*otherCollideBox);
-    }
+        if (velocity.x > 0)
+            xOffset = otherRect.left - rect.left + rect.width;
+        else if (velocity.x < 0)
+            xOffset = rect.left - otherRect.left + otherRect.width;
+        if (velocity.y > 0)
+            yOffset = otherRect.top - rect.top + rect.height;
+        else if (velocity.y < 0)
+            yOffset = rect.top - otherRect.top + otherRect.height;
 
-    void CollideBoxSystem::rollbackOnEnter(Component::Transform *transform, Component::RigidBody *rigidBody,
-                                    Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
-    {
-        float xOffset(0);
-        float yOffset(0);
-
-        if (collideBox->_collideBox.left < otherCollideBox->_collideBox.left)
-            xOffset = collideBox->_collideBox.left + collideBox->_collideBox.width - otherCollideBox->_collideBox.left;
-        else if (collideBox->_collideBox.left + collideBox->_collideBox.width > otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width)
-            xOffset = otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width - collideBox->_collideBox.left;
-
-        if (collideBox->_collideBox.top < otherCollideBox->_collideBox.top)
-            yOffset = collideBox->_collideBox.top + collideBox->_collideBox.height - otherCollideBox->_collideBox.top;
-        else if (collideBox->_collideBox.top + collideBox->_collideBox.height > otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height)
-            yOffset = otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height - collideBox->_collideBox.top;
-
-        if (xOffset < yOffset || yOffset == 0) {
-            if (rigidBody->velocity.x > 0) {
-                transform->position.x -= xOffset;
-                collideBox->_collideBox.left -= xOffset;
-            } else if (rigidBody->velocity.x < 0) {
-                transform->position.x += xOffset;
-                collideBox->_collideBox.left += xOffset;
-            }
-
-        } else {
-            if (rigidBody->velocity.y > 0) {
-                transform->position.y -= yOffset;
-                collideBox->_collideBox.top -= yOffset;
-            } else if (rigidBody->velocity.y < 0) {
-                transform->position.y += yOffset;
-                collideBox->_collideBox.top += yOffset;
-            }
-        }
-    }
-
-    void CollideBoxSystem::rollbackOnExit(Component::Transform *transform, Component::RigidBody *rigidBody,
-                                    Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox)
-    {
-        float xOffset(0);
-        float yOffset(0);
-
-        if (collideBox->_collideBox.left < otherCollideBox->_collideBox.left)
-            xOffset = otherCollideBox->_collideBox.left - collideBox->_collideBox.left;
-        else if (collideBox->_collideBox.left + collideBox->_collideBox.width > otherCollideBox->_collideBox.left + otherCollideBox->_collideBox.width)
-            xOffset = collideBox->_collideBox.left + collideBox->_collideBox.width - otherCollideBox->_collideBox.left - otherCollideBox->_collideBox.width;
-
-        if (collideBox->_collideBox.top < otherCollideBox->_collideBox.top)
-            yOffset = otherCollideBox->_collideBox.top - collideBox->_collideBox.top;
-        else if (collideBox->_collideBox.top + collideBox->_collideBox.height > otherCollideBox->_collideBox.top + otherCollideBox->_collideBox.height)
-            yOffset = collideBox->_collideBox.top + collideBox->_collideBox.height - otherCollideBox->_collideBox.top - otherCollideBox->_collideBox.height;
-        
-        if (rigidBody->velocity.x > 0) {
-            transform->position.x -= xOffset;
-            collideBox->_collideBox.left -= xOffset;
-        } else if (rigidBody->velocity.x < 0) {
+        if (abs(xOffset) < abs(yOffset) && xOffset != 0)
             transform->position.x += xOffset;
-            collideBox->_collideBox.left += xOffset;
-        }
-
-        if (rigidBody->velocity.y > 0) {
-            transform->position.y -= yOffset;
-            collideBox->_collideBox.top -= yOffset;
-        } else if (rigidBody->velocity.y < 0) {
+        else if (yOffset != 0)
             transform->position.y += yOffset;
-            collideBox->_collideBox.top += yOffset;
+    }
+
+    void CollideBoxSystem::rollbackOnExit(sf::FloatRect rect, sf::FloatRect otherRect,
+                                        Component::Transform *transform, sf::Vector2f velocity)
+    {
+        float xOffset = 0;
+        float yOffset = 0;
+
+        if (velocity.x > 0)
+            xOffset = rect.left + rect.width - otherRect.left - otherRect.width;
+        else if (velocity.x < 0)
+            xOffset = otherRect.left - rect.left;
+        if (velocity.y > 0)
+            yOffset = rect.top + rect.height - otherRect.top - otherRect.height;
+        else if (velocity.y < 0)
+            yOffset = otherRect.top - rect.top;
+
+        if (xOffset >= 0) {
+            if (velocity.x > 0)
+                transform->position.x -= xOffset;
+            else if (velocity.x < 0)
+                transform->position.x += xOffset;
+        }
+        if (yOffset >= 0) {
+            if (velocity.y > 0)
+                transform->position.y -= yOffset;
+            else if (velocity.y < 0)
+                transform->position.y += yOffset;
         }
     }
 }

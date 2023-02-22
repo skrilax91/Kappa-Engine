@@ -7,29 +7,29 @@
 
 #include <string>
 #include <vector>
+#include <functional>
 #include <SFML/Graphics.hpp>
 
+#include "KappaEngine/Entity/Entity.hpp"
 #include "IComponent.hpp"
 
 namespace Component {
     class CollideBox : public IComponent {
         public:
-            CollideBox(sf::FloatRect &collideBox, std::string &tag,
-                std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideEnter =  nullptr,
-                std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideExit = nullptr,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onCollideStay = nullptr,
-                std::vector<std::string> collidingTags = {})
-                    : _collideBox(collideBox), _tag(tag), _notCollidingTags(collidingTags),
-                    _onCollideEnter(onCollideEnter), _onCollideExit(onCollideExit), _onCollideStay(onCollideStay) {};
+            CollideBox(sf::Vector2f &dimensions, std::string &tag, std::vector<std::string> collidingTags = {})
+                    : _dimensions(dimensions), _tag(tag), _notCollidingTags(collidingTags) {};
 
-            sf::FloatRect _collideBox;
+            sf::Vector2f _dimensions;
             std::list<CollideBox &> _collided = {};
             std::string _tag;
             std::vector<std::string> _notCollidingTags;
 
-            std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideEnter;
-            std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideExit;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideStay;
+            std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideEnter =
+                [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return false; };
+            std::function<bool(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideExit =
+                [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return true; };
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onCollideStay =
+                [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return; };
     };
 }
 

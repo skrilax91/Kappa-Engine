@@ -19,16 +19,10 @@ namespace KappaEngine {
         private:
             bool canCollide(Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox);
             bool findCollide(std::list<Component::CollideBox &> &list, Component::CollideBox *collide);
-            void rollbackOnEnter(Component::Transform *transform, Component::RigidBody *rigidBody,
-                        Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox);
-            void rollbackOnExit(Component::Transform *transform, Component::RigidBody *rigidBody,
-                                Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox);
-            void enterCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
-                                Component::Transform *transform, Component::RigidBody *rigidBody,
-                                Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox);
-            void exitCollideBox(std::shared_ptr<Entity> entity, std::shared_ptr<Entity> otherEntity,
-                                Component::Transform *transform, Component::RigidBody *rigidBody,
-                                Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox);
+            void rollbackOnEnter(sf::FloatRect rect, sf::FloatRect otherRect,
+                                Component::Transform *transform, sf::Vector2f velocity);
+            void rollbackOnExit(sf::FloatRect rect, sf::FloatRect otherRect,
+                                Component::Transform *transform, sf::Vector2f velocity);
     };
 }
 
