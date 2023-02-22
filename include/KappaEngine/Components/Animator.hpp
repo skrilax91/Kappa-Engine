@@ -32,11 +32,11 @@ namespace Component {
     };
     class Animator : public IComponent {
         public:
-            Animator(std::unordered_map<std::string, *Animation> animations, std::string idleAnimation):
+            Animator(std::unordered_map<std::string, Animation *> animations, std::string idleAnimation):
                 _animations(animations),
                 _actualAnimation(idleAnimation),
                 _idleAnimation(std::move(idleAnimation)) {};
-            std::unordered_map<std::string, Animation> _animations;
+            std::unordered_map<std::string, Animation *> _animations;
             std::string _idleAnimation;
             std::string _actualAnimation;
     };

@@ -17,7 +17,7 @@ TEST(GameManager, GetScene) {
     ASSERT_EQ(scene2, scene);
 }
 
-TEST(GameManager, SelecteScene) {
+TEST(GameManager, SelectScene) {
     auto scene = KappaEngine::GameManager::CreateScene("MainScene");
     KappaEngine::GameManager::SelectScene("MainScene");
     ASSERT_EQ(KappaEngine::GameManager::GetSelectedScene(), scene);

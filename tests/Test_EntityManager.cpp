@@ -20,8 +20,8 @@ TEST(EntityManager, GetEntity) {
 
 TEST(EntityManager, GetEntitiesWithComponent) {
     KappaEngine::EntityManager entityManager(nullptr);
-    auto entity = entityManager.createEntity("test", [](KappaEngine::Entity &ent) {
-        ent.registerComponent(Component::Transform({0, 0}, {1, 1}, {0, 0}));
+    auto entity = entityManager.createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::Transform({0, 0}, {1, 1}, {0, 0}));
     });
     auto entity2 = entityManager.createEntity("test2");
     auto entities = entityManager.getEntitiesWithComponent<Component::Transform>();
