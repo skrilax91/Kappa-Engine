@@ -41,20 +41,20 @@ namespace KappaEngine {
             if (rect.intersects(otherRect)) {
                 if (!findTrigger(trigger->_triggered, otherTrigger)) {
                     trigger->_onTriggerEnter(entity, ent);
-                    trigger->_triggered.push_back(*otherTrigger);
+                    trigger->_triggered.push_back(otherTrigger);
                 } else
                     trigger->_onTriggerStay(entity, ent);
             } else if (findTrigger(trigger->_triggered, otherTrigger)) {
                 trigger->_onTriggerExit(entity, ent);
-                trigger->_triggered.remove(*otherTrigger);
+                trigger->_triggered.remove(otherTrigger);
             }
         }
     }
 
-    bool TriggerBoxSystem::findTrigger(std::list<Component::TriggerBox &> &list, Component::TriggerBox *trigger)
+    bool TriggerBoxSystem::findTrigger(std::list<Component::TriggerBox *> &list, Component::TriggerBox *trigger)
     {
         for (auto &trig: list) {
-            if (&trig == trigger)
+            if (trig == trigger)
                 return true;
         }
         return false;

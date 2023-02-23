@@ -19,7 +19,7 @@ namespace Component {
                 : _dimensions(dimensions) {};
 
             sf::Vector2f _dimensions;
-            std::list<TriggerBox &> _triggered = {};
+            std::list<TriggerBox *> _triggered = {};
             std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerEnter =
                 [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return; };
             std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerExit =

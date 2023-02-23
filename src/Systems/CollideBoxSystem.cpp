@@ -38,21 +38,21 @@ namespace KappaEngine {
                     if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
                         rollbackOnEnter(rect, otherRect, transform, rigidBody->velocity);
                     else
-                        collideBox->_collided.push_back(*otherCollideBox);
+                        collideBox->_collided.push_back(otherCollideBox);
                 } else
                     collideBox->_onCollideStay(entity, otherEntity);
             } else if (findCollide(collideBox->_collided, otherCollideBox)) {
                 if (!collideBox->_onCollideExit(entity, otherEntity) && rigidBody)
                     rollbackOnExit(rect, otherRect, transform, rigidBody->velocity);
                 else
-                    collideBox->_collided.remove(*otherCollideBox);
+                    collideBox->_collided.remove(otherCollideBox);
             }
         }
     }
 
-    bool CollideBoxSystem::findCollide(std::list<Component::CollideBox &> &list, Component::CollideBox *collide) {
+    bool CollideBoxSystem::findCollide(std::list<Component::CollideBox *> &list, Component::CollideBox *collide) {
         for (auto &collideBox : list) {
-            if (&collideBox == collide)
+            if (collideBox == collide)
                 return true;
         }
         return false;

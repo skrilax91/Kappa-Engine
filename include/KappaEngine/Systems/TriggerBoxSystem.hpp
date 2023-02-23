@@ -17,6 +17,6 @@ namespace KappaEngine {
             void OnTriggerCheck(std::shared_ptr<Entity> entity);
 
         private:
-            bool findTrigger(std::list<Component::TriggerBox &> &list, Component::TriggerBox *trigger);
+            bool findTrigger(std::list<Component::TriggerBox *> &list, Component::TriggerBox *trigger);
     };
 }

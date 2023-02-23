@@ -20,7 +20,7 @@ namespace Component {
                     : _dimensions(dimensions), _tag(tag), _notCollidingTags(collidingTags) {};
 
             sf::Vector2f _dimensions;
-            std::list<CollideBox &> _collided = {};
+            std::list<CollideBox *> _collided = {};
             std::string _tag;
             std::vector<std::string> _notCollidingTags;
 
