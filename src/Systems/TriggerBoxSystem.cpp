@@ -14,19 +14,17 @@ namespace KappaEngine {
         auto trigger = entity->getComponent<Component::TriggerBox>();
         auto transform = entity->getComponent<Component::Transform>();
 
-        if (trigger == nullptr || transform == nullptr)
-            return;
-        else if (!trigger->enabled || !transform->enabled)
+        if (trigger == nullptr || transform == nullptr || !trigger->enabled || !transform->enabled)
             return;
 
         sf::FloatRect rect = {transform->position.x, transform->position.y, trigger->_dimensions.x, trigger->_dimensions.y};
 
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
 
-        for (auto ent: ents) {
+        for (const auto& ent: ents) {
             auto otherTrigger = ent->getComponent<Component::TriggerBox>();
 
-            if (ent == entity)
+            if (ent == entity || otherTrigger == nullptr || otherTransform == nullptr || !otherTrigger->enabled || !otherTransform->enabled)
                 continue;
 
             auto otherTransform = ent->getComponent<Component::Transform>();

@@ -10,10 +10,10 @@
 using namespace KappaEngine;
 
 std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name) {
-    return createEntity(name, [](Entity &entity) {});
+    return createEntity(name, [](std::shared_ptr<Entity>) {});
 }
 
-std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name, void (*cb)(Entity &)) {
+std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name, const std::function<void(std::shared_ptr<Entity>)>& cb) {
     for (auto &entity: _entities) {
         if (entity->getId() == name) {
             throw std::runtime_error("Entity already exist");
@@ -21,7 +21,7 @@ std::shared_ptr<Entity> EntityManager::createEntity(const std::string& name, voi
     }
 
     auto entity = std::make_shared<Entity>(name);
-    cb(*entity);
+    cb(entity);
     _entities.push_back(entity);
 
     // Handle systems if game is started and if the entity is in the selected scene (if there is one)
@@ -71,10 +71,10 @@ std::list <std::shared_ptr<Entity>> EntityManager::getEntities() {
     return _entities;
 }
 
-Entity &EntityManager::getEntity(const std::string& name) {
-    for (auto &entity: _entities) {
+std::shared_ptr<Entity> EntityManager::getEntity(const std::string& name) {
+    for (auto entity: _entities) {
         if (entity->getId() == name) {
-            return *entity;
+            return entity;
         }
     }
     throw std::runtime_error("Entity not found");

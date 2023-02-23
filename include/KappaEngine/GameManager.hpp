@@ -6,6 +6,7 @@
 #define KAPPA_ENGINE_GAMEMANAGER_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #include <string>
 #include <vector>
@@ -88,20 +89,26 @@ namespace KappaEngine {
              * @param name The name of the scene
              * @return The scene
              */
-            static Scene *CreateScene(const std::string& name);
+            static std::shared_ptr<Scene> CreateScene(const std::string& name);
+
+            /**
+             * @brief Get the scenes
+             * @return The scenes
+             */
+            static std::list<std::shared_ptr<Scene>> GetScenes();
 
             /**
              * @brief Get the scene
              * @param name The name of the scene
              * @return The scene
              */
-            static Scene* GetScene(const std::string& name);
+            static std::shared_ptr<Scene> GetScene(const std::string& name);
 
             /**
              * @brief Get the selected scene
              * @return The selected scene
              */
-            static Scene* GetSelectedScene();
+            static std::shared_ptr<Scene> GetSelectedScene();
 
             /**
              * @brief Select the scene
@@ -192,8 +199,8 @@ namespace KappaEngine {
             static bool _started;
             static bool _fullscreen;
 
-            static std::vector<Scene *> _scenes;
-            static Scene *_selectedScene;
+            static std::list<std::shared_ptr<Scene>> _scenes;
+            static std::shared_ptr<Scene> _selectedScene;
 
             static Network::ServerInterface *_server;
             static Network::ClientInterface *_client;

@@ -9,6 +9,8 @@
 #include <utility>
 #include <vector>
 
+#include "KappaEngine/GameManager.hpp"
+
 namespace KappaEngine {
     /*
      * @brief The Input class is used to manage the input of the user
@@ -17,12 +19,28 @@ namespace KappaEngine {
         public:
 
             /*
-             * @brief IsKeyPressed Check if a key is pressed
+             * @brief InitNetworkKeys Initialize the network keys
+             */
+            static void InitNetworkKeys();
+
+            /*
+             * @brief IsKeyPressed Check if a key is pressed.
+             *
+             * @network SERVER If the key is pressed on the network for the given id
+             *
              * @tparam T The key to check
-             * @return True if the key is pressed, false otherwise
+             * @param id The id of the player to check (only for server)
+             *
+             * @return True if the key is pressed, false otherwise (or if the id is invalid)
              */
             template<sf::Keyboard::Key T>
-            static bool IsKeyPressed() {
+            static bool IsKeyPressed(uint32_t id = -1) {
+                if (GameManager::GetServer()) {
+                    if (id == -1)
+                        return false;
+                    return _networkKeysPressed[id][T];
+                }
+
                 return _keysPressed[T];
             }
 
@@ -66,6 +84,7 @@ namespace KappaEngine {
         private:
             static std::vector<const sf::Event *> _events;
             static std::map<sf::Keyboard::Key, bool> _keysPressed;
+            static std::map<uint32_t, std::map<sf::Keyboard::Key, bool>> _networkKeysPressed;
     };
 }
 
