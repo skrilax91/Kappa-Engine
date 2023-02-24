@@ -17,14 +17,15 @@ namespace KappaEngine {
         if (trigger == nullptr || transform == nullptr || !trigger->enabled || !transform->enabled)
             return;
 
-        sf::FloatRect rect = {transform->position.x, transform->position.y, trigger->_dimensions.x, trigger->_dimensions.y};
+        sf::FloatRect rect = {transform->position.x, transform->position.y,
+                              trigger->_dimensions.x * transform->scale.x, trigger->_dimensions.y * transform->scale.y};
 
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
 
         for (const auto& ent: ents) {
             auto otherTrigger = ent->getComponent<Component::TriggerBox>();
 
-            if (ent == entity || otherTrigger == nullptr || otherTransform == nullptr || !otherTrigger->enabled || !otherTransform->enabled)
+            if (ent == entity || otherTrigger == nullptr || !otherTrigger->enabled)
                 continue;
 
             auto otherTransform = ent->getComponent<Component::Transform>();
@@ -34,7 +35,8 @@ namespace KappaEngine {
             else if (!otherTrigger->enabled || !otherTransform->enabled)
                 continue;
 
-            sf::FloatRect otherRect = {otherTransform->position.x, otherTransform->position.y, otherTrigger->_dimensions.x, otherTrigger->_dimensions.y};
+            sf::FloatRect otherRect = {otherTransform->position.x, otherTransform->position.y,
+                                       otherTrigger->_dimensions.x * otherTransform->scale.x, otherTrigger->_dimensions.y * otherTransform->scale.y};
 
             if (rect.intersects(otherRect)) {
                 if (!findTrigger(trigger->_triggered, otherTrigger)) {

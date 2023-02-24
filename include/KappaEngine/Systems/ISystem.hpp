@@ -60,6 +60,20 @@ namespace KappaEngine {
             virtual void FixedUpdate() {};
 
             /**
+             * @brief OnCollideCheck Called to check if an entity is colliding.
+             *
+             * @param entity The entity to check
+             */
+            virtual void OnCollideCheck(std::shared_ptr<Entity> entity) {};
+
+            /**
+             * @brief OnTriggerCheck Called to check if an entity is triggering.
+             *
+             * @param entity The entity to check
+             */
+            virtual void OnTriggerCheck(std::shared_ptr<Entity> entity) {};
+
+            /**
              * @brief Update Called every frame.
              *
              * This function will be called every frame.

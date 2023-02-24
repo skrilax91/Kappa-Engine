@@ -12,29 +12,39 @@ namespace KappaEngine {
         auto transform = entity->getComponent<Component::Transform>();
         auto rigidBody = entity->getComponent<Component::RigidBody>();
 
-        if (collideBox == nullptr || collideBox->_notCollidingTags.empty() || !collideBox->enabled
-            || transform == nullptr || !transform->enabled)
+        std::cout << "Checking collisions for Entity " << entity->getId() << "..." << std::endl;
+
+        if (collideBox == nullptr || !collideBox->enabled || transform == nullptr || !transform->enabled)
             return;
 
-        sf::FloatRect rect = {transform->position.x, transform->position.y, collideBox->_dimensions.x, collideBox->_dimensions.y};
+        sf::FloatRect rect = {transform->position.x, transform->position.y,
+                              collideBox->_dimensions.x * transform->scale.x, collideBox->_dimensions.y * transform->scale.y};
 
-        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::CollideBox>();
+        auto entities = _scene->getEntityManager()->getEntitiesWithComponent<Component::CollideBox>();
 
-        for (auto otherEntity : ents) {
+        for (auto otherEntity : entities) {
             if (otherEntity == entity)
                 continue;
+
+            std::cout << "Checking collision with Entity " << otherEntity->getId() << "..." << std::endl;
 
             auto otherCollideBox = otherEntity->getComponent<Component::CollideBox>();
             auto otherTransform = otherEntity->getComponent<Component::Transform>();
 
-            if (otherCollideBox == nullptr || !otherCollideBox->enabled || canCollide(collideBox, otherCollideBox)
+            if (otherCollideBox == nullptr || !otherCollideBox->enabled || !canCollide(collideBox, otherCollideBox)
                 || otherTransform == nullptr || !otherTransform->enabled)
                 continue;
 
-            sf::FloatRect otherRect = {otherTransform->position.x, otherTransform->position.y, otherCollideBox->_dimensions.x, otherCollideBox->_dimensions.y};
+            sf::FloatRect otherRect = {otherTransform->position.x, otherTransform->position.y,
+                                       otherCollideBox->_dimensions.x * otherTransform->scale.x, otherCollideBox->_dimensions.y * otherTransform->scale.y};
+
+            std::cout << entity->getId() << " collideBox: " << rect.left << ", " << rect.top << ", " << rect.width << ", " << rect.height << std::endl;
+            std::cout << otherEntity->getId() << " collideBox: " << otherRect.left << ", " << otherRect.top << ", " << otherRect.width << ", " << otherRect.height << std::endl;
 
             if (rect.intersects(otherRect)) {
+                std::cout << "Collision detected !" << std::endl;
                 if (!findCollide(collideBox->_collided, otherCollideBox)) {
+                    std::cout << "New collision !" << std::endl;
                     if (!collideBox->_onCollideEnter(entity, otherEntity) && rigidBody)
                         rollbackOnEnter(rect, otherRect, transform, rigidBody->velocity);
                     else
@@ -42,6 +52,7 @@ namespace KappaEngine {
                 } else
                     collideBox->_onCollideStay(entity, otherEntity);
             } else if (findCollide(collideBox->_collided, otherCollideBox)) {
+                std::cout << "No collision anymore !" << std::endl;
                 if (!collideBox->_onCollideExit(entity, otherEntity) && rigidBody)
                     rollbackOnExit(rect, otherRect, transform, rigidBody->velocity);
                 else
@@ -51,18 +62,22 @@ namespace KappaEngine {
     }
 
     bool CollideBoxSystem::findCollide(std::list<Component::CollideBox *> &list, Component::CollideBox *collide) {
+        std::cout << "Looking for existing collision..." << std::endl;
         for (auto &collideBox : list) {
             if (collideBox == collide)
                 return true;
         }
+        std::cout << "No collision found !" << std::endl;
         return false;
     }
 
     bool CollideBoxSystem::canCollide(Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox) {
+        std::cout << "Checking if collision is allowed..." << std::endl;
         for (auto &tag : collideBox->_notCollidingTags) {
             if (tag == otherCollideBox->_tag)
                 return false;
         }
+        std::cout << "Collision allowed !" << std::endl;
         return true;
     }
 
@@ -71,6 +86,8 @@ namespace KappaEngine {
     {
         float xOffset = 0;
         float yOffset = 0;
+
+        std::cout << "Rollback on enter !" << std::endl;
 
         if (velocity.x > 0)
             xOffset = otherRect.left - rect.left + rect.width;
@@ -92,6 +109,8 @@ namespace KappaEngine {
     {
         float xOffset = 0;
         float yOffset = 0;
+
+        std::cout << "Rollback on exit !" << std::endl;
 
         if (velocity.x > 0)
             xOffset = rect.left + rect.width - otherRect.left - otherRect.width;

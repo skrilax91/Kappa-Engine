@@ -14,7 +14,7 @@ namespace KappaEngine {
     class CollideBoxSystem : public ISystem {
         public:
             CollideBoxSystem(Scene *scene) : ISystem(scene) {};
-            void OnCollideCheck(std::shared_ptr<Entity> entity);
+            void OnCollideCheck(std::shared_ptr<Entity> entity) override;
 
         private:
             bool canCollide(Component::CollideBox *collideBox, Component::CollideBox *otherCollideBox);

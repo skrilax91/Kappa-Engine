@@ -15,7 +15,7 @@
 namespace Component {
     class TriggerBox : public IComponent {
         public:
-            TriggerBox(const sf::Vector2f &dimensions)
+            TriggerBox(const sf::Vector2f dimensions)
                 : _dimensions(dimensions) {};
 
             sf::Vector2f _dimensions;

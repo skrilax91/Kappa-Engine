@@ -16,7 +16,7 @@
 namespace Component {
     class CollideBox : public IComponent {
         public:
-            CollideBox(sf::Vector2f &dimensions, std::string &tag, std::vector<std::string> collidingTags = {})
+            CollideBox(sf::Vector2f dimensions, std::string tag, std::vector<std::string> collidingTags = {})
                     : _dimensions(dimensions), _tag(tag), _notCollidingTags(collidingTags) {};
 
             sf::Vector2f _dimensions;
