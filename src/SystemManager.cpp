@@ -8,6 +8,7 @@
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
+#include "KappaEngine/Systems/AnimationSystem.hpp"
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/Systems/NetworkSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
@@ -19,6 +20,7 @@ namespace KappaEngine {
         // Register all internal systems
         registerSystem<RigidBodySystem>();
         registerSystem<CollideBoxSystem>();
+        registerSystem<AnimationSystem>();
         registerSystem<SpriteRendererSystem>();
         registerSystem<NetworkSystem>();
 
@@ -98,6 +100,12 @@ namespace KappaEngine {
             system->LateUpdate();
         }
         //std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
+    }
+
+    void SystemManager::OnAnimator() {
+        for (auto &system: _systems) {
+            system->OnAnimator();
+        }
     }
 
 

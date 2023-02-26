@@ -102,6 +102,7 @@ namespace KappaEngine {
 
             if (_window) {
                 _window->clear();
+                _selectedScene->OnAnimator();
                 _selectedScene->OnRenderObject();
                 RenderWindow();
             }

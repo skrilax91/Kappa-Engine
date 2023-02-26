@@ -77,6 +77,13 @@ namespace KappaEngine {
             virtual void LateUpdate() {};
 
             /**
+             * @brief OnAnimator Called every frame after the Update function.
+             * This function will be called every frame after the Update function.
+             * It is used for animation calculations.
+             */
+            virtual void OnAnimator() {};
+
+            /**
              * @brief OnGUI Called every frame after the Update function.
              *
              * This function will be called every frame after the Update function.

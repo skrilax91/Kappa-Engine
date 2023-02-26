@@ -11,7 +11,7 @@ namespace KappaEngine {
     class AnimationSystem : public ISystem {
         public:
             explicit AnimationSystem(Scene *scene) : ISystem(scene) {};
-            void OnAnimator();
+            void OnAnimator() override;
     };
 }
 
