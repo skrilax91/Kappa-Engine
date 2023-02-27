@@ -12,8 +12,6 @@ namespace KappaEngine {
         auto transform = entity->getComponent<Component::Transform>();
         auto rigidBody = entity->getComponent<Component::RigidBody>();
 
-        std::cout << "Checking collisions for Entity " << entity->getId() << "..." << std::endl;
-
         if (collideBox == nullptr || !collideBox->enabled || transform == nullptr || !transform->enabled)
             return;
 
@@ -90,18 +88,23 @@ namespace KappaEngine {
         std::cout << "Rollback on enter !" << std::endl;
 
         if (velocity.x > 0)
-            xOffset = otherRect.left - rect.left + rect.width;
+            xOffset = otherRect.left - (rect.left + rect.width);
         else if (velocity.x < 0)
-            xOffset = rect.left - otherRect.left + otherRect.width;
+            xOffset = rect.left - (otherRect.left + otherRect.width);
         if (velocity.y > 0)
-            yOffset = otherRect.top - rect.top + rect.height;
+            yOffset = otherRect.top - (rect.top + rect.height);
         else if (velocity.y < 0)
-            yOffset = rect.top - otherRect.top + otherRect.height;
+            yOffset = rect.top - (otherRect.top + otherRect.height);
 
-        if (abs(xOffset) < abs(yOffset) && xOffset != 0)
+        std::cout << "Offsets: " << xOffset << ", " << yOffset << std::endl;
+        std::cout << "Position: " << transform->position.x << ", " << transform->position.y << std::endl;
+
+        if (abs(xOffset) < abs(yOffset) && velocity.y == 0)
             transform->position.x += xOffset;
-        else if (yOffset != 0)
+        else if (abs(yOffset) < abs(xOffset) || velocity.x == 0)
             transform->position.y += yOffset;
+
+        std::cout << "New position: " << transform->position.x << ", " << transform->position.y << std::endl;
     }
 
     void CollideBoxSystem::rollbackOnExit(sf::FloatRect rect, sf::FloatRect otherRect,
