@@ -64,6 +64,13 @@ namespace KappaEngine {
             void Update();
 
             /**
+             * @brief OnAnimator Update the animator.
+             *
+             * This function will update the animator.
+             */
+            void OnAnimator();
+
+            /**
              * @brief OnRenderObject Render the scene.
              *
              * This function will render the scene.
