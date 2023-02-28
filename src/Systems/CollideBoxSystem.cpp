@@ -5,9 +5,19 @@
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
 #include "KappaEngine/Components/CollideBox.hpp"
 #include "KappaEngine/Components/Transform.hpp"
+#include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Components/NetworkComponent.hpp"
 
 namespace KappaEngine {
     void CollideBoxSystem::OnCollideCheck(std::shared_ptr<Entity> entity) {
+
+        if (GameManager::isNetworked()) {
+            auto net = entity->getComponent<Component::NetworkComponent>();
+
+            if (net && ((net->ownerId != 0 && GameManager::GetServer()) || net->ownerId != GameManager::GetClient()->GetID()))
+                return;
+        }
+
         auto collideBox = entity->getComponent<Component::CollideBox>();
         auto transform = entity->getComponent<Component::Transform>();
         auto rigidBody = entity->getComponent<Component::RigidBody>();
