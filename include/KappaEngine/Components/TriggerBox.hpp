@@ -15,16 +15,16 @@
 namespace Component {
     class TriggerBox : public IComponent {
         public:
-            TriggerBox(const sf::FloatRect &triggerBox,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onTriggerEnter = nullptr,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onTriggerExit = nullptr,
-                std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> onTriggerStay = nullptr)
-                : _triggerBox(triggerBox), _onTriggerEnter(onTriggerEnter), _onTriggerExit(onTriggerExit), _onTriggerStay(onTriggerStay) {};
+            TriggerBox(const sf::Vector2f dimensions)
+                : _dimensions(dimensions) {};
 
-            sf::FloatRect _triggerBox;
-            std::list<TriggerBox *> _triggered;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerEnter;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerExit;
-            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerStay;
+            sf::Vector2f _dimensions;
+            std::list<TriggerBox *> _triggered = {};
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerEnter =
+                [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return; };
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerExit =
+                [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return; };
+            std::function<void(std::shared_ptr<KappaEngine::Entity>, std::shared_ptr<KappaEngine::Entity>)> _onTriggerStay =
+                [](std::shared_ptr<KappaEngine::Entity> entity, std::shared_ptr<KappaEngine::Entity> other){ return; };
     };
 }
