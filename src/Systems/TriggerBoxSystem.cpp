@@ -7,10 +7,19 @@
 
 #include "KappaEngine/Systems/TriggerBoxSystem.hpp"
 #include "KappaEngine/Components/Transform.hpp"
+#include "KappaEngine/Components/NetworkComponent.hpp"
+#include "KappaEngine/GameManager.hpp"
 
 namespace KappaEngine {
     void TriggerBoxSystem::OnTriggerCheck(std::shared_ptr<Entity> entity)
     {
+        if (GameManager::isNetworked()) {
+            auto net = entity->getComponent<Component::NetworkComponent>();
+
+            if (net && ((net->ownerId != 0 && GameManager::GetServer()) || net->ownerId != GameManager::GetClient()->GetID()))
+                return;
+        }
+
         auto trigger = entity->getComponent<Component::TriggerBox>();
         auto transform = entity->getComponent<Component::Transform>();
 
