@@ -11,6 +11,8 @@ namespace KappaEngine {
     class AnimationSystem : public ISystem {
         public:
             explicit AnimationSystem(Scene *scene) : ISystem(scene) {};
+
+            void Awake(std::shared_ptr<Entity>) override;
             void OnAnimator() override;
     };
 }

@@ -1,5 +1,4 @@
-#ifndef KAPPA_ENGINE_RIGIDBODY_HPP
-#define KAPPA_ENGINE_RIGIDBODY_HPP
+#pragma once
 
 #include <string>
 #include "IComponent.hpp"
@@ -12,7 +11,7 @@ namespace Component {
 
     class Animation {
         public:
-            Animation(std::string id, std::string texturePath, Component::SpriteRenderer & spriteRenderer, std::vector<sf::IntRect> textureRect, float duration, bool loop):
+            Animation(std::string id, std::string texturePath, std::shared_ptr<Component::SpriteRenderer> spriteRenderer, std::vector<sf::IntRect> textureRect, float duration, bool loop):
                 _texturePath(std::move(texturePath)),
                 _textureRect(textureRect),
                 _spriteRenderer(spriteRenderer),
@@ -22,7 +21,7 @@ namespace Component {
 
             std::string _texturePath;
             sf::Texture _texture;
-            Component::SpriteRenderer & _spriteRenderer;
+            std::shared_ptr<Component::SpriteRenderer> _spriteRenderer;
             std::vector<sf::IntRect> _textureRect;
             std::string _id;
             int _actualFrame = 0;
@@ -41,5 +40,3 @@ namespace Component {
             std::string _actualAnimation;
     };
 }
-
-#endif //KAPPA_ENGINE_RIGIDBODY_HPP
