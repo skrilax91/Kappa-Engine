@@ -2,11 +2,9 @@
 // Created by Dylan A on 01/03/2023.
 //
 
-#include "ConfigurationManager.hpp"
+#include "KappaEngine/ConfigurationManager.hpp"
 #include <fstream>
 #include <iostream>
-#include <sstream>
-#include <algorithm>
 #include <regex>
 
 namespace KappaEngine {
