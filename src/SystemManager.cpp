@@ -8,8 +8,10 @@
 #include "KappaEngine/SystemManager.hpp"
 #include "KappaEngine/Systems/RigidBodySystem.hpp"
 #include "KappaEngine/Systems/CollideBoxSystem.hpp"
+#include "KappaEngine/Systems/AnimationSystem.hpp"
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/Systems/NetworkSystem.hpp"
+#include "KappaEngine/Systems/TriggerBoxSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
 #include "KappaEngine/Input.hpp"
 
@@ -19,6 +21,8 @@ namespace KappaEngine {
         // Register all internal systems
         registerSystem<RigidBodySystem>();
         registerSystem<CollideBoxSystem>();
+        registerSystem<TriggerBoxSystem>();
+        registerSystem<AnimationSystem>();
         registerSystem<SpriteRendererSystem>();
         registerSystem<NetworkSystem>();
 
@@ -36,7 +40,7 @@ namespace KappaEngine {
     }
 
     void SystemManager::Awake(std::shared_ptr<Entity> entity) {
-        for (auto &system: _systems) {
+        for (auto system: _systems) {
             system->Awake(entity);
         }
     }
@@ -54,7 +58,7 @@ namespace KappaEngine {
     }
 
     void SystemManager::Start(std::shared_ptr<Entity> entity) {
-        for (auto &system: _systems) {
+        for (auto system: _systems) {
             system->Start(entity);
         }
     }
@@ -85,24 +89,36 @@ namespace KappaEngine {
         }
 
         Time::RunOnFixedEnv([&] {
-            for (auto &system: _systems) {
+            for (auto system: _systems) {
                 system->FixedUpdate();
+            }
+            for (auto ent : _scene->getEntityManager()->getEntities()) {
+                for (auto system: _systems) {
+                    system->OnCollideCheck(ent);
+                    system->OnTriggerCheck(ent);
+                }
             }
         });
 
-        for (auto &system: _systems) {
+        for (auto system: _systems) {
             system->Update();
         }
 
-        for (auto &system: _systems) {
+        for (auto system: _systems) {
             system->LateUpdate();
         }
         //std::cout << "FPS: " << 1 / Time::DeltaTime().asSeconds() << std::endl;
     }
 
+    void SystemManager::OnAnimator() {
+        for (auto &system: _systems) {
+            system->OnAnimator();
+        }
+    }
+
 
     void SystemManager::OnRenderObject() {
-        for (auto &system: _systems) {
+        for (auto system: _systems) {
             system->OnRenderObject();
         }
     }

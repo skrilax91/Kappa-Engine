@@ -49,7 +49,7 @@ namespace KappaEngine {
             bool isPressed = false;
 
             for (auto &event : _events) {
-                if (event->type == sf::Event::KeyPressed) {
+                if (event->type == sf::Event::KeyPressed && !_keysPressed[event->key.code]) {
                     isPressed = true;
                     msg << event->key.code;
                 }

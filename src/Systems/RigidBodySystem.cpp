@@ -23,11 +23,11 @@ namespace KappaEngine {
             if (GameManager::isNetworked()) {
                 auto net = ent->getComponent<Component::NetworkComponent>();
 
-                if (GameManager::GetServer() && net && net->ownerId != -1) {
+                if (GameManager::GetServer() && net && net->ownerId != 0) {
                     continue;
                 }
 
-                if (GameManager::GetClient() && net && net->ownerId == GameManager::GetClient()->GetID()) {
+                if (GameManager::GetClient() && net && net->ownerId != GameManager::GetClient()->GetID()) {
                     continue;
                 }
             }
