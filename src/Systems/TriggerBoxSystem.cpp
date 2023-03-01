@@ -16,7 +16,9 @@ namespace KappaEngine {
         if (GameManager::isNetworked()) {
             auto net = entity->getComponent<Component::NetworkComponent>();
 
-            if (net && ((net->ownerId != 0 && GameManager::GetServer()) || net->ownerId != GameManager::GetClient()->GetID()))
+            if (net && net->ownerId != 0 && GameManager::GetServer())
+                return;
+            else if (net && GameManager::GetClient() && net->ownerId != GameManager::GetClient()->GetID())
                 return;
         }
 

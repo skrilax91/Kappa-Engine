@@ -27,6 +27,7 @@ namespace KappaEngine {
 
 
         for (auto animation : animator->_animations) {
+            animation.second->_clock.restart();
             if (srs->_textureCache.contains(animation.second->_texturePath)) {
                 std::cout << "AnimationSystem: texture " + animation.second->_texturePath + " already loaded" << std::endl;
                 animation.second->_texture = srs->_textureCache[animation.second->_texturePath];
@@ -44,11 +45,14 @@ namespace KappaEngine {
             srs->_textureCache[animation.second->_texturePath] = texture;
             animation.second->_texture = srs->_textureCache[animation.second->_texturePath];
             std::cout << "AnimationSystem: added texture " + animation.second->_texturePath << std::endl;
-
         }
     }
 
     void AnimationSystem::OnAnimator() {
+        if (GameManager::isNetworked() && GameManager::GetServer()) {
+            return;
+        }
+
         auto entities = _scene->getEntityManager()->getEntitiesWithComponent<Component::Animator>();
         for (auto entity : entities) {
             auto animator = entity->getComponent<Component::Animator>();

@@ -34,7 +34,7 @@ namespace Component {
             Animator(std::unordered_map<std::string, Animation *> animations, std::string idleAnimation):
                 _animations(animations),
                 _actualAnimation(idleAnimation),
-                _idleAnimation(std::move(idleAnimation)) {};
+                _idleAnimation(idleAnimation) {};
             std::unordered_map<std::string, Animation *> _animations;
             std::string _idleAnimation;
             std::string _actualAnimation;
