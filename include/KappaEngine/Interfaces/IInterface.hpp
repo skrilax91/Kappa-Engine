@@ -5,6 +5,9 @@
 #ifndef KAPPA_ENGINE_IINTERFACE_HPP
 #define KAPPA_ENGINE_IINTERFACE_HPP
 
+#include <SFML/Graphics.hpp>
+#include <functional>
+
 namespace Interface {
 
     enum Anchor {
@@ -21,6 +24,14 @@ namespace Interface {
         BOTTOM_CENTER,
     };
 
+    struct IPosition {
+        int x = 0;
+        int y = 0;
+        int width = 0;
+        int height = 0;
+        Anchor anchor = TOP_LEFT;
+    };
+
 
     class IInterface {
         public:
@@ -28,7 +39,7 @@ namespace Interface {
             bool enabled = true;
             bool onFocus = false;
 
-            virtual void OnRenderObject() {};
+            virtual void OnRenderInterface(IPosition pos) {};
 
             virtual void OnClick() { if (_onClick) { _onClick(); }};
             virtual void OnRelease() { if (_onRelease) { _onRelease(); }};
