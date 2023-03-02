@@ -11,17 +11,69 @@
 
 #include "KappaEngine/GameManager.hpp"
 #include "KappaEngine/Interfaces/IInterface.hpp"
+#include "KappaEngine/Managers/InterfaceManager.hpp"
+#include "KappaEngine/Input.hpp"
 
 namespace Interface {
     class ButtonInterface: public IInterface {
         public:
-            ButtonInterface();
+            ButtonInterface(IPosition position, sf::Sprite sprite, std::array<sf::IntRect, 3> rects): _rect(position), _sprite(sprite), _rects(rects) {
+                _sprite.setTextureRect(_rects[0]);
+            };
 
-            void OnRenderObject() override
-            {   if (_sprite.getTexture())
-                    KappaEngine::GameManager::GetWindow()->draw(_sprite);
-                if (_text.getString() != "")
-                    KappaEngine::GameManager::GetWindow()->draw(_text);   };
+            void OnRenderInterface(IPosition parent) override {
+                auto newPos = KappaEngine::InterfaceManager::GetAbsolutePosition(parent, _rect);
+                _sprite.setPosition(newPos.x, newPos.y);
+
+                auto mousePos = sf::Mouse::getPosition(*KappaEngine::GameManager::GetWindow());
+
+                if (newPos.x < mousePos.x && newPos.x + newPos.width > mousePos.x && newPos.y < mousePos.y && newPos.y + newPos.height > mousePos.y) {
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                        _sprite.setTextureRect(_rects[2]);
+                        if (_onClick != nullptr && !_isClicked) {
+                            _onClick();
+                            _isClicked = true;
+                            _isReleased = false;
+                        }
+                    } else {
+                        _sprite.setTextureRect(_rects[1]);
+
+                        if (_onRelease != nullptr && !_isReleased) {
+                            _onRelease();
+                            _isReleased = true;
+                            _isClicked = false;
+                        }
+
+                        if (_onHover != nullptr && !_isHovered) {
+                            _onHover();
+                            _isHovered = true;
+                            _isUnhovered = false;
+                        }
+
+                    }
+                } else {
+                    _sprite.setTextureRect(_rects[0]);
+
+                    if (_onUnhover != nullptr && !_isUnhovered) {
+                        _onUnhover();
+                        _isUnhovered = true;
+                        _isHovered = false;
+                    }
+
+                    if (_onRelease != nullptr && !_isReleased) {
+                        _onRelease();
+                        _isReleased = true;
+                        _isClicked = false;
+                    }
+                }
+
+                KappaEngine::GameManager::Draw(_sprite);
+
+                if (_text.getString() != "") {
+                    _text.setPosition(newPos.x + newPos.width / 2 - _text.getLocalBounds().width / 2, newPos.y + newPos.height / 2 - _text.getLocalBounds().height / 2);
+                    KappaEngine::GameManager::Draw(_text);
+                }
+            };
 
             void setOnClick(std::function<void()> onClick) { _onClick = onClick; };
             void setOnRelease(std::function<void()> onRelease) { _onRelease = onRelease; };
@@ -29,14 +81,11 @@ namespace Interface {
             void setOnUnhover(std::function<void()> onUnhover) { _onUnhover = onUnhover; };
 
             std::array<sf::IntRect, 3> _rects;
-            Anchor _anchor = Anchor::TOP_LEFT;
+            IPosition _rect;
 
-            sf::Sprite _sprite = sf::Sprite();
-
-            sf::Font _font = sf::Font();
-            unsigned int _charSize = 11;
-            sf::Vector2f _textPos = sf::Vector2f(0, 0);
-            sf::Text _text = sf::Text();
+            sf::Sprite _sprite;
+            sf::Font _font;
+            sf::Text _text;
     };
 }
 

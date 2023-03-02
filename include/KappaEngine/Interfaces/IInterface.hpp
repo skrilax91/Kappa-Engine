@@ -48,10 +48,16 @@ namespace Interface {
 
         protected:
             std::function<void()> _onClick;
+            bool _isClicked = false;
+
             std::function<void()> _onRelease;
+            bool _isReleased = true;
 
             std::function<void()> _onHover;
+            bool _isHovered = false;
+
             std::function<void()> _onUnhover;
+            bool _isUnhovered = true;
     };
 }
 
