@@ -3,6 +3,8 @@
 //
 
 #include "KappaEngine/Managers/InterfaceManager.hpp"
+#include "KappaEngine/Interfaces/IInterface.hpp"
+#include "KappaEngine/GameManager.hpp"
 
 std::unordered_map<std::string, std::shared_ptr<Interface::Canvas>> KappaEngine::InterfaceManager::_canvases = {};
 std::shared_ptr<Interface::Canvas> KappaEngine::InterfaceManager::_currentCanvas = nullptr;
@@ -24,6 +26,21 @@ std::shared_ptr<Interface::Canvas> KappaEngine::InterfaceManager::GetCanvas(cons
 }
 
 void KappaEngine::InterfaceManager::OnRenderInterface() {
-    if (_currentCanvas != nullptr)
-        _currentCanvas->OnRenderInterface({0, 0});
+    if (_currentCanvas != nullptr) {
+        _currentCanvas->SetPosition({
+                .x = 0,
+                .y = 0,
+                .width = GameManager::GetWindow()->getSize().x,
+                .height = GameManager::GetWindow()->getSize().y,
+                .anchor = Interface::Anchor::TOP_LEFT
+        });
+
+        _currentCanvas->OnRenderInterface({
+            .x = 0,
+            .y = 0,
+            .width = GameManager::GetWindow()->getSize().x,
+            .height = GameManager::GetWindow()->getSize().y,
+            .anchor = Interface::Anchor::TOP_LEFT
+        });
+    }
 }

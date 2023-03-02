@@ -48,6 +48,10 @@ namespace Interface {
                 }
             };
 
+            void SetPosition(IPosition pos) {
+                _rect = pos;
+            }
+
             void AddInterface(std::shared_ptr<IInterface> interface) {
                 _interfaces.push_back(interface);
             }
