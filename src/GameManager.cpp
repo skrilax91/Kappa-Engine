@@ -5,6 +5,7 @@
 #include <iostream>
 #include <utility>
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Managers/InterfaceManager.hpp"
 #include "KappaEngine/Input.hpp"
 
 namespace KappaEngine {
@@ -104,6 +105,7 @@ namespace KappaEngine {
                 _window->clear();
                 _selectedScene->OnAnimator();
                 _selectedScene->OnRenderObject();
+                KappaEngine::InterfaceManager::OnRenderInterface();
                 RenderWindow();
             }
         }
