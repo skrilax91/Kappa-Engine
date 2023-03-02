@@ -53,7 +53,7 @@ find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 find_package(asio REQUIRED)
 find_package(GTest REQUIRED)
 
-add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES} ${SOURCE_FILES} src/ConfigurationManager.cpp include/KappaEngine/ConfigurationManager.hpp)
+add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES} ${SOURCE_FILES} src/ConfigManager.cpp include/KappaEngine/ConfigManager.hpp)
 
 enable_testing()
 

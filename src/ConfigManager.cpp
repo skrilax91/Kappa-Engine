@@ -2,18 +2,18 @@
 // Created by Dylan A on 01/03/2023.
 //
 
-#include "KappaEngine/ConfigurationManager.hpp"
+#include "KappaEngine/ConfigManager.hpp"
 #include <fstream>
 #include <iostream>
 #include <yaml-cpp/yaml.h>
 
 namespace KappaEngine {
-    ConfigurationManager::ConfigurationManager(const std::string& configFilename)
+    ConfigManager::ConfigManager(const std::string& configFilename)
         : m_configFilename(configFilename) {
         LoadConfig();
     }
 
-    auto ConfigurationManager::GetValue(const std::string& key) const {
+    auto ConfigManager::GetValue(const std::string& key) const {
         auto it = m_configData.find(key);
         if (it != m_configData.end()) {
             return it->second;
@@ -23,11 +23,11 @@ namespace KappaEngine {
         }
     }
 
-    void ConfigurationManager::SetValue(const std::string& key, const auto& value) {
+    void ConfigManager::SetValue(const std::string& key, const auto& value) {
         m_configData[key] = value;
     }
 
-    void ConfigurationManager::SaveConfig() const {
+    void ConfigManager::SaveConfig() const {
         YAML::Emitter emitter;
         emitter << YAML::BeginMap;
         for (const auto& it : m_configData) {
@@ -44,7 +44,7 @@ namespace KappaEngine {
         }
     }
 
-    void ConfigurationManager::LoadConfig() {
+    void ConfigManager::LoadConfig() {
         std::ifstream inputFile(m_configFilename);
         if (inputFile.is_open()) {
             m_configData = YAML::Load(inputFile).as<std::unordered_map<std::string, std::string>>();

@@ -9,10 +9,10 @@
 #include <unordered_map>
 
 namespace KappaEngine {
-    class ConfigurationManager {
+    class ConfigManager {
     public:
-        ConfigurationManager(const std::string& configFilename);
-        ~ConfigurationManager() = default;
+        ConfigManager(const std::string& configFilename);
+        ~ConfigManager() = default;
 
         auto GetValue(const std::string& key) const;
 
