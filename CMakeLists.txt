@@ -12,6 +12,10 @@ file(GLOB SOURCE_FILES
         "src/SystemManager.cpp"
         "src/Scene.cpp"
 
+        "src/Interfaces/Utils.cpp"
+
+        "src/Managers/InterfaceManager.cpp"
+
         "src/Systems/RigidBodySystem.cpp"
         "src/Systems/CollideBoxSystem.cpp"
         "src/Systems/SpriteRendererSystem.cpp"

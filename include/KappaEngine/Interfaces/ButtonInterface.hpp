@@ -10,8 +10,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "KappaEngine/GameManager.hpp"
-#include "KappaEngine/Interfaces/IInterface.hpp"
-#include "KappaEngine/Managers/InterfaceManager.hpp"
+#include "KappaEngine/Interfaces/Utils.hpp"
 #include "KappaEngine/Input.hpp"
 
 namespace Interface {
@@ -22,7 +21,7 @@ namespace Interface {
             };
 
             void OnRenderInterface(IPosition parent) override {
-                auto newPos = KappaEngine::InterfaceManager::GetAbsolutePosition(parent, _rect);
+                auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
                 _sprite.setPosition(newPos.x, newPos.y);
 
                 auto mousePos = sf::Mouse::getPosition(*KappaEngine::GameManager::GetWindow());

@@ -6,9 +6,9 @@
 #define KAPPAENGINE_CANVA_HPP
 
 #include <SFML/Graphics.hpp>
-
-#include "KappaEngine/Interfaces/IInterface.hpp"
-#include "KappaEngine/Managers/InterfaceManager.hpp"
+#include <memory>
+#include <vector>
+#include "Utils.hpp"
 
 namespace Interface {
 
@@ -18,7 +18,7 @@ namespace Interface {
             ~Canvas() = default;
 
             void OnRenderInterface(IPosition parent) override {
-                auto newPos = KappaEngine::InterfaceManager::GetAbsolutePosition(parent, _rect);
+                auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
                 for (auto &interface : _interfaces) {
                     interface->OnRenderInterface(newPos);
                 }

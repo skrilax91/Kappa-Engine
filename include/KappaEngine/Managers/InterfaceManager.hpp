@@ -6,7 +6,6 @@
 #define KAPPAENGINE_INTERFACEMANAGER_HPP
 
 #include <unordered_map>
-
 #include "KappaEngine/Interfaces/Canvas.hpp"
 
 namespace KappaEngine {
@@ -18,8 +17,6 @@ namespace KappaEngine {
             static std::shared_ptr<Interface::Canvas> GetCanvas(const std::string& name);
 
             static void OnRenderInterface();
-
-            static Interface::IPosition GetAbsolutePosition(Interface::IPosition parent, Interface::IPosition child);
 
         private:
             static std::unordered_map<std::string, std::shared_ptr<Interface::Canvas>> _canvases;
