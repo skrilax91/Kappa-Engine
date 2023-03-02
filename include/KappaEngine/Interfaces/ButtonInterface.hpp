@@ -23,6 +23,7 @@ namespace Interface {
             void OnRenderInterface(IPosition parent) override {
                 auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
                 _sprite.setPosition(newPos.x, newPos.y);
+                _sprite.setScale(newPos.width / _sprite.getTextureRect().width, newPos.height / _sprite.getTextureRect().height);
 
                 auto mousePos = sf::Mouse::getPosition(*KappaEngine::GameManager::GetWindow());
 
