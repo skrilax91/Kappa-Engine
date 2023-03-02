@@ -5,11 +5,11 @@
 #include "KappaEngine/ConfigurationManager.hpp"
 #include <fstream>
 #include <iostream>
-#include <regex>
+#include <yaml-cpp/yaml.h>
 
 namespace KappaEngine {
     ConfigurationManager::ConfigurationManager(const std::string& configFilename)
-            : m_configFilename(configFilename) {
+        : m_configFilename(configFilename) {
         LoadConfig();
     }
 
@@ -19,21 +19,25 @@ namespace KappaEngine {
             return it->second;
         }
         else {
-            return std::string();
+            return std::string(); // Return an empty string if key not found
         }
     }
 
     void ConfigurationManager::SetValue(const std::string& key, const auto& value) {
         m_configData[key] = value;
-        SaveConfig();
     }
 
     void ConfigurationManager::SaveConfig() const {
+        YAML::Emitter emitter;
+        emitter << YAML::BeginMap;
+        for (const auto& it : m_configData) {
+            emitter << YAML::Key << it.first << YAML::Value << it.second;
+        }
+        emitter << YAML::EndMap;
+
         std::ofstream outputFile(m_configFilename);
         if (outputFile.is_open()) {
-            for (const auto& it : m_configData) {
-                outputFile << it.first << ":" << it.second << std::endl;
-            }
+            outputFile << emitter.c_str();
         }
         else {
             std::cerr << "Failed to open file " << m_configFilename << " for writing." << std::endl;
@@ -43,14 +47,7 @@ namespace KappaEngine {
     void ConfigurationManager::LoadConfig() {
         std::ifstream inputFile(m_configFilename);
         if (inputFile.is_open()) {
-            std::string line;
-            std::regex pattern("^(.*?):(.*)$");
-            while (std::getline(inputFile, line)) {
-                std::smatch match;
-                if (std::regex_match(line, match, pattern)) {
-                    m_configData[match[1]] = match[2];
-                }
-            }
+            m_configData = YAML::Load(inputFile).as<std::unordered_map<std::string, std::string>>();
         }
         else {
             std::cerr << "Failed to open file " << m_configFilename << " for reading." << std::endl;
