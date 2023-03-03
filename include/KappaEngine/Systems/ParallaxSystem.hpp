@@ -9,10 +9,11 @@
 
 #include "KappaEngine/Systems/ISystem.hpp"
 #include "KappaEngine/Components/SpriteRenderer.hpp"
+namespace KappaEngine {
+    class ParallaxSystem : public KappaEngine::ISystem {
+        public:
+            ParallaxSystem(KappaEngine::Scene *scene) : ISystem(scene) {};
 
-class ParallaxSystem : public KappaEngine::ISystem {
-    public:
-        ParallaxSystem(KappaEngine::Scene *scene) : ISystem(scene) {};
-
-        void FixedUpdate() override;
-};
+            void FixedUpdate() override;
+    };
+}
