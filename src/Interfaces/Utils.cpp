@@ -5,7 +5,7 @@
 #include "KappaEngine/Interfaces/Utils.hpp"
 
 Interface::IPosition Interface::Utils::GetAbsolutePosition(Interface::IPosition parent, Interface::IPosition child) {
-    Interface::IPosition newPos = {.x = 0, .y = 0, .width = child.width, .height = child.height, .anchor = Interface::Anchor::TOP_LEFT};
+    Interface::IPosition newPos {0, 0, child.width, child.height, Interface::Anchor::TOP_LEFT};
 
     switch (child.anchor) {
         case Interface::Anchor::TOP_LEFT:

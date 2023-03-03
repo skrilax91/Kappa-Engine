@@ -26,21 +26,22 @@ std::shared_ptr<Interface::Canvas> KappaEngine::InterfaceManager::GetCanvas(cons
 }
 
 void KappaEngine::InterfaceManager::OnRenderInterface() {
+
     if (_currentCanvas != nullptr) {
         _currentCanvas->SetPosition({
-                .x = 0,
-                .y = 0,
-                .width = GameManager::GetWindow()->getSize().x,
-                .height = GameManager::GetWindow()->getSize().y,
-                .anchor = Interface::Anchor::TOP_LEFT
+            0,
+            0,
+            static_cast<float>(GameManager::GetWindow()->getSize().x),
+            static_cast<float>(GameManager::GetWindow()->getSize().y),
+            Interface::Anchor::TOP_LEFT
         });
 
         _currentCanvas->OnRenderInterface({
-            .x = 0,
-            .y = 0,
-            .width = GameManager::GetWindow()->getSize().x,
-            .height = GameManager::GetWindow()->getSize().y,
-            .anchor = Interface::Anchor::TOP_LEFT
-        });
+            0,
+            0,
+            static_cast<float>(GameManager::GetWindow()->getSize().x),
+            static_cast<float>(GameManager::GetWindow()->getSize().y),
+            Interface::Anchor::TOP_LEFT
+      });
     }
 }

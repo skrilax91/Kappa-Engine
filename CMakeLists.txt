@@ -13,8 +13,10 @@ file(GLOB SOURCE_FILES
         "src/Scene.cpp"
 
         "src/Interfaces/Utils.cpp"
+        "src/Interfaces/ButtonInterface.cpp"
 
         "src/Managers/InterfaceManager.cpp"
+        "src/Managers/TextureManager.cpp"
 
         "src/Systems/RigidBodySystem.cpp"
         "src/Systems/CollideBoxSystem.cpp"

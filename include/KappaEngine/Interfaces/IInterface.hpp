@@ -24,11 +24,14 @@ namespace Interface {
         BOTTOM_CENTER,
     };
 
-    struct IPosition {
-        int x = 0;
-        int y = 0;
-        unsigned int width = 0;
-        unsigned int height = 0;
+    class IPosition {
+    public:
+        IPosition(float x, float y, float width, float height, Anchor anchor): x(x), y(y), width(width), height(height), anchor(anchor) {};
+
+        float x = 0;
+        float y = 0;
+        float width = 0;
+        float height = 0;
         Anchor anchor = TOP_LEFT;
     };
 
