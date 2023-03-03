@@ -189,3 +189,123 @@ TEST(ParallaxSystem, ResetToRight) {
     ASSERT_EQ(rect.top, 0);
     ASSERT_EQ(rect.left, 1280);
 }
+
+TEST(ParallaxSystem, ResetToTopLeft) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {1280, 720, 1280, 720}));
+        ent->registerComponent(Component::Parallax({1, 1}, {0, 0}, {1280, 720}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 0);
+    ASSERT_EQ(rect.left, 0);
+}
+
+TEST(ParallaxSystem, ResetToTopRight) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {0, 720, 1280, 720}));
+        ent->registerComponent(Component::Parallax({-1, 1}, {0, 0}, {1280, 720}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 0);
+    ASSERT_EQ(rect.left, 1280);
+}
+
+TEST(ParallaxSystem, ResetToBottomLeft) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {1280, 0, 1280, 720}));
+        ent->registerComponent(Component::Parallax({1, -1}, {0, 0}, {1280, 720}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 720);
+    ASSERT_EQ(rect.left, 0);
+}
+
+TEST(ParallaxSystem, ResetToBottomRight) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {0, 0, 1280, 720}));
+        ent->registerComponent(Component::Parallax({-1, -1}, {0, 0}, {1280, 720}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 720);
+    ASSERT_EQ(rect.left, 1280);
+}
+
+TEST(ParallaxSystem, ResetToTopLeftWithOffset) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {1280, 720, 1280, 720}));
+        ent->registerComponent(Component::Parallax({1, 1}, {100, 100}, {1280, 720}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 100);
+    ASSERT_EQ(rect.left, 100);
+}
+
+TEST(ParallaxSystem, ResetToTopRightWithOffset) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {0, 720, 1280, 720}));
+        ent->registerComponent(Component::Parallax({-1, 1}, {0, 100}, {1180, 720}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 100);
+    ASSERT_EQ(rect.left, 1180);
+}
+
+TEST(ParallaxSystem, ResetToBottomLeftWithOffset) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {1280, 0, 1280, 720}));
+        ent->registerComponent(Component::Parallax({1, -1}, {100, 0}, {1280, 620}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 620);
+    ASSERT_EQ(rect.left, 100);
+}
+
+TEST(ParallaxSystem, ResetToBottomRightWithOffset) {
+    auto scene = KappaEngine::GameManager::CreateScene("test");
+    auto entity = scene->getEntityManager()->createEntity("test", [](std::shared_ptr<KappaEngine::Entity> ent) {
+        ent->registerComponent(Component::SpriteRenderer({0, 0}, "", {0, 0, 1280, 720}));
+        ent->registerComponent(Component::Parallax({-1, -1}, {0, 0}, {1180, 620}));
+    });
+
+    scene->getSystemManager()->getSystem<KappaEngine::ParallaxSystem>()->FixedUpdate();
+
+    auto rect = entity->getComponent<Component::SpriteRenderer>()->_textureRect;
+
+    ASSERT_EQ(rect.top, 620);
+    ASSERT_EQ(rect.left, 1180);
+}
