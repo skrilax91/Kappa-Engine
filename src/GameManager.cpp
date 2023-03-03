@@ -120,6 +120,12 @@ namespace KappaEngine {
     ///////////////////////////
 
     std::shared_ptr<Scene> GameManager::CreateScene(const std::string &name) {
+
+        for (auto _scene : _scenes) {
+            if (_scene->getName() == name)
+                throw std::runtime_error("Scene already exists: " + name);
+        }
+
         auto scene = std::make_shared<Scene>(name);
         if (!_selectedScene)
             _selectedScene = scene;
