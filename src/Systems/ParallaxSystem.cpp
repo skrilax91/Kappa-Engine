@@ -5,15 +5,15 @@
 ** ParalaxSystem
 */
 
-#include "KappaEngine/Components/ParallaxComponent.hpp"
+#include "KappaEngine/Components/Parallax.hpp"
 #include "KappaEngine/Systems/ParallaxSystem.hpp"
 
 namespace KappaEngine {
     void ParallaxSystem::FixedUpdate() {
-        auto entities = _scene->getEntityManager()->getEntitiesWithComponent<Component::ParallaxComponent>();
+        auto entities = _scene->getEntityManager()->getEntitiesWithComponent<Component::Parallax>();
 
         for (auto ent: entities) {
-            auto parallax = ent->getComponent<Component::ParallaxComponent>();
+            auto parallax = ent->getComponent<Component::Parallax>();
             auto spRenderer = ent->getComponent<Component::SpriteRenderer>();
 
             if (!spRenderer) {
