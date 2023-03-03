@@ -12,6 +12,7 @@
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/Systems/NetworkSystem.hpp"
 #include "KappaEngine/Systems/TriggerBoxSystem.hpp"
+#include "KappaEngine/Systems/ParallaxSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
 #include "KappaEngine/Input.hpp"
 
@@ -25,6 +26,7 @@ namespace KappaEngine {
         registerSystem<AnimationSystem>();
         registerSystem<SpriteRendererSystem>();
         registerSystem<NetworkSystem>();
+        registerSystem<ParallaxSystem>();
 
         std::cout << "SystemManager created" << std::endl;
     };
