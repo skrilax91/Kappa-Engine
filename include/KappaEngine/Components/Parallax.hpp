@@ -12,9 +12,9 @@
 #include "KappaEngine/Components/IComponent.hpp"
 
 namespace Component {
-    class ParallaxComponent : public Component::IComponent {
+    class Parallax : public Component::IComponent {
         public:
-            ParallaxComponent(sf::Vector2i offset, sf::Vector2i min, sf::Vector2i max)
+            Parallax(sf::Vector2i offset, sf::Vector2i min, sf::Vector2i max)
                 : _offset(offset), _min(min), _max(max) {};
 
             sf::Vector2i _offset;
