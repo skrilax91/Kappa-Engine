@@ -18,6 +18,9 @@ namespace Interface {
             ~Canvas() = default;
 
             void OnRenderInterface(IPosition parent) override {
+                if (!_isActivated)
+                    return;
+
                 auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
                 for (auto &interface : _interfaces) {
                     interface->OnRenderInterface(newPos);

@@ -43,6 +43,7 @@ namespace Interface {
             bool onFocus = false;
 
             virtual void OnRenderInterface(IPosition pos) {};
+            virtual void SetActive(bool active) { _isActivated = active; };
 
             virtual void OnClick() { if (_onClick) { _onClick(); }};
             virtual void OnRelease() { if (_onRelease) { _onRelease(); }};
@@ -50,6 +51,8 @@ namespace Interface {
             virtual void OnUnhover() { if (_onUnhover) { _onUnhover(); }};
 
         protected:
+            bool _isActivated = true;
+
             std::function<void()> _onClick;
             bool _isClicked = false;
 
