@@ -14,6 +14,7 @@ namespace KappaEngine {
     std::string GameManager::_name = "Kappa Engine Game";
     bool GameManager::_fullscreen = false;
     sf::Vector2i GameManager::_windowSize = sf::Vector2i(0, 0);
+    sf::Vector2i GameManager::_windowInitialSize = sf::Vector2i(0, 0);
     std::list<std::shared_ptr<Scene>> GameManager::_scenes = std::list<std::shared_ptr<Scene>>();
     std::shared_ptr<Scene> GameManager::_selectedScene = nullptr;
 
@@ -28,6 +29,7 @@ namespace KappaEngine {
         _name = name;
         _window = new sf::RenderWindow();
         _windowSize = sf::Vector2i(width, height);
+        _windowInitialSize = sf::Vector2i(width, height);
         _window->create(sf::VideoMode(width, height), name);
         std::cout << "Window created" << std::endl;
     }
@@ -50,6 +52,10 @@ namespace KappaEngine {
         _fullscreen = fullscreen;
     }
 
+    bool GameManager::isFullscreen() {
+        return _fullscreen;
+    }
+
     void GameManager::setResolution(int width, int height) {
         if (!_window)
             return;
@@ -64,6 +70,10 @@ namespace KappaEngine {
 
     sf::Vector2i GameManager::getResolution() {
         return _windowSize;
+    }
+
+    sf::Vector2i GameManager::getInitialResolution() {
+        return _windowInitialSize;
     }
 
     sf::RenderWindow *GameManager::GetWindow() {
