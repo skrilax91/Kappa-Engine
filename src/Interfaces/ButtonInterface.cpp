@@ -62,7 +62,8 @@ void Interface::ButtonInterface::OnRenderInterface(IPosition parent) {
     KappaEngine::GameManager::Draw(_sprite);
 
     if (_text.getString() != "") {
-        _text.setPosition(newPos.x + newPos.width / 2 - _text.getLocalBounds().width / 2, newPos.y + newPos.height / 2 - _text.getLocalBounds().height / 2);
+        auto localBounds = _text.getLocalBounds();
+        _text.setPosition(newPos.x + newPos.width / 2 - localBounds.width / 2, newPos.y + newPos.height / 2 - localBounds.height / 2 - localBounds.top);
         KappaEngine::GameManager::Draw(_text);
     }
 };
