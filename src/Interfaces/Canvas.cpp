@@ -11,7 +11,7 @@ namespace Interface {
 
         auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
 
-        sf::RectangleShape rect(sf::Vector2f(_rect.width, _rect.height));
+        sf::RectangleShape rect(sf::Vector2f(newPos.width, newPos.height));
         rect.setFillColor(_color);
         rect.setOutlineColor(sf::Color::Red);
         rect.setOutlineThickness(1);

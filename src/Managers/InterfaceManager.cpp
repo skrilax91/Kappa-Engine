@@ -31,16 +31,16 @@ void KappaEngine::InterfaceManager::OnRenderInterface() {
         _currentCanvas->SetPosition({
             0,
             0,
-            static_cast<float>(GameManager::GetWindow()->getSize().x),
-            static_cast<float>(GameManager::GetWindow()->getSize().y),
+            static_cast<float>(GameManager::getInitialResolution().x),
+            static_cast<float>(GameManager::getInitialResolution().y),
             Interface::Anchor::TOP_LEFT
         });
 
         _currentCanvas->OnRenderInterface({
             0,
             0,
-            static_cast<float>(GameManager::GetWindow()->getSize().x),
-            static_cast<float>(GameManager::GetWindow()->getSize().y),
+            static_cast<float>(GameManager::getInitialResolution().x),
+            static_cast<float>(GameManager::getInitialResolution().y),
             Interface::Anchor::TOP_LEFT
       });
     }

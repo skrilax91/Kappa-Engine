@@ -3,9 +3,21 @@
 //
 
 #include "KappaEngine/Interfaces/Utils.hpp"
+#include "KappaEngine/GameManager.hpp"
 
 Interface::IPosition Interface::Utils::GetAbsolutePosition(Interface::IPosition parent, Interface::IPosition child) {
-    Interface::IPosition newPos {0, 0, child.width, child.height, Interface::Anchor::TOP_LEFT};
+
+    sf::Vector2<unsigned int> windowSize = KappaEngine::GameManager::GetWindow()->getSize();
+
+    float xRatio = (float)windowSize.x / (float)KappaEngine::GameManager::getInitialResolution().x;
+    float yRatio = (float)windowSize.y / (float)KappaEngine::GameManager::getInitialResolution().y;
+
+    Interface::IPosition newPos {0, 0, child.width * xRatio, child.height * yRatio, Interface::Anchor::TOP_LEFT};
+
+    child.x *= xRatio;
+    child.y *= yRatio;
+    child.width *= xRatio;
+    child.height *= yRatio;
 
     switch (child.anchor) {
         case Interface::Anchor::TOP_LEFT:
