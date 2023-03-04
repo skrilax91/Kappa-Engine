@@ -46,6 +46,7 @@ namespace Interface {
 
             void SetPosition(IPosition pos);
             void AddInterface(std::shared_ptr<IInterface> interface);
+            std::vector<std::shared_ptr<IInterface>> GetInterfaces() { return _interfaces; };
             void SetColor(sf::Color color);
 
         private:
