@@ -13,6 +13,7 @@ file(GLOB SOURCE_FILES
         "src/Scene.cpp"
 
         "src/Interfaces/Utils.cpp"
+        "src/Interfaces/Canvas.cpp"
         "src/Interfaces/ButtonInterface.cpp"
         "src/Interfaces/TextInterface.cpp"
         "src/Interfaces/ImageInterface.cpp"
