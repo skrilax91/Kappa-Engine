@@ -45,6 +45,13 @@ namespace KappaEngine {
             static void setFullscreen(bool fullscreen);
 
             /**
+             * @brief Set window resolution
+             * @param width The width of the window
+             * @param height The height of the window
+             */
+            static void setResolution(int width, int height);
+
+            /**
              * @brief Get the window
              * @return The window
              */
@@ -198,6 +205,7 @@ namespace KappaEngine {
             static std::string _name;
             static bool _started;
             static bool _fullscreen;
+            static sf::Vector2i _windowSize;
 
             static std::list<std::shared_ptr<Scene>> _scenes;
             static std::shared_ptr<Scene> _selectedScene;
