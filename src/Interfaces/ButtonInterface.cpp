@@ -9,6 +9,7 @@ Interface::ButtonInterface::ButtonInterface(IPosition position, std::string path
     _texture.loadFromFile(path);
     _sprite.setTexture(_texture);
     _sprite.setTextureRect(_rects[0]);
+    _type = Interface::InterfaceType::BUTTON;
 };
 
 void Interface::ButtonInterface::OnRenderInterface(IPosition parent) {

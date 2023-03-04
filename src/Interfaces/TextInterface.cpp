@@ -14,6 +14,7 @@ namespace Interface {
         _text.setString(text);
         _text.setFillColor(sf::Color::White);
         _text.setCharacterSize(24);
+        _type = Interface::InterfaceType::TEXT;
     }
 
     void TextInterface::OnRenderInterface(IPosition parent) {

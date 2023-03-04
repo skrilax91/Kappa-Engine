@@ -10,6 +10,14 @@
 
 namespace Interface {
 
+    enum InterfaceType {
+        NONE,
+        BUTTON,
+        CANVAS,
+        TEXT,
+        IMAGE,
+    };
+
     enum Anchor {
         TOP_LEFT,
         TOP_RIGHT,
@@ -44,6 +52,7 @@ namespace Interface {
 
             virtual void OnRenderInterface(IPosition pos) {};
             virtual void SetActive(bool active) { _isActivated = active; };
+            virtual InterfaceType GetType() { return _type; };
 
             virtual void OnClick() { if (_onClick) { _onClick(); }};
             virtual void OnRelease() { if (_onRelease) { _onRelease(); }};
@@ -52,6 +61,8 @@ namespace Interface {
 
         protected:
             bool _isActivated = true;
+            InterfaceType _type = NONE;
+
 
             std::function<void()> _onClick;
             bool _isClicked = false;

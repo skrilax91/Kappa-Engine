@@ -9,23 +9,16 @@
 #include <memory>
 #include <vector>
 #include "Utils.hpp"
+#include "KappaEngine/GameManager.hpp"
 
 namespace Interface {
 
     class Canvas: public IInterface {
         public:
-            Canvas(IPosition pos): _rect(pos) {};
+            Canvas(IPosition pos): _rect(pos) { _type = InterfaceType::CANVAS; };
             ~Canvas() = default;
 
-            void OnRenderInterface(IPosition parent) override {
-                if (!_isActivated)
-                    return;
-
-                auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
-                for (auto &interface : _interfaces) {
-                    interface->OnRenderInterface(newPos);
-                }
-            };
+            void OnRenderInterface(IPosition parent) override;
 
             void OnClick() override {
                 for (auto interface : _interfaces) {
@@ -51,18 +44,14 @@ namespace Interface {
                 }
             };
 
-            void SetPosition(IPosition pos) {
-                _rect = pos;
-            }
-
-            void AddInterface(std::shared_ptr<IInterface> interface) {
-                _interfaces.push_back(interface);
-            }
+            void SetPosition(IPosition pos);
+            void AddInterface(std::shared_ptr<IInterface> interface);
+            void SetColor(sf::Color color);
 
         private:
             std::vector<std::shared_ptr<IInterface>> _interfaces;
             IPosition _rect;
-
+            sf::Color _color = sf::Color::Transparent;
     };
 }
 

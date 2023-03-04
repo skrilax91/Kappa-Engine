@@ -10,6 +10,8 @@ Interface::ImageInterface::ImageInterface(IPosition position, std::string path):
     if (!_texture.loadFromFile(path))
         std::cout << "Error while loading image " << path << std::endl;
     _sprite.setTexture(_texture);
+
+    _type = Interface::InterfaceType::IMAGE;
 }
 
 void Interface::ImageInterface::OnRenderInterface(IPosition parent) {
