@@ -17,6 +17,7 @@ file(GLOB SOURCE_FILES
         "src/Interfaces/ButtonInterface.cpp"
         "src/Interfaces/TextInterface.cpp"
         "src/Interfaces/ImageInterface.cpp"
+        "src/Interfaces/InputInterface.cpp"
 
         "src/Managers/InterfaceManager.cpp"
         "src/Managers/TextureManager.cpp"

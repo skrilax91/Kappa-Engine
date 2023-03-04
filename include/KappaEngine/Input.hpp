@@ -84,7 +84,7 @@ namespace KappaEngine {
             /*
              * @brief Get pressed keys
              */
-            static const std::vector<sf::Keyboard::Key> getKeysPressed();
+            static std::vector<sf::Keyboard::Key> getKeysPressed();
 
         private:
             static std::vector<const sf::Event *> _events;

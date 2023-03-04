@@ -44,12 +44,21 @@ namespace Interface {
                 }
             };
 
+            void SetActive(bool active) override {
+                _isActivated = active;
+                _isFocused = true;
+            };
+
             void SetPosition(IPosition pos);
+
+            void onLostFocus(std::function<void()> func) { _onLostFocus = func; };
             void AddInterface(std::shared_ptr<IInterface> interface);
             std::vector<std::shared_ptr<IInterface>> GetInterfaces() { return _interfaces; };
             void SetColor(sf::Color color);
 
         private:
+            std::function<void()> _onLostFocus = nullptr;
+            bool _isFocused = false;
             std::vector<std::shared_ptr<IInterface>> _interfaces;
             IPosition _rect;
             sf::Color _color = sf::Color::Transparent;

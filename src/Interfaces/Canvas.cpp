@@ -18,6 +18,20 @@ namespace Interface {
         rect.setPosition(newPos.x, newPos.y);
         KappaEngine::GameManager::GetWindow()->draw(rect);
 
+        auto mousePos = sf::Mouse::getPosition(*KappaEngine::GameManager::GetWindow());
+
+        if (mousePos.x >= newPos.x && mousePos.x <= newPos.x + newPos.width && mousePos.y >= newPos.y && mousePos.y <= newPos.y + newPos.height) {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                _isFocused = true;
+            }
+        } else {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && _isFocused) {
+                _isFocused = false;
+                if (_onLostFocus)
+                    _onLostFocus();
+            }
+        }
+
         for (auto &interface : _interfaces) {
             interface->OnRenderInterface(newPos);
         }
