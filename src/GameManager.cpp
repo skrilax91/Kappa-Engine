@@ -62,6 +62,10 @@ namespace KappaEngine {
             _window->create(sf::VideoMode(width, height), _name);
     }
 
+    sf::Vector2i GameManager::getResolution() {
+        return _windowSize;
+    }
+
     sf::RenderWindow *GameManager::GetWindow() {
         return _window;
     }

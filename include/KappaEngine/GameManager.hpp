@@ -52,6 +52,12 @@ namespace KappaEngine {
             static void setResolution(int width, int height);
 
             /**
+             * @brief Get window resolution
+             * @return The resolution of the window
+             */
+            static sf::Vector2i getResolution();
+
+            /**
              * @brief Get the window
              * @return The window
              */
