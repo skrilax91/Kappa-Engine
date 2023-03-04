@@ -26,10 +26,11 @@ namespace Component {
              * @param position The relative position of the camera
              * @param layers The layers to render
              */
-            Camera(struct coord2d position, std::list<std::string> layers)
-                : _position(position), _layers(std::move(layers)) {};
+            Camera(struct coord2d position, sf::Vector2<unsigned int> size, std::list<std::string> layers)
+                : _position(position), _size(size), _layers(std::move(layers)) {};
 
             struct coord2d _position;
+            sf::Vector2<unsigned int> _size;
             std::list<std::string> _layers;
     };
 }

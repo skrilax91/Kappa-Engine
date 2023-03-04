@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project (KappaEngine LANGUAGES CXX VERSION 0.6.0)
+project (KappaEngine LANGUAGES CXX VERSION 0.7.0)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -12,11 +12,22 @@ file(GLOB SOURCE_FILES
         "src/SystemManager.cpp"
         "src/Scene.cpp"
 
+        "src/Interfaces/Utils.cpp"
+        "src/Interfaces/Canvas.cpp"
+        "src/Interfaces/ButtonInterface.cpp"
+        "src/Interfaces/TextInterface.cpp"
+        "src/Interfaces/ImageInterface.cpp"
+        "src/Interfaces/InputInterface.cpp"
+
+        "src/Managers/InterfaceManager.cpp"
+        "src/Managers/TextureManager.cpp"
+
         "src/Systems/RigidBodySystem.cpp"
         "src/Systems/CollideBoxSystem.cpp"
         "src/Systems/SpriteRendererSystem.cpp"
         "src/Systems/NetworkSystem.cpp"
         "src/Systems/TriggerBoxSystem.cpp"
+        "src/Systems/AnimationSystem.cpp"
 
         "src/Console/Console.cpp"
         "src/Console/Command.cpp"

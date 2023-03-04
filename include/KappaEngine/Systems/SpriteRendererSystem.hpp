@@ -29,7 +29,6 @@ namespace KappaEngine {
             void OnDestroy(std::shared_ptr<Entity>) override;
             void OnRenderObject() override;
 
-        private:
-            std::unordered_map<std::string, sf::Texture> _textureCache = std::unordered_map<std::string, sf::Texture>();
+        std::unordered_map<std::string, sf::Texture> _textureCache = std::unordered_map<std::string, sf::Texture>();
     };
 };

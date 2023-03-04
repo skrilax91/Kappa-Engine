@@ -25,6 +25,10 @@ namespace KappaEngine {
         _systemManager->Update();
     }
 
+    void Scene::OnAnimator() {
+        _systemManager->OnAnimator();
+    }
+
     void Scene::OnRenderObject() {
         _systemManager->OnRenderObject();
     }
