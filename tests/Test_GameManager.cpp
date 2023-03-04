@@ -13,18 +13,11 @@ TEST(GameManager, CreateScene) {
 
 TEST(GameManager, GetScene) {
     auto scene = KappaEngine::GameManager::CreateScene("MainScene");
-    auto scene2 = KappaEngine::GameManager::GetScene("MainScene");
-    ASSERT_EQ(scene2, scene);
+    ASSERT_EQ(KappaEngine::GameManager::GetScene("MainScene"), scene);
 }
 
 TEST(GameManager, SelectScene) {
-    auto scene = KappaEngine::GameManager::CreateScene("MainScene");
-    KappaEngine::GameManager::SelectScene("MainScene");
-    ASSERT_EQ(KappaEngine::GameManager::GetSelectedScene(), scene);
-}
-
-TEST(GameManager, GetSelectedScene) {
-    auto scene = KappaEngine::GameManager::CreateScene("MainScene");
-    KappaEngine::GameManager::SelectScene("MainScene");
-    ASSERT_EQ(KappaEngine::GameManager::GetSelectedScene(), scene);
+    KappaEngine::GameManager::CreateScene("MainScene");
+    KappaEngine::GameManager::SelectScene("SecondScene");
+    ASSERT_EQ(KappaEngine::GameManager::GetSelectedScene(), KappaEngine::GameManager::GetScene("SecondScene"));
 }
