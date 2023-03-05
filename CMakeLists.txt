@@ -66,7 +66,7 @@ find_package(asio REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(GTest REQUIRED)
 
-add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES} ${SOURCE_FILES} src/SoundManager.cpp)
 
 enable_testing()
 
