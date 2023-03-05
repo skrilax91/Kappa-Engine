@@ -81,6 +81,11 @@ namespace KappaEngine {
              */
             static void setEvents(const std::vector<const sf::Event *>& events);
 
+            /*
+             * @brief Get pressed keys
+             */
+            static std::vector<sf::Keyboard::Key> getKeysPressed();
+
         private:
             static std::vector<const sf::Event *> _events;
             static std::map<sf::Keyboard::Key, bool> _keysPressed;

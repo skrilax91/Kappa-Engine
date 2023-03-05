@@ -33,6 +33,12 @@ namespace KappaEngine {
             static void CreateGameWindow(const std::string& name, int width, int height);
 
             /**
+             * @brief Get window initial resolution
+             * @return The initial resolution of the window
+             */
+            static sf::Vector2i getInitialResolution();
+
+            /**
              * @brief Set the framerate limit of the window
              * @param limit The framerate limit
              */
@@ -43,6 +49,26 @@ namespace KappaEngine {
              * @param fullscreen The fullscreen mode
              */
             static void setFullscreen(bool fullscreen);
+
+            /**
+             * @brief Check if the window is in fullscreen mode
+             * @return True if the window is in fullscreen mode
+             * @return False if the window is not in fullscreen mode
+             */
+            static bool isFullscreen();
+
+            /**
+             * @brief Set window resolution
+             * @param width The width of the window
+             * @param height The height of the window
+             */
+            static void setResolution(int width, int height);
+
+            /**
+             * @brief Get window resolution
+             * @return The resolution of the window
+             */
+            static sf::Vector2i getResolution();
 
             /**
              * @brief Get the window
@@ -198,6 +224,8 @@ namespace KappaEngine {
             static std::string _name;
             static bool _started;
             static bool _fullscreen;
+            static sf::Vector2i _windowSize;
+            static sf::Vector2i _windowInitialSize;
 
             static std::list<std::shared_ptr<Scene>> _scenes;
             static std::shared_ptr<Scene> _selectedScene;

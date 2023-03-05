@@ -5,6 +5,7 @@
 #include <iostream>
 #include <utility>
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Managers/InterfaceManager.hpp"
 #include "KappaEngine/Input.hpp"
 
 namespace KappaEngine {
@@ -12,6 +13,8 @@ namespace KappaEngine {
     sf::RenderWindow *GameManager::_window = nullptr;
     std::string GameManager::_name = "Kappa Engine Game";
     bool GameManager::_fullscreen = false;
+    sf::Vector2i GameManager::_windowSize = sf::Vector2i(0, 0);
+    sf::Vector2i GameManager::_windowInitialSize = sf::Vector2i(0, 0);
     std::list<std::shared_ptr<Scene>> GameManager::_scenes = std::list<std::shared_ptr<Scene>>();
     std::shared_ptr<Scene> GameManager::_selectedScene = nullptr;
 
@@ -25,6 +28,8 @@ namespace KappaEngine {
     void GameManager::CreateGameWindow(const std::string &name, int width, int height) {
         _name = name;
         _window = new sf::RenderWindow();
+        _windowSize = sf::Vector2i(width, height);
+        _windowInitialSize = sf::Vector2i(width, height);
         _window->create(sf::VideoMode(width, height), name);
         std::cout << "Window created" << std::endl;
     }
@@ -42,7 +47,33 @@ namespace KappaEngine {
         if (fullscreen)
             _window->create(sf::VideoMode::getFullscreenModes()[0], _name, sf::Style::Fullscreen);
         else
-            _window->create(sf::VideoMode::getFullscreenModes()[0], _name);
+            _window->create(sf::VideoMode(_windowSize.x, _windowSize.y), _name);
+
+        _fullscreen = fullscreen;
+    }
+
+    bool GameManager::isFullscreen() {
+        return _fullscreen;
+    }
+
+    void GameManager::setResolution(int width, int height) {
+        if (!_window)
+            return;
+
+        _windowSize = sf::Vector2i(width, height);
+
+        if (_fullscreen)
+            _window->create(sf::VideoMode::getFullscreenModes()[0], _name, sf::Style::Fullscreen);
+        else
+            _window->create(sf::VideoMode(width, height), _name);
+    }
+
+    sf::Vector2i GameManager::getResolution() {
+        return _windowSize;
+    }
+
+    sf::Vector2i GameManager::getInitialResolution() {
+        return _windowInitialSize;
     }
 
     sf::RenderWindow *GameManager::GetWindow() {
@@ -104,6 +135,7 @@ namespace KappaEngine {
                 _window->clear();
                 _selectedScene->OnAnimator();
                 _selectedScene->OnRenderObject();
+                KappaEngine::InterfaceManager::OnRenderInterface();
                 RenderWindow();
             }
         }

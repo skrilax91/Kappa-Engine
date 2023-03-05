@@ -11,6 +11,16 @@ namespace KappaEngine {
     std::map<sf::Keyboard::Key, bool> Input::_keysPressed;
     std::map<uint32_t, std::map<sf::Keyboard::Key, bool>> Input::_networkKeysPressed;
 
+    std::vector<sf::Keyboard::Key> Input::getKeysPressed() {
+        std::vector<sf::Keyboard::Key> keys;
+
+        for (auto &key : _keysPressed) {
+            if (key.second)
+                keys.push_back(key.first);
+        }
+
+        return keys;
+    }
 
     void Input::InitNetworkKeys() {
 
