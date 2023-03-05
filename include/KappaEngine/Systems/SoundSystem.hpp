@@ -3,6 +3,7 @@
 #define KAPPA_ENGINE_ANIMATIONSYSTEM_HPP
 
 #include "ISystem.hpp"
+#include "KappaEngine/Components/Animator.hpp"
 #include "KappaEngine/Scene.hpp"
 #include "KappaEngine/Entity/Entity.hpp"
 
