@@ -13,7 +13,7 @@ namespace KappaEngine {
             explicit SoundSystem(Scene *scene) : ISystem(scene) {};
 
             void Awake(std::shared_ptr<Entity>) override;
-            void OnSound() override;
+            void OnSound();
     };
 }
 
