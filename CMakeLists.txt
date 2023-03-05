@@ -22,6 +22,7 @@ file(GLOB SOURCE_FILES
         "src/Managers/InterfaceManager.cpp"
         "src/Managers/TextureManager.cpp"
         "src/Managers/ConfigManager.cpp"
+        "src/Managers/TranslateManager.cpp"
 
         "src/Systems/RigidBodySystem.cpp"
         "src/Systems/CollideBoxSystem.cpp"
