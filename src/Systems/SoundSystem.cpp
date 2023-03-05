@@ -1,11 +1,8 @@
-#include "KappaEngine/Systems/AnimationSystem.hpp"
-#include "KappaEngine/Components/Animator.hpp"
-#include "KappaEngine/Components/SpriteRenderer.hpp"
-#include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Systems/SoundSystem.hpp"
+
 
 namespace KappaEngine {
-
     void SoundSystem::Awake(std::shared_ptr<Entity> entity) {
         auto sound = entity->getComponent<Component::Sound>();
         if (sound == nullptr) {
@@ -37,5 +34,9 @@ namespace KappaEngine {
                 sound->_sound.play();
             }
         }
+    }
+
+    void KappaEngine::SoundSystem::Awake(std::shared_ptr<Entity>) {
+        ISystem::Awake( < unnamed >);
     }
 }
