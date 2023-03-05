@@ -27,7 +27,7 @@ namespace KappaEngine {
             if (!config)
                 throw std::runtime_error("Can't load config file: " + path);
 
-            if (config["configName"].IsNull())
+            if (!config["configName"])
                 throw std::runtime_error("Can't load config file: " + path + " because it doesn't have a configName");
 
             if (_configData.find(config["configName"].as<std::string>()) != _configData.end())
