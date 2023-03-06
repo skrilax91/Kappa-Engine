@@ -35,7 +35,7 @@ namespace KappaEngine {
 
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
 
-        for (const auto& ent: ents) {
+        for (const auto ent: ents) {
             auto otherTrigger = ent->getComponent<Component::TriggerBox>();
 
             if (ent == entity || otherTrigger == nullptr || !otherTrigger->enabled)
@@ -61,6 +61,8 @@ namespace KappaEngine {
                 trigger->_onTriggerExit(entity, ent);
                 trigger->_triggered.remove(otherTrigger);
             }
+            if (trigger == nullptr || transform == nullptr || !trigger->enabled || !transform->enabled)
+                return;
         }
     }
 
@@ -80,13 +82,13 @@ namespace KappaEngine {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
         auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
 
-        for (auto &cam : cams) {
+        for (auto cam : cams) {
             auto camera = cam->getComponent<Component::Camera>();
 
             if (!camera || !camera->enabled)
                 continue;
 
-            for (auto &ent : ents) {
+            for (auto ent : ents) {
                 auto trigger = ent->getComponent<Component::TriggerBox>();
                 auto transform = ent->getComponent<Component::Transform>();
                 auto winSize = GameManager::GetWindow()->getSize();
