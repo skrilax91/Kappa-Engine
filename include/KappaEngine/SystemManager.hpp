@@ -77,6 +77,8 @@ namespace KappaEngine {
              */
             void OnRenderObject();
 
+            void OnRenderInterface();
+
             /**
              * @brief registerSystem Register a system.
              *

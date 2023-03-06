@@ -9,6 +9,8 @@
 #include "KappaEngine/Components/Transform.hpp"
 #include "KappaEngine/Components/NetworkComponent.hpp"
 #include "KappaEngine/GameManager.hpp"
+#include "KappaEngine/Components/SpriteRenderer.hpp"
+#include "KappaEngine/Components/Camera.hpp"
 
 namespace KappaEngine {
     void TriggerBoxSystem::OnTriggerCheck(std::shared_ptr<Entity> entity)
@@ -69,5 +71,42 @@ namespace KappaEngine {
                 return true;
         }
         return false;
+    }
+
+
+
+    void TriggerBoxSystem::OnRenderInterface() {
+
+        auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
+        auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();
+
+        for (auto &cam : cams) {
+            auto camera = cam->getComponent<Component::Camera>();
+
+            if (!camera || !camera->enabled)
+                continue;
+
+            for (auto &ent : ents) {
+                auto trigger = ent->getComponent<Component::TriggerBox>();
+                auto transform = ent->getComponent<Component::Transform>();
+                auto winSize = GameManager::GetWindow()->getSize();
+
+                float xRatio = (float)winSize.x / (float)camera->_size.x;
+                float yRatio = (float)winSize.y / (float)camera->_size.y;
+
+                float x = (transform->position.x - camera->_position.x + ((float)camera->_size.x / 2)) * xRatio;
+                float y = (transform->position.y - camera->_position.y + ((float)camera->_size.y / 2)) * yRatio;
+
+                sf::FloatRect rect = {x, y, trigger->_dimensions.x * transform->scale.x, trigger->_dimensions.y * transform->scale.y};
+
+                sf::RectangleShape shape({rect.width, rect.height});
+                shape.setPosition(rect.left, rect.top);
+                shape.setFillColor(sf::Color::Transparent);
+                shape.setOutlineColor(sf::Color::Red);
+                shape.setOutlineThickness(2);
+
+                KappaEngine::GameManager::Draw(shape);
+            }
+        }
     }
 }

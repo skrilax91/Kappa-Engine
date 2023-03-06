@@ -105,6 +105,15 @@ namespace KappaEngine {
              */
             virtual void OnRenderObject() {};
 
+
+            /**
+             * @brief OnRenderInterface Called every frame after the Update function.
+             *
+             * This function will be called every frame after the Update function.
+             * It is used for GUI rendering.
+             */
+            virtual void OnRenderInterface() {};
+
             /**
              * @brief OnDestroy Called when the system is destroyed.
              * This function will be called when the system is destroyed.

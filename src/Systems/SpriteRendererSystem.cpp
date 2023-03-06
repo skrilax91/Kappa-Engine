@@ -74,8 +74,11 @@ namespace KappaEngine {
 
                         auto winSize = GameManager::GetWindow()->getSize();
 
-                        float x = transform->position.x + spriteRenderer->_position.x - camera->_position.x + (float)camera->_size.x / 2;
-                        float y = transform->position.y + spriteRenderer->_position.y - camera->_position.y + (float)camera->_size.y / 2;
+                        float xRatio = (float)winSize.x / (float)camera->_size.x;
+                        float yRatio = (float)winSize.y / (float)camera->_size.y;
+
+                        float x = (transform->position.x + spriteRenderer->_position.x - camera->_position.x + ((float)camera->_size.x / 2)) * xRatio;
+                        float y = (transform->position.y + spriteRenderer->_position.y - camera->_position.y + ((float)camera->_size.y / 2)) * yRatio;
 
                         spriteRenderer->_sprite.setPosition(x, y);
                         spriteRenderer->_sprite.setScale(transform->scale.x * ((float)winSize.x / (float)camera->_size.x), transform->scale.y * ((float)winSize.x / (float)camera->_size.x));
