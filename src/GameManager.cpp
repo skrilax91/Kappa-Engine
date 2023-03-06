@@ -135,6 +135,7 @@ namespace KappaEngine {
                 _window->clear();
                 _selectedScene->OnAnimator();
                 _selectedScene->OnRenderObject();
+                _selectedScene->OnRenderInterface();
                 KappaEngine::InterfaceManager::OnRenderInterface();
                 RenderWindow();
             }

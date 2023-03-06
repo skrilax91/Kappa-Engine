@@ -95,6 +95,12 @@ namespace KappaEngine {
              */
             void OnRenderObject();
 
+            /**
+             * @brief OnRenderInterface OnRenderInterface the scene.
+             * This function will OnRenderInterface the scene.
+             */
+            void OnRenderInterface();
+
 
         private:
             std::string _name;

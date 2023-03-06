@@ -124,4 +124,10 @@ namespace KappaEngine {
             system->OnRenderObject();
         }
     }
+
+    void SystemManager::OnRenderInterface() {
+        for (auto system: _systems) {
+            system->OnRenderInterface();
+        }
+    }
 }
