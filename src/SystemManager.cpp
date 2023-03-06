@@ -127,7 +127,6 @@ namespace KappaEngine {
 
     void SystemManager::OnRenderInterface() {
         for (auto system: _systems) {
-            std::cout << "Render interface for system" << std::endl;
             system->OnRenderInterface();
         }
     }
