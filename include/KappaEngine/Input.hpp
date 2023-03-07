@@ -74,8 +74,6 @@ namespace KappaEngine {
                 return false;
             }
 
-
-
             /*
              * @brief Set the events of the input
              */
@@ -86,10 +84,35 @@ namespace KappaEngine {
              */
             static std::vector<sf::Keyboard::Key> getKeysPressed();
 
+            /*
+             * @brief Add a function to call when a key is pressed
+             * @tparam T The key to check
+             * @param func The function to call
+             */
+            template<sf::Keyboard::Key T>
+            static void AddKeyPressedEvent(std::string id, std::function<void()> func) {
+                if (_keyPressedEvents.find(id) != _keyPressedEvents.end())
+                    return;
+
+                _keyPressedEvents[id] = std::make_pair(T, func);
+            }
+
+            /*
+             * @brief Remove a function to call when a key is pressed
+             * @param id The id of the function to remove
+             */
+            static void RemoveKeyPressedEvent(std::string id) {
+                if (_keyPressedEvents.find(id) == _keyPressedEvents.end())
+                    return;
+
+                _keyPressedEvents.erase(id);
+            }
+
         private:
             static std::vector<const sf::Event *> _events;
             static std::map<sf::Keyboard::Key, bool> _keysPressed;
             static std::map<uint32_t, std::map<sf::Keyboard::Key, bool>> _networkKeysPressed;
+            static std::map<std::string, std::pair<sf::Keyboard::Key, std::function<void()>>> _keyPressedEvents;
     };
 }
 
