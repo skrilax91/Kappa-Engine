@@ -77,6 +77,8 @@ namespace KappaEngine {
              */
             void OnRenderObject();
 
+            void OnRenderInterface();
+
             /**
              * @brief registerSystem Register a system.
              *
@@ -93,8 +95,6 @@ namespace KappaEngine {
                     return;
                 }
                 _systems.push_back(new T(_scene));
-                std::cout << "System " << typeid(T).name() << " registered" << std::endl;
-
             };
 
             /**

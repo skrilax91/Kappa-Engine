@@ -12,6 +12,7 @@
 #include "KappaEngine/Systems/SpriteRendererSystem.hpp"
 #include "KappaEngine/Systems/NetworkSystem.hpp"
 #include "KappaEngine/Systems/TriggerBoxSystem.hpp"
+#include "KappaEngine/Systems/ParallaxSystem.hpp"
 #include "KappaEngine/GameManager.hpp"
 #include "KappaEngine/Input.hpp"
 
@@ -25,8 +26,7 @@ namespace KappaEngine {
         registerSystem<AnimationSystem>();
         registerSystem<SpriteRendererSystem>();
         registerSystem<NetworkSystem>();
-
-        std::cout << "SystemManager created" << std::endl;
+        registerSystem<ParallaxSystem>();
     };
 
     void SystemManager::Awake() {
@@ -35,8 +35,6 @@ namespace KappaEngine {
         for (auto ent : ents) {
             Awake(ent);
         }
-
-        std::cout << "SystemManager awake" << std::endl;
     }
 
     void SystemManager::Awake(std::shared_ptr<Entity> entity) {
@@ -54,7 +52,6 @@ namespace KappaEngine {
 
         _started = true;
         Time::resetTimeLib();
-        std::cout << "SystemManager started" << std::endl;
     }
 
     void SystemManager::Start(std::shared_ptr<Entity> entity) {
@@ -120,6 +117,12 @@ namespace KappaEngine {
     void SystemManager::OnRenderObject() {
         for (auto system: _systems) {
             system->OnRenderObject();
+        }
+    }
+
+    void SystemManager::OnRenderInterface() {
+        for (auto system: _systems) {
+            system->OnRenderInterface();
         }
     }
 }

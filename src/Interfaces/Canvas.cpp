@@ -11,12 +11,16 @@ namespace Interface {
 
         auto newPos = Interface::Utils::GetAbsolutePosition(parent, _rect);
 
+
         sf::RectangleShape rect(sf::Vector2f(newPos.width, newPos.height));
         rect.setFillColor(_color);
+        /* In case of fire, use this to debug the canvas
         rect.setOutlineColor(sf::Color::Red);
         rect.setOutlineThickness(1);
+         */
         rect.setPosition(newPos.x, newPos.y);
         KappaEngine::GameManager::GetWindow()->draw(rect);
+
 
         auto mousePos = sf::Mouse::getPosition(*KappaEngine::GameManager::GetWindow());
 

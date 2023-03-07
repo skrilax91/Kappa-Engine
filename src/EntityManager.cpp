@@ -90,3 +90,14 @@ std::list <std::shared_ptr<Entity>> EntityManager::getEntitiesByTag(const std::s
     }
     return entities;
 }
+
+std::shared_ptr<Entity> EntityManager::getEntityByNetId(const uint32_t netId) {
+    for (auto entity: _entities) {
+        auto networkComponent = entity->getComponent<Component::NetworkComponent>();
+        if (networkComponent && networkComponent->uniqueId == netId) {
+            return entity;
+        }
+    }
+    throw std::runtime_error("Entity not found");
+
+}

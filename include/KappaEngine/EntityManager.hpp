@@ -123,6 +123,13 @@ namespace KappaEngine {
              */
             std::list<std::shared_ptr<Entity>> getEntitiesByTag(const std::string& tag);
 
+            /**
+             * @brief Get an entity by its network id.
+             * @param netId The network id of the entity.
+             * @return The entity.
+             * @throw std::runtime_error If the entity doesn't exist.
+             */
+            std::shared_ptr<Entity> getEntityByNetId(const uint32_t netId);
 
 
         private:

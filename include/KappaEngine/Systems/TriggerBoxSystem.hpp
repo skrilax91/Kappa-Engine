@@ -15,6 +15,7 @@ namespace KappaEngine {
         public:
             TriggerBoxSystem(Scene *scene) : ISystem(scene) {};
             void OnTriggerCheck(std::shared_ptr<Entity> entity) override;
+            void OnRenderInterface() override;
 
         private:
             bool findTrigger(std::list<Component::TriggerBox *> &list, Component::TriggerBox *trigger);

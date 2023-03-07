@@ -33,6 +33,10 @@ namespace KappaEngine {
         _systemManager->OnRenderObject();
     }
 
+    void Scene::OnRenderInterface() {
+        _systemManager->OnRenderInterface();
+    }
+
     SystemManager *Scene::getSystemManager() {
         return _systemManager;
     }

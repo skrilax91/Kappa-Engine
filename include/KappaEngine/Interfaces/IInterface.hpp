@@ -52,6 +52,7 @@ namespace Interface {
 
             virtual void OnRenderInterface(IPosition pos) {};
             virtual void SetActive(bool active) { _isActivated = active; };
+            virtual bool IsActive() { return _isActivated; };
             virtual InterfaceType GetType() { return _type; };
 
             virtual void OnClick() { if (_onClick) { _onClick(); }};

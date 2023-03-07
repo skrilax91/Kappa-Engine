@@ -10,7 +10,6 @@
 namespace KappaEngine {
 
     void NetworkSystem::Awake(std::shared_ptr<Entity> entity) {
-        std::cout << "NetworkSystem::Awake" << std::endl;
 
         _clock.restart();
 
@@ -118,7 +117,6 @@ namespace KappaEngine {
         }
 
         if (finallyReplicated) {
-            std::cout << "NetworkSystem::Update: Replicated" << std::endl;
             if (GameManager::GetClient())
                 GameManager::GetClient()->Send(msg);
             else if (GameManager::GetServer())

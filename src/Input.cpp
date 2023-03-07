@@ -10,6 +10,7 @@ namespace KappaEngine {
     std::vector<const sf::Event *> Input::_events;
     std::map<sf::Keyboard::Key, bool> Input::_keysPressed;
     std::map<uint32_t, std::map<sf::Keyboard::Key, bool>> Input::_networkKeysPressed;
+    std::map<std::string , std::pair<sf::Keyboard::Key, std::function<void()>>> Input::_keyPressedEvents;
 
     std::vector<sf::Keyboard::Key> Input::getKeysPressed() {
         std::vector<sf::Keyboard::Key> keys;
@@ -86,6 +87,15 @@ namespace KappaEngine {
 
         for (auto &event : _events) {
             if (event->type == sf::Event::KeyPressed) {
+                if (!_keysPressed[event->key.code]) {
+                    for (auto &keyEvent : _keyPressedEvents) {
+                        if (keyEvent.second.first == event->key.code) {
+                            keyEvent.second.second();
+                        }
+                    }
+                }
+
+
                 _keysPressed[event->key.code] = true;
             } else if (event->type == sf::Event::KeyReleased) {
                 _keysPressed[event->key.code] = false;
