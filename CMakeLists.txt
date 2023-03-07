@@ -30,8 +30,8 @@ file(GLOB SOURCE_FILES
         "src/Systems/NetworkSystem.cpp"
         "src/Systems/TriggerBoxSystem.cpp"
         "src/Systems/AnimationSystem.cpp"
+        "src/Systems/SoundSystem.cpp"
         "src/Systems/ParallaxSystem.cpp"
-
         "src/Console/Console.cpp"
         "src/Console/Command.cpp"
 
