@@ -27,8 +27,6 @@ namespace KappaEngine {
         registerSystem<SpriteRendererSystem>();
         registerSystem<NetworkSystem>();
         registerSystem<ParallaxSystem>();
-
-        std::cout << "SystemManager created" << std::endl;
     };
 
     void SystemManager::Awake() {
@@ -37,8 +35,6 @@ namespace KappaEngine {
         for (auto ent : ents) {
             Awake(ent);
         }
-
-        std::cout << "SystemManager awake" << std::endl;
     }
 
     void SystemManager::Awake(std::shared_ptr<Entity> entity) {
@@ -56,7 +52,6 @@ namespace KappaEngine {
 
         _started = true;
         Time::resetTimeLib();
-        std::cout << "SystemManager started" << std::endl;
     }
 
     void SystemManager::Start(std::shared_ptr<Entity> entity) {

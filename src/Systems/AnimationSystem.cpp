@@ -13,8 +13,6 @@ namespace KappaEngine {
             return;
         }
 
-        std::cout << "AnimationSystem Awake" << std::endl;
-
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
         auto animator = entity->getComponent<Component::Animator>();
 
@@ -32,8 +30,6 @@ namespace KappaEngine {
                 std::cout << "AnimationSystem: texture " + animation.second->_texturePath + " already loaded" << std::endl;
                 animation.second->_texture = srs->_textureCache[animation.second->_texturePath];
                 return;
-            } else {
-                std::cout << "AnimationSystem: loading texture " + animation.second->_texturePath << std::endl;
             }
 
             sf::Texture texture;
@@ -44,7 +40,6 @@ namespace KappaEngine {
 
             srs->_textureCache[animation.second->_texturePath] = texture;
             animation.second->_texture = srs->_textureCache[animation.second->_texturePath];
-            std::cout << "AnimationSystem: added texture " + animation.second->_texturePath << std::endl;
         }
     }
 

@@ -78,6 +78,7 @@ namespace KappaEngine {
 
 
     void TriggerBoxSystem::OnRenderInterface() {
+        return;
 
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::TriggerBox>();
         auto cams = _scene->getEntityManager()->getEntitiesWithComponent<Component::Camera>();

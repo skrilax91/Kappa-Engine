@@ -10,7 +10,6 @@
 namespace KappaEngine {
 
     void NetworkSystem::Awake(std::shared_ptr<Entity> entity) {
-        std::cout << "NetworkSystem::Awake" << std::endl;
 
         _clock.restart();
 

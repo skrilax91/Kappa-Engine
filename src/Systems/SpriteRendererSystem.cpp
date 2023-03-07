@@ -11,8 +11,6 @@ namespace KappaEngine {
             return;
         }
 
-        std::cout << "SpriteRendererSystem Awake" << std::endl;
-
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
         auto transform = entity->getComponent<Component::Transform>();
 
@@ -30,8 +28,6 @@ namespace KappaEngine {
             std::cout << "SpriteRendererSystem: texture " + spriteRenderer->_texturePath + " already loaded" << std::endl;
             spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
             return;
-        } else {
-            std::cout << "SpriteRendererSystem: loading texture " + spriteRenderer->_texturePath << std::endl;
         }
 
         sf::Texture texture;
@@ -42,11 +38,9 @@ namespace KappaEngine {
 
         _textureCache[spriteRenderer->_texturePath] = texture;
         spriteRenderer->_sprite.setTexture(_textureCache[spriteRenderer->_texturePath]);
-        std::cout << "SpriteRendererSystem: added texture " + spriteRenderer->_texturePath << std::endl;
     }
 
     void SpriteRendererSystem::OnDestroy(std::shared_ptr<Entity> entity) {
-        std::cout << "SpriteRenderSystem::OnDestroy" << std::endl;
         auto spriteRenderer = entity->getComponent<Component::SpriteRenderer>();
 
         if (spriteRenderer == nullptr)

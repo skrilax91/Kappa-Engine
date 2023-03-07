@@ -12,9 +12,6 @@
 #include "KappaEngine/Time.hpp"
 
 namespace KappaEngine {
-    void RigidBodySystem::Awake(std::shared_ptr<Entity> entity) {
-        std::cout << "RigidBodySystem Awake" << std::endl;
-    }
 
     void RigidBodySystem::FixedUpdate() {
         auto ents = _scene->getEntityManager()->getEntitiesWithComponent<Component::RigidBody>();
