@@ -1,0 +1,62 @@
+                            R-TYPE PROTOCOL
+                               Mars 2023
+
+                              prepared for
+                        R-Type: 3rd year project
+
+                                   by
+                              Jessica Ebely
+                              Léo Brossard
+                            Sébastien Lamard
+                              Dylan Akpinar
+                             Quentin Capelle
+                               Epitech Lyon
+
+
+
+                            TABLE OF CONTENTS
+   1.   INTRODUCTION . . . . . . . . . . . . . . . . . . . . . . . . . 1
+   2.   R-TYPE PRESENTATION  . . . . . . . . . . . . . . . . . . . . . 1
+   3.   R-TYPE PROTOCOL  . . . . . . . . . . . . . . . . . . . . . . . 1
+
+                   
+
+                                                           Mars 2023
+RFC 9785
+R-Type Protocol
+
+                            1.  INTRODUCTION
+
+   The aims of the project is to recreate the R-Type game with implementation 
+   of a multithreaded server and a graphical client.
+
+                        2.  R-TYPE PRESENTATION
+
+   The R-Type works with a client-server architecture.
+   The game uses both the server and the client, but with the server having 
+   authority over the client.
+   The client connects to the server using the R-Type protocol and once 
+   connected can play the game.
+   The server implements all the game logic.
+   The client is the display terminal of the game.
+
+
+                          3.  R-TYPE PROTOCOL
+
+   Our protocol is a TCP protocol and will allow the player to be redirected to
+   an available server in order to join a game. If there is no game available, 
+   then there is no server to connect to and a new server will be started to
+   create a new game. 
+
+   In order to connect to the server, we have put in validation steps. There 
+   is a kind of "captcha" to fill in to validate the authorization of the 
+   communication with the server to be sure that the program can work with it.
+
+   To connect, the client does a get server and the server responds with an 
+   address and port which are the connection information. 
+
+   Once this is done, the client can connect to the server.
+
+                                                                [Page 1]
+
+RFC 69007                   R-Type Protocols                October 2022
