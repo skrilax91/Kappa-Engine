@@ -43,8 +43,10 @@ find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 find_package(asio REQUIRED)
 find_package(yaml-cpp REQUIRED)
 
+message(STATUS "HEADERS: ${yaml-cpp_INCLUDE_DIR}")
+
 add_library(${PROJECT_NAME} ${SOURCE_FILES} ${HEADERS})
-target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${YAML_CPP_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${yaml-cpp_INCLUDE_DIR})
 
 target_link_libraries(${PROJECT_NAME} sfml::sfml asio::asio yaml-cpp)
 
@@ -72,7 +74,7 @@ add_executable(${PROJECT_NAME} ${TEST_SOURCE_FILES} ${SOURCE_FILES})
 
 enable_testing()
 
-target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${YAML_CPP_INCLUDE_DIR} ${GTest_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC include ${SFML_INCLUDE_DIR} ${asio_INCLUDE_DIR} ${yaml-cpp_INCLUDE_DIR} ${GTest_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PUBLIC sfml-system sfml-window sfml-graphics sfml-network sfml-audio asio::asio yaml-cpp GTest::GTest GTest::Main)
 
 include(GoogleTest)
